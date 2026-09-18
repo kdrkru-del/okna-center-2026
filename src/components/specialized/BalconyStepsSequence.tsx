@@ -1,0 +1,171 @@
+"use client";
+import React, { useState } from "react";
+import { Sparkles, ArrowRight } from "lucide-react";
+
+interface Step {
+  num: string;
+  title: string;
+  shortDesc: string;
+  fullDesc: string;
+  duration: string;
+  keyAction: string;
+}
+
+const STEPS: Step[] = [
+  {
+    num: "01",
+    title: "Инженерный замер и расчет нагрузок",
+    shortDesc: "Оценка состояния плиты и геодезический лазерный замер.",
+    fullDesc: "Инженер рассчитывает ветровые нагрузки с учетом этажа и розы ветров Владивостока. Определяет допустимую нагрузку на балконную плиту перекрытия и необходимость усиления.",
+    duration: "1 день (выезд бесплатно)",
+    keyAction: "Составление точной технологической карты и фиксированной сметы"
+  },
+  {
+    num: "02",
+    title: "Сварочные работы и усиление каркаса",
+    shortDesc: "Сварка металлокаркаса, вынос по полу или по подоконнику.",
+    fullDesc: "Изготовление жесткой стальной фермы из профильной трубы. Усиление парапета анкерами в несущую стену. При необходимости — монтаж независимой крыши на верхних этажах.",
+    duration: "1–2 дня",
+    keyAction: "Антикоррозийная обработка металлоконструкций грунтом"
+  },
+  {
+    num: "03",
+    title: "Наружная обшивка и гидроизоляция",
+    shortDesc: "Обшивка виниловым сайдингом или фасадными панелями Ханьи.",
+    fullDesc: "Монтаж ветрозащитной мембраны и фасадного материала снаружи до установки остекления. Защищает балкон от штормовых дождей, морской соли и ультрафиолета.",
+    duration: "1 день",
+    keyAction: "Герметизация отливов и карнизов полиуретановым герметиком"
+  },
+  {
+    num: "04",
+    title: "Установка оконных конструкций",
+    shortDesc: "Монтаж теплых рам Rehau/KBE или раздвижного алюминия.",
+    fullDesc: "Установка оконных блоков по лазерному уровню. Крепление на усиленные анкерные пластины и монтажные турбовинты. Трехслойный шов по ГОСТ (ПСУЛ, пена, пароизоляция).",
+    duration: "1 день",
+    keyAction: "Регулировка прижима всех створок и установка москитных сеток"
+  },
+  {
+    num: "05",
+    title: "Капитальное бесшовное утепление",
+    shortDesc: "Монтаж Изопинка или ПСБС с пароизоляцией Изоспан.",
+    fullDesc: "Укладка плит экструдированного пенополистирола в 1–2 слоя с перехлестом стыков. Пропенивание швов профессиональной пеной. Укладка фольгированного отражающего слоя изофола.",
+    duration: "1–2 дня",
+    keyAction: "Полное исключение «мостиков холода» и промерзания углов"
+  },
+  {
+    num: "06",
+    title: "Чистовая отделка и электрика",
+    shortDesc: "Обшивка МДФ/ПВХ, настил теплого пола, свет и розетки.",
+    fullDesc: "Монтаж стеновых панелей выбранного декора, настил шпунтованной доски или фанеры с ламинатом/линолеумом. Монтаж инфракрасного теплого пола с терморегулятором, светильников и бельевых сушилок.",
+    duration: "1–2 дня",
+    keyAction: "Уборка строительного мусора и сдача объекта по акту"
+  }
+];
+
+export default function BalconyStepsSequence() {
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const cur = STEPS[activeStep];
+
+  return (
+    <div className="rounded-3xl bg-[#070D18] border border-white/10 p-6 sm:p-8 lg:p-10 shadow-2xl">
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-wider mb-2">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Балкон под ключ · Единый подрядчик</span>
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Технологический цикл благоустройства: от сварки до отделки
+          </h3>
+          <p className="text-slate-400 text-sm max-w-2xl mt-1">
+            Все работы выполняются штатными бригадами «Окна Центр» без привлечения сторонних субподрядчиков. Гарантия на всю конструкцию по единому договору.
+          </p>
+        </div>
+
+        <div className="text-right font-mono text-xs text-slate-400">
+          <span>Срок выполнения: </span>
+          <span className="text-cyan-300 font-bold">от 3 до 7 рабочих дней</span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-8">
+        {STEPS.map((s, idx) => (
+          <button
+            key={s.num}
+            onClick={() => setActiveStep(idx)}
+            className={`p-3.5 rounded-2xl border text-left transition-all ${
+              activeStep === idx
+                ? "bg-cyan-500/20 border-cyan-400 shadow-lg shadow-cyan-500/15 scale-[1.02]"
+                : "bg-white/5 border-white/10 hover:bg-white/10 text-slate-300"
+            }`}
+          >
+            <span className="text-xs font-mono font-bold text-cyan-400 block mb-1">
+              Этап {s.num}
+            </span>
+            <span className="text-xs font-semibold text-white line-clamp-2 leading-snug">
+              {s.title}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      <div className="bg-[#03060B] rounded-2xl p-6 sm:p-8 border border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="lg:col-span-8 space-y-4">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl font-black text-cyan-400 font-mono">
+                {cur.num}
+              </span>
+              <h4 className="text-2xl font-bold text-white">{cur.title}</h4>
+            </div>
+
+            <p className="text-slate-300 text-sm leading-relaxed">
+              {cur.fullDesc}
+            </p>
+
+            <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-xs text-slate-200">
+              <span className="text-cyan-300 font-semibold block mb-1 font-mono uppercase tracking-wider">
+                Ключевой стандарт качества:
+              </span>
+              <span>{cur.keyAction}</span>
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 bg-[#0A111E] rounded-xl p-5 border border-cyan-500/30 flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 block mb-1">
+                Ориентировочное время:
+              </span>
+              <span className="text-base font-bold text-cyan-300 font-mono block mb-4">
+                {cur.duration}
+              </span>
+
+              <div className="space-y-2 text-xs text-slate-400 mb-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span>Штатные мастера со стажем</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span>Вывоз строительного мусора</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span>Договор и гарантийный талон</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setActiveStep((prev) => (prev + 1) % STEPS.length)}
+              className="w-full py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
+            >
+              <span>Следующий этап ({STEPS[(activeStep + 1) % STEPS.length].num})</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_not-found/
+Disallow: /undefined
+
+Sitemap: https://xn--80aknmcbtp7a.xn--p1ai/sitemap.xml
+Host: https://xn--80aknmcbtp7a.xn--p1ai

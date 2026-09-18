@@ -1,0 +1,25 @@
+# Apache .htaccess for Okna Center (SEO 301 Permanent Redirects)
+RewriteEngine On
+RewriteBase /
+
+# 301 Redirects for Legacy URLs & Duplicates
+RewriteRule ^remont_plastikovyh_okon_vladivostok_2/?$ /remont_plastikovyh_okon_vladivostok [R=301,L]
+RewriteRule ^osteklenie_balkona/?$ /osteklenie_balkona_vladivostok [R=301,L]
+RewriteRule ^okna/?$ /kupit_plastikovye_okna_vladivostok [R=301,L]
+RewriteRule ^balkon_pod_klyuch_vladivostok/?$ /osteklenie_balkona_vladivostok [R=301,L]
+RewriteRule ^lodzhii/?$ /lodgia_pod_klyuch_vladivostok [R=301,L]
+RewriteRule ^osteklenie_lodgiy_vladivostok/?$ /lodgia_pod_klyuch_vladivostok [R=301,L]
+RewriteRule ^plastikovie_okna_vo_vladivostoke/?$ /kupit_plastikovye_okna_vladivostok [R=301,L]
+RewriteRule ^plastikovie_okna_vo_vladivostoke_2_2/?$ /kupit_plastikovye_okna_vladivostok [R=301,L]
+RewriteRule ^stienovyie_panieli_mdf/?$ /otdielochnyie_matierialy [R=301,L]
+RewriteRule ^undefined/?$ / [R=301,L]
+
+# Clean URLs & Trailing Slash handling
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.*)$ $1/index.html [L]
+
+# Gzip compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
