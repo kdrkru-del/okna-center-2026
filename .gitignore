@@ -47,3 +47,6 @@ dev-archive/
 lh.json
 lighthouse-report*
 
+
+# GitHub Actions workflows (managed separately or needs workflow scope)
+.github/
