@@ -63,14 +63,17 @@ export default function LeadForm() {
       <div className="max-w-4xl mx-auto relative z-10">
         
         <div className="text-center mb-12">
-          <div className="inline-block px-3.5 py-1 mb-4 text-[11px] font-mono text-cyan-800 border border-cyan-200 rounded-full bg-cyan-50 uppercase tracking-widest font-semibold">
-            Заявка на расчет
+          <div className="inline-block px-3.5 py-1.5 mb-4 text-[11px] font-mono text-slate-800 border border-slate-200 rounded-full bg-white shadow-sm uppercase tracking-widest font-semibold">
+            📐 Персональный инженерный расчёт
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
-            Заказать окна или <span className="font-extrabold text-cyan-700">выезд мастера</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950 mb-4 tracking-tight">
+            Заказать инженерный проект <br className="hidden sm:inline" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-700 to-blue-700">
+              и лазерный 3D-замер
+            </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto font-light">
-            Оставьте контакты — специалист свяжется с вами для консультации и расчета точной стоимости.
+          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
+            Ведущий инженер приедет на объект с кейсом оригинальных профилей Rehau, KBE и Schüco, образцами стеклопакетов и лазерным оборудованием. Рассчитаем ветровые нагрузки вашего этажа и составим фиксированную смету по договору.
           </p>
         </div>
 
@@ -211,9 +214,9 @@ export default function LeadForm() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full sm:w-auto px-10 py-4 bg-slate-950 hover:bg-cyan-600 disabled:opacity-50 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-lg shadow-slate-900/10 cursor-pointer"
+                className="w-full sm:w-auto px-10 py-4 bg-slate-950 hover:bg-cyan-700 disabled:opacity-50 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-lg shadow-slate-900/10 cursor-pointer"
               >
-                {loading ? 'Отправка...' : 'Отправить заявку на расчет'}
+                {loading ? 'Отправка...' : 'Заказать бесплатный инженерный проект'}
               </button>
               <span className="text-[11px] text-slate-500 font-light text-center sm:text-right">
                 Нажимая кнопку, вы даете согласие на обработку персональных данных.

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HeroArchitectural from "@/components/HeroArchitectural";
 import TrustSection from "@/components/TrustSection";
 import ServicesBento from "@/components/ServicesBento";
+import ClimateEngineering from "@/components/ClimateEngineering";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
 import ProjectsGallery from "@/components/ProjectsGallery";
 import PricingTable from "@/components/PricingTable";
@@ -40,7 +41,10 @@ export default function Home() {
       {/* 3. Architectural Services Bento Grid */}
       <ServicesBento />
 
-      {/* 4. Interactive Calculator */}
+      {/* 4. Maritime Climate Engineering Expertise */}
+      <ClimateEngineering />
+
+      {/* 5. Interactive Calculator */}
       <InteractiveCalculator />
 
       {/* 5. Pricing Catalog Table */}
