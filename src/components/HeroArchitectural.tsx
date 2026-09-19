@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -148,28 +148,28 @@ export default function HeroArchitectural() {
         })}
       </div>
 
-      {/* 4. FLOATING ARCHITECTURAL PAVILION (LUXURY GLASS CONSOLE) */}
+      {/* 4. FLOATING ARCHITECTURAL PAVILION (LUXURY SEMI-TRANSPARENT FROSTED GLASS CONSOLE) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
-        <div className="max-w-xl lg:max-w-2xl p-7 sm:p-10 lg:p-12 rounded-3xl bg-white/90 backdrop-blur-2xl border border-white/95 shadow-[0_25px_80px_rgba(15,23,42,0.16)] ring-1 ring-black/5 animate-in fade-in slide-in-from-bottom-3 duration-700">
+        <div className="max-w-xl lg:max-w-2xl p-7 sm:p-10 lg:p-12 rounded-3xl bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-white/70 shadow-[0_30px_90px_rgba(0,0,0,0.14)] ring-1 ring-white/50 transition-colors duration-500 animate-in fade-in slide-in-from-bottom-3">
           
           {/* Status badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200 text-slate-800 text-[11px] font-mono uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 text-slate-900 text-[11px] font-mono uppercase tracking-widest mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
-            <span className="font-semibold text-slate-950">Архитектурное остекление</span>
+            <span className="font-bold text-slate-950">Архитектурное остекление</span>
             <span className="text-slate-400">·</span>
-            <span className="text-slate-600">Владивосток с 2004 г.</span>
+            <span className="text-slate-700">Владивосток с 2004 г.</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-5">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-5 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
             Архитектура света <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-slate-800 to-cyan-700">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-slate-900 to-cyan-800">
               в вашем доме
             </span>
           </h1>
 
           {/* Editorial Subtitle */}
-          <p className="text-slate-600 text-sm sm:text-base lg:text-lg font-normal leading-relaxed mb-8">
+          <p className="text-slate-800 text-sm sm:text-base lg:text-lg font-medium leading-relaxed mb-8 drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">
             Проектирование и собственное производство панорамных порталов в пол, энергоэффективных окон Rehau и Schüco, тёплых лоджий под ключ. Рассчитано на экстремальные ветровые нагрузки Приморья до 38 м/с.
           </p>
 
@@ -185,29 +185,29 @@ export default function HeroArchitectural() {
 
             <Link
               href="/ghalierieia_rabot"
-              className="px-6 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 font-bold text-xs sm:text-sm uppercase tracking-wider border border-slate-300/90 shadow-sm transition-all cursor-pointer"
+              className="px-6 py-4 rounded-2xl bg-white/70 hover:bg-white text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider border border-white/90 shadow-sm backdrop-blur-md transition-all cursor-pointer"
             >
               Галерея 100+ объектов
             </Link>
           </div>
 
           {/* Technical Specs Metric Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-200">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-900/10">
             <div>
               <div className="text-lg sm:text-xl font-bold text-slate-950 font-mono">20+ лет</div>
-              <div className="text-[11px] text-slate-500 font-medium">опыт в Приморье</div>
+              <div className="text-[11px] text-slate-700 font-medium">опыт в Приморье</div>
             </div>
             <div>
               <div className="text-lg sm:text-xl font-bold text-slate-950 font-mono">до 10 лет</div>
-              <div className="text-[11px] text-slate-500 font-medium">гарантия по договору</div>
+              <div className="text-[11px] text-slate-700 font-medium">гарантия по договору</div>
             </div>
             <div>
-              <div className="text-lg sm:text-xl font-bold text-cyan-700 font-mono">38 м/с</div>
-              <div className="text-[11px] text-slate-500 font-medium">тайфун-контроль</div>
+              <div className="text-lg sm:text-xl font-bold text-cyan-800 font-mono">38 м/с</div>
+              <div className="text-[11px] text-slate-700 font-medium">тайфун-контроль</div>
             </div>
             <div>
               <div className="text-lg sm:text-xl font-bold text-slate-950 font-mono">0 ₽</div>
-              <div className="text-[11px] text-slate-500 font-medium">лазерный 3D-замер</div>
+              <div className="text-[11px] text-slate-700 font-medium">лазерный 3D-замер</div>
             </div>
           </div>
 
@@ -218,7 +218,7 @@ export default function HeroArchitectural() {
           {HOTSPOTS.map((spot) => (
             <div
               key={spot.id}
-              className="flex-shrink-0 p-3 rounded-2xl bg-white/90 backdrop-blur-xl border border-white shadow-md text-xs max-w-[240px]"
+              className="flex-shrink-0 p-3 rounded-2xl bg-white/60 backdrop-blur-xl border border-white/80 shadow-md text-xs max-w-[240px]"
             >
               <span className="text-[9px] font-mono uppercase text-cyan-700 font-bold block mb-0.5">{spot.tag}</span>
               <div className="font-bold text-slate-900 text-xs mb-1">{spot.title}</div>
