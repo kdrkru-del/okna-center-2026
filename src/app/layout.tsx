@@ -26,7 +26,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#020509",
+  themeColor: "#ffffff",
 };
 
 const isGithubPages = process.env.GITHUB_PAGES === 'true' || process.env.NEXT_PUBLIC_IS_GH_PAGES === 'true';
@@ -147,9 +147,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href={asset("/images/hero/hero-architectural-480.webp")}
-          media="(max-width: 640px)"
-          type="image/webp"
+          href={asset("/images/hero/hero-daylight-penthouse.jpg")}
           fetchPriority="high"
         />
         <script
@@ -157,7 +155,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#020509] text-slate-100 font-sans selection:bg-cyan-500 selection:text-black">
+      <body className="min-h-full flex flex-col bg-white text-slate-900 font-sans selection:bg-cyan-600 selection:text-white">
         <YandexMetrika />
         <Header />
         <main className="flex-1">{children}</main>

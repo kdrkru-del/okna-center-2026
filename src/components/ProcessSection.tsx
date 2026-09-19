@@ -48,16 +48,16 @@ export default function ProcessSection() {
   ];
 
   return (
-    <section id="process" className="py-20 bg-[#04080E] text-white border-t border-white/10">
+    <section id="process" className="py-20 bg-white text-slate-900 border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-3">
             Прозрачный регламент
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
             Как мы работаем от заявки до гарантии
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base font-light">
+          <p className="text-slate-600 text-sm sm:text-base font-light">
             Проверенная система сервиса «Окна Центр», исключающая задержки и строительный брак
           </p>
         </div>
@@ -68,17 +68,17 @@ export default function ProcessSection() {
             return (
               <div
                 key={step.num}
-                className="relative p-6 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-cyan-400/40 transition-colors flex flex-col justify-between"
+                className="relative p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/40 hover:bg-white hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-black text-cyan-400 font-mono">{step.num}</span>
-                    <div className="p-2.5 rounded-xl bg-white/5 text-cyan-300">
+                    <span className="text-2xl font-black text-cyan-700 font-mono">{step.num}</span>
+                    <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 text-cyan-700 shadow-xs">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">{step.title}</h3>
-                  <p className="text-xs text-slate-400 leading-relaxed font-light">{step.desc}</p>
+                  <h3 className="text-base font-bold text-slate-900 mb-2">{step.title}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-light">{step.desc}</p>
                 </div>
               </div>
             );

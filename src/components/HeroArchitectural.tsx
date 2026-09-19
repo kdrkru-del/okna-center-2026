@@ -1,120 +1,59 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
-import HeroGrid from "@/components/HeroGrid";
-import { CONTACTS } from "@/data/contact";
+import Image from "next/image";
+import { ArrowRight, ChevronDown, CheckCircle2 } from "lucide-react";
 import { asset } from "@/lib/assetPath";
 
 export default function HeroArchitectural() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    // Subtle, gentle translation (max 12-16px) to avoid dizziness
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setMousePos({ x: x * 16, y: y * 16 });
-  };
-
   return (
-    <section
-      onMouseMove={handleMouseMove}
-      className="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center bg-[#02050A] text-white pt-28 pb-16 overflow-hidden select-none"
-    >
-      <HeroGrid />
-
-      {/* Volumetric Radial Ambient Light (moves slightly with cursor) */}
-      <div
-        className="absolute top-1/4 right-1/4 w-[600px] sm:w-[900px] h-[600px] sm:h-[900px] rounded-full pointer-events-none transition-transform duration-700 ease-out"
-        style={{
-          transform: `translate(${mousePos.x * 1.5}px, ${mousePos.y * 1.5}px)`,
-          background: "radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, rgba(37, 99, 235, 0.08) 45%, transparent 70%)",
-        }}
-      />
-
-      {/* Glass Panel Mask Reveal Container */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 mix-blend-screen">
-        <div className="relative w-full max-w-7xl h-[70vh] rounded-3xl overflow-hidden">
-          {/* Responsive architectural glazing hero backdrop */}
-          <picture>
-            <source
-              type="image/avif"
-              media="(max-width: 640px)"
-              srcSet={asset("/images/hero/hero-architectural-480.avif")}
-            />
-            <source
-              type="image/webp"
-              media="(max-width: 640px)"
-              srcSet={asset("/images/hero/hero-architectural-480.webp")}
-            />
-            <source
-              type="image/avif"
-              media="(max-width: 1024px)"
-              srcSet={asset("/images/hero/hero-architectural-768.avif")}
-            />
-            <source
-              type="image/webp"
-              media="(max-width: 1024px)"
-              srcSet={asset("/images/hero/hero-architectural-768.webp")}
-            />
-            <source
-              type="image/avif"
-              srcSet={asset("/images/hero/hero-architectural-1222.avif")}
-            />
-            <source
-              type="image/webp"
-              srcSet={asset("/images/hero/hero-architectural-1222.webp")}
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={asset("/images/legacy/Al2fspIs.jpg")}
-              alt="Архитектурное панорамное остекление Владивосток"
-              width={1222}
-              height={686}
-              fetchPriority="high"
-              decoding="async"
-              loading="eager"
-              className="w-full h-full object-cover object-center filter brightness-90 contrast-110"
-            />
-          </picture>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#02050A] via-[#02050A]/70 to-[#02050A]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#02050A] via-transparent to-[#02050A]/80" />
-        </div>
+    <section className="relative min-h-screen w-full flex items-center justify-start overflow-hidden pt-24 pb-16">
+      {/* Fullscreen High-Res Daylight Architectural Background */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={asset("/images/hero/hero-daylight-penthouse.jpg")}
+          alt="Панорамное архитектурное остекление во Владивостоке — Окна Центр"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center transform scale-105 animate-in fade-in zoom-in-95 duration-1000"
+        />
+        {/* Soft, luminous architectural gradient scrim */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 md:via-white/70 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-white/40 z-10" />
       </div>
 
-      {/* Content Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-8">
-        <div className="max-w-4xl">
+      {/* Main Content Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full py-12 md:py-20">
+        <div className="max-w-2xl lg:max-w-3xl">
           
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-950/70 border border-cyan-500/30 text-cyan-300 text-xs font-mono uppercase tracking-widest mb-6">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            <span>Архитектура света · Производство с 2004 года</span>
+          {/* Luminous Brand Badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-sm text-slate-800 text-xs font-mono uppercase tracking-wider mb-6">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+            <span className="font-semibold text-slate-900">Архитектура Света</span>
+            <span className="text-slate-400">·</span>
+            <span className="text-slate-600">Собственное производство с 2004 года</span>
           </div>
 
-          {/* Line by line text reveal H1 */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6 text-slate-50">
-            <span className="block">
-              Окна, балконы и
-            </span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-cyan-300 to-blue-400">
-              архитектурное остекление
+          {/* Main Headline */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-6 drop-shadow-sm">
+            Окна, балконы и <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-blue-700 to-slate-950">
+              панорамное остекление
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-slate-300 text-base sm:lg lg:text-xl font-light leading-relaxed mb-10 max-w-2xl">
-            Собственное производство, надежная доставка и качественный монтаж конструкций во Владивостоке и Приморском крае.
-            Профильные системы Funke, Rehau, KBE и долговечные алюминиевые фасады.
+          <p className="text-slate-700 text-base sm:text-lg lg:text-xl font-normal leading-relaxed mb-8 max-w-2xl">
+            Собственный сборочный цех во Владивостоке. Оригинальные профильные системы Rehau, KBE, Funke и тёплые раздвижные порталы. Точный бесплатный замер и официальный договор.
           </p>
 
-          {/* Buttons CTA */}
-          <div className="flex flex-wrap items-center gap-4 mb-16">
+          {/* Call to Actions */}
+          <div className="flex flex-wrap items-center gap-4 mb-12">
             <Link
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-              className="px-8 py-4 bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-slate-950 font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_30px_rgba(6,182,212,0.35)] hover:shadow-[0_0_40px_rgba(6,182,212,0.65)] transition-all transform active:scale-98 flex items-center gap-2"
+              className="px-8 py-4 bg-slate-950 hover:bg-cyan-600 text-white font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
             >
               <span>Рассчитать стоимость</span>
               <ArrowRight className="w-4 h-4" />
@@ -122,42 +61,42 @@ export default function HeroArchitectural() {
 
             <Link
               href="/ghalierieia_rabot"
-              className="px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider border border-white/10 backdrop-blur-md transition-all active:scale-98"
+              className="px-8 py-4 rounded-2xl bg-white/90 hover:bg-white text-slate-900 font-bold text-xs sm:text-sm uppercase tracking-wider border border-slate-300/80 backdrop-blur-md shadow-sm hover:shadow transition-all"
             >
-              Посмотреть работы
+              Смотреть 100+ работ
             </Link>
           </div>
 
-          {/* Trust points bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/10 text-xs">
-            <div>
-              <div className="text-xl sm:text-2xl font-bold text-cyan-300 font-mono">С 2004 года</div>
-              <div className="text-slate-400 mt-1 font-light">на рынке Приморья</div>
+          {/* Bottom Trust Indicators (Light Frosted Cards) */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-slate-300/60">
+            <div className="p-3.5 rounded-2xl bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-sm">
+              <div className="text-lg sm:text-xl font-extrabold text-slate-950 font-mono">С 2004 года</div>
+              <div className="text-xs text-slate-600 mt-0.5 font-medium">на рынке Приморья</div>
             </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold text-white font-mono">Rehau / KBE</div>
-              <div className="text-slate-400 mt-1 font-light">Funke, Deceuninck</div>
+            <div className="p-3.5 rounded-2xl bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-sm">
+              <div className="text-lg sm:text-xl font-extrabold text-slate-950 font-mono">Rehau / KBE</div>
+              <div className="text-xs text-slate-600 mt-0.5 font-medium">Funke, Deceuninck</div>
             </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold text-cyan-300 font-mono">Договор</div>
-              <div className="text-slate-400 mt-1 font-light">гарантия на работы</div>
+            <div className="p-3.5 rounded-2xl bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-sm">
+              <div className="text-lg sm:text-xl font-extrabold text-slate-950 font-mono">Договор</div>
+              <div className="text-xs text-slate-600 mt-0.5 font-medium">гарантия на работы</div>
             </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold text-white font-mono">Бесплатно</div>
-              <div className="text-slate-400 mt-1 font-light">выезд на замер</div>
+            <div className="p-3.5 rounded-2xl bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-sm">
+              <div className="text-lg sm:text-xl font-extrabold text-cyan-700 font-mono">Замер 0 ₽</div>
+              <div className="text-xs text-slate-600 mt-0.5 font-medium">Владивосток и край</div>
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* Minimal Scroll Indicator */}
+      {/* Scroll indicator */}
       <a
         href="#statement"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-400 hover:text-cyan-300 transition-colors pointer-events-auto"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-slate-600 hover:text-cyan-700 transition-colors"
       >
-        <span>SCROLL</span>
-        <div className="w-px h-8 bg-gradient-to-b from-cyan-400 to-transparent animate-pulse" />
+        <span>Вниз</span>
+        <ChevronDown className="w-4 h-4 animate-bounce text-slate-500" />
       </a>
     </section>
   );

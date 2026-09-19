@@ -106,17 +106,17 @@ export default function MaterialsComparisonTable() {
   const filtered = filter === "all" ? MATERIALS : MATERIALS.filter((m) => m.category === filter);
 
   return (
-    <div className="rounded-3xl bg-[#070D18] border border-white/10 p-6 sm:p-8 lg:p-10 shadow-2xl">
+    <div className="rounded-3xl bg-slate-50 border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
             <Layers className="w-3.5 h-3.5" />
             <span>Материалы отделки и утепления</span>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             Характеристики применяемых материалов
           </h3>
-          <p className="text-slate-400 text-sm max-w-2xl mt-1">
+          <p className="text-slate-600 text-sm max-w-2xl mt-1">
             Качественное сравнение теплоизоляционных и фасадных материалов, используемых компанией «Окна Центр» при остеклении и отделке балконов.
           </p>
         </div>
@@ -124,32 +124,32 @@ export default function MaterialsComparisonTable() {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setFilter("all")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all ${
-              filter === "all" ? "bg-cyan-500 text-slate-950 font-bold" : "bg-white/5 text-slate-300 hover:bg-white/10"
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+              filter === "all" ? "bg-slate-950 text-white font-bold shadow-sm" : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
             }`}
           >
             Все материалы
           </button>
           <button
             onClick={() => setFilter("insulation")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all ${
-              filter === "insulation" ? "bg-cyan-500 text-slate-950 font-bold" : "bg-white/5 text-slate-300 hover:bg-white/10"
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+              filter === "insulation" ? "bg-slate-950 text-white font-bold shadow-sm" : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
             }`}
           >
             Утеплители
           </button>
           <button
             onClick={() => setFilter("exterior")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all ${
-              filter === "exterior" ? "bg-cyan-500 text-slate-950 font-bold" : "bg-white/5 text-slate-300 hover:bg-white/10"
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+              filter === "exterior" ? "bg-slate-950 text-white font-bold shadow-sm" : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
             }`}
           >
             Наружная обшивка
           </button>
           <button
             onClick={() => setFilter("interior")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all ${
-              filter === "interior" ? "bg-cyan-500 text-slate-950 font-bold" : "bg-white/5 text-slate-300 hover:bg-white/10"
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+              filter === "interior" ? "bg-slate-950 text-white font-bold shadow-sm" : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
             }`}
           >
             Внутренняя отделка
@@ -161,48 +161,48 @@ export default function MaterialsComparisonTable() {
         {filtered.map((mat) => (
           <div
             key={mat.id}
-            className="rounded-2xl bg-[#03060B] border border-white/10 p-6 flex flex-col justify-between hover:border-cyan-500/40 transition-all group"
+            className="rounded-2xl bg-white border border-slate-200/80 p-6 flex flex-col justify-between hover:border-cyan-500/40 hover:shadow-md transition-all group"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 uppercase tracking-wider border border-cyan-500/20">
+                <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-cyan-50 text-cyan-800 uppercase tracking-wider border border-cyan-200 font-semibold">
                   {mat.categoryLabel}
                 </span>
               </div>
 
-              <h4 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+              <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-700 transition-colors">
                 {mat.name}
               </h4>
 
-              <p className="text-xs text-slate-300 mb-6 leading-relaxed">
+              <p className="text-xs text-slate-600 mb-6 leading-relaxed">
                 {mat.description}
               </p>
 
-              <div className="space-y-2 text-xs pt-4 border-t border-white/5 mb-6">
-                <div className="flex items-center justify-between text-slate-400">
+              <div className="space-y-2 text-xs pt-4 border-t border-slate-100 mb-6">
+                <div className="flex items-center justify-between text-slate-500">
                   <span className="flex items-center gap-1.5">
-                    <Droplets className="w-3.5 h-3.5 text-cyan-400" />
+                    <Droplets className="w-3.5 h-3.5 text-cyan-600" />
                     Влагостойкость:
                   </span>
-                  <span className="text-white font-medium">{mat.waterResistance}</span>
+                  <span className="text-slate-900 font-medium">{mat.waterResistance}</span>
                 </div>
               </div>
 
               <div className="space-y-2 mb-4">
-                <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">
+                <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block">
                   Ключевые особенности:
                 </span>
                 {mat.keyFeatures.map((kf, i) => (
-                  <div key={i} className="flex items-start gap-2 text-xs text-slate-300">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <div key={i} className="flex items-start gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600 flex-shrink-0 mt-0.5" />
                     <span>{kf}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-white/5 border border-white/5 text-[11px] text-slate-300">
-              <span className="font-semibold text-cyan-300 block mb-0.5">Применение:</span>
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] text-slate-700">
+              <span className="font-semibold text-cyan-800 block mb-0.5">Применение:</span>
               <span>{mat.appliedIn}</span>
             </div>
           </div>

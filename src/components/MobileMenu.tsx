@@ -37,21 +37,21 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   ];
 
   return (
-    <div className="fixed inset-0 z-[100] bg-[#03070E] text-white flex flex-col justify-between overflow-y-auto animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[100] bg-white/98 text-slate-900 flex flex-col justify-between overflow-y-auto animate-in fade-in duration-300">
       {/* Top bar */}
-      <div className="flex items-center justify-between p-6 border-b border-white/10">
+      <div className="flex items-center justify-between p-6 border-b border-slate-200/80">
         <div className="flex flex-col">
-          <span className="text-xl font-bold uppercase tracking-tight text-white font-sans">
-            ОКНА<span className="text-cyan-400">-</span>ЦЕНТР
+          <span className="text-xl font-bold uppercase tracking-tight text-slate-950 font-sans">
+            ОКНА<span className="text-cyan-600">-</span>ЦЕНТР
           </span>
-          <span className="text-[10px] font-mono text-slate-400 tracking-wider">
+          <span className="text-[10px] font-mono text-slate-500 tracking-wider">
             Владивосток · с 2004 года
           </span>
         </div>
 
         <button
           onClick={onClose}
-          className="p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+          className="p-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
           aria-label="Закрыть меню"
         >
           <X className="w-6 h-6" />
@@ -65,36 +65,36 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             key={item.num}
             href={item.href}
             onClick={onClose}
-            className="group flex items-center justify-between py-3 border-b border-white/5"
+            className="group flex items-center justify-between py-3 border-b border-slate-100"
             style={{ animationDelay: `${idx * 40}ms` }}
           >
             <div className="flex items-baseline gap-4">
-              <span className="text-xs font-mono text-cyan-400">{item.num}</span>
-              <span className="text-2xl font-bold tracking-tight text-slate-100 group-hover:text-cyan-300 transition-colors">
+              <span className="text-xs font-mono text-cyan-600 font-semibold">{item.num}</span>
+              <span className="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-cyan-600 transition-colors">
                 {item.label}
               </span>
             </div>
-            <ArrowRight className="w-5 h-5 text-slate-500 group-hover:text-cyan-300 group-hover:translate-x-1 transition-all" />
+            <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-cyan-600 group-hover:translate-x-1 transition-all" />
           </Link>
         ))}
       </div>
 
       {/* Footer contacts & quick actions */}
-      <div className="p-6 bg-slate-950/80 border-t border-white/10 space-y-4">
-        <div className="space-y-1.5 text-xs text-slate-300">
+      <div className="p-6 bg-slate-50 border-t border-slate-200/80 space-y-4">
+        <div className="space-y-1.5 text-xs text-slate-600">
           <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-            <span className="font-medium text-white">Владивосток и Уссурийск</span>
+            <MapPin className="w-4 h-4 text-cyan-600 flex-shrink-0" />
+            <span className="font-semibold text-slate-900">Владивосток и Уссурийск</span>
           </div>
-          <p className="text-[11px] text-slate-400 pl-6">Перед визитом уточните адрес офиса по телефону</p>
+          <p className="text-[11px] text-slate-500 pl-6">Перед визитом уточните адрес офиса по телефону</p>
         </div>
 
         <div className="grid grid-cols-2 gap-3 pt-2">
           <a
             href={`tel:${CONTACTS.phones.mainRaw}`}
-            className="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2"
+            className="py-3 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm"
           >
-            <Phone className="w-4 h-4 text-cyan-400" />
+            <Phone className="w-4 h-4 text-cyan-600" />
             <span>{CONTACTS.phones.mainDisplay}</span>
           </a>
 
@@ -102,9 +102,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             href={CONTACTS.whatsapp.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="py-3 px-4 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2"
+            className="py-3 px-4 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2"
           >
-            <MessageCircle className="w-4 h-4" />
+            <MessageCircle className="w-4 h-4 text-emerald-600" />
             <span>WhatsApp</span>
           </a>
         </div>
@@ -112,7 +112,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <Link
           href="/zaiavka_na_uslughi_kompanii_oknatsientr"
           onClick={onClose}
-          className="block w-full py-4 text-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/30"
+          className="block w-full py-4 text-center rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-slate-900/10 transition-colors"
         >
           Бесплатный выезд замерщика 0 ₽
         </Link>

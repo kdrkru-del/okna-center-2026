@@ -67,24 +67,24 @@ export default function BalconyStepsSequence() {
   const cur = STEPS[activeStep];
 
   return (
-    <div className="rounded-3xl bg-[#070D18] border border-white/10 p-6 sm:p-8 lg:p-10 shadow-2xl">
+    <div className="rounded-3xl bg-slate-50 border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Балкон под ключ · Единый подрядчик</span>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             Технологический цикл благоустройства: от сварки до отделки
           </h3>
-          <p className="text-slate-400 text-sm max-w-2xl mt-1">
+          <p className="text-slate-600 text-sm max-w-2xl mt-1">
             Все работы выполняются штатными бригадами «Окна Центр» без привлечения сторонних субподрядчиков. Гарантия на всю конструкцию по единому договору.
           </p>
         </div>
 
-        <div className="text-right font-mono text-xs text-slate-400">
+        <div className="text-right font-mono text-xs text-slate-500">
           <span>Срок выполнения: </span>
-          <span className="text-cyan-300 font-bold">от 3 до 7 рабочих дней</span>
+          <span className="text-cyan-700 font-bold">от 3 до 7 рабочих дней</span>
         </div>
       </div>
 
@@ -93,64 +93,64 @@ export default function BalconyStepsSequence() {
           <button
             key={s.num}
             onClick={() => setActiveStep(idx)}
-            className={`p-3.5 rounded-2xl border text-left transition-all ${
+            className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
               activeStep === idx
-                ? "bg-cyan-500/20 border-cyan-400 shadow-lg shadow-cyan-500/15 scale-[1.02]"
-                : "bg-white/5 border-white/10 hover:bg-white/10 text-slate-300"
+                ? "bg-slate-950 border-slate-950 shadow-md scale-[1.02]"
+                : "bg-white border-slate-200/80 hover:bg-slate-100 text-slate-700"
             }`}
           >
-            <span className="text-xs font-mono font-bold text-cyan-400 block mb-1">
+            <span className={`text-xs font-mono font-bold block mb-1 ${activeStep === idx ? "text-cyan-400" : "text-cyan-700"}`}>
               Этап {s.num}
             </span>
-            <span className="text-xs font-semibold text-white line-clamp-2 leading-snug">
+            <span className={`text-xs font-semibold line-clamp-2 leading-snug ${activeStep === idx ? "text-white" : "text-slate-900"}`}>
               {s.title}
             </span>
           </button>
         ))}
       </div>
 
-      <div className="bg-[#03060B] rounded-2xl p-6 sm:p-8 border border-white/10">
+      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           <div className="lg:col-span-8 space-y-4">
             <div className="flex items-center gap-3">
-              <span className="text-3xl font-black text-cyan-400 font-mono">
+              <span className="text-3xl font-black text-cyan-700 font-mono">
                 {cur.num}
               </span>
-              <h4 className="text-2xl font-bold text-white">{cur.title}</h4>
+              <h4 className="text-2xl font-bold text-slate-900">{cur.title}</h4>
             </div>
 
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-600 text-sm leading-relaxed">
               {cur.fullDesc}
             </p>
 
-            <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-xs text-slate-200">
-              <span className="text-cyan-300 font-semibold block mb-1 font-mono uppercase tracking-wider">
+            <div className="p-4 rounded-xl bg-cyan-50/70 border border-cyan-200 text-xs text-slate-800">
+              <span className="text-cyan-800 font-bold block mb-1 font-mono uppercase tracking-wider">
                 Ключевой стандарт качества:
               </span>
               <span>{cur.keyAction}</span>
             </div>
           </div>
 
-          <div className="lg:col-span-4 bg-[#0A111E] rounded-xl p-5 border border-cyan-500/30 flex flex-col justify-between">
+          <div className="lg:col-span-4 bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 block mb-1">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 block mb-1">
                 Ориентировочное время:
               </span>
-              <span className="text-base font-bold text-cyan-300 font-mono block mb-4">
+              <span className="text-base font-bold text-slate-900 font-mono block mb-4">
                 {cur.duration}
               </span>
 
-              <div className="space-y-2 text-xs text-slate-400 mb-6">
+              <div className="space-y-2 text-xs text-slate-600 mb-6">
                 <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   <span>Штатные мастера со стажем</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   <span>Вывоз строительного мусора</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   <span>Договор и гарантийный талон</span>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function BalconyStepsSequence() {
 
             <button
               onClick={() => setActiveStep((prev) => (prev + 1) % STEPS.length)}
-              className="w-full py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
+              className="w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
             >
               <span>Следующий этап ({STEPS[(activeStep + 1) % STEPS.length].num})</span>
               <ArrowRight className="w-3.5 h-3.5" />

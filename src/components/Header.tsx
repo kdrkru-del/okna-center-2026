@@ -79,15 +79,15 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-slate-950/90 backdrop-blur-md border-b border-white/10 shadow-2xl py-3"
-            : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4 sm:py-5"
+            ? "bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm py-3"
+            : "bg-white/85 backdrop-blur-md border-b border-slate-200/40 py-3.5 sm:py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
-              <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 drop-shadow-[0_0_12px_rgba(232,60,45,0.4)] group-hover:scale-105 transition-transform">
+              <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 drop-shadow-sm group-hover:scale-105 transition-transform">
                 <Image
                   src={logoImg}
                   alt="Окна-Центр Логотип"
@@ -98,11 +98,11 @@ export default function Header() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg sm:text-2xl font-bold tracking-tight text-white uppercase drop-shadow leading-none group-hover:text-cyan-300 transition-colors">
-                  ОКНА<span className="text-cyan-400">-</span>ЦЕНТР
+                <span className="text-lg sm:text-2xl font-extrabold tracking-tight text-slate-950 uppercase leading-none group-hover:text-cyan-600 transition-colors">
+                  ОКНА<span className="text-cyan-500">-</span>ЦЕНТР
                 </span>
-                <span className="text-[10px] sm:text-[11px] text-slate-300 font-mono tracking-wider mt-1 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span className="text-[10px] sm:text-[11px] text-slate-500 font-mono tracking-wider mt-1 flex items-center gap-1.5 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   Владивосток · с 2004 года
                 </span>
               </div>
@@ -120,27 +120,27 @@ export default function Header() {
                   >
                     <Link
                       href={sec.href}
-                      className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-cyan-300 transition-colors flex items-center gap-1 rounded-lg hover:bg-white/5"
+                      className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:text-cyan-600 hover:bg-slate-100/80 transition-colors flex items-center gap-1 rounded-lg"
                     >
                       {sec.label}
-                      <ChevronDown className="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform" />
+                      <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform" />
                     </Link>
 
                     {openDropdown === sec.id && (
                       <div className="absolute top-full left-0 w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
-                        <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-2.5 space-y-1">
+                        <div className="bg-white/98 backdrop-blur-xl border border-slate-200/80 rounded-2xl shadow-xl p-2.5 space-y-1">
                           {sec.items.map((item) => (
                             <Link
                               key={item.href}
                               href={item.href}
-                              className="block p-2.5 rounded-xl hover:bg-white/10 transition-colors group/item"
+                              className="block p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item"
                               onClick={() => setOpenDropdown(null)}
                             >
-                              <div className="text-xs font-semibold text-white group-hover/item:text-cyan-300 transition-colors">
+                              <div className="text-xs font-semibold text-slate-900 group-hover/item:text-cyan-600 transition-colors">
                                 {item.label}
                               </div>
                               {item.desc && (
-                                <div className="text-[11px] text-slate-400 mt-0.5 leading-snug">
+                                <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">
                                   {item.desc}
                                 </div>
                               )}
@@ -154,7 +154,7 @@ export default function Header() {
                   <Link
                     key={sec.id}
                     href={sec.href}
-                    className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-cyan-300 transition-colors rounded-lg hover:bg-white/5"
+                    className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:text-cyan-600 hover:bg-slate-100/80 transition-colors rounded-lg"
                   >
                     {sec.label}
                   </Link>
@@ -163,24 +163,24 @@ export default function Header() {
             </nav>
 
             {/* Right actions: Phone & CTA */}
-            <div className="flex items-center gap-3 sm:gap-5">
-              <div className="hidden md:flex flex-col text-right">
+            <div className="flex items-center gap-3 sm:gap-6 flex-shrink-0">
+              <div className="hidden lg:flex flex-col text-right">
                 <a
                   href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                  className="text-sm sm:text-base font-bold text-white hover:text-cyan-300 transition-colors font-mono tracking-tight flex items-center gap-1.5 justify-end"
+                  className="text-sm sm:text-base font-bold text-slate-900 hover:text-cyan-600 transition-colors font-mono tracking-tight flex items-center gap-1.5 justify-end whitespace-nowrap"
                 >
-                  <Phone className="w-3.5 h-3.5 text-cyan-400" />
+                  <Phone className="w-3.5 h-3.5 text-cyan-500" />
                   {COMPANY_INFO.mainPhone}
                 </a>
-                <span className="text-[10px] text-slate-400 font-mono flex items-center gap-1 justify-end">
-                  <Clock className="w-3 h-3 text-slate-500" />
+                <span className="text-[10px] text-slate-500 font-mono flex items-center gap-1 justify-end font-medium">
+                  <Clock className="w-3 h-3 text-slate-400" />
                   Пн–Сб 9:00–18:00
                 </span>
               </div>
 
               <Link
                 href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-                className="px-4 py-2 sm:px-5 sm:py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-full text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] transition-all transform hover:-translate-y-0.5 whitespace-nowrap"
+                className="px-4 py-2 sm:px-5 sm:py-2.5 bg-slate-900 hover:bg-cyan-600 text-white font-bold rounded-full text-xs uppercase tracking-wider shadow-sm transition-all transform hover:-translate-y-0.5 whitespace-nowrap"
               >
                 Заявка на замер
               </Link>
@@ -188,7 +188,7 @@ export default function Header() {
               {/* Mobile Burger Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="xl:hidden p-2 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors"
+                className="xl:hidden p-2 rounded-xl bg-slate-100 text-slate-800 hover:bg-slate-200 border border-slate-200 transition-colors"
                 aria-label="Открыть меню"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -199,14 +199,14 @@ export default function Header() {
 
         {/* Mobile Fullscreen Navigation Menu */}
         {mobileMenuOpen && (
-          <div className="xl:hidden fixed inset-x-0 top-full bg-slate-950/98 backdrop-blur-2xl border-b border-white/10 max-h-[85vh] overflow-y-auto p-6 animate-in slide-in-from-top-2 duration-300">
+          <div className="xl:hidden fixed inset-x-0 top-full bg-white/98 backdrop-blur-2xl border-b border-slate-200 max-h-[85vh] overflow-y-auto p-6 animate-in slide-in-from-top-2 duration-300 shadow-xl">
             <div className="space-y-6">
               {navSections.map((sec) => (
-                <div key={sec.id} className="border-b border-white/5 pb-4">
+                <div key={sec.id} className="border-b border-slate-100 pb-4">
                   <Link
                     href={sec.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-base font-bold text-cyan-400 uppercase tracking-wider block mb-2"
+                    className="text-base font-bold text-slate-900 uppercase tracking-wider block mb-2"
                   >
                     {sec.label}
                   </Link>
@@ -217,7 +217,7 @@ export default function Header() {
                           key={item.href}
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="text-sm text-slate-300 hover:text-white py-1 block"
+                          className="text-sm text-slate-600 hover:text-cyan-600 py-1 block"
                         >
                           {item.label}
                         </Link>
@@ -226,22 +226,14 @@ export default function Header() {
                   )}
                 </div>
               ))}
-
-              <div className="pt-2 space-y-3">
-                <div className="flex items-center gap-2 text-sm text-slate-300">
-                  <MapPin className="w-4 h-4 text-cyan-400" />
-                  <span>Владивосток: {COMPANY_INFO.offices[0].address}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-slate-300">
-                  <MapPin className="w-4 h-4 text-cyan-400" />
-                  <span>Уссурийск: {COMPANY_INFO.offices[1].address}</span>
-                </div>
+              <div className="pt-4 border-t border-slate-100">
                 <a
                   href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                  className="block w-full text-center py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm uppercase tracking-wider"
+                  className="block w-full text-center py-3 rounded-xl bg-slate-900 text-white hover:bg-cyan-600 font-bold text-sm uppercase tracking-wider transition-colors"
                 >
                   Позвонить: {COMPANY_INFO.mainPhone}
                 </a>
+                <p className="text-[11px] text-slate-500 text-center mt-2 font-mono">Владивосток и Приморский край · с 2004 года</p>
               </div>
             </div>
           </div>

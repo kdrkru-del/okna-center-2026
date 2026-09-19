@@ -59,106 +59,103 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="contact" className="py-28 bg-[#020509] text-white px-4 md:px-8 border-t border-white/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(6,182,212,0.12),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.1),transparent_40%)] pointer-events-none" />
-
+    <section id="contact" className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200/80 text-slate-900 px-4 md:px-8 relative overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
         
         <div className="text-center mb-12">
-          <div className="inline-block px-3.5 py-1 mb-4 text-[11px] font-mono text-cyan-400 border border-cyan-500/30 rounded-full bg-cyan-950/40 uppercase tracking-widest">
+          <div className="inline-block px-3.5 py-1 mb-4 text-[11px] font-mono text-cyan-800 border border-cyan-200 rounded-full bg-cyan-50 uppercase tracking-widest font-semibold">
             Заявка на расчет
           </div>
-          <h2 className="text-3xl sm:text-5xl font-light text-white mb-4 tracking-tight">
-            Заказать окна или <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-cyan-300">выезд мастера</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+            Заказать окна или <span className="font-extrabold text-cyan-700">выезд мастера</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto font-light">
+          <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto font-light">
             Оставьте контакты — специалист свяжется с вами для консультации и расчета точной стоимости.
           </p>
         </div>
 
         {submitted ? (
-          <div className="p-10 rounded-3xl bg-cyan-950/40 border border-cyan-500/40 backdrop-blur-xl max-w-md mx-auto text-center animate-fade-in shadow-2xl">
-            <div className="w-14 h-14 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center mx-auto mb-5 border border-cyan-400/30">
-              <CheckCircle2 className="w-7 h-7 text-cyan-400" />
+          <div className="p-10 rounded-3xl bg-emerald-50 border border-emerald-200 max-w-md mx-auto text-center animate-fade-in shadow-md">
+            <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-5 border border-emerald-300">
+              <CheckCircle2 className="w-7 h-7 text-emerald-700" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Заявка принята!</h3>
-            <p className="text-slate-300 text-sm font-light leading-relaxed mb-6">
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">Заявка принята!</h3>
+            <p className="text-slate-600 text-sm font-light leading-relaxed mb-6">
               Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.
             </p>
             <a
               href={whatsappDirectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 mb-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors"
+              className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 mb-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors shadow-sm"
             >
               <MessageCircle className="w-4 h-4" />
               Отправить напрямую в WhatsApp
             </a>
-            <div className="text-xs font-mono text-cyan-400/80">
+            <div className="text-xs font-mono text-cyan-800 font-semibold">
               Компания «Окна Центр» · 8 (423) 2-725-725
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="bg-slate-900/70 border border-white/10 p-8 sm:p-12 rounded-3xl backdrop-blur-xl shadow-2xl">
+          <form onSubmit={handleSubmit} className="bg-white border border-slate-200/90 p-8 sm:p-12 rounded-3xl shadow-xl">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
               
               {/* City Selection */}
               <div>
-                <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Ваш город *</label>
+                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Ваш город *</label>
                 <select
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-cyan-400 transition-colors text-sm"
+                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm cursor-pointer"
                 >
-                  <option value="Владивосток" className="bg-slate-900 text-white">Владивосток</option>
-                  <option value="Уссурийск" className="bg-slate-900 text-white">Уссурийск</option>
-                  <option value="Артём" className="bg-slate-900 text-white">Артём</option>
-                  <option value="Приморский край" className="bg-slate-900 text-white">Другой город Приморья</option>
-                  <option value="Доставка по ДФО (Магадан, Сахалин, Камчатка, Анадырь)" className="bg-slate-900 text-white">Доставка по ДФО (Сахалин, Камчатка, Магадан, Чукотка)</option>
+                  <option value="Владивосток">Владивосток</option>
+                  <option value="Уссурийск">Уссурийск</option>
+                  <option value="Артём">Артём</option>
+                  <option value="Приморский край">Другой город Приморья</option>
+                  <option value="Доставка по ДФО (Магадан, Сахалин, Камчатка, Анадырь)">Доставка по ДФО (Сахалин, Камчатка, Магадан, Чукотка)</option>
                 </select>
               </div>
 
               {/* Service Selection */}
               <div>
-                <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Что интересует? *</label>
+                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Что интересует? *</label>
                 <select
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-cyan-400 transition-colors text-sm"
+                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm cursor-pointer"
                 >
-                  <option value="Окна ПВХ в квартиру" className="bg-slate-900 text-white">Пластиковые окна ПВХ</option>
-                  <option value="Балкон / Лоджия под ключ" className="bg-slate-900 text-white">Балкон / Лоджия под ключ</option>
-                  <option value="Остекление частного дома" className="bg-slate-900 text-white">Остекление частного дома / коттеджа</option>
-                  <option value="Алюминиевые витражи ALUTECH" className="bg-slate-900 text-white">Алюминиевые витражи и фасады</option>
-                  <option value="Ремонт и регулировка окон" className="bg-slate-900 text-white">Ремонт / Регулировка окон</option>
-                  <option value="Покупка окон без монтажа" className="bg-slate-900 text-white">Купить окна без установки (с доставкой)</option>
+                  <option value="Окна ПВХ в квартиру">Пластиковые окна ПВХ</option>
+                  <option value="Балкон / Лоджия под ключ">Балкон / Лоджия под ключ</option>
+                  <option value="Остекление частного дома">Остекление частного дома / коттеджа</option>
+                  <option value="Алюминиевые витражи ALUTECH">Алюминиевые витражи и фасады</option>
+                  <option value="Ремонт и регулировка окон">Ремонт / Регулировка окон</option>
+                  <option value="Покупка окон без монтажа">Купить окна без установки (с доставкой)</option>
                 </select>
               </div>
 
               {/* Name */}
               <div>
-                <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Ваше имя</label>
+                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Ваше имя</label>
                 <input
                   type="text"
                   placeholder="Иван"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 outline-none focus:border-cyan-400 transition-colors text-sm"
+                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm"
                 />
               </div>
 
               {/* Phone */}
               <div>
-                <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Телефон *</label>
+                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Телефон *</label>
                 <input
                   type="tel"
                   placeholder="+7 (___) ___-__-__"
                   required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 outline-none focus:border-cyan-400 transition-colors text-sm"
+                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm"
                 />
               </div>
 
@@ -166,13 +163,13 @@ export default function LeadForm() {
 
             {/* Message / Dimensions */}
             <div className="mb-8">
-              <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Размеры или пожелания (необязательно)</label>
+              <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Размеры или пожелания (необязательно)</label>
               <textarea
                 rows={3}
                 placeholder="Примерные размеры, тип дома или особые пожелания..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 outline-none focus:border-cyan-400 transition-colors text-sm"
+                className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm"
               />
             </div>
 
@@ -189,12 +186,12 @@ export default function LeadForm() {
             </div>
 
             {error && (
-              <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-200 text-xs">
+              <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs">
                 <p className="font-semibold mb-3 leading-relaxed">{error}</p>
                 <div className="flex flex-col sm:flex-row gap-2.5 mt-2">
                   <a
                     href="tel:+74232725725"
-                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs w-full sm:w-auto text-center"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-slate-950 text-white font-bold text-xs w-full sm:w-auto text-center"
                   >
                     Позвонить: 8 (423) 2-725-725
                   </a>
@@ -214,7 +211,7 @@ export default function LeadForm() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full sm:w-auto px-10 py-4 bg-cyan-500 hover:bg-cyan-400 disabled:opacity-50 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-lg shadow-cyan-500/25 cursor-pointer"
+                className="w-full sm:w-auto px-10 py-4 bg-slate-950 hover:bg-cyan-600 disabled:opacity-50 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-lg shadow-slate-900/10 cursor-pointer"
               >
                 {loading ? 'Отправка...' : 'Отправить заявку на расчет'}
               </button>

@@ -164,7 +164,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
   const gallery = GALLERY_BY_VARIANT[page.variant] || GALLERY_BY_VARIANT.windows;
 
   return (
-    <div className="bg-[#03070D] text-white min-h-screen pt-24 selection:bg-cyan-500 selection:text-slate-950">
+    <div className="bg-white text-slate-900 min-h-screen pt-24 selection:bg-cyan-500 selection:text-white">
       {/* Schema.org scripts */}
       <script
         type="application/ld+json"
@@ -183,61 +183,61 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
 
       {/* Breadcrumbs Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <nav className="flex items-center gap-2 text-xs text-slate-400 font-mono overflow-x-auto whitespace-nowrap">
-          <Link href="/" className="hover:text-cyan-300 transition-colors">Главная</Link>
+        <nav className="flex items-center gap-2 text-xs text-slate-500 font-mono overflow-x-auto whitespace-nowrap">
+          <Link href="/" className="hover:text-cyan-700 transition-colors">Главная</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-40 flex-shrink-0" />
-          <Link href={page.categoryUrl} className="hover:text-cyan-300 transition-colors">{page.categoryLabel}</Link>
+          <Link href={page.categoryUrl} className="hover:text-cyan-700 transition-colors">{page.categoryLabel}</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-40 flex-shrink-0" />
-          <span className="text-slate-200 truncate">{page.h1}</span>
+          <span className="text-slate-900 font-medium truncate">{page.h1}</span>
         </nav>
       </div>
 
       {/* COMPACT HERO SECTION (60-75vh) */}
-      <section className="relative overflow-hidden pt-6 pb-16 lg:py-20 border-b border-white/5">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden pt-6 pb-16 lg:py-20 border-b border-slate-200/80 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{page.eyebrow}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white">
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900">
                 {page.h1}
               </h1>
 
-              <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+              <p className="text-slate-600 text-base sm:text-lg font-light leading-relaxed">
                 {page.intro}
               </p>
 
               {/* Price & Fact Badges */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <div className="px-4 py-2 rounded-xl bg-cyan-500/15 border border-cyan-500/30">
-                  <span className="text-[10px] uppercase font-mono text-cyan-300 block">Стоимость:</span>
-                  <span className="text-xl sm:text-2xl font-black text-white font-mono">{page.priceFrom}</span>
+                <div className="px-4 py-2 rounded-xl bg-cyan-50 border border-cyan-200">
+                  <span className="text-[10px] uppercase font-mono text-cyan-800 block">Стоимость:</span>
+                  <span className="text-xl sm:text-2xl font-black text-slate-900 font-mono">{page.priceFrom}</span>
                 </div>
 
-                <div className="px-4 py-2 rounded-xl bg-white/5 border border-white/10">
-                  <span className="text-[10px] uppercase font-mono text-slate-400 block">Монтаж:</span>
-                  <span className="text-sm sm:text-base font-semibold text-white">по ГОСТ</span>
+                <div className="px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="text-[10px] uppercase font-mono text-slate-500 block">Монтаж:</span>
+                  <span className="text-sm sm:text-base font-semibold text-slate-900">по ГОСТ</span>
                 </div>
 
-                <div className="px-4 py-2 rounded-xl bg-white/5 border border-white/10">
-                  <span className="text-[10px] uppercase font-mono text-slate-400 block">Гарантия:</span>
-                  <span className="text-sm sm:text-base font-semibold text-emerald-400">по договору</span>
+                <div className="px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="text-[10px] uppercase font-mono text-slate-500 block">Гарантия:</span>
+                  <span className="text-sm sm:text-base font-semibold text-emerald-700">по договору</span>
                 </div>
               </div>
 
               {/* Verified Facts Checkmarks */}
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 pt-2 text-xs text-slate-300">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 pt-2 text-xs text-slate-700">
                 {page.verifiedFacts.map((fact, idx) => (
                   <div key={idx} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0" />
                     <span>{fact}</span>
                   </div>
                 ))}
@@ -247,7 +247,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               <div className="flex flex-wrap items-center gap-4 pt-4">
                 <Link
                   href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-                  className="px-6 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-cyan-500/25 flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center gap-2 cursor-pointer"
                 >
                   <span>Записаться на замер</span>
                   <ArrowRight className="w-4 h-4" />
@@ -259,9 +259,9 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider transition-colors flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs uppercase tracking-wider transition-colors flex items-center gap-2 border border-slate-300 shadow-sm cursor-pointer"
                 >
-                  <Phone className="w-4 h-4 text-cyan-300" />
+                  <Phone className="w-4 h-4 text-emerald-600" />
                   <span>WhatsApp консультация</span>
                 </a>
               </div>
@@ -269,7 +269,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
 
             {/* Right Hero Image Card */}
             <div className="lg:col-span-5 relative">
-              <div className="relative h-80 sm:h-96 lg:h-[420px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
+              <div className="relative h-80 sm:h-96 lg:h-[420px] rounded-3xl overflow-hidden border border-slate-200 shadow-xl group">
                 <Image
                   src={asset(page.heroImage)}
                   alt={page.h1}
@@ -278,20 +278,20 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03070D] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-60" />
 
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-mono text-cyan-300 flex items-center gap-1.5">
-                  <Camera className="w-3.5 h-3.5" />
+                <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-[11px] font-mono text-slate-800 flex items-center gap-1.5 shadow-sm">
+                  <Camera className="w-3.5 h-3.5 text-cyan-600" />
                   <span>Реальный объект Окна Центр</span>
                 </div>
 
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#080E17]/90 backdrop-blur-md border border-white/10">
+                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] font-mono uppercase text-slate-400 block">Статус:</span>
-                      <span className="text-xs font-semibold text-white">Выезд инженера бесплатно</span>
+                      <span className="text-[10px] font-mono uppercase text-slate-500 block">Статус:</span>
+                      <span className="text-xs font-semibold text-slate-900">Выезд инженера бесплатно</span>
                     </div>
-                    <span className="text-xs font-mono text-cyan-400 font-bold">Владивосток и край</span>
+                    <span className="text-xs font-mono text-cyan-700 font-bold">Владивосток и край</span>
                   </div>
                 </div>
               </div>
@@ -326,36 +326,36 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
         )}
 
         {page.variant === "aluminium" && (
-          <div className="rounded-3xl bg-[#070D18] border border-white/10 p-6 sm:p-8 lg:p-10 shadow-2xl">
-            <div className="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider mb-2">
+          <div className="rounded-3xl bg-slate-50 border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
+            <div className="flex items-center gap-2 text-cyan-700 text-xs font-mono uppercase tracking-wider mb-2">
               <Compass className="w-3.5 h-3.5" />
               <span>Архитектурный инжиниринг · ALT F50 / ALT 150</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-4">
               Алюминиевые светопрозрачные конструкции высокой несущей способности
             </h3>
-            <p className="text-slate-300 text-sm max-w-3xl mb-8 leading-relaxed">
+            <p className="text-slate-600 text-sm max-w-3xl mb-8 leading-relaxed">
               Алюминиевые профили с терморазрывом из полиамида выдерживают колоссальные ветровые нагрузки побережья Приморского края и обеспечивают максимальное панорамное остекление без массивных пластиковых перемычек.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-5 rounded-2xl bg-[#03060B] border border-white/10">
-                <span className="text-cyan-400 font-mono text-xs uppercase block mb-1">Стоечно-ригельный фасад</span>
-                <h4 className="text-lg font-bold text-white mb-2">ALT F50</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+              <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                <span className="text-cyan-700 font-mono text-xs uppercase block mb-1">Стоечно-ригельный фасад</span>
+                <h4 className="text-lg font-bold text-slate-900 mb-2">ALT F50</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Классическая система фасадного остекления с видимой шириной профилей 50 мм. Максимальная теплоизоляция и светопропускание для автосалонов, ТЦ и коттеджей.
                 </p>
               </div>
-              <div className="p-5 rounded-2xl bg-[#03060B] border border-white/10">
-                <span className="text-cyan-400 font-mono text-xs uppercase block mb-1">Вентилируемые фасады</span>
-                <h4 className="text-lg font-bold text-white mb-2">ALT 150</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+              <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                <span className="text-cyan-700 font-mono text-xs uppercase block mb-1">Вентилируемые фасады</span>
+                <h4 className="text-lg font-bold text-slate-900 mb-2">ALT 150</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Навесная вентилируемая фасадная система для облицовки керамогранитом, композитными панелями и фиброцементными плитами.
                 </p>
               </div>
-              <div className="p-5 rounded-2xl bg-[#03060B] border border-white/10">
-                <span className="text-cyan-400 font-mono text-xs uppercase block mb-1">Теплые двери</span>
-                <h4 className="text-lg font-bold text-white mb-2">Входные группы</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+              <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                <span className="text-cyan-700 font-mono text-xs uppercase block mb-1">Теплые двери</span>
+                <h4 className="text-lg font-bold text-slate-900 mb-2">Входные группы</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Двери с терморазрывом, усиленными петлями на 500 000 циклов открывания, доводчиками и многозапорными замками для высокой проходимости.
                 </p>
               </div>
@@ -374,21 +374,21 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
 
       {/* DETAILED CONTENT SECTIONS */}
       {page.sections && page.sections.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-white/5">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-200/80">
           <div className="space-y-16">
             {page.sections.map((sec, sIdx) => (
               <div key={sIdx} className="space-y-6">
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                     {sec.title}
                   </h2>
                   {sec.subtitle && (
-                    <p className="text-cyan-400 text-xs sm:text-sm font-mono mt-1">
+                    <p className="text-cyan-700 text-xs sm:text-sm font-mono mt-1">
                       {sec.subtitle}
                     </p>
                   )}
                   {sec.content && (
-                    <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed max-w-4xl mt-3">
+                    <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed max-w-4xl mt-3">
                       {sec.content}
                     </p>
                   )}
@@ -400,19 +400,19 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                     {sec.items.map((item, itmIdx) => (
                       <div
                         key={itmIdx}
-                        className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500/40 transition-all flex flex-col justify-between"
+                        className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/40 hover:bg-white hover:shadow-sm transition-all flex flex-col justify-between"
                       >
                         <div>
                           {item.badge && (
-                            <span className="inline-block px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-[10px] font-mono uppercase mb-2">
+                            <span className="inline-block px-2.5 py-0.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-[10px] font-mono uppercase mb-2">
                               {item.badge}
                             </span>
                           )}
-                          <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                          <p className="text-xs text-slate-300 leading-relaxed mb-4">{item.desc}</p>
+                          <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                          <p className="text-xs text-slate-600 leading-relaxed mb-4">{item.desc}</p>
                         </div>
                         {item.spec && (
-                          <div className="pt-3 border-t border-white/5 text-[11px] font-mono text-cyan-300">
+                          <div className="pt-3 border-t border-slate-200/60 text-[11px] font-mono text-cyan-700">
                             {item.spec}
                           </div>
                         )}
@@ -427,25 +427,25 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       )}
 
       {/* VERIFIED PRICING BLOCK */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
-        <div className="rounded-3xl bg-[#080E17] border border-white/10 p-6 sm:p-8 lg:p-10 shadow-2xl">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200/80">
+        <div className="rounded-3xl bg-slate-50 border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-wider mb-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
                 <Tag className="w-3.5 h-3.5" />
                 <span>Официальный прайс-лист</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Стоимость услуг и конструкций
               </h2>
-              <p className="text-slate-400 text-xs sm:text-sm mt-1">
+              <p className="text-slate-600 text-xs sm:text-sm mt-1">
                 Цены являются ориентировочными. Точная стоимость рассчитывается инженером на бесплатном замере с учетом конфигурации и параметров проема.
               </p>
             </div>
 
             <Link
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-              className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2 self-start lg:self-center"
+              className="px-5 py-2.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2 self-start lg:self-center shadow-sm"
             >
               <span>Рассчитать стоимость</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -455,29 +455,29 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
-                <tr className="border-b border-white/10 text-slate-400 font-mono text-xs">
+                <tr className="border-b border-slate-200 text-slate-600 font-mono text-xs">
                   <th className="py-3 px-4">Услуга / Конструкция</th>
                   <th className="py-3 px-4">Ед. изм.</th>
                   <th className="py-3 px-4">Стоимость</th>
                   <th className="py-3 px-4 hidden md:table-cell">Примечание</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-slate-200/60">
                 {pagePrices.map((p) => (
-                  <tr key={p.id} className="hover:bg-white/5 transition-colors">
-                    <td className="py-3.5 px-4 font-semibold text-white flex items-center gap-2">
+                  <tr key={p.id} className="hover:bg-white transition-colors">
+                    <td className="py-3.5 px-4 font-semibold text-slate-900 flex items-center gap-2">
                       <span>{p.name}</span>
                       {p.isPopular && (
-                        <span className="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-[10px] font-mono">
+                        <span className="px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 font-bold border border-cyan-300 text-[10px] font-mono">
                           Хит
                         </span>
                       )}
                     </td>
-                    <td className="py-3.5 px-4 font-mono text-slate-400">{p.unit || "услуга"}</td>
-                    <td className="py-3.5 px-4 font-mono font-bold text-cyan-300 whitespace-nowrap">
+                    <td className="py-3.5 px-4 font-mono text-slate-500">{p.unit || "услуга"}</td>
+                    <td className="py-3.5 px-4 font-mono font-bold text-slate-950 whitespace-nowrap">
                       {p.priceFrom}
                     </td>
-                    <td className="py-3.5 px-4 text-xs text-slate-400 hidden md:table-cell max-w-xs">
+                    <td className="py-3.5 px-4 text-xs text-slate-500 hidden md:table-cell max-w-xs">
                       {p.note || "Монтаж по ГОСТ, выезд мастера"}
                     </td>
                   </tr>
@@ -489,21 +489,21 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       </section>
 
       {/* REAL WORKS GALLERY (3-4 PHOTOS FROM PHOTO-AUDIT) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200/80">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
               <Camera className="w-3.5 h-3.5" />
               <span>Подлинные фотографии</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Выполненные объекты по направлению
             </h2>
           </div>
 
           <Link
             href="/ghalierieia_rabot"
-            className="text-xs font-mono text-cyan-300 hover:underline flex items-center gap-1.5"
+            className="text-xs font-mono text-cyan-700 hover:text-cyan-800 hover:underline flex items-center gap-1.5"
           >
             <span>Вся галерея (100+ объектов)</span>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -514,7 +514,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
           {gallery.map((item, gIdx) => (
             <div
               key={gIdx}
-              className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden group hover:border-cyan-500/40 transition-all"
+              className="rounded-2xl bg-white border border-slate-200/80 overflow-hidden group hover:border-cyan-500/40 shadow-sm hover:shadow-md transition-all"
             >
               <div className="relative h-56 overflow-hidden">
                 <Image
@@ -526,7 +526,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                 />
               </div>
               <div className="p-4">
-                <p className="text-xs text-slate-300 leading-snug">{item.caption}</p>
+                <p className="text-xs text-slate-700 leading-snug">{item.caption}</p>
                 <span className="text-[10px] font-mono text-slate-500 block mt-2">г. Владивосток</span>
               </div>
             </div>
@@ -536,12 +536,12 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
 
       {/* INTERNAL LINKING BLOCK (RELATED SERVICES) */}
       {page.relatedPages && page.relatedPages.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200/80">
           <div className="mb-8">
-            <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 block mb-1">
+            <span className="text-xs font-mono uppercase tracking-widest text-cyan-700 block mb-1">
               Рекомендуемые разделы
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Смежные услуги и материалы
             </h2>
           </div>
@@ -551,15 +551,15 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               <Link
                 key={rel.slug}
                 href={`/${rel.slug}`}
-                className="p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-cyan-500/40 hover:bg-slate-900 transition-all flex flex-col justify-between group"
+                className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/40 hover:bg-white hover:shadow-sm transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
+                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-cyan-700 transition-colors mb-2">
                     {rel.label}
                   </h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">{rel.reason}</p>
+                  <p className="text-xs text-slate-600 leading-relaxed">{rel.reason}</p>
                 </div>
-                <div className="pt-3 mt-4 border-t border-white/5 flex items-center justify-between text-xs text-cyan-400 font-mono">
+                <div className="pt-3 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs text-cyan-700 font-mono">
                   <span>Перейти</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -571,14 +571,14 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
 
       {/* FAQ SECTION WITH ACCORDION */}
       {page.faq && page.faq.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200/80">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-wider mb-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
                 <HelpCircle className="w-3.5 h-3.5" />
                 <span>Вопросы и ответы</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Часто задаваемые вопросы
               </h2>
             </div>
@@ -587,22 +587,22 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               {page.faq.map((item, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden transition-all"
+                  className="rounded-2xl bg-slate-50 border border-slate-200/80 overflow-hidden transition-all hover:border-slate-300"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-white hover:text-cyan-300 transition-colors"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-slate-900 hover:text-cyan-700 transition-colors"
                   >
                     <span>{item.question}</span>
                     <ChevronDown
-                      className={`w-4 h-4 text-cyan-400 flex-shrink-0 transition-transform ${
+                      className={`w-4 h-4 text-cyan-600 flex-shrink-0 transition-transform ${
                         openFaqIndex === idx ? "rotate-180" : ""
                       }`}
                     />
                   </button>
 
                   {openFaqIndex === idx && (
-                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/5">
+                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60">
                       {item.answer}
                     </div>
                   )}
@@ -614,26 +614,25 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       )}
 
       {/* FINAL CONVERSION CTA */}
-      <section className="py-20 bg-slate-950 border-t border-white/10 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
+      <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200/80 text-center relative overflow-hidden text-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
             <FileCheck2 className="w-3.5 h-3.5" />
             <span>Бесплатный выезд замерщика</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
             Закажите точный расчет стоимости
           </h2>
 
-          <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
+          <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
             Инженер приедет с образцами профилей Rehau, KBE, Funke, выполнит лазерный замер проемов и рассчитает итоговую смету с гарантией по договору.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-              className="px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-xl shadow-cyan-500/25 flex items-center gap-2"
+              className="px-8 py-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center gap-2 cursor-pointer"
             >
               <span>Оставить заявку онлайн</span>
               <ArrowRight className="w-4 h-4" />
@@ -641,9 +640,9 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
 
             <a
               href="tel:+74232725725"
-              className="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider transition-colors flex items-center gap-2 font-mono"
+              className="px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs uppercase tracking-wider transition-colors flex items-center gap-2 font-mono border border-slate-300 shadow-sm cursor-pointer"
             >
-              <Phone className="w-4 h-4 text-cyan-300" />
+              <Phone className="w-4 h-4 text-cyan-600" />
               <span>8 (423) 2-725-725</span>
             </a>
           </div>

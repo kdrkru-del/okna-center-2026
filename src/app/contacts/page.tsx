@@ -52,7 +52,7 @@ const contactsSchema = {
 
 export default function ContactsPage() {
   return (
-    <div className="bg-[#03070D] text-white min-h-screen pt-24">
+    <div className="bg-white text-slate-900 min-h-screen pt-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactsSchema) }}
@@ -60,24 +60,24 @@ export default function ContactsPage() {
 
       {/* Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <nav className="flex items-center gap-2 text-xs text-slate-400 font-mono">
-          <Link href="/" className="hover:text-cyan-300 transition-colors">Главная</Link>
+        <nav className="flex items-center gap-2 text-xs text-slate-500 font-mono">
+          <Link href="/" className="hover:text-cyan-700 transition-colors">Главная</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-          <span className="text-slate-200">Контакты</span>
+          <span className="text-slate-900 font-semibold">Контакты</span>
         </nav>
       </div>
 
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
             <Building2 className="w-3.5 h-3.5" />
             <span>Офисы в Приморском крае</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
             Контакты компании «Окна Центр»
           </h1>
-          <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg font-light leading-relaxed">
             Приглашаем вас в наши фирменные офисы во Владивостоке и Уссурийске. Вы сможете лично оценить образцы профилей Rehau, KBE, Funke, варианты ламинации, фурнитуру и стеклопакеты, а также получить детальный расчет стоимости.
           </p>
         </div>
@@ -88,55 +88,54 @@ export default function ContactsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Office Vladivostok */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-900/80 border border-white/10 relative overflow-hidden flex flex-col justify-between shadow-2xl">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-200/90 relative overflow-hidden flex flex-col justify-between shadow-lg shadow-slate-200/50">
             <div>
               <div className="flex items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 block mb-1">Центральный офис</span>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white">Владивосток</h2>
+                  <span className="text-xs font-mono uppercase tracking-widest text-cyan-700 font-semibold block mb-1">Центральный офис</span>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Владивосток</h2>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-mono">
+                <span className="px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 border border-cyan-200 text-xs font-mono font-medium">
                   Главный офис
                 </span>
               </div>
 
-              <div className="space-y-4 text-sm text-slate-300 mb-8">
+              <div className="space-y-4 text-sm text-slate-700 mb-8">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-white block">Адрес офиса:</span>
-                    <span className="text-cyan-300 font-medium">Перед визитом уточните адрес офиса по телефону</span>
-                    <span className="block text-xs text-slate-400 mt-0.5">Мастера выезжают на бесплатный замер по всему Владивостоку и пригороду</span>
+                    <span className="font-semibold text-slate-900 block">Адрес офиса:</span>
+                    <span className="text-cyan-800 font-semibold">Перед визитом уточните адрес офиса по телефону</span>
+                    <span className="block text-xs text-slate-500 mt-0.5">Мастера выезжают на бесплатный замер по всему Владивостоку и пригороду</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-white block">Телефон:</span>
-                    <a href="tel:+74232725725" className="text-base font-mono text-cyan-300 hover:underline font-bold">
+                    <span className="font-semibold text-slate-900 block">Телефон:</span>
+                    <a href="tel:+74232725725" className="text-base font-mono text-cyan-700 hover:underline font-bold">
                       8 (423) 2-725-725
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-white block">Режим работы:</span>
+                    <span className="font-semibold text-slate-900 block">Режим работы:</span>
                     <span>Понедельник — Пятница: 9:00 – 18:00</span>
                     <span className="block">Суббота: 10:00 – 16:00</span>
-                    <span className="block text-slate-400 text-xs">Воскресенье: по согласованию для выездных замеров</span>
+                    <span className="block text-slate-500 text-xs">Воскресенье: по согласованию для выездных замеров</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center gap-4">
+            <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center gap-4">
               <a
                 href="tel:+74232725725"
-                className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 font-mono"
+                className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 font-mono shadow-sm"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>Позвонить в офис</span>
@@ -146,64 +145,63 @@ export default function ContactsPage() {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
+                className="px-5 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
               >
-                <MessageSquare className="w-3.5 h-3.5" />
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Уточнить в WhatsApp</span>
               </a>
             </div>
           </div>
 
           {/* Office Ussuriysk */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-900/80 border border-white/10 relative overflow-hidden flex flex-col justify-between shadow-2xl">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-200/90 relative overflow-hidden flex flex-col justify-between shadow-lg shadow-slate-200/50">
             <div>
               <div className="flex items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 block mb-1">Филиал и монтажная служба</span>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white">Уссурийск</h2>
+                  <span className="text-xs font-mono uppercase tracking-widest text-cyan-700 font-semibold block mb-1">Филиал и монтажная служба</span>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Уссурийск</h2>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-mono">
+                <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 border border-blue-200 text-xs font-mono font-medium">
                   Филиал
                 </span>
               </div>
 
-              <div className="space-y-4 text-sm text-slate-300 mb-8">
+              <div className="space-y-4 text-sm text-slate-700 mb-8">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-white block">Адрес офиса:</span>
-                    <span className="text-cyan-300 font-medium">Перед визитом уточните адрес офиса по телефону</span>
-                    <span className="block text-xs text-slate-400 mt-0.5">Бесплатный выезд на замер и монтаж по всему Уссурийску и району</span>
+                    <span className="font-semibold text-slate-900 block">Адрес офиса:</span>
+                    <span className="text-cyan-800 font-semibold">Перед визитом уточните адрес офиса по телефону</span>
+                    <span className="block text-xs text-slate-500 mt-0.5">Бесплатный выезд на замер и монтаж по всему Уссурийску и району</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-white block">Телефон:</span>
-                    <a href="tel:+79242606350" className="text-base font-mono text-cyan-300 hover:underline font-bold">
+                    <span className="font-semibold text-slate-900 block">Телефон:</span>
+                    <a href="tel:+79242606350" className="text-base font-mono text-cyan-700 hover:underline font-bold">
                       8 (924) 260-63-50
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-white block">Режим работы:</span>
+                    <span className="font-semibold text-slate-900 block">Режим работы:</span>
                     <span>Понедельник — Пятница: 9:00 – 18:00</span>
                     <span className="block">Суббота: 10:00 – 15:00</span>
-                    <span className="block text-slate-400 text-xs">Воскресенье: выходной</span>
+                    <span className="block text-slate-500 text-xs">Воскресенье: выходной</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center gap-4">
+            <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center gap-4">
               <a
                 href="tel:+79242606350"
-                className="px-5 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-white text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 font-mono"
+                className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 font-mono shadow-sm"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>Позвонить в филиал</span>
@@ -213,9 +211,9 @@ export default function ContactsPage() {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
+                className="px-5 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
               >
-                <MessageSquare className="w-3.5 h-3.5" />
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Уточнить в WhatsApp</span>
               </a>
             </div>
@@ -225,7 +223,7 @@ export default function ContactsPage() {
       </section>
 
       {/* Online Messengers & Channels */}
-      <section className="py-14 bg-slate-950 border-y border-white/10">
+      <section className="py-14 bg-slate-50 border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             
@@ -233,40 +231,40 @@ export default function ContactsPage() {
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 hover:border-emerald-500/50 transition-all flex items-center gap-4 group"
+              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition-all flex items-center gap-4 group"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-500 text-slate-950 flex items-center justify-center font-bold">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold shadow-sm">
                 <MessageSquare className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs text-emerald-400 font-mono uppercase tracking-wider block">Быстрый ответ в чате</span>
-                <span className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors">Чат WhatsApp</span>
-                <span className="text-xs text-slate-400 block mt-0.5">+7 (994) 010-03-00</span>
+                <span className="text-xs text-emerald-700 font-mono uppercase tracking-wider font-semibold block">Быстрый ответ в чате</span>
+                <span className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">Чат WhatsApp</span>
+                <span className="text-xs text-slate-500 block mt-0.5">+7 (994) 010-03-00</span>
               </div>
             </a>
 
             <a
               href={`mailto:${COMPANY_INFO.emails[0]}`}
-              className="p-6 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 hover:border-cyan-500/50 transition-all flex items-center gap-4 group"
+              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-cyan-400 transition-all flex items-center gap-4 group"
             >
-              <div className="w-12 h-12 rounded-xl bg-cyan-500 text-slate-950 flex items-center justify-center font-bold">
+              <div className="w-12 h-12 rounded-xl bg-cyan-600 text-white flex items-center justify-center font-bold shadow-sm">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs text-cyan-400 font-mono uppercase tracking-wider block">Для смет и чертежей</span>
-                <span className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">Электронная почта</span>
-                <span className="text-xs text-slate-400 block mt-0.5">{COMPANY_INFO.emails[0]}</span>
+                <span className="text-xs text-cyan-700 font-mono uppercase tracking-wider font-semibold block">Для смет и чертежей</span>
+                <span className="text-base font-bold text-slate-900 group-hover:text-cyan-700 transition-colors">Электронная почта</span>
+                <span className="text-xs text-slate-500 block mt-0.5">{COMPANY_INFO.emails[0]}</span>
               </div>
             </a>
 
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-white/10 text-cyan-300 flex items-center justify-center font-bold">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-slate-900 text-cyan-300 flex items-center justify-center font-bold shadow-sm">
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs text-slate-400 font-mono uppercase tracking-wider block">Гарантийный отдел</span>
-                <span className="text-base font-bold text-white">Сервисная служба</span>
-                <span className="text-xs text-slate-400 block mt-0.5">Оперативный выезд мастера</span>
+                <span className="text-xs text-slate-500 font-mono uppercase tracking-wider block">Гарантийный отдел</span>
+                <span className="text-base font-bold text-slate-900">Сервисная служба</span>
+                <span className="text-xs text-slate-500 block mt-0.5">Оперативный выезд мастера</span>
               </div>
             </div>
 
@@ -275,38 +273,38 @@ export default function ContactsPage() {
       </section>
 
       {/* Company Requisites (E-E-A-T) */}
-      <section className="py-16 bg-[#060B12]">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs font-mono uppercase tracking-widest mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-mono uppercase tracking-widest mb-3">
               <FileText className="w-3.5 h-3.5" />
               <span>Юридическая информация</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
               Реквизиты компании
             </h2>
           </div>
 
-          <div className="max-w-2xl mx-auto bg-slate-900/60 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-3 font-mono text-xs text-slate-300">
-            <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-white/5 gap-1">
-              <span className="text-slate-400">Наименование:</span>
-              <span className="font-semibold text-white">{COMPANY_INFO.legalName}</span>
+          <div className="max-w-2xl mx-auto bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-8 space-y-3 font-mono text-xs text-slate-700 shadow-sm">
+            <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-slate-200/80 gap-1">
+              <span className="text-slate-500">Наименование:</span>
+              <span className="font-semibold text-slate-900">{COMPANY_INFO.legalName}</span>
             </div>
-            <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-white/5 gap-1">
-              <span className="text-slate-400">Торговая марка:</span>
-              <span className="text-white">«Окна Центр» (Владивосток / Уссурийск)</span>
+            <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-slate-200/80 gap-1">
+              <span className="text-slate-500">Торговая марка:</span>
+              <span className="text-slate-900">«Окна Центр» (Владивосток / Уссурийск)</span>
             </div>
-            <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-white/5 gap-1">
-              <span className="text-slate-400">Опыт работы:</span>
-              <span className="text-white">С 2004 года (более 20 лет на рынке Приморья)</span>
+            <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-slate-200/80 gap-1">
+              <span className="text-slate-500">Опыт работы:</span>
+              <span className="text-slate-900">С 2004 года (более 20 лет на рынке Приморья)</span>
             </div>
-            <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-white/5 gap-1">
-              <span className="text-slate-400">Договор и гарантия:</span>
-              <span className="text-emerald-400">Официальный договор, гарантия на выполненные работы</span>
+            <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-slate-200/80 gap-1">
+              <span className="text-slate-500">Договор и гарантия:</span>
+              <span className="text-emerald-700 font-medium">Официальный договор, гарантия на выполненные работы</span>
             </div>
             <div className="flex flex-col sm:flex-row justify-between py-2 gap-1">
-              <span className="text-slate-400">Вид деятельности:</span>
-              <span className="text-white text-right">Производство, продажа и монтаж светопрозрачных конструкций</span>
+              <span className="text-slate-500">Вид деятельности:</span>
+              <span className="text-slate-900 sm:text-right">Производство, продажа и монтаж светопрозрачных конструкций</span>
             </div>
           </div>
         </div>
