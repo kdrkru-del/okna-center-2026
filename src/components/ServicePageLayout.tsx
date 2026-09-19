@@ -42,19 +42,19 @@ const GALLERY_BY_VARIANT: Record<string, { src: string; caption: string }[]> = {
     { src: "/images/legacy/2a64735301341e2bcc1ff10380187519.jpg", caption: "Остекление балкона с выносом и сайдингом" },
     { src: "/images/legacy/4584baf08d4d0c3367ff109454676224.jpg", caption: "Лоджия под ключ: утепление Изопинком и МДФ" },
     { src: "/images/legacy/bc27c75e17dbf6fddfca54aa15041ac3.jpg", caption: "Французское панорамное остекление от пола до потолка" },
-    { src: "/images/legacy/4e9864818496da13fc2a00f80cab08d5.jpg", caption: "Капитальный ремонт парапета со сваркой" }
+    { src: "/images/legacy/Ns8vYDcL.jpg", caption: "Капитальный ремонт парапета со сваркой и крышей" }
   ],
   repair: [
-    { src: "/images/legacy/76a8fc6188eeb3ab4ffd8716840a897d.jpg", caption: "Замена уплотнителя и регулировка створки" },
+    { src: "/images/legacy/2548e887046d383917d5f9257db03de7.jpg", caption: "Замена уплотнителя и регулировка створки" },
     { src: "/images/legacy/9016ec6d8113c6bbe3a412fc5ca8d248.jpg", caption: "Ремонт фурнитурной обвязки Roto" },
-    { src: "/images/legacy/bfc6e5150df44920b5b67fbc4411c1bb.jpg", caption: "Замена разбитого 2-камерного стеклопакета" },
+    { src: "/images/legacy/full_6tXcBN5Z.png", caption: "Комплексная замена и настройка стеклопакета" },
     { src: "/images/legacy/a520945140f656caf5c8752cb9a70e02.jpg", caption: "Устранение продувания и зимний прижим" }
   ],
   aluminium: [
-    { src: "/images/legacy/7bacd600b5337e3d9ec2d663ba87bbbd.jpg", caption: "Алюминиевая теплая входная группа" },
-    { src: "/images/legacy/c98ac3a796213e2049d480f2d81fd3e8.jpg", caption: "Стоечно-ригельный фасад ALT F50" },
+    { src: "/images/legacy/2489a036e868da93ee6bc1beb53e7061.png", caption: "Алюминиевая теплая входная группа" },
+    { src: "/images/legacy/ede42fb630e43f3661c52cb7f8537276.jpg", caption: "Стоечно-ригельный витражный фасад" },
     { src: "/images/legacy/45027f0d562513ff204e3f1eb597c264.jpg", caption: "Раздвижные алюминиевые конструкции" },
-    { src: "/images/legacy/c40edb113acdd0f9dd1abc7874e9a218.jpg", caption: "Панорамный витраж в частном коттедже" }
+    { src: "/images/legacy/Al2fspIs.jpg", caption: "Панорамные теплые алюминиевые порталы" }
   ],
   materials: [
     { src: "/images/legacy/36c9e0b66c561160ca46ea78ed441f28.jpg", caption: "Фасадные панели Ханьи под кирпич" },

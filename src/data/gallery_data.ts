@@ -38,13 +38,6 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ст. Садгород"
   },
   {
-    "id": "win_cottage_classic_white",
-    "src": "/images/legacy/b100bb11e3db0f0f4c3bdfe2d1ac9a08.jpg",
-    "title": "Комплексное остекление загородного дома двухкамерными стеклопакетами",
-    "category": "windows",
-    "location": "Надеждинский район"
-  },
-  {
     "id": "win_dacha_summer_house",
     "src": "/images/legacy/847c7f1f106f69c5bc24465f9b20bef3.jpg",
     "title": "Установка готовых окон для дачного дома с москитными сетками",
@@ -52,32 +45,11 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ст. Весенняя"
   },
   {
-    "id": "win_dacha_compact",
-    "src": "/images/legacy/fbe2f688a51def14d6a7f620bfa8480f.jpg",
-    "title": "Монтаж поворотно-откидного окна в загородном коттедже",
-    "category": "windows",
-    "location": "г. Артём"
-  },
-  {
     "id": "win_laminated_natural_oak",
     "src": "/images/legacy/full_7sqeCo56.jpg",
     "title": "Дизайнерские окна с ламинацией под натуральный дуб в интерьере",
     "category": "windows",
     "location": "Владивосток, ул. Светланская"
-  },
-  {
-    "id": "win_laminated_wood_cottage",
-    "src": "/images/legacy/3d8fb82694b5c96b3091bed0a9e05b60.jpg",
-    "title": "Остекление деревянного дома ламинированными окнами ПВХ",
-    "category": "windows",
-    "location": "Пригород, пос. Соловей Ключ"
-  },
-  {
-    "id": "win_laminated_brown_frame",
-    "src": "/images/legacy/5b4bcb9b6fed188c26eb07b00198edc6.jpg",
-    "title": "Окна с двухсторонней ламинацией и скрытыми петлями",
-    "category": "windows",
-    "location": "Владивосток, пр-т 100-летия Владивостока"
   },
   {
     "id": "win_laminated_walnut",
@@ -122,20 +94,6 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, Партизанский пр-т"
   },
   {
-    "id": "win_two_leaf_panel_house",
-    "src": "/images/legacy/bb29ad933dc6eaae626635edcf31d0a3.jpg",
-    "title": "Замена старых деревянных рам на теплые окна Rehau в панельном доме",
-    "category": "windows",
-    "location": "Владивосток, ул. Борисенко"
-  },
-  {
-    "id": "win_standard_brick_house",
-    "src": "/images/legacy/fcb89289c37f743430c7df17674a69db.jpg",
-    "title": "Монтаж пластиковых окон в кирпичном доме с широкими теплыми подоконниками",
-    "category": "windows",
-    "location": "Владивосток, ул. Алеутская"
-  },
-  {
     "id": "win_french_panoramic_floor",
     "src": "/images/legacy/45027f0d562513ff204e3f1eb597c264.jpg",
     "title": "Французские панорамные окна в пол с выходом на террасу",
@@ -150,32 +108,53 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, объект заказчика"
   },
   {
-    "id": "win_installation_ready_open",
-    "src": "/images/legacy/e4c8f8f5e9d29ccea4e4cbef9097489d.jpg",
-    "title": "Установленное окно с открытой створкой на зимнем проветривании",
+    "id": "win_modern_cottage_facade",
+    "src": "/images/hero/hero-daylight-villa.jpg",
+    "title": "Панорамное фасадное остекление загородной резиденции премиум-системами Rehau",
+    "category": "windows",
+    "location": "Владивосток, пос. Седанка"
+  },
+  {
+    "id": "win_newbuild_installation",
+    "src": "/images/legacy/07b0dc69dcbda8a26d09c747cc2eb8c1.jpg",
+    "title": "Установка энергоэффективных пластиковых окон в новостройке повышенной комфортности",
+    "category": "windows",
+    "location": "Владивосток, ул. Русская"
+  },
+  {
+    "id": "win_wood_laminate_cottage",
+    "src": "/images/legacy/465abbe7c70345d3a9baf7cc758f2ad9.jpg",
+    "title": "Окна с двухсторонней ламинацией под дерево для частного коттеджа",
+    "category": "windows",
+    "location": "Пригород, пос. Трудовое"
+  },
+  {
+    "id": "win_brick_house_install",
+    "src": "/images/legacy/7dba6f0be5058fae4ae8bb0f43b6aa67.jpg",
+    "title": "Монтаж теплого оконного блока в кирпичном доме по ГОСТу с паро- и гидроизоляцией",
+    "category": "windows",
+    "location": "Владивосток, пр-т 100-летия Владивостока"
+  },
+  {
+    "id": "win_suburban_dacha_glazing",
+    "src": "/images/legacy/909824d3674fec397df45f352efcd27a.jpg",
+    "title": "Остекление дачного загородного дома надежными поворотно-откидными окнами ПВХ",
+    "category": "windows",
+    "location": "Владивосток, ст. Весенняя"
+  },
+  {
+    "id": "win_double_glazed_turnkey",
+    "src": "/images/legacy/99dbfc657bbb2cc5d99b82775283034b.png",
+    "title": "Монтаж двухстворчатого окна с энергосберегающим стеклопакетом и широким подоконником",
     "category": "windows",
     "location": "Владивосток, ул. Калинина"
   },
   {
-    "id": "win_brick_wall_sealed",
-    "src": "/images/legacy/4ba37885cb51fd3f76c969ae74f75ed6.jpg",
-    "title": "Монтаж пластикового окна в кирпичной кладке с защитной пароизоляцией",
+    "id": "win_multichamber_profile_cut",
+    "src": "/images/legacy/db7eeb03b34b1d5a8cb1d52243b0e21f.jpg",
+    "title": "Фирменный немецкий профиль Rehau с замкнутым армированием и уплотнителем EPDM",
     "category": "windows",
-    "location": "Владивосток, ул. Океанский пр-т"
-  },
-  {
-    "id": "win_living_renovation",
-    "src": "/images/legacy/3d8db2b6efeddffa4a1bb4efd1ce5931.jpg",
-    "title": "Энергосберегающие окна в процессе комплексного ремонта квартиры",
-    "category": "windows",
-    "location": "Владивосток, ул. Толстого"
-  },
-  {
-    "id": "win_cottage_mansard",
-    "src": "/images/legacy/14ea25c6eb0cc63a9666d58313d31b00.jpg",
-    "title": "Монтаж окон в мансардном этаже загородного дома",
-    "category": "windows",
-    "location": "Пригород, урочище Соловей Ключ"
+    "location": "Выставочный зал «Окна Центр»"
   },
   {
     "id": "balc_turnkey_panoramic_cabinet",
@@ -248,20 +227,6 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ул. Всеволода Сибирцева"
   },
   {
-    "id": "balc_facade_glazing_residential",
-    "src": "/images/legacy/4e9864818496da13fc2a00f80cab08d5.jpg",
-    "title": "Внешнее остекление лоджии с установкой отливов и нащельников",
-    "category": "balconies",
-    "location": "Владивосток, ул. Кирова"
-  },
-  {
-    "id": "balc_warm_frame_interior",
-    "src": "/images/legacy/29a6764291109061736d7bdc6e7f721d.jpg",
-    "title": "Монтаж теплого контура остекления перед внутренней чистовой отделкой",
-    "category": "balconies",
-    "location": "Владивосток, ул. Котельникова"
-  },
-  {
     "id": "balc_compact_warm_balcony",
     "src": "/images/legacy/full_6l64jnEm.jpg",
     "title": "Остекление стандартного 3-метрового балкона в кирпичном доме",
@@ -283,13 +248,6 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ул. Спортивная"
   },
   {
-    "id": "balc_turnkey_clean_finish",
-    "src": "/images/legacy/c3a84d78bc8efa995a25b97481f9e47a.jpg",
-    "title": "Чистовая отделка лоджии влагостойкими панелями с установкой точечных светильников",
-    "category": "balconies",
-    "location": "Владивосток, ул. Сабанеева"
-  },
-  {
     "id": "balc_panoramic_white_loggia",
     "src": "/images/legacy/68140a2c3eb8c772fc55fb4063e6886f.jpg",
     "title": "Панорамное остекление лоджии с двухкамерными теплыми стеклопакетами",
@@ -304,18 +262,32 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ул. Тухачевского"
   },
   {
-    "id": "balc_brick_loggia_glazed",
-    "src": "/images/legacy/e81f4bb067a78cd9738aa774363538ae.jpg",
-    "title": "Остекление лоджии в кирпичной новостройке профилем Funke",
-    "category": "balconies",
-    "location": "г. Уссурийск, ул. Ленина"
-  },
-  {
     "id": "balc_showroom_display",
     "src": "/images/legacy/2a64735301341e2bcc1ff10380187519.jpg",
     "title": "Выставочный образец комплексного остекления и отделки лоджии в офисе компании",
     "category": "balconies",
     "location": "Владивосток, ул. Ильичева 29"
+  },
+  {
+    "id": "balc_panoramic_daylight_terrace",
+    "src": "/images/hero/hero-daylight-patio.jpg",
+    "title": "Панорамное теплое остекление просторной террасы с распашными дверями в пол",
+    "category": "balconies",
+    "location": "Владивосток, Садгород"
+  },
+  {
+    "id": "balc_turnkey_insulation_cladding",
+    "src": "/images/legacy/full_dqNbEp3C.jpg",
+    "title": "Комплексное утепление лоджии пеноплексом и чистовая отделка под ключ",
+    "category": "balconies",
+    "location": "Владивосток, ул. Светланская"
+  },
+  {
+    "id": "balc_exterior_vinyl_siding",
+    "src": "/images/legacy/ef03b9561fddcafaf4657793ca76d6f0.jpg",
+    "title": "Наружная ветрозащитная обшивка балкона морозостойким виниловым сайдингом",
+    "category": "balconies",
+    "location": "Владивосток, ул. Некрасовская"
   },
   {
     "id": "fin_warm_insulation_layer",
@@ -332,13 +304,6 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ул. Семеновская"
   },
   {
-    "id": "fin_turnkey_loggia_plaster",
-    "src": "/images/legacy/c2f5538fc26b2cf2f4615bde2d239d64.jpg",
-    "title": "Утепление стен, монтаж влагостойкого гипсокартона и чистовая покраска",
-    "category": "finishing",
-    "location": "Владивосток, пр-т Красного Знамени"
-  },
-  {
     "id": "fin_floor_heating_install",
     "src": "/images/legacy/full_R2WWIKwY.jpg",
     "title": "Устройство инфракрасного теплого пола и настил коммерческого линолеума на балконе",
@@ -346,25 +311,32 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ул. Русская"
   },
   {
-    "id": "fin_wall_ceiling_lighting",
-    "src": "/images/legacy/24944a510b2fc9015cce8e90fe862a29.jpg",
-    "title": "Монтаж натяжного потолка со встроенными спотами на утепленной лоджии",
-    "category": "finishing",
-    "location": "Владивосток, ул. Бестужева"
-  },
-  {
-    "id": "fin_side_wall_cupboard",
-    "src": "/images/legacy/9bf786c0e60e99f3bfdffe86ecf1dc09.jpg",
-    "title": "Изготовление встроенного влагостойкого шкафа на балконе по индивидуальным размерам",
-    "category": "finishing",
-    "location": "Владивосток, ул. Верхнепортовая"
-  },
-  {
     "id": "fin_under_window_insulation",
     "src": "/images/legacy/f270d6f307895b915815537be47eacf2.jpg",
     "title": "Герметизация швов и утепление парапета под подоконной доской",
     "category": "finishing",
     "location": "Владивосток, ул. Кирова"
+  },
+  {
+    "id": "fin_hanyi_facade_cladding",
+    "src": "/images/legacy/36c9e0b66c561160ca46ea78ed441f28.jpg",
+    "title": "Облицовка балкона долговечными фасадными термопанелями Ханьи с фактурой кирпича",
+    "category": "finishing",
+    "location": "Владивосток, ул. Кирова"
+  },
+  {
+    "id": "fin_pvc_panels_walls_ceiling",
+    "src": "/images/legacy/49d6fda5234f00ba8013574d4c808d06.jpg",
+    "title": "Внутренняя отделка стен и потолка лоджии влагостойкими глянцевыми ПВХ-панелями",
+    "category": "finishing",
+    "location": "Владивосток, ул. Океанский проспект"
+  },
+  {
+    "id": "fin_composite_thermal_panels",
+    "src": "/images/legacy/e2a1410ba6597ca740d16822a98d1bd4.jpg",
+    "title": "Внешняя теплоизоляция и декоративная облицовка парапета японскими панелями",
+    "category": "finishing",
+    "location": "Владивосток, ул. Чкалова"
   },
   {
     "id": "fac_glass_pavilion_architecture",
@@ -395,27 +367,6 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ул. Фонтанная"
   },
   {
-    "id": "fac_sliding_balcony_system",
-    "src": "/images/legacy/c40edb113acdd0f9dd1abc7874e9a218.jpg",
-    "title": "Раздвижное холодное алюминиевое остекление балкона системы Provedal",
-    "category": "facades",
-    "location": "Владивосток, ул. Прапорщика Комарова"
-  },
-  {
-    "id": "fac_wide_sliding_terrace",
-    "src": "/images/legacy/c98ac3a796213e2049d480f2d81fd3e8.jpg",
-    "title": "Панорамные алюминиевые раздвижные створки с защитой от тайфунов",
-    "category": "facades",
-    "location": "Владивосток, ул. Батарейная"
-  },
-  {
-    "id": "fac_glazed_veranda_doors",
-    "src": "/images/legacy/7bacd600b5337e3d9ec2d663ba87bbbd.jpg",
-    "title": "Остекление террасы и веранды алюминиевыми распашными дверями",
-    "category": "facades",
-    "location": "Пригород, пос. Трудовое"
-  },
-  {
     "id": "fac_entrance_group_aluminum",
     "src": "/images/legacy/e25a0f77cfde45e3c6be345e2ffea560.jpg",
     "title": "Входная группа из теплого алюминиевого профиля со стеклом триплекс",
@@ -430,11 +381,25 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ул. Амурская"
   },
   {
-    "id": "fac_balcony_sliding_frame",
-    "src": "/images/legacy/e6d23e86d7ce60e65c236700b0772d7c.jpg",
-    "title": "Алюминиевая раздвижная конструкция с фетровым уплотнителем",
+    "id": "fac_penthouse_panoramic_daylight",
+    "src": "/images/hero/hero-daylight-penthouse.jpg",
+    "title": "Витражное стоечно-ригельное остекление пентхауса с панорамным видом на залив",
     "category": "facades",
-    "location": "Владивосток, ул. Хабаровская"
+    "location": "Владивосток, мыс Эгершельд"
+  },
+  {
+    "id": "fac_warm_aluminum_entrance_doors",
+    "src": "/images/legacy/2489a036e868da93ee6bc1beb53e7061.png",
+    "title": "Входная группа и витражи из теплого алюминиевого профиля Alutech со стеклом триплекс",
+    "category": "facades",
+    "location": "Владивосток, ул. Алеутская"
+  },
+  {
+    "id": "fac_vitrage_aluminum_commercial",
+    "src": "/images/legacy/ede42fb630e43f3661c52cb7f8537276.jpg",
+    "title": "Фасадные алюминиевые конструкции и витражи для коммерческого здания",
+    "category": "facades",
+    "location": "Владивосток, ул. Пологая"
   },
   {
     "id": "rep_technician_hardware_drill",
@@ -472,13 +437,6 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ул. Овчинникова"
   },
   {
-    "id": "rep_handle_child_safety_lock",
-    "src": "/images/legacy/825326a09165343c1dd3be3f2b6ec387.jpg",
-    "title": "Установка ручки с детским замком безопасности и защита от случайного открывания",
-    "category": "repairs",
-    "location": "Владивосток, ул. Нейбута"
-  },
-  {
     "id": "rep_double_glazed_unit_swap",
     "src": "/images/legacy/e5962becc20e99773c441e7d9e904a49.jpg",
     "title": "Срочная замена треснувшего стеклопакета на энергосберегающий с аргоном",
@@ -500,10 +458,24 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток, ул. Луговая"
   },
   {
-    "id": "rep_strike_plate_setting",
-    "src": "/images/legacy/bfc6e5150df44920b5b67fbc4411c1bb.jpg",
-    "title": "Замена ответных планок фурнитуры и настройка плавного хода ручки",
+    "id": "rep_hardware_adjustment_geometry",
+    "src": "/images/legacy/2548e887046d383917d5f9257db03de7.jpg",
+    "title": "Регулировка геометрии створки, настройка плотного прижима фурнитуры Roto",
     "category": "repairs",
-    "location": "Владивосток, ул. Снеговая"
+    "location": "Владивосток, ул. Русская"
+  },
+  {
+    "id": "rep_lock_child_safety_handles",
+    "src": "/images/legacy/3f4d7f43e03ccec3c7ac05f930b3d171.png",
+    "title": "Установка ручек с замком от детей и замена замковых механизмов",
+    "category": "repairs",
+    "location": "Владивосток, ул. Ильичева"
+  },
+  {
+    "id": "rep_full_lubrication_maintenance",
+    "src": "/images/legacy/full_6tXcBN5Z.png",
+    "title": "Профессиональное сервисное обслуживание, очистка и смазка оконных механизмов",
+    "category": "repairs",
+    "location": "Владивосток, ул. Давыдова"
   }
 ];

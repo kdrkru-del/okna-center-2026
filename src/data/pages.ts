@@ -573,7 +573,7 @@ export const PAGES_DATA: Record<string, PageDefinition> = {
     legacyUrl: "/otdielochnyie_matierialy",
     canonical: "https://xn--80aknmcbtp7a.xn--p1ai/otdielochnyie_matierialy/",
     keywordsIntent: ["отделочные материалы для балкона", "панели мдф владивосток", "панели пвх для лоджии", "материалы для обшивки балкона"],
-    heroImage: "/images/legacy/fcffed1f7890bdef6255edf48204a41e.jpg",
+    heroImage: "/images/legacy/49d6fda5234f00ba8013574d4c808d06.jpg",
     badge: "МДФ · ПВХ · Ханьи · Сайдинг",
     priceFrom: "от 650 ₽/м²",
     verifiedFacts: ["МДФ и ПВХ панели", "Фасадные панели Ханьи", "Утеплитель Изопинк", "Сайдинг виниловый"],
