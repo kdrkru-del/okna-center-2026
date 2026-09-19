@@ -8,12 +8,6 @@ import { asset } from "@/lib/assetPath";
 
 const VIEWS = [
   {
-    id: "penthouse",
-    label: "Пентхаус у моря",
-    tag: "Панорама в пол",
-    image: "/images/hero/hero-daylight-penthouse.jpg",
-  },
-  {
     id: "villa",
     label: "Загородная вилла",
     tag: "Порталы HS",
@@ -86,16 +80,16 @@ export default function HeroArchitectural() {
       </div>
 
       {/* 2. ATMOSPHERE / PROJECT SELECTOR (TOP RIGHT) */}
-      <div className="absolute top-28 right-4 sm:right-8 z-30 hidden md:flex items-center gap-1.5 p-1.5 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/90 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
-        <span className="text-[10px] font-mono uppercase text-slate-500 font-semibold px-2">Проект:</span>
+      <div className="absolute top-28 right-4 sm:right-8 z-30 hidden md:flex items-center gap-1.5 p-1 rounded-2xl bg-white/25 hover:bg-white/35 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all">
+        <span className="text-[10px] font-mono uppercase text-slate-900 font-bold px-2.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">Проект:</span>
         {VIEWS.map((view, idx) => (
           <button
             key={view.id}
             onClick={() => setActiveView(idx)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs transition-all cursor-pointer ${
               activeView === idx
-                ? "bg-slate-950 text-white shadow-sm font-semibold"
-                : "text-slate-700 hover:bg-white/60 hover:text-slate-950"
+                ? "bg-slate-950 text-white shadow-md font-bold"
+                : "text-slate-900 hover:bg-white/40 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
             }`}
           >
             {view.label}
@@ -148,20 +142,20 @@ export default function HeroArchitectural() {
         })}
       </div>
 
-      {/* 4. FLOATING ARCHITECTURAL PAVILION (LUXURY SEMI-TRANSPARENT FROSTED GLASS CONSOLE) */}
+      {/* 4. FLOATING ARCHITECTURAL PAVILION (LUXURY ULTRA-TRANSPARENT FROSTED GLASS CONSOLE) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
-        <div className="max-w-xl lg:max-w-2xl p-7 sm:p-10 lg:p-12 rounded-3xl bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-white/70 shadow-[0_30px_90px_rgba(0,0,0,0.14)] ring-1 ring-white/50 transition-colors duration-500 animate-in fade-in slide-in-from-bottom-3">
+        <div className="max-w-xl lg:max-w-2xl p-7 sm:p-10 lg:p-12 rounded-3xl bg-white/12 hover:bg-white/18 backdrop-blur-2xl border border-white/30 shadow-[0_20px_60px_rgba(0,0,0,0.12)] ring-1 ring-white/20 transition-all duration-500 animate-in fade-in slide-in-from-bottom-3">
           
           {/* Status badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 text-slate-900 text-[11px] font-mono uppercase tracking-widest mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/25 backdrop-blur-md border border-white/40 text-slate-950 text-[11px] font-mono uppercase tracking-widest mb-6 shadow-xs font-bold">
             <span className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
-            <span className="font-bold text-slate-950">Архитектурное остекление</span>
+            <span>Архитектурное остекление</span>
             <span className="text-slate-400">·</span>
-            <span className="text-slate-700">Владивосток с 2004 г.</span>
+            <span className="text-slate-800">Владивосток с 2004 г.</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-5 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-5 drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)]">
             Архитектура света <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-slate-900 to-cyan-800">
               в вашем доме
@@ -169,7 +163,7 @@ export default function HeroArchitectural() {
           </h1>
 
           {/* Editorial Subtitle */}
-          <p className="text-slate-800 text-sm sm:text-base lg:text-lg font-medium leading-relaxed mb-8 drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">
+          <p className="text-slate-900 text-sm sm:text-base lg:text-lg font-semibold leading-relaxed mb-8 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
             Проектирование и собственное производство панорамных порталов в пол, энергоэффективных окон Rehau и Schüco, тёплых лоджий под ключ. Рассчитано на экстремальные ветровые нагрузки Приморья до 38 м/с.
           </p>
 
@@ -185,29 +179,29 @@ export default function HeroArchitectural() {
 
             <Link
               href="/ghalierieia_rabot"
-              className="px-6 py-4 rounded-2xl bg-white/70 hover:bg-white text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider border border-white/90 shadow-sm backdrop-blur-md transition-all cursor-pointer"
+              className="px-6 py-4 rounded-2xl bg-white/25 hover:bg-white/40 text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider border border-white/50 shadow-sm backdrop-blur-md transition-all cursor-pointer drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]"
             >
               Галерея 100+ объектов
             </Link>
           </div>
 
           {/* Technical Specs Metric Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-900/10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-900/15">
             <div>
-              <div className="text-lg sm:text-xl font-bold text-slate-950 font-mono">20+ лет</div>
-              <div className="text-[11px] text-slate-700 font-medium">опыт в Приморье</div>
+              <div className="text-lg sm:text-xl font-black text-slate-950 font-mono drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">20+ лет</div>
+              <div className="text-[11px] text-slate-900 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">опыт в Приморье</div>
             </div>
             <div>
-              <div className="text-lg sm:text-xl font-bold text-slate-950 font-mono">до 10 лет</div>
-              <div className="text-[11px] text-slate-700 font-medium">гарантия по договору</div>
+              <div className="text-lg sm:text-xl font-black text-slate-950 font-mono drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">до 10 лет</div>
+              <div className="text-[11px] text-slate-900 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">гарантия по договору</div>
             </div>
             <div>
-              <div className="text-lg sm:text-xl font-bold text-cyan-800 font-mono">38 м/с</div>
-              <div className="text-[11px] text-slate-700 font-medium">тайфун-контроль</div>
+              <div className="text-lg sm:text-xl font-black text-cyan-900 font-mono drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">38 м/с</div>
+              <div className="text-[11px] text-slate-900 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">тайфун-контроль</div>
             </div>
             <div>
-              <div className="text-lg sm:text-xl font-bold text-slate-950 font-mono">0 ₽</div>
-              <div className="text-[11px] text-slate-700 font-medium">лазерный 3D-замер</div>
+              <div className="text-lg sm:text-xl font-black text-slate-950 font-mono drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">0 ₽</div>
+              <div className="text-[11px] text-slate-900 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">лазерный 3D-замер</div>
             </div>
           </div>
 
@@ -218,11 +212,11 @@ export default function HeroArchitectural() {
           {HOTSPOTS.map((spot) => (
             <div
               key={spot.id}
-              className="flex-shrink-0 p-3 rounded-2xl bg-white/60 backdrop-blur-xl border border-white/80 shadow-md text-xs max-w-[240px]"
+              className="flex-shrink-0 p-3 rounded-2xl bg-white/25 backdrop-blur-xl border border-white/40 shadow-md text-xs max-w-[240px]"
             >
-              <span className="text-[9px] font-mono uppercase text-cyan-700 font-bold block mb-0.5">{spot.tag}</span>
-              <div className="font-bold text-slate-900 text-xs mb-1">{spot.title}</div>
-              <p className="text-[11px] text-slate-600 font-light leading-snug">{spot.desc}</p>
+              <span className="text-[9px] font-mono uppercase text-cyan-800 font-bold block mb-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">{spot.tag}</span>
+              <div className="font-bold text-slate-950 text-xs mb-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">{spot.title}</div>
+              <p className="text-[11px] text-slate-900 font-medium leading-snug drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">{spot.desc}</p>
             </div>
           ))}
         </div>

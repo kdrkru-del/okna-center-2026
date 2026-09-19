@@ -147,7 +147,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href={asset("/images/hero/hero-daylight-penthouse.jpg")}
+          href={asset("/images/hero/hero-daylight-villa.jpg")}
           fetchPriority="high"
         />
         <script

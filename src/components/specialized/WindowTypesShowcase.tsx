@@ -25,7 +25,7 @@ const WINDOW_TYPES: WindowTypeItem[] = [
     priceFrom: "от 14 000 ₽",
     chambers: "3 или 5 камер (Rehau / KBE / Funke)",
     glassFormula: "1-кам (24 мм) или 2-кам (32/40 мм)",
-    image: "/images/legacy/8a5eaf9e54230a487b7b6d054d07a6f0.jpg",
+    image: "/images/legacy/full_6tXcBN5Z.png",
     description: "Компактное решение для кухни, санузла, дачи или коридора. Может быть глухим или поворотно-откидным с микропроветриванием.",
     features: [
       "Доступно со склада без монтажа от 14 000 ₽",
@@ -55,7 +55,7 @@ const WINDOW_TYPES: WindowTypeItem[] = [
     priceFrom: "По расчёту",
     chambers: "5-камерная система 70 мм",
     glassFormula: "2-камерный шумопоглощающий стеклопакет",
-    image: "/images/legacy/9a0f1bcf4793bbba54ee52cfd2caaf37.jpg",
+    image: "/images/bento/bento-rehau-windows.jpg",
     description: "Широкое остекление гостиных и залов с максимальным световым проемом. Две открывающиеся створки для удобного мытья стекол.",
     features: [
       "Усиленное стальное армирование 1.5 мм в раме и импостах",
@@ -70,7 +70,7 @@ const WINDOW_TYPES: WindowTypeItem[] = [
     priceFrom: "По расчёту",
     chambers: "5-камерный профиль ПВХ",
     glassFormula: "Энергосберегающий мультифункциональный блок",
-    image: "/images/legacy/8dfab624d3be3abdf4bd567d33074e74.jpg",
+    image: "/images/legacy/45027f0d562513ff204e3f1eb597c264.jpg",
     description: "Единый эргономичный выход на лоджию или балкон. Поворотно-откидная дверь с микропроветриванием и теплым сэндвич-порогом.",
     features: [
       "Многозапорный замок двери для плотного прижима контура",

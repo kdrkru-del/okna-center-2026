@@ -19,9 +19,9 @@ export const galleryCategories = [
 
 export const galleryItems: GalleryItem[] = [
   {
-    "id": "full_PRpT44QF",
-    "src": "/images/legacy/full_PRpT44QF.png",
-    "title": "Утепление и внутренняя отделка лоджии во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_loggia_finishing_luxury",
+    "src": "/images/legacy/4584baf08d4d0c3367ff109454676224.jpg",
+    "title": "Утепление и внутренняя отделка лоджии под ключ",
     "category": "finishing",
     "location": "Владивосток / Приморский край"
   },
@@ -54,9 +54,9 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "62a6b0f7601b893511e85b92207d2237",
-    "src": "/images/legacy/62a6b0f7601b893511e85b92207d2237.jpg",
-    "title": "Пластиковые окна от производителя во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_window_installation_gost",
+    "src": "/images/legacy/54a23164a3970dd0f09d0e561ea53674.jpg",
+    "title": "Монтаж пластиковых окон по ГОСТ с пароизоляцией",
     "category": "windows",
     "location": "Владивосток / Приморский край"
   },
@@ -96,9 +96,9 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "07b0dc69dcbda8a26d09c747cc2eb8c1",
-    "src": "/images/legacy/07b0dc69dcbda8a26d09c747cc2eb8c1.jpg",
-    "title": "Пластиковые окна от производителя во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_window_white_rehau",
+    "src": "/images/legacy/full_6tXcBN5Z.png",
+    "title": "Поворотно-откидное окно Rehau с энергосберегающим стеклопакетом",
     "category": "windows",
     "location": "Владивосток / Приморский край"
   },
@@ -110,9 +110,9 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "ba1f999e3924015f317561925f062d84",
-    "src": "/images/legacy/ba1f999e3924015f317561925f062d84.jpg",
-    "title": "Пластиковые окна от производителя во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_window_measurement_service",
+    "src": "/images/legacy/8dfab624d3be3abdf4bd567d33074e74.jpg",
+    "title": "Профессиональный замер и подготовка оконного проема",
     "category": "windows",
     "location": "Владивосток / Приморский край"
   },
@@ -138,9 +138,9 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "deb568c8c0de700a839625e9d21a1dac",
-    "src": "/images/legacy/deb568c8c0de700a839625e9d21a1dac.jpg",
-    "title": "Остекление балкона под ключ во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_loggia_cabinet_panoramic",
+    "src": "/images/legacy/full_LNbRAzwr.jpg",
+    "title": "Теплая лоджия-кабинет с панорамным остеклением",
     "category": "balconies",
     "location": "Владивосток / Приморский край"
   },
@@ -264,9 +264,9 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "8a5eaf9e54230a487b7b6d054d07a6f0",
-    "src": "/images/legacy/8a5eaf9e54230a487b7b6d054d07a6f0.jpg",
-    "title": "Остекление балкона под ключ во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_balcony_panoramic_tinted",
+    "src": "/images/legacy/aa09cc7e70d16cfdac3ec4e583b4b82c.jpg",
+    "title": "Панорамное остекление балкона с тонированными солнцезащитными стеклами",
     "category": "balconies",
     "location": "Владивосток / Приморский край"
   },
@@ -343,14 +343,14 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "b6863894b0fe7c7f6b123b378d29d52c",
     "src": "/images/legacy/b6863894b0fe7c7f6b123b378d29d52c.jpg",
-    "title": "Пенопласт ПСБС                             Является современным утеплителем, кот",
+    "title": "Теплоизоляция лоджий пенопластом ПСБ-С",
     "category": "materials",
     "location": "Владивосток / Приморский край"
   },
   {
     "id": "710981c6630ca8d729836b82b170bf83",
     "src": "/images/legacy/710981c6630ca8d729836b82b170bf83.jpg",
-    "title": "Изопинк                               Плиты изопинк обладают низким коэффициенто",
+    "title": "Утепление балконов экструдированными плитами Изопинк",
     "category": "materials",
     "location": "Владивосток / Приморский край"
   },
@@ -364,7 +364,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "e272318b06818f3f256dc301912ed027",
     "src": "/images/legacy/e272318b06818f3f256dc301912ed027.jpg",
-    "title": "Панели мдф                                                   ­Словосочетание МДФ",
+    "title": "Внутренняя отделка балконов и лоджий панелями МДФ",
     "category": "materials",
     "location": "Владивосток / Приморский край"
   },
@@ -425,9 +425,9 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "2548e887046d383917d5f9257db03de7",
-    "src": "/images/legacy/2548e887046d383917d5f9257db03de7.jpg",
-    "title": "Ремонт и обслуживание окон во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_window_adjustment_hardware",
+    "src": "/images/legacy/full_YFiXhAvx.jpg",
+    "title": "Регулировка фурнитуры и сезонная настройка прижима створок",
     "category": "repairs",
     "location": "Владивосток / Приморский край"
   },
@@ -495,9 +495,9 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "76a8fc6188eeb3ab4ffd8716840a897d",
-    "src": "/images/legacy/76a8fc6188eeb3ab4ffd8716840a897d.jpg",
-    "title": "Ремонт и обслуживание окон во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_window_seal_repair",
+    "src": "/images/legacy/e2b3bb36e79c1f2c1599ede31a508e27.jpg",
+    "title": "Замена уплотнительной резины и сервисный ремонт фурнитуры",
     "category": "repairs",
     "location": "Владивосток / Приморский край"
   },
@@ -642,9 +642,9 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "e99a9e4ffa25406d9a8cad81d4b5beb3",
-    "src": "/images/legacy/e99a9e4ffa25406d9a8cad81d4b5beb3.jpg",
-    "title": "Пластиковые окна от производителя во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_french_panoramic_windows",
+    "src": "/images/legacy/45027f0d562513ff204e3f1eb597c264.jpg",
+    "title": "Французские панорамные окна в пол с энергосбережением",
     "category": "windows",
     "location": "Владивосток / Приморский край"
   },
@@ -698,16 +698,16 @@ export const galleryItems: GalleryItem[] = [
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "9a0f1bcf4793bbba54ee52cfd2caaf37",
-    "src": "/images/legacy/9a0f1bcf4793bbba54ee52cfd2caaf37.jpg",
-    "title": "Пластиковые окна от производителя во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_laminated_bay_window",
+    "src": "/images/legacy/fa88e5ce2640e3d853524a7973ba151a.jpg",
+    "title": "Эркерное окно с ламинацией «темный дуб» и декоративной золотой раскладкой",
     "category": "windows",
     "location": "Владивосток / Приморский край"
   },
   {
-    "id": "b7a611534eea789133edc565a9a83e9a",
-    "src": "/images/legacy/b7a611534eea789133edc565a9a83e9a.jpg",
-    "title": "Пластиковые окна от производителя во Владивостоке — компания «Окна Центр»",
+    "id": "gallery_dacha_cottage_windows",
+    "src": "/images/legacy/1250b8bf7ed7358b942278719faab6d5.jpg",
+    "title": "Остекление коттеджа и дачного дома окнами Rehau с защитными решетками",
     "category": "windows",
     "location": "Владивосток / Приморский край"
   },

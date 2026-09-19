@@ -30,7 +30,7 @@ export const MAIN_NAVIGATION: NavSection[] = [
     megaMenu: {
       featuredTitle: "Немецкие системы Rehau & Funke",
       featuredDesc: "Шумоизоляция и энергосбережение для приморского климата. Монтаж по ГОСТ.",
-      featuredImage: "/images/legacy/8a5eaf9e54230a487b7b6d054d07a6f0.jpg",
+      featuredImage: "/images/bento/bento-rehau-windows.jpg",
       featuredLink: "/profil_dlya_okon",
       categories: [
         {
@@ -60,7 +60,7 @@ export const MAIN_NAVIGATION: NavSection[] = [
     megaMenu: {
       featuredTitle: "Балконы и лоджии под ключ",
       featuredDesc: "Комплексное остекление, сварочные работы, вынос парапета и чистовая отделка за 3-5 дней.",
-      featuredImage: "/images/legacy/c6eb11d211d27a72c608503a3d31636b.jpg",
+      featuredImage: "/images/bento/bento-balconies-turnkey.jpg",
       featuredLink: "/lodgia_pod_klyuch_vladivostok",
       categories: [
         {
