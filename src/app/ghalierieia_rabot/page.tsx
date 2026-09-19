@@ -37,7 +37,7 @@ export default function GalleryPage() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
             <Camera className="w-3.5 h-3.5" />
-            <span>100+ реальных объектов</span>
+            <span>70+ реальных объектов</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
             Галерея наших работ

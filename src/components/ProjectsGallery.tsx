@@ -107,7 +107,7 @@ export default function ProjectsGallery({ limit }: { limit?: number }) {
               href="/ghalierieia_rabot"
               className="px-8 py-3.5 bg-slate-950 hover:bg-cyan-600 text-white rounded-2xl text-xs uppercase font-mono tracking-wider transition-colors inline-block shadow-md shadow-slate-900/10"
             >
-              Посмотреть все 100+ работ в галерее →
+              Посмотреть все работы в галерее →
             </Link>
           </div>
         )}
