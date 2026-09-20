@@ -10,7 +10,7 @@ import {
   ShieldCheck, 
   ArrowRight, 
   ArrowDown, 
-  Sparkles, 
+  Sparkles,
   CheckCircle2 
 } from "lucide-react";
 
@@ -87,10 +87,6 @@ export default function ProcessSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
-            <span>Прозрачный регламент</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
             Как мы работаем от заявки до гарантии
           </h2>

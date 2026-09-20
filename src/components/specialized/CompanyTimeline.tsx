@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ShieldCheck, Building2, Calendar, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Building2, CheckCircle2 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 
 interface FactItem {
@@ -38,10 +38,6 @@ export default function CompanyTimeline() {
     <div className="rounded-3xl bg-slate-50 border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
-            <Calendar className="w-3.5 h-3.5" />
-            <span>О компании · Подтвержденные факты</span>
-          </div>
           <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             О компании «Окна Центр»
           </h3>

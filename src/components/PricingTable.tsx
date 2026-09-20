@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { PRICE_CATEGORIES, PRICES_LIST, PriceItem } from "@/data/prices_catalog";
-import { Search, Tag, Check, Sparkles } from "lucide-react";
+import { Search, Check } from "lucide-react";
 import Link from "next/link";
 
 export default function PricingTable() {
@@ -21,10 +21,6 @@ export default function PricingTable() {
     <section id="prices" className="py-20 bg-white text-slate-900 border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-3">
-            <Tag className="w-3.5 h-3.5" />
-            <span>Прозрачный прайс-лист</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
             Стоимость окон, балконов и ремонта
           </h2>

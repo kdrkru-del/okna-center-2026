@@ -154,13 +154,6 @@ export default function HeroLivingView() {
         className="relative z-30 flex flex-col justify-center w-full h-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pt-28 pb-16"
       >
         <div className="max-w-xl lg:max-w-2xl flex flex-col justify-center">
-          
-          {/* Heritage & Tech Badge */}
-          <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 mb-4 sm:mb-6 text-[10px] sm:text-xs font-mono text-cyan-300 border border-cyan-400/30 rounded-full bg-slate-950/80 backdrop-blur-xl uppercase tracking-widest shadow-xl">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span>Живой Владивосток · WebGL Depth Map · с 2004 г.</span>
-          </div>
-
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[74px] xl:text-[82px] font-extrabold text-white tracking-tight leading-[0.98] md:leading-[0.95] mb-4 sm:mb-5 drop-shadow-[0_12px_24px_rgba(0,0,0,0.9)]">
             <span>ОСТЕКЛЕНИЕ</span> <br />

@@ -146,11 +146,7 @@ export default function HeroArchitectural() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
         <div className="max-w-xl lg:max-w-2xl p-7 sm:p-10 lg:p-12 rounded-3xl bg-white/12 hover:bg-white/18 backdrop-blur-2xl border border-white/30 shadow-[0_20px_60px_rgba(0,0,0,0.12)] ring-1 ring-white/20 transition-all duration-500 animate-in fade-in slide-in-from-bottom-3">
           
-          {/* Status badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/25 backdrop-blur-md border border-white/40 text-slate-950 text-[11px] font-mono uppercase tracking-widest mb-6 shadow-xs font-bold">
-            <span className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
-            <span>Архитектурное остекление резиденций</span>
-          </div>
+
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-5 drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)]">

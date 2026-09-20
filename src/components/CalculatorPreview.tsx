@@ -76,10 +76,6 @@ export default function CalculatorPreview() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-3">
-            <Calculator className="w-3.5 h-3.5" />
-            <span>Экспресс-расчет</span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
             Узнайте ориентировочную стоимость
           </h2>

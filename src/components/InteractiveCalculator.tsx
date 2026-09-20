@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calculator, CheckCircle2, ArrowRight, Upload, Phone, Sparkles, MessageCircle } from "lucide-react";
+import { CheckCircle2, ArrowRight, Upload, Phone, Sparkles, MessageCircle } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import { reachGoal } from "@/components/YandexMetrika";
 import { submitLead } from "@/lib/submitLead";
@@ -110,10 +110,6 @@ export default function InteractiveCalculator() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
-            <Calculator className="w-3.5 h-3.5" />
-            <span>Калькулятор стоимости</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
             Рассчитайте предварительную стоимость за 1 минуту
           </h2>

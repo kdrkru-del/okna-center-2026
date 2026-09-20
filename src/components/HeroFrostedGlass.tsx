@@ -115,13 +115,6 @@ export default function HeroFrostedGlass() {
 
       {/* Content */}
       <div ref={contentRef} className="relative z-20 flex flex-col items-center justify-center w-full h-full text-center px-4 md:px-8 pt-20">
-        
-        {/* Heritage Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-[10px] sm:text-xs font-mono text-cyan-300 border border-cyan-400/30 rounded-full bg-slate-950/80 backdrop-blur-xl uppercase tracking-widest shadow-xl">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-          <span>Владивосток · с 2004 года</span>
-        </div>
-
         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 tracking-tight drop-shadow-[0_12px_24px_rgba(0,0,0,0.9)] leading-none">
           ТЕПЛО И ТИШИНА <br />
           <span className="font-light text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-white to-cyan-300">

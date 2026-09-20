@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { asset } from "@/lib/assetPath";
@@ -88,10 +88,6 @@ export default function WindowTypesShowcase() {
     <div className="rounded-3xl bg-slate-50 border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Конфигуратор типоразмеров</span>
-          </div>
           <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             Популярные конфигурации окон для квартир и домов
           </h3>

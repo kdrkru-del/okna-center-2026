@@ -8,15 +8,10 @@ import {
   CheckCircle2, 
   ShieldCheck, 
   Phone, 
-  Sparkles, 
   ArrowRight, 
-  HelpCircle, 
   ChevronDown, 
-  Tag, 
   Camera,
   Layers,
-  Compass,
-  FileCheck2,
   ExternalLink
 } from "lucide-react";
 import { PageDefinition } from "@/data/pages";
@@ -200,11 +195,6 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{page.eyebrow.replace(new RegExp(`^${page.categoryLabel}\\s*[·•-]\\s*`, 'i'), '').trim() || page.eyebrow}</span>
-              </div>
-
               <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900">
                 {page.h1}
               </h1>
@@ -325,10 +315,6 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
 
         {page.variant === "aluminium" && (
           <div className="rounded-3xl bg-slate-50 border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
-            <div className="flex items-center gap-2 text-cyan-700 text-xs font-mono uppercase tracking-wider mb-2">
-              <Compass className="w-3.5 h-3.5" />
-              <span>Архитектурный инжиниринг · ALT F50 / ALT 150</span>
-            </div>
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-4">
               Алюминиевые светопрозрачные конструкции высокой несущей способности
             </h3>
@@ -455,10 +441,6 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
         <div className="rounded-3xl bg-slate-50 border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
-                <Tag className="w-3.5 h-3.5" />
-                <span>Официальный прайс-лист</span>
-              </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Стоимость услуг и конструкций
               </h2>
@@ -516,10 +498,6 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200/80">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
-              <Camera className="w-3.5 h-3.5" />
-              <span>Подлинные фотографии</span>
-            </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Выполненные объекты по направлению
             </h2>
@@ -562,9 +540,6 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       {page.relatedPages && page.relatedPages.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200/80">
           <div className="mb-8">
-            <span className="text-xs font-mono uppercase tracking-widest text-cyan-700 block mb-1">
-              Рекомендуемые разделы
-            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Смежные услуги и материалы
             </h2>
@@ -598,10 +573,6 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200/80">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-2">
-                <HelpCircle className="w-3.5 h-3.5" />
-                <span>Вопросы и ответы</span>
-              </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Часто задаваемые вопросы
               </h2>
@@ -640,11 +611,6 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       {/* FINAL CONVERSION CTA */}
       <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200/80 text-center relative overflow-hidden text-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
-            <FileCheck2 className="w-3.5 h-3.5" />
-            <span>Бесплатный выезд замерщика</span>
-          </div>
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
             Закажите точный расчет стоимости
           </h2>

@@ -13,10 +13,6 @@ export default function PricingPreview() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-3">
-              <Tag className="w-3 h-3" />
-              <span>Ориентиры по стоимости</span>
-            </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
               Прозрачные ориентиры цен
             </h2>

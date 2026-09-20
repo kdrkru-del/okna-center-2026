@@ -7,8 +7,6 @@ import {
   Clock, 
   ShieldCheck, 
   MessageSquare, 
-  Building2, 
-  FileText, 
   ExternalLink,
   ChevronRight,
   Sparkles
@@ -70,10 +68,6 @@ export default function ContactsPage() {
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
-            <Building2 className="w-3.5 h-3.5" />
-            <span>Офисы в Приморском крае</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
             Контакты компании «Окна Центр»
           </h1>
@@ -92,8 +86,8 @@ export default function ContactsPage() {
             <div>
               <div className="flex items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-cyan-700 font-semibold block mb-1">Центральный офис</span>
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Владивосток</h2>
+                  <span className="text-xs text-slate-500 block mt-0.5">Центральный офис</span>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 border border-cyan-200 text-xs font-mono font-medium">
                   Шоурум и отдел продаж
@@ -158,8 +152,8 @@ export default function ContactsPage() {
             <div>
               <div className="flex items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-cyan-700 font-semibold block mb-1">Филиал и монтажная служба</span>
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Уссурийск</h2>
+                  <span className="text-xs text-slate-500 block mt-0.5">Филиал и монтажная служба</span>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 border border-blue-200 text-xs font-mono font-medium">
                   Офис и консультация
@@ -276,10 +270,6 @@ export default function ContactsPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-mono uppercase tracking-widest mb-3">
-              <FileText className="w-3.5 h-3.5" />
-              <span>Юридическая информация</span>
-            </div>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
               Реквизиты компании
             </h2>

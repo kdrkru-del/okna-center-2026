@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { MAIN_FAQS, FAQItem } from "@/data/faq_data";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export default function FAQSection({ items }: { items?: FAQItem[] }) {
   const faqs = items || MAIN_FAQS;
@@ -34,10 +34,6 @@ export default function FAQSection({ items }: { items?: FAQItem[] }) {
       />
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-3">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>Часто задаваемые вопросы</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
             Ответы на популярные вопросы
           </h2>

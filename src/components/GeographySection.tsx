@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin, Navigation, Truck } from "lucide-react";
+import { MapPin, Truck } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 
 export default function GeographySection() {
@@ -7,10 +7,6 @@ export default function GeographySection() {
     <section className="py-20 bg-slate-50 text-slate-900 border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-3">
-            <Navigation className="w-3.5 h-3.5" />
-            <span>География работы</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
             Работаем во Владивостоке и по всему Приморью
           </h2>

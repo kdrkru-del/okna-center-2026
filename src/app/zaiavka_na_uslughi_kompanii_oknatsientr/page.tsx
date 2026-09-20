@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Sparkles, ShieldCheck, Clock, CheckCircle2, Phone } from "lucide-react";
+import { ChevronRight, ShieldCheck, Clock, CheckCircle2, Phone } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
 import LeadForm from "@/components/LeadForm";
@@ -36,10 +36,6 @@ export default function ZaiavkaPage() {
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Онлайн-запись</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
             Заявка на бесплатный замер и расчет
           </h1>

@@ -8,9 +8,6 @@ export default function TrustSection() {
         
         {/* Editorial Statement */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-cyan-600 mb-3 block font-bold">
-            {HOME_STATEMENT.yearsActive}
-          </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-950 mb-6">
             {HOME_STATEMENT.headline}
           </h2>

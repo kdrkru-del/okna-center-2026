@@ -60,9 +60,6 @@ export default function Home() {
       <section className="py-20 bg-slate-50 border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-3">
-              Технологии и материалы
-            </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
               Только надежные комплектующие для приморского климата
             </h2>
@@ -126,9 +123,6 @@ export default function Home() {
       {/* 11. Final CTA Form Banner */}
       <section className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200/80 text-slate-900 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
-            Бесплатный выезд инженера-замерщика
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
             Готовы преобразить ваш дом или балкон?
           </h2>

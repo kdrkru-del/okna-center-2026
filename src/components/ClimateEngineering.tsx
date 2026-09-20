@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -46,10 +46,6 @@ export default function ClimateEngineering() {
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono uppercase tracking-widest mb-4">
-              <Cpu className="w-3.5 h-3.5 text-cyan-600" />
-              <span>Инжиниринг для сурового климата</span>
-            </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 leading-tight">
               Почему обычные окна <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">
@@ -82,9 +78,6 @@ export default function ClimateEngineering() {
                     </span>
                   </div>
 
-                  <span className="text-xs font-mono uppercase tracking-wider text-slate-500 block mb-1">
-                    {item.subtitle}
-                  </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-950 mb-3 group-hover:text-cyan-700 transition-colors">
                     {item.title}
                   </h3>
@@ -107,9 +100,6 @@ export default function ClimateEngineering() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
           
           <div className="max-w-2xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-semibold block mb-2">
-              Экспертиза с 2004 года
-            </span>
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
               Нужен расчет конструкций под ветровые нагрузки вашего этажа?
             </h3>

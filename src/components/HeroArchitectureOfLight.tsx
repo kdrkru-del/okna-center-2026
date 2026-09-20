@@ -186,11 +186,6 @@ export default function HeroArchitectureOfLight() {
           ref={introBlockRef}
           className="absolute inset-0 px-6 sm:px-10 lg:px-12 flex flex-col justify-center max-w-2xl lg:max-w-3xl pt-24 pb-16 pointer-events-auto opacity-0 invisible"
         >
-          <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 mb-5 sm:mb-6 text-[10px] sm:text-xs font-mono text-cyan-300 border border-cyan-400/30 rounded-full bg-slate-950/85 backdrop-blur-xl uppercase tracking-widest shadow-xl">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span>Architecture of Light · Окна Центр</span>
-          </div>
-
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-extralight text-white tracking-tight leading-[0.96] mb-5 sm:mb-6 drop-shadow-[0_16px_32px_rgba(0,0,0,0.95)]">
             <span className="block font-normal">Свет.</span>
             <span className="block font-light text-slate-200">Вид.</span>

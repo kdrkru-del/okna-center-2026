@@ -14,9 +14,6 @@ export default function ExperienceSection() {
           
           {/* Left Text Block */}
           <div>
-            <div className="inline-block px-3.5 py-1 mb-4 text-[11px] font-mono text-cyan-400 border border-cyan-500/30 rounded-full bg-cyan-950/40 uppercase tracking-widest">
-              О компании «Окна Центр»
-            </div>
             <h2 className="text-3xl sm:text-5xl font-light text-white mb-6 tracking-tight leading-tight">
               Собственная культура производства <br />
               <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
