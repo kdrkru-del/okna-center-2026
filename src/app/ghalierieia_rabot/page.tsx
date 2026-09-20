@@ -6,13 +6,13 @@ import ProjectsGallery from "@/components/ProjectsGallery";
 
 export const metadata: Metadata = {
   title: "Галерея выполненных работ компании «Окна Центр» — фото окон, балконов и фасадов",
-  description: "Реальные фотографии объектов «Окна Центр» во Владивостоке и Приморье: остекление и отделка балконов, пластиковые окна Rehau и KBE, витражи, коттеджи. Более 100 фото с 2004 года.",
+  description: "Реальные фотографии объектов «Окна Центр» во Владивостоке и Приморье: остекление и отделка балконов, пластиковые окна Rehau и KBE, витражи, загородные резиденции.",
   alternates: {
     canonical: `${COMPANY_INFO.domain}/ghalierieia_rabot/`,
   },
   openGraph: {
     title: "Галерея работ компании «Окна Центр» — Владивосток",
-    description: "Более 100 реальных фото выполненных объектов: балконы, лоджии, окна, фасады.",
+    description: "Реальные фото выполненных объектов: балконы, лоджии, окна, фасады.",
     url: `${COMPANY_INFO.domain}/ghalierieia_rabot/`,
     siteName: COMPANY_INFO.name,
     locale: "ru_RU",
@@ -37,7 +37,7 @@ export default function GalleryPage() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
             <Camera className="w-3.5 h-3.5" />
-            <span>70+ реальных объектов</span>
+            <span>Реальные выполненные объекты</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
             Галерея наших работ
@@ -48,7 +48,7 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Full Gallery (without limit so all 100+ photos display) */}
+      {/* Full Gallery */}
       <ProjectsGallery />
 
       {/* Pre-footer CTA */}
