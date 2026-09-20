@@ -80,7 +80,7 @@ export const BENTO_SERVICES = [
     tagline: "Диагностика тепловизором, устранение продуваний, замена уплотнителей на немецкий EPDM, регулировка прижима и фурнитуры Roto / Siegenia.",
     price: "от 250 ₽",
     href: "/remont_plastikovyh_okon_vladivostok",
-    image: "/images/legacy/full_m9mZ1RW5.jpg",
+    image: "/images/legacy/db7eeb03b34b1d5a8cb1d52243b0e21f.jpg",
     cols: "lg:col-span-6",
     isLarge: false,
   },

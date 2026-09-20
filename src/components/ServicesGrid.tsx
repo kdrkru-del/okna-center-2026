@@ -6,7 +6,7 @@ const services = [
     id: 1,
     title: 'Пластиковые окна ПВХ',
     subtitle: 'Немецкие профили Funke, KBE, Rehau, Montblanc. Ламинация под дерево, окна для дачи и нестандартные формы.',
-    image: 'https://xn--80aknmcbtp7a.xn--p1ai/uploads/s/f/2/6/f26rer8ig8fw/img/full_ewAHqpCF.jpg',
+    image: '/images/bento/bento-rehau-windows.jpg',
     tag: 'ГОСТ · Шумоизоляция 45 дБ',
     link: '#contact'
   },
@@ -14,7 +14,7 @@ const services = [
     id: 2,
     title: 'Балконы и лоджии под ключ',
     subtitle: 'Теплое остекление, раздвижные системы Slidors, вынос и расширение. Отделка сайдингом, панелями «Ханьи» и евровагонкой.',
-    image: 'https://xn--80aknmcbtp7a.xn--p1ai/uploads/s/f/2/6/f26rer8ig8fw/img/Ns8vYDcL.jpg',
+    image: '/images/legacy/Ns8vYDcL.jpg',
     tag: 'Ветрозащита от тайфунов',
     link: '#contact'
   },
@@ -22,7 +22,7 @@ const services = [
     id: 3,
     title: 'Алюминиевые витражи ALUTECH',
     subtitle: 'Фасадное остекление, теплый и холодный алюминий с порошковой окраской по каталогу RAL. Раздвижные порталы Patio.',
-    image: 'https://xn--80aknmcbtp7a.xn--p1ai/uploads/s/f/2/6/f26rer8ig8fw/img/Al2fspIs.jpg',
+    image: '/images/legacy/Al2fspIs.jpg',
     tag: 'Alutech · Любой цвет RAL',
     link: '#contact'
   },
@@ -30,7 +30,7 @@ const services = [
     id: 4,
     title: 'Ремонт и сервис окон',
     subtitle: 'Срочная замена разбитых стеклопакетов, регулировка прижима, замена изношенных уплотнителей и ремонт фурнитуры.',
-    image: 'https://xn--80aknmcbtp7a.xn--p1ai/uploads/s/f/2/6/f26rer8ig8fw/img/full_7sqeCo56.jpg',
+    image: '/images/legacy/db7eeb03b34b1d5a8cb1d52243b0e21f.jpg',
     tag: 'Выезд мастера в день заявки',
     link: '#contact'
   },

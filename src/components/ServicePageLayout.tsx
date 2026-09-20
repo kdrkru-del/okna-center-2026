@@ -33,40 +33,40 @@ import { asset } from "@/lib/assetPath";
 // Gallery image mapping by variant
 const GALLERY_BY_VARIANT: Record<string, { src: string; caption: string }[]> = {
   windows: [
-    { src: "/images/legacy/8a5eaf9e54230a487b7b6d054d07a6f0.jpg", caption: "Монтаж 5-камерного окна Rehau под ключ" },
-    { src: "/images/legacy/54a23164a3970dd0f09d0e561ea53674.jpg", caption: "2-створчатое окно с отделкой откосов" },
-    { src: "/images/legacy/9a0f1bcf4793bbba54ee52cfd2caaf37.jpg", caption: "Замена старого остекления на теплое ПВХ" },
-    { src: "/images/legacy/8dfab624d3be3abdf4bd567d33074e74.jpg", caption: "Балконный блок с поворотно-откидной дверью" }
+    { src: "/images/bento/bento-rehau-windows.jpg", caption: "Панорамное остекление гостиной окнами Rehau" },
+    { src: "/images/legacy/fa88e5ce2640e3d853524a7973ba151a.jpg", caption: "Эркерные окна с ламинацией и золотыми шпросами" },
+    { src: "/images/legacy/6ee31abf7022c6bd8a05b535a0fdbceb.jpg", caption: "Трехстворчатое окно со встроенными жалюзи" },
+    { src: "/images/legacy/5d62a55290edb5a644e685a8eff0b6a0.jpg", caption: "Двухстворчатое пластиковое окно с отделкой откосов" }
   ],
   balcony: [
-    { src: "/images/legacy/2a64735301341e2bcc1ff10380187519.jpg", caption: "Остекление балкона с выносом и сайдингом" },
-    { src: "/images/legacy/4584baf08d4d0c3367ff109454676224.jpg", caption: "Лоджия под ключ: утепление Изопинком и МДФ" },
-    { src: "/images/legacy/bc27c75e17dbf6fddfca54aa15041ac3.jpg", caption: "Французское панорамное остекление от пола до потолка" },
-    { src: "/images/legacy/Ns8vYDcL.jpg", caption: "Капитальный ремонт парапета со сваркой и крышей" }
+    { src: "/images/bento/bento-balconies-turnkey.jpg", caption: "Теплая лоджия-кабинет с панорамным остеклением" },
+    { src: "/images/legacy/4584baf08d4d0c3367ff109454676224.jpg", caption: "Лоджия под ключ: чистовая отделка и встроенный свет" },
+    { src: "/images/legacy/1dfc145b98c74e9896680cc9ec397d6b.jpg", caption: "Обшивка балкона евровагонкой с зоной хранения" },
+    { src: "/images/legacy/Ns8vYDcL.jpg", caption: "Капитальный ремонт парапета со сваркой, крышей и сайдингом" }
   ],
   repair: [
-    { src: "/images/legacy/2548e887046d383917d5f9257db03de7.jpg", caption: "Замена уплотнителя и регулировка створки" },
-    { src: "/images/legacy/9016ec6d8113c6bbe3a412fc5ca8d248.jpg", caption: "Ремонт фурнитурной обвязки Roto" },
-    { src: "/images/legacy/full_6tXcBN5Z.png", caption: "Комплексная замена и настройка стеклопакета" },
-    { src: "/images/legacy/a520945140f656caf5c8752cb9a70e02.jpg", caption: "Устранение продувания и зимний прижим" }
+    { src: "/images/legacy/db7eeb03b34b1d5a8cb1d52243b0e21f.jpg", caption: "Оконная створка Rehau с австрийской фурнитурой Roto" },
+    { src: "/images/legacy/7572a65a5821c2fc33ca30a7abf94824.jpg", caption: "Регулировка и настройка плавности хода створки" },
+    { src: "/images/legacy/670d18c69dd29e4036c09b9e6de54e25.jpg", caption: "Установка рулонных жалюзи и москитных сеток" },
+    { src: "/images/legacy/full_7sqeCo56.jpg", caption: "Замена уплотнителей и регулировка зимнего прижима" }
   ],
   aluminium: [
-    { src: "/images/legacy/2489a036e868da93ee6bc1beb53e7061.png", caption: "Алюминиевая теплая входная группа" },
-    { src: "/images/legacy/ede42fb630e43f3661c52cb7f8537276.jpg", caption: "Стоечно-ригельный витражный фасад" },
-    { src: "/images/legacy/45027f0d562513ff204e3f1eb597c264.jpg", caption: "Раздвижные алюминиевые конструкции" },
-    { src: "/images/legacy/Al2fspIs.jpg", caption: "Панорамные теплые алюминиевые порталы" }
+    { src: "/images/legacy/22b24acef73acbfa491186e6072ea01d.jpg", caption: "Витражный фасад и входная группа павильона" },
+    { src: "/images/legacy/Al2fspIs.jpg", caption: "Панорамные теплые раздвижные алюминиевые порталы" },
+    { src: "/images/legacy/e25a0f77cfde45e3c6be345e2ffea560.jpg", caption: "Двухэтажный фасадный витраж коммерческого здания" },
+    { src: "/images/legacy/697a6195a6d1109ce8ea9e8ee3c192e9.jpg", caption: "Архитектурное фасадное остекление с терморазрывом" }
   ],
   materials: [
-    { src: "/images/legacy/36c9e0b66c561160ca46ea78ed441f28.jpg", caption: "Фасадные панели Ханьи под кирпич" },
-    { src: "/images/legacy/49d6fda5234f00ba8013574d4c808d06.jpg", caption: "Пластиковые ламинированные панели ПВХ" },
-    { src: "/images/legacy/b6863894b0fe7c7f6b123b378d29d52c.jpg", caption: "Образцы стеновых панелей МДФ" },
-    { src: "/images/legacy/710981c6630ca8d729836b82b170bf83.jpg", caption: "Утеплитель Изопинк и пароизоляция" }
+    { src: "/images/legacy/f270d6f307895b915815537be47eacf2.jpg", caption: "Внутренняя отделка натуральной вагонкой со столиком" },
+    { src: "/images/legacy/e2a1410ba6597ca740d16822a98d1bd4.jpg", caption: "Наружная облицовка балкона термопанелями под камень" },
+    { src: "/images/legacy/full_Bx5dmJ34.jpg", caption: "Отделка декоративным кирпичом и установка теплого подоконника" },
+    { src: "/images/legacy/ef03b9561fddcafaf4657793ca76d6f0.jpg", caption: "Обшивка морозостойким виниловым сайдингом" }
   ],
   about: [
-    { src: "/images/legacy/7dba6f0be5058fae4ae8bb0f43b6aa67.jpg", caption: "Офис и производственный склад «Окна Центр»" },
-    { src: "/images/legacy/a1cc92771b8211de061c1034906b88fc.jpg", caption: "Готовая продукция перед отправкой клиентам" },
-    { src: "/images/legacy/62a6b0f7601b893511e85b92207d2237.jpg", caption: "Монтажная бригада на объекте во Владивостоке" },
-    { src: "/images/legacy/22b24acef73acbfa491186e6072ea01d.jpg", caption: "Сданный объект остекления в Приморском крае" }
+    { src: "/images/hero/hero-daylight-villa.jpg", caption: "Панорамное фасадное остекление загородной виллы" },
+    { src: "/images/hero/hero-daylight-patio.jpg", caption: "Остекление террасы с раздвижными порталами" },
+    { src: "/images/legacy/45027f0d562513ff204e3f1eb597c264.jpg", caption: "Двухэтажные витражные французские окна коттеджа" },
+    { src: "/images/legacy/22b24acef73acbfa491186e6072ea01d.jpg", caption: "Сданный объект архитектурного остекления во Владивостоке" }
   ]
 };
 

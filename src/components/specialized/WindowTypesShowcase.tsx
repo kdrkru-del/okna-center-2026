@@ -25,7 +25,7 @@ const WINDOW_TYPES: WindowTypeItem[] = [
     priceFrom: "от 14 000 ₽",
     chambers: "3 или 5 камер (Rehau / KBE / Funke)",
     glassFormula: "1-кам (24 мм) или 2-кам (32/40 мм)",
-    image: "/images/legacy/full_6tXcBN5Z.png",
+    image: "/images/legacy/db7eeb03b34b1d5a8cb1d52243b0e21f.jpg",
     description: "Компактное решение для кухни, санузла, дачи или коридора. Может быть глухим или поворотно-откидным с микропроветриванием.",
     features: [
       "Доступно со склада без монтажа от 14 000 ₽",
@@ -40,7 +40,7 @@ const WINDOW_TYPES: WindowTypeItem[] = [
     priceFrom: "от 19 500 ₽",
     chambers: "5-камерная система 70 мм",
     glassFormula: "2-камерный энергосберегающий 40 мм с Low-E",
-    image: "/images/legacy/54a23164a3970dd0f09d0e561ea53674.jpg",
+    image: "/images/legacy/5d62a55290edb5a644e685a8eff0b6a0.jpg",
     description: "Самая популярная конструкция для типовых панельных и кирпичных домов Владивостока. Одна глухая и одна поворотно-откидная створка.",
     features: [
       "Полный монтаж по ГОСТ с отделкой откосов от 19 500 ₽",
@@ -55,7 +55,7 @@ const WINDOW_TYPES: WindowTypeItem[] = [
     priceFrom: "По расчёту",
     chambers: "5-камерная система 70 мм",
     glassFormula: "2-камерный шумопоглощающий стеклопакет",
-    image: "/images/bento/bento-rehau-windows.jpg",
+    image: "/images/legacy/6ee31abf7022c6bd8a05b535a0fdbceb.jpg",
     description: "Широкое остекление гостиных и залов с максимальным световым проемом. Две открывающиеся створки для удобного мытья стекол.",
     features: [
       "Усиленное стальное армирование 1.5 мм в раме и импостах",

@@ -44,7 +44,7 @@ export default function ProjectsPreview() {
             href="/ghalierieia_rabot"
             className="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-mono text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2 self-start md:self-auto"
           >
-            <span>Смотреть всю галерею (100+ фото)</span>
+            <span>Смотреть всю галерею выполненных работ</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
