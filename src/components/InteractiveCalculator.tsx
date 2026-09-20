@@ -158,18 +158,18 @@ export default function InteractiveCalculator() {
               {/* Stepper tabs */}
               <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-8 text-xs font-mono">
                 <div className={`flex items-center gap-2 ${step >= 1 ? "text-cyan-700 font-bold" : "text-slate-400"}`}>
-                  <span className={`w-6 h-6 rounded-full border flex items-center justify-center font-bold ${step >= 1 ? "border-cyan-600 bg-cyan-50 text-cyan-700" : "border-slate-300 text-slate-400"}`}>1</span>
-                  <span className="hidden sm:inline">Тип объекта</span>
+                  <span className={`w-2.5 h-2.5 rounded-full ${step >= 1 ? "bg-cyan-600 ring-4 ring-cyan-100" : "bg-slate-300"}`} />
+                  <span>Тип объекта</span>
                 </div>
                 <div className="w-12 h-px bg-slate-200"></div>
                 <div className={`flex items-center gap-2 ${step >= 2 ? "text-cyan-700 font-bold" : "text-slate-400"}`}>
-                  <span className={`w-6 h-6 rounded-full border flex items-center justify-center font-bold ${step >= 2 ? "border-cyan-600 bg-cyan-50 text-cyan-700" : "border-slate-300 text-slate-400"}`}>2</span>
-                  <span className="hidden sm:inline">Параметры</span>
+                  <span className={`w-2.5 h-2.5 rounded-full ${step >= 2 ? "bg-cyan-600 ring-4 ring-cyan-100" : "bg-slate-300"}`} />
+                  <span>Параметры</span>
                 </div>
                 <div className="w-12 h-px bg-slate-200"></div>
                 <div className={`flex items-center gap-2 ${step >= 3 ? "text-cyan-700 font-bold" : "text-slate-400"}`}>
-                  <span className={`w-6 h-6 rounded-full border flex items-center justify-center font-bold ${step >= 3 ? "border-cyan-600 bg-cyan-50 text-cyan-700" : "border-slate-300 text-slate-400"}`}>3</span>
-                  <span className="hidden sm:inline">Расчет</span>
+                  <span className={`w-2.5 h-2.5 rounded-full ${step >= 3 ? "bg-cyan-600 ring-4 ring-cyan-100" : "bg-slate-300"}`} />
+                  <span>Расчет</span>
                 </div>
               </div>
 

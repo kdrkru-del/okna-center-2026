@@ -229,7 +229,7 @@ export default function HeroArchitectureOfLight() {
           className="absolute inset-0 px-6 sm:px-10 lg:px-12 flex flex-col justify-center max-w-xl lg:max-w-2xl pt-24 pb-16 pointer-events-auto opacity-0 invisible"
         >
           <span className="font-mono text-cyan-400 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
-            01 / Направления
+            Направление: Квартиры
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-light text-white mb-3 sm:mb-4 tracking-tight leading-tight">
             Остекление квартир
@@ -256,7 +256,7 @@ export default function HeroArchitectureOfLight() {
           className="absolute inset-0 px-6 sm:px-10 lg:px-12 flex flex-col justify-center max-w-xl lg:max-w-2xl pt-24 pb-16 pointer-events-auto opacity-0 invisible"
         >
           <span className="font-mono text-cyan-400 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
-            02 / Направления
+            Направление: Коттеджи
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-light text-white mb-3 sm:mb-4 tracking-tight leading-tight">
             Частные дома и коттеджи
@@ -283,7 +283,7 @@ export default function HeroArchitectureOfLight() {
           className="absolute inset-0 px-6 sm:px-10 lg:px-12 flex flex-col justify-center max-w-xl lg:max-w-2xl pt-24 pb-16 pointer-events-auto opacity-0 invisible"
         >
           <span className="font-mono text-cyan-400 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
-            03 / Направления
+            Направление: Лоджии
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-light text-white mb-3 sm:mb-4 tracking-tight leading-tight">
             Балконы и лоджии
@@ -310,7 +310,7 @@ export default function HeroArchitectureOfLight() {
           className="absolute inset-0 px-6 sm:px-10 lg:px-12 flex flex-col justify-center max-w-xl lg:max-w-2xl pt-24 pb-16 pointer-events-auto opacity-0 invisible"
         >
           <span className="font-mono text-cyan-400 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
-            04 / Направления
+            Направление: Фасады
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-light text-white mb-3 sm:mb-4 tracking-tight leading-tight">
             Фасады и бизнес

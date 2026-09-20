@@ -157,7 +157,7 @@ export default function CalculatorPreview() {
               {/* Type Selection */}
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-slate-400 block mb-3">
-                  1. Выберите тип конструкции:
+                  Выберите тип конструкции:
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {types.map((t) => (
@@ -181,7 +181,7 @@ export default function CalculatorPreview() {
               {/* Phone + Action */}
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-slate-400 block mb-2">
-                  2. Введите телефон для получения сметы:
+                  Введите телефон для получения сметы:
                 </label>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <input

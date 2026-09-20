@@ -186,15 +186,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
         <nav className="flex items-center gap-2 text-xs text-slate-500 font-mono overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-cyan-700 transition-colors">Главная</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-40 flex-shrink-0" />
-          {page.categoryUrl !== `/${page.slug}` ? (
-            <>
-              <Link href={page.categoryUrl} className="hover:text-cyan-700 transition-colors">{page.categoryLabel}</Link>
-              <ChevronRight className="w-3.5 h-3.5 opacity-40 flex-shrink-0" />
-              <span className="text-slate-900 font-medium truncate">{page.h1}</span>
-            </>
-          ) : (
-            <span className="text-slate-900 font-medium truncate">{page.categoryLabel}</span>
-          )}
+          <span className="text-slate-900 font-medium truncate">{page.categoryLabel}</span>
         </nav>
       </div>
 
@@ -402,28 +394,54 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
 
                 {/* Section Items Cards */}
                 {sec.items && sec.items.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {sec.items.map((item, itmIdx) => (
-                      <div
-                        key={itmIdx}
-                        className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/40 hover:bg-white hover:shadow-sm transition-all flex flex-col justify-between"
-                      >
-                        <div>
-                          {item.badge && (
-                            <span className="inline-block px-2.5 py-0.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-[10px] font-mono uppercase mb-2">
-                              {item.badge}
-                            </span>
-                          )}
-                          <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
-                          <p className="text-xs text-slate-600 leading-relaxed mb-4">{item.desc}</p>
-                        </div>
-                        {item.spec && (
-                          <div className="pt-3 border-t border-slate-200/60 text-[11px] font-mono text-cyan-700">
-                            {item.spec}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                    {sec.items.map((item, itmIdx) => {
+                      const cleanTitle = item.title.replace(/^\d+[\.\s:]*\s*/, "");
+                      const isProcess = sec.type === "steps" || /процесс|этап|технологи/i.test(sec.title);
+                      return (
+                        <div
+                          key={itmIdx}
+                          className="relative p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/40 hover:bg-white hover:shadow-sm transition-all flex flex-col justify-between group"
+                        >
+                          <div>
+                            <div className="flex items-center justify-between mb-3">
+                              {item.badge ? (
+                                <span className="inline-block px-2.5 py-0.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-[10px] font-mono uppercase">
+                                  {item.badge}
+                                </span>
+                              ) : isProcess ? (
+                                <span className="inline-block px-2.5 py-0.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-[10px] font-mono uppercase">
+                                  Этап процесса
+                                </span>
+                              ) : null}
+                              {isProcess && (
+                                <div className="text-cyan-600 opacity-60 group-hover:opacity-100 transition-opacity">
+                                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                                </div>
+                              )}
+                            </div>
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">{cleanTitle}</h3>
+                            <p className="text-xs text-slate-600 leading-relaxed mb-4">{item.desc}</p>
                           </div>
-                        )}
-                      </div>
-                    ))}
+
+                          {item.spec && (
+                            <div className="pt-3 border-t border-slate-200/60 text-[11px] font-mono text-cyan-700">
+                              {item.spec}
+                            </div>
+                          )}
+
+                          {/* Desktop Arrow Connector between cards for process steps */}
+                          {isProcess && itmIdx < (sec.items?.length ?? 0) - 1 && (
+                            <div
+                              className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border-2 border-cyan-300 text-cyan-600 shadow-sm items-center justify-center pointer-events-none"
+                              aria-hidden="true"
+                            >
+                              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>

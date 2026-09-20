@@ -25,15 +25,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
   if (!isOpen) return null;
 
-  const numberedNav = [
-    { num: "01", label: "Окна", href: "/kupit_plastikovye_okna_vladivostok" },
-    { num: "02", label: "Балконы и лоджии", href: "/osteklenie_balkona_vladivostok" },
-    { num: "03", label: "Алюминиевые конструкции", href: "/alyuminievye_okna_vladivostok" },
-    { num: "04", label: "Ремонт окон", href: "/remont_plastikovyh_okon_vladivostok" },
-    { num: "05", label: "Наши работы", href: "/ghalierieia_rabot" },
-    { num: "06", label: "Цены", href: "/#prices" },
-    { num: "07", label: "О компании", href: "/okonnaia_kompaniia_vladivostok" },
-    { num: "08", label: "Контакты", href: "/contacts" },
+  const navLinks = [
+    { label: "Окна", href: "/kupit_plastikovye_okna_vladivostok" },
+    { label: "Балконы и лоджии", href: "/osteklenie_balkona_vladivostok" },
+    { label: "Алюминиевые конструкции", href: "/alyuminievye_okna_vladivostok" },
+    { label: "Ремонт окон", href: "/remont_plastikovyh_okon_vladivostok" },
+    { label: "Наши работы", href: "/ghalierieia_rabot" },
+    { label: "Цены", href: "/#prices" },
+    { label: "О компании", href: "/okonnaia_kompaniia_vladivostok" },
+    { label: "Контакты", href: "/contacts" },
   ];
 
   return (
@@ -58,19 +58,18 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </button>
       </div>
 
-      {/* Main numbered navigation links */}
+      {/* Main navigation links */}
       <div className="px-6 py-8 space-y-3 flex-1">
-        {numberedNav.map((item, idx) => (
+        {navLinks.map((item, idx) => (
           <Link
-            key={item.num}
+            key={item.href}
             href={item.href}
             onClick={onClose}
             className="group flex items-center justify-between py-3 border-b border-slate-100"
             style={{ animationDelay: `${idx * 40}ms` }}
           >
-            <div className="flex items-baseline gap-4">
-              <span className="text-xs font-mono text-cyan-600 font-semibold">{item.num}</span>
-              <span className="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-cyan-600 transition-colors">
+            <div className="flex items-center gap-3">
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-cyan-600 transition-colors">
                 {item.label}
               </span>
             </div>

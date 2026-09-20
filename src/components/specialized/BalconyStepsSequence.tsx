@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { Sparkles, ArrowRight } from "lucide-react";
 
 interface Step {
-  num: string;
+  id: string;
+  badge: string;
   title: string;
   shortDesc: string;
   fullDesc: string;
@@ -13,7 +14,8 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    num: "01",
+    id: "measurement",
+    badge: "Замер и расчет",
     title: "Инженерный замер и расчет нагрузок",
     shortDesc: "Оценка состояния плиты и геодезический лазерный замер.",
     fullDesc: "Инженер рассчитывает ветровые нагрузки с учетом этажа и розы ветров Владивостока. Определяет допустимую нагрузку на балконную плиту перекрытия и необходимость усиления.",
@@ -21,7 +23,8 @@ const STEPS: Step[] = [
     keyAction: "Составление точной технологической карты и фиксированной сметы"
   },
   {
-    num: "02",
+    id: "welding",
+    badge: "Сварочные работы",
     title: "Сварочные работы и усиление каркаса",
     shortDesc: "Сварка металлокаркаса, вынос по полу или по подоконнику.",
     fullDesc: "Изготовление жесткой стальной фермы из профильной трубы. Усиление парапета анкерами в несущую стену. При необходимости — монтаж независимой крыши на верхних этажах.",
@@ -29,7 +32,8 @@ const STEPS: Step[] = [
     keyAction: "Антикоррозийная обработка металлоконструкций грунтом"
   },
   {
-    num: "03",
+    id: "cladding",
+    badge: "Наружная обшивка",
     title: "Наружная обшивка и гидроизоляция",
     shortDesc: "Обшивка виниловым сайдингом или фасадными панелями Ханьи.",
     fullDesc: "Монтаж ветрозащитной мембраны и фасадного материала снаружи до установки остекления. Защищает балкон от штормовых дождей, морской соли и ультрафиолета.",
@@ -37,7 +41,8 @@ const STEPS: Step[] = [
     keyAction: "Герметизация отливов и карнизов полиуретановым герметиком"
   },
   {
-    num: "04",
+    id: "glazing",
+    badge: "Монтаж рам",
     title: "Установка оконных конструкций",
     shortDesc: "Монтаж теплых рам Rehau/KBE или раздвижного алюминия.",
     fullDesc: "Установка оконных блоков по лазерному уровню. Крепление на усиленные анкерные пластины и монтажные турбовинты. Трехслойный шов по ГОСТ (ПСУЛ, пена, пароизоляция).",
@@ -45,7 +50,8 @@ const STEPS: Step[] = [
     keyAction: "Регулировка прижима всех створок и установка москитных сеток"
   },
   {
-    num: "05",
+    id: "insulation",
+    badge: "Теплоизоляция",
     title: "Капитальное бесшовное утепление",
     shortDesc: "Монтаж Изопинка или ПСБС с пароизоляцией Изоспан.",
     fullDesc: "Укладка плит экструдированного пенополистирола в 1–2 слоя с перехлестом стыков. Пропенивание швов профессиональной пеной. Укладка фольгированного отражающего слоя изофола.",
@@ -53,7 +59,8 @@ const STEPS: Step[] = [
     keyAction: "Полное исключение «мостиков холода» и промерзания углов"
   },
   {
-    num: "06",
+    id: "finishing",
+    badge: "Чистовая отделка",
     title: "Чистовая отделка и электрика",
     shortDesc: "Обшивка МДФ/ПВХ, настил теплого пола, свет и розетки.",
     fullDesc: "Монтаж стеновых панелей выбранного декора, настил шпунтованной доски или фанеры с ламинатом/линолеумом. Монтаж инфракрасного теплого пола с терморегулятором, светильников и бельевых сушилок.",
@@ -91,7 +98,7 @@ export default function BalconyStepsSequence() {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-8">
         {STEPS.map((s, idx) => (
           <button
-            key={s.num}
+            key={s.id}
             onClick={() => setActiveStep(idx)}
             className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
               activeStep === idx
@@ -100,7 +107,7 @@ export default function BalconyStepsSequence() {
             }`}
           >
             <span className={`text-xs font-mono font-bold block mb-1 ${activeStep === idx ? "text-cyan-400" : "text-cyan-700"}`}>
-              Этап {s.num}
+              {s.badge}
             </span>
             <span className={`text-xs font-semibold line-clamp-2 leading-snug ${activeStep === idx ? "text-white" : "text-slate-900"}`}>
               {s.title}
@@ -113,8 +120,8 @@ export default function BalconyStepsSequence() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           <div className="lg:col-span-8 space-y-4">
             <div className="flex items-center gap-3">
-              <span className="text-3xl font-black text-cyan-700 font-mono">
-                {cur.num}
+              <span className="px-3 py-1 rounded-full bg-cyan-100/80 text-cyan-800 border border-cyan-200 text-xs font-mono font-semibold uppercase tracking-wider">
+                {cur.badge}
               </span>
               <h4 className="text-2xl font-bold text-slate-900">{cur.title}</h4>
             </div>
@@ -160,7 +167,7 @@ export default function BalconyStepsSequence() {
               onClick={() => setActiveStep((prev) => (prev + 1) % STEPS.length)}
               className="w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
             >
-              <span>Следующий этап ({STEPS[(activeStep + 1) % STEPS.length].num})</span>
+              <span>Далее: {STEPS[(activeStep + 1) % STEPS.length].badge}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

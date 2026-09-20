@@ -84,10 +84,10 @@ export default function InstallationDiagram() {
                   : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
               }`}
             >
-              {key === "outer" && "1. Улица (ПСУЛ)"}
-              {key === "middle" && "2. Пена (Тепло)"}
-              {key === "inner" && "3. Комната (Пароизоляция)"}
-              {key === "subframe" && "4. Отлив и подставочник"}
+              {key === "outer" && "Наружный слой (ПСУЛ)"}
+              {key === "middle" && "Центральный шов (Пена)"}
+              {key === "inner" && "Внутренний слой (Пароизоляция)"}
+              {key === "subframe" && "Отлив и подставочник"}
             </button>
           ))}
         </div>
