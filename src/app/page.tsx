@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import HeroArchitectural from "@/components/HeroArchitectural";
 import TrustSection from "@/components/TrustSection";
+import PopularSolutions from "@/components/PopularSolutions";
 import ServicesBento from "@/components/ServicesBento";
+import BalconiesTurnkeySection from "@/components/BalconiesTurnkeySection";
+import WindowRepairCallout from "@/components/WindowRepairCallout";
 import ClimateEngineering from "@/components/ClimateEngineering";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
-import ProjectsGallery from "@/components/ProjectsGallery";
 import PricingTable from "@/components/PricingTable";
+import ProjectsGallery from "@/components/ProjectsGallery";
+import NonStandardSolutions from "@/components/NonStandardSolutions";
 import ProcessSection from "@/components/ProcessSection";
 import GeographySection from "@/components/GeographySection";
 import FAQSection from "@/components/FAQSection";
 import Link from "next/link";
-import { Phone, ArrowRight, ShieldCheck, Ruler, Award, Wrench, Factory, Truck } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 
 export const metadata: Metadata = {
@@ -32,31 +36,43 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="bg-white text-slate-900">
-      {/* 1. WOW Hero Screen */}
+      {/* 1. Main Mass-Market Hero Screen */}
       <HeroArchitectural />
 
-      {/* 2. Editorial Statement & Verified Metrics */}
+      {/* 2. Practical Needs: 'Что вам нужно?' 4 Cards */}
       <TrustSection />
 
-      {/* 3. Architectural Services Bento Grid */}
+      {/* 3. Popular Apartment & House Solutions (6 items including Kitchen Window & Balcony Block) */}
+      <PopularSolutions />
+
+      {/* 4. Core Services Bento Grid */}
       <ServicesBento />
 
-      {/* 4. Maritime Climate Engineering Expertise */}
+      {/* 5. Balconies & Loggias Turnkey Section */}
+      <BalconiesTurnkeySection />
+
+      {/* 6. Window Repair & Service Callout */}
+      <WindowRepairCallout />
+
+      {/* 7. Climate-Verified Quality for Primorye */}
       <ClimateEngineering />
 
-      {/* 5. Interactive Calculator */}
+      {/* 8. Interactive Calculator */}
       <InteractiveCalculator />
 
-      {/* 5. Pricing Catalog Table */}
+      {/* 9. Pricing Catalog Table */}
       <PricingTable />
 
-      {/* 6. Authentic Gallery (100 Photos) */}
+      {/* 10. Authentic Completed Projects Gallery */}
       <ProjectsGallery limit={8} />
 
-      {/* 7. Process Section */}
+      {/* 11. Custom & Aluminum Solutions (Secondary Focus) */}
+      <NonStandardSolutions />
+
+      {/* 12. How We Work Process Section */}
       <ProcessSection />
 
-      {/* 8. Materials Showcase */}
+      {/* 13. Certified Materials Showcase */}
       <section className="py-20 bg-slate-50 border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -64,7 +80,7 @@ export default function Home() {
               Только надежные комплектующие для приморского климата
             </h2>
             <p className="text-slate-600 text-sm sm:text-base font-light">
-              Мы используем сертифицированные материалы, устойчивые к 100% влажности, штормовым ветрам и соленому воздуху Японского моря.
+              Мы используем сертифицированные материалы, устойчивые к 100% влажности, штормовым ветрам и перепадам температур.
             </p>
           </div>
 
@@ -84,7 +100,7 @@ export default function Home() {
               },
               {
                 name: "Профили Rehau, KBE, Funke",
-                desc: "Оригинальные немецкие 3-5 камерные системы класса А с оцинкованным стальным армированием 1.5мм.",
+                desc: "Оригинальные немецкие 3-5 камерные системы класса А с оцинкованным стальным армированием.",
                 tag: "Оконные системы",
                 href: "/profil_dlya_okon"
               },
@@ -98,7 +114,7 @@ export default function Home() {
               <Link
                 key={i}
                 href={mat.href}
-                className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-cyan-500/50 transition-all flex flex-col justify-between group"
+                className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-cyan-500/50 transition-all flex flex-col justify-between group"
               >
                 <div>
                   <span className="text-[10px] font-mono text-cyan-700 uppercase tracking-wider block mb-2">{mat.tag}</span>
@@ -114,20 +130,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. Geography & Branch Offices */}
+      {/* 14. Geography & Service Area */}
       <GeographySection />
 
-      {/* 10. FAQ Accordion */}
+      {/* 15. FAQ Accordion */}
       <FAQSection />
 
-      {/* 11. Final CTA Form Banner */}
+      {/* 16. Final CTA Banner */}
       <section className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200/80 text-slate-900 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
-            Готовы преобразить ваш дом или балкон?
+            Нужно новое окно или остекление?
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-light max-w-xl mx-auto mb-8">
-            Оставьте заявку — выполним замер, привезем каталоги профилей и рассчитаем точную смету под ваш бюджет.
+            Оставьте размеры или номер телефона — рассчитаем подходящий вариант под ваш бюджет, привезем образцы профилей и выполним точный замер 0 ₽.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -135,7 +151,7 @@ export default function Home() {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="px-8 py-4 bg-slate-950 hover:bg-cyan-600 text-white font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 transition-all transform hover:-translate-y-0.5"
             >
-              Вызвать мастера на замер
+              Вызвать мастера на замер 0 ₽
             </Link>
 
             <a

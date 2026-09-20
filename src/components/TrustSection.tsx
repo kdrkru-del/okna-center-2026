@@ -1,53 +1,79 @@
 import React from "react";
-import { HOME_STATEMENT } from "@/data/home";
+import Link from "next/link";
+import { ArrowRight, AppWindow, Wrench, Home as HomeIcon, PenTool, CheckCircle2 } from "lucide-react";
+import { HOME_PRACTICAL_NEEDS } from "@/data/home";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  Window: AppWindow,
+  Wrench: Wrench,
+  Home: HomeIcon,
+  PenTool: PenTool,
+};
 
 export default function TrustSection() {
   return (
-    <section id="statement" className="py-24 bg-slate-50 text-slate-900 border-y border-slate-200/80 relative">
+    <section id="needs" className="py-20 sm:py-24 bg-slate-50 text-slate-900 border-y border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Editorial Statement */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-950 mb-6">
-            {HOME_STATEMENT.headline}
+        {/* Section Heading */}
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-950 mb-4">
+            {HOME_PRACTICAL_NEEDS.title}
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal">
-            {HOME_STATEMENT.subtext}
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+            {HOME_PRACTICAL_NEEDS.subtitle}
           </p>
         </div>
 
-        {/* Tags line */}
-        <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 mb-16">
-          {HOME_STATEMENT.tags.map((tag, idx) => (
+        {/* Demand Tags Pill Strip */}
+        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-12">
+          {HOME_PRACTICAL_NEEDS.tags.map((tag, idx) => (
             <div
               key={idx}
-              className="px-5 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-cyan-500/50 hover:shadow-md transition-all flex items-center gap-3"
+              className="px-4 py-2 rounded-xl bg-white border border-slate-200/90 text-slate-800 text-xs font-mono font-semibold shadow-xs flex items-center gap-2"
             >
-              <span className="w-2 h-2 rounded-full bg-cyan-500" />
-              <span className="text-xs font-mono uppercase tracking-wider font-bold text-slate-900">
-                {tag.label}
-              </span>
-              <span className="text-[11px] text-slate-500 font-normal hidden sm:inline">
-                ({tag.desc})
-              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-600" />
+              <span>{tag}</span>
             </div>
           ))}
         </div>
 
-        {/* Verified Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {HOME_STATEMENT.stats.map((st, i) => (
-            <div
-              key={i}
-              className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow text-center"
-            >
-              <div className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-mono tracking-tight mb-1">
-                {st.value}
-              </div>
-              <div className="text-sm font-semibold text-slate-900 mb-1">{st.label}</div>
-              <div className="text-xs text-slate-500">{st.note}</div>
-            </div>
-          ))}
+        {/* 4 Practical Service Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {HOME_PRACTICAL_NEEDS.cards.map((card) => {
+            const Icon = ICON_MAP[card.icon] || AppWindow;
+            return (
+              <Link
+                key={card.id}
+                href={card.href}
+                className="group p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-100 flex items-center justify-center text-cyan-700 group-hover:bg-slate-950 group-hover:text-white transition-colors">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <span className="text-sm font-bold font-mono text-slate-950 px-3 py-1 rounded-full bg-slate-100 group-hover:bg-cyan-50 group-hover:text-cyan-800 transition-colors">
+                      {card.price}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-950 mb-3 group-hover:text-cyan-700 transition-colors">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
+                    {card.desc}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-cyan-700 group-hover:text-slate-950 transition-colors">
+                  <span>{card.action}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
       </div>

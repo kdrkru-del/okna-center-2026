@@ -22,10 +22,10 @@ export default function PricingTable() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
-            Стоимость окон, балконов и ремонта
+            Популярные окна и цены
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-light">
-            Честные цены напрямую от производителя. Без скрытых наценок. Итоговая смета фиксируется в договоре и не меняется.
+            Честные цены напрямую от производителя во Владивостоке. Без скрытых наценок. Итоговая смета фиксируется в договоре и не меняется.
           </p>
         </div>
 
