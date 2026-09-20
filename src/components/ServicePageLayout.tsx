@@ -186,9 +186,15 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
         <nav className="flex items-center gap-2 text-xs text-slate-500 font-mono overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-cyan-700 transition-colors">Главная</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-40 flex-shrink-0" />
-          <Link href={page.categoryUrl} className="hover:text-cyan-700 transition-colors">{page.categoryLabel}</Link>
-          <ChevronRight className="w-3.5 h-3.5 opacity-40 flex-shrink-0" />
-          <span className="text-slate-900 font-medium truncate">{page.h1}</span>
+          {page.categoryUrl !== `/${page.slug}` ? (
+            <>
+              <Link href={page.categoryUrl} className="hover:text-cyan-700 transition-colors">{page.categoryLabel}</Link>
+              <ChevronRight className="w-3.5 h-3.5 opacity-40 flex-shrink-0" />
+              <span className="text-slate-900 font-medium truncate">{page.h1}</span>
+            </>
+          ) : (
+            <span className="text-slate-900 font-medium truncate">{page.categoryLabel}</span>
+          )}
         </nav>
       </div>
 
@@ -204,7 +210,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>{page.eyebrow}</span>
+                <span>{page.eyebrow.replace(new RegExp(`^${page.categoryLabel}\\s*[·•-]\\s*`, 'i'), '').trim() || page.eyebrow}</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900">

@@ -149,9 +149,7 @@ export default function HeroArchitectural() {
           {/* Status badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/25 backdrop-blur-md border border-white/40 text-slate-950 text-[11px] font-mono uppercase tracking-widest mb-6 shadow-xs font-bold">
             <span className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
-            <span>Архитектурное остекление</span>
-            <span className="text-slate-400">·</span>
-            <span className="text-slate-800">Владивосток с 2004 г.</span>
+            <span>Архитектурное остекление резиденций</span>
           </div>
 
           {/* Headline */}
@@ -181,7 +179,7 @@ export default function HeroArchitectural() {
               href="/ghalierieia_rabot"
               className="px-6 py-4 rounded-2xl bg-white/25 hover:bg-white/40 text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider border border-white/50 shadow-sm backdrop-blur-md transition-all cursor-pointer drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]"
             >
-              Галерея 100+ объектов
+              Галерея наших работ
             </Link>
           </div>
 

@@ -33,23 +33,33 @@ export default function GalleryPage() {
       </div>
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
-            <Camera className="w-3.5 h-3.5" />
-            <span>Реальные выполненные объекты</span>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-mono uppercase tracking-widest mb-4">
+              <Camera className="w-3.5 h-3.5" />
+              <span>Реальные выполненные объекты</span>
+            </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-4">
+              Галерея наших работ
+            </h1>
+            <p className="text-slate-600 text-base sm:text-lg font-light leading-relaxed">
+              В этом разделе собраны подлинные фотографии объектов, выполненных специалистами компании «Окна Центр» во Владивостоке, Уссурийске, Артёме и пригороде. Никаких чужих 3D-рендеров — только фактические результаты нашей работы.
+            </p>
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
-            Галерея наших работ
-          </h1>
-          <p className="text-slate-600 text-base sm:text-lg font-light leading-relaxed mb-6">
-            В этом разделе собраны подлинные фотографии объектов, выполненных специалистами компании «Окна Центр» во Владивостоке, Уссурийске, Артёме и пригороде. Никаких чужих 3D-рендеров — только фактические результаты нашей работы.
-          </p>
+
+          <Link
+            href="/zaiavka_na_uslughi_kompanii_oknatsientr"
+            className="px-6 py-3.5 bg-slate-950 hover:bg-cyan-600 text-white rounded-2xl text-xs font-mono uppercase tracking-wider transition-colors inline-flex items-center gap-2 self-start md:self-auto shadow-sm flex-shrink-0"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Рассчитать аналогичный проект</span>
+          </Link>
         </div>
       </section>
 
       {/* Full Gallery */}
-      <ProjectsGallery />
+      <ProjectsGallery hideHeader={true} />
 
       {/* Pre-footer CTA */}
       <section className="py-20 bg-slate-50 border-t border-slate-200 text-center">

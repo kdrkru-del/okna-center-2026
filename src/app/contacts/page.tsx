@@ -96,7 +96,7 @@ export default function ContactsPage() {
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Владивосток</h2>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 border border-cyan-200 text-xs font-mono font-medium">
-                  Главный офис
+                  Шоурум и отдел продаж
                 </span>
               </div>
 
@@ -162,7 +162,7 @@ export default function ContactsPage() {
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Уссурийск</h2>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 border border-blue-200 text-xs font-mono font-medium">
-                  Филиал
+                  Офис и консультация
                 </span>
               </div>
 
