@@ -61,8 +61,8 @@ export default function GeographySection() {
           <div className="flex items-center gap-4 text-xs sm:text-sm text-slate-600">
             <Truck className="w-6 h-6 text-cyan-600 flex-shrink-0" />
             <div>
-              <span className="font-semibold text-slate-900 block">Доставка и монтаж по Приморскому краю:</span>
-              <span className="text-slate-500">Владивосток, Уссурийск, Артем, Надеждинск, Находка, Большой Камень. Отправка окон на Сахалин, Камчатку, Магадан, Чукотку.</span>
+              <span className="font-semibold text-slate-900 block">Продажа и доставка окон без установки:</span>
+              <span className="text-slate-500">Во Владивостоке и Уссурийске, доставка в любую точку Приморского края. Также осуществляем отправку любого количества окон в г. Анадырь, Южно-Сахалинск, Петропавловск-Камчатский и г. Магадан.</span>
             </div>
           </div>
           <a

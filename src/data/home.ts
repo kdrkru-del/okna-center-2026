@@ -117,7 +117,7 @@ export const BENTO_SERVICES = [
     id: "pvc-windows",
     title: "Пластиковые окна",
     category: "ОСНОВНОЕ ПРОИЗВОДСТВО",
-    tagline: "Для квартир, домов и дач. С установкой и без. Надежные профили Rehau, KBE и Funke от производителя.",
+    tagline: "Для квартир, домов и дач. Надежные профили Rehau, KBE и Funke от завода. Доставка по Владивостоку, Уссурийску и в любую точку Приморского края. Отправка любого количества окон в г. Анадырь, Южно-Сахалинск, Петропавловск-Камчатский и г. Магадан.",
     price: "от 9 500 ₽",
     href: "/kupit_plastikovye_okna_vladivostok",
     image: "/images/hero/hero-apartment-window-interior.jpg",
