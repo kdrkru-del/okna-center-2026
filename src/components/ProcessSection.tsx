@@ -18,6 +18,8 @@ export default function ProcessSection() {
   const steps = [
     {
       id: "lead",
+      stepNum: "1",
+      shortTitle: "Заявка",
       title: "Заявка",
       badge: "Первый шаг",
       desc: "Оставляете заявку на сайте или звоните по телефону 8 (423) 2-725-725 в удобное время.",
@@ -27,6 +29,8 @@ export default function ProcessSection() {
     },
     {
       id: "consultation",
+      stepNum: "2",
+      shortTitle: "Консультация",
       title: "Консультация",
       badge: "Подбор решения",
       desc: "Технолог уточняет параметры остекления, пожелания по теплоизоляции и формирует предварительную смету.",
@@ -36,6 +40,8 @@ export default function ProcessSection() {
     },
     {
       id: "measurement",
+      stepNum: "3",
+      shortTitle: "Замер 0 ₽",
       title: "Замер 0 ₽",
       badge: "Бесплатный выезд",
       desc: "Инженер-замерщик с образцами профилей Rehau, KBE и ламинации бесплатно выезжает на объект.",
@@ -45,6 +51,8 @@ export default function ProcessSection() {
     },
     {
       id: "contract",
+      stepNum: "4",
+      shortTitle: "Договор",
       title: "Договор и смета",
       badge: "Фиксация цены",
       desc: "Согласовываем комплектацию и фиксируем точную стоимость, сроки и гарантию в официальном договоре.",
@@ -54,6 +62,8 @@ export default function ProcessSection() {
     },
     {
       id: "production",
+      stepNum: "5",
+      shortTitle: "Сборка",
       title: "Изготовление",
       badge: "Собственный цех",
       desc: "Автоматизированная сборка конструкций на сертифицированном оборудовании во Владивостоке за 4–7 дней.",
@@ -63,6 +73,8 @@ export default function ProcessSection() {
     },
     {
       id: "installation",
+      stepNum: "6",
+      shortTitle: "Монтаж",
       title: "Монтаж по ГОСТ",
       badge: "Штатные мастера",
       desc: "Профессиональная установка с трехслойным швом (ПСУЛ, пена, гидроизоляция) и уборкой строительного мусора.",
@@ -72,6 +84,8 @@ export default function ProcessSection() {
     },
     {
       id: "warranty",
+      stepNum: "7",
+      shortTitle: "Гарантия",
       title: "Гарантия 5 лет",
       badge: "Официальный акт",
       desc: "Подписание акта сдачи-приемки объекта и оформление сервисного гарантийного талона.",
@@ -95,26 +109,53 @@ export default function ProcessSection() {
           </p>
         </div>
 
-        {/* Linear Stepper Bar with Arrows (All screens) */}
-        <div className="mb-12 p-3 sm:p-4 rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-xs overflow-x-auto">
-          <div className="flex items-center justify-between min-w-[780px] gap-2 px-1 text-xs">
+        {/* Stepper Pipeline (Fits 100% inside block without horizontal scrollbars) */}
+        <div className="mb-12 p-3 sm:p-4 rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-xs">
+          {/* Desktop: 8 connected steps pipeline (lg and above) */}
+          <div className="hidden lg:flex items-center justify-between w-full gap-1.5 xl:gap-2">
             {steps.map((s) => {
               const StepIcon = s.icon;
               return (
                 <React.Fragment key={s.id}>
-                  <div className="flex items-center gap-2 py-1.5 px-3 rounded-xl bg-white border border-slate-200/90 text-slate-800 font-medium whitespace-nowrap shadow-xs hover:border-cyan-400 transition-colors">
-                    <StepIcon className="w-4 h-4 text-cyan-600 flex-shrink-0" />
-                    <span>{s.title}</span>
+                  <div className="flex-1 min-w-0 flex items-center justify-center gap-1.5 py-2 px-2 xl:px-3 rounded-xl bg-white border border-slate-200/90 text-slate-800 text-[11px] xl:text-xs font-medium shadow-xs hover:border-cyan-400 transition-colors">
+                    <StepIcon className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                    <span className="truncate">{s.shortTitle}</span>
                   </div>
-                  <div className="flex items-center text-cyan-500 flex-shrink-0">
-                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                  <div className="text-cyan-500 shrink-0 px-0.5">
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
                   </div>
                 </React.Fragment>
               );
             })}
-            <div className="flex items-center gap-2 py-1.5 px-3.5 rounded-xl bg-slate-900 text-white font-medium whitespace-nowrap shadow-xs">
-              <Sparkles className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-              <span>Уют и комфорт</span>
+            <div className="flex-1 min-w-0 flex items-center justify-center gap-1.5 py-2 px-2 xl:px-3 rounded-xl bg-slate-900 text-white text-[11px] xl:text-xs font-medium shadow-xs shrink-0">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <span className="truncate">Уют и тепло</span>
+            </div>
+          </div>
+
+          {/* Tablet & Mobile: Clean responsive grid, all steps fully visible without scrollbar */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:hidden gap-2">
+            {steps.map((s, idx) => {
+              const StepIcon = s.icon;
+              return (
+                <div
+                  key={s.id}
+                  className="flex items-center gap-2 py-2 px-2.5 sm:px-3 rounded-xl bg-white border border-slate-200/90 text-slate-800 text-xs font-medium shadow-xs"
+                >
+                  <span className="w-5 h-5 rounded-full bg-cyan-100 text-cyan-800 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">
+                    {idx + 1}
+                  </span>
+                  <StepIcon className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span className="truncate">{s.shortTitle}</span>
+                </div>
+              );
+            })}
+            <div className="flex items-center gap-2 py-2 px-2.5 sm:px-3 rounded-xl bg-slate-900 text-white text-xs font-medium shadow-xs col-span-2 sm:col-span-1">
+              <span className="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-300 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">
+                8
+              </span>
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <span className="truncate">Уют и тепло</span>
             </div>
           </div>
         </div>
