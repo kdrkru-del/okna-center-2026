@@ -115,7 +115,7 @@ export default function Header() {
                 {/* Hidden on mobile, shown on sm+ */}
                 <span className="hidden sm:flex text-[10px] sm:text-[11px] text-slate-700 font-medium tracking-wide mt-1 items-center gap-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Владивосток · с 2004 года
+                  Владивосток · Уссурийск · с 2004 года
                 </span>
               </div>
             </Link>
@@ -176,21 +176,41 @@ export default function Header() {
 
             {/* Right actions: Phone & CTA */}
             <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-              {/* Phone call link: visible on all screens, styled as a pill on mobile */}
-              <div className="flex flex-col text-right">
-                <a
-                  href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                  className="flex items-center gap-1.5 py-1.5 px-2.5 sm:py-1 sm:px-3 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-950 font-bold text-xs sm:text-base font-mono tracking-tight transition-colors border border-slate-200/80 sm:border-0 sm:bg-transparent shadow-2xs sm:shadow-none whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
-                >
-                  <Phone className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
-                  <span className="hidden sm:inline">8 (423) </span>
-                  <span>2-725-725</span>
-                </a>
-                <span className="hidden lg:flex text-[10px] text-slate-600 font-medium items-center gap-1 justify-end drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+              {/* Desktop phone numbers for both cities */}
+              <div className="hidden lg:flex flex-col text-right">
+                <div className="flex items-center gap-2.5 justify-end text-xs xl:text-sm font-bold font-mono whitespace-nowrap">
+                  <a
+                    href="tel:+74232725725"
+                    className="text-slate-950 hover:text-cyan-700 transition-colors flex items-center gap-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                    title="Офис Владивосток"
+                  >
+                    <Phone className="w-3 h-3 text-cyan-600 shrink-0" />
+                    <span>Вл: 2-725-725</span>
+                  </a>
+                  <span className="text-slate-300">|</span>
+                  <a
+                    href="tel:+79242606350"
+                    className="text-slate-950 hover:text-cyan-700 transition-colors flex items-center gap-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                    title="Офис Уссурийск"
+                  >
+                    <span>Усс: 8 (924) 260-63-50</span>
+                  </a>
+                </div>
+                <span className="text-[10px] text-slate-600 font-medium flex items-center gap-1 justify-end drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] mt-0.5">
                   <Clock className="w-3 h-3 text-slate-500" />
                   Пн–Сб 9:00–18:00
                 </span>
               </div>
+
+              {/* Mobile phone call link: visible below lg, styled as a pill */}
+              <a
+                href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
+                className="lg:hidden flex items-center gap-1.5 py-1.5 px-2.5 sm:py-1 sm:px-3 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-950 font-bold text-xs sm:text-base font-mono tracking-tight transition-colors border border-slate-200/80 shadow-2xs whitespace-nowrap"
+              >
+                <Phone className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                <span className="hidden sm:inline">8 (423) </span>
+                <span>2-725-725</span>
+              </a>
 
               {/* Desktop CTA Button: Заявка на замер on the right */}
               <button

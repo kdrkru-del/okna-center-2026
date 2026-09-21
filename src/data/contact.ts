@@ -12,7 +12,7 @@ export interface OfficeLocation {
 export const CONTACTS = {
   companyName: "Окна-Центр",
   brandName: "ОКНА ЦЕНТР",
-  legalName: 'ООО "Глобал Импорт-Экспорт Групп" / "Окна Центр"',
+  legalName: 'Компания «Окна Центр»',
   foundedYear: 2004,
   experienceYears: 22,
   slogan: "Окна, балконы и архитектурное остекление",

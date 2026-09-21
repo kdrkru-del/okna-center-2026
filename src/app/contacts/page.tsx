@@ -115,6 +115,16 @@ export default function ContactsPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-slate-900 block">Электронная почта:</span>
+                    <a href="mailto:okna.c@mail.ru" className="text-sm font-mono text-cyan-700 hover:underline">
+                      okna.c@mail.ru
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-slate-900 block">Режим работы:</span>
@@ -176,6 +186,16 @@ export default function ContactsPage() {
                     <span className="font-semibold text-slate-900 block">Телефон:</span>
                     <a href="tel:+79242606350" className="text-base font-mono text-cyan-700 hover:underline font-bold">
                       8 (924) 260-63-50
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-slate-900 block">Электронная почта:</span>
+                    <a href="mailto:okno_ussur@mail.ru" className="text-sm font-mono text-cyan-700 hover:underline">
+                      okno_ussur@mail.ru
                     </a>
                   </div>
                 </div>

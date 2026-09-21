@@ -42,13 +42,13 @@ export default function HeroArchitectural() {
           <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-4 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
             Пластиковые окна <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-slate-900 to-cyan-900">
-              во Владивостоке
+              с установкой и без под ключ
             </span>
           </h1>
 
           {/* Core Subtitle for Mass Demand */}
           <p className="text-slate-900 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 font-medium drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)]">
-            С установкой и без. Для квартир, частных домов, балконов и лоджий. Собственное производство, надежные профили Rehau, KBE и Funke, доставка и профессиональный монтаж по ГОСТ.
+            Собственное производство с 2004 года. Фирменные офисы, бесплатный выезд мастера на замер и монтаж по ГОСТ во Владивостоке, Уссурийске и по всему Приморью.
           </p>
 
           {/* CTAs */}

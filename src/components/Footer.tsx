@@ -22,7 +22,7 @@ export default function Footer() {
                   ОКНА<span className="text-cyan-600">-</span>ЦЕНТР
                 </span>
                 <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mt-0.5">
-                  Владивосток · с 2004 года
+                  Владивосток · Уссурийск · с 2004 года
                 </span>
               </div>
             </Link>
@@ -96,6 +96,9 @@ export default function Footer() {
                 <div className="text-slate-600 mt-0.5 pl-5">
                   {COMPANY_INFO.offices[0].address}
                 </div>
+                <div className="text-[11px] text-slate-500 font-mono pl-5 mt-0.5">
+                  <a href={`tel:${COMPANY_INFO.mainPhoneRaw}`} className="hover:text-cyan-700 font-bold text-slate-900">{COMPANY_INFO.mainPhone}</a> · okna.c@mail.ru
+                </div>
               </div>
 
               <div>
@@ -106,20 +109,14 @@ export default function Footer() {
                 <div className="text-slate-600 mt-0.5 pl-5">
                   {COMPANY_INFO.offices[1].address}
                 </div>
+                <div className="text-[11px] text-slate-500 font-mono pl-5 mt-0.5">
+                  <a href={`tel:${COMPANY_INFO.offices[1].phoneRaw}`} className="hover:text-cyan-700 font-bold text-slate-900">{COMPANY_INFO.offices[1].phone}</a> · okno_ussur@mail.ru
+                </div>
               </div>
 
               <div className="pt-1">
-                <a
-                  href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                  className="font-mono text-sm font-bold text-slate-900 hover:text-cyan-700 transition-colors block"
-                >
-                  {COMPANY_INFO.mainPhone}
-                </a>
-                <div className="text-[11px] text-slate-500 font-mono mt-0.5">
-                  WhatsApp: +7 (994) 010-03-00
-                </div>
                 <div className="text-[11px] text-slate-500 font-mono">
-                  Email: okna.c@mail.ru
+                  WhatsApp: +7 (994) 010-03-00
                 </div>
               </div>
 
