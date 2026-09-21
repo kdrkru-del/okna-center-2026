@@ -76,8 +76,8 @@ export default function CompanyTimeline() {
             <Building2 className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-0.5" />
             <div>
               <span className="font-semibold text-slate-900 block">Владивосток:</span>
-              <span>Офис и замерная служба</span>
-              <span className="block text-[11px] text-cyan-700">Перед визитом уточните адрес по телефону</span>
+              <span>ул. Ильичева, д. 29, оф. 8</span>
+              <span className="block text-[11px] text-slate-500">Офис и замерная служба</span>
             </div>
           </div>
 
@@ -85,8 +85,8 @@ export default function CompanyTimeline() {
             <Building2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
             <div>
               <span className="font-semibold text-slate-900 block">Уссурийск:</span>
-              <span>Филиал и монтажная служба</span>
-              <span className="block text-[11px] text-cyan-700">Перед визитом уточните адрес по телефону</span>
+              <span>ул. Кирова, д. 12, оф. 202</span>
+              <span className="block text-[11px] text-slate-500">Филиал и монтажная служба</span>
             </div>
           </div>
 

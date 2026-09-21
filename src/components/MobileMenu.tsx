@@ -5,6 +5,7 @@ import Link from "next/link";
 import { X, Phone, MessageCircle, MapPin, ArrowRight } from "lucide-react";
 import { MAIN_NAVIGATION } from "@/data/navigation";
 import { CONTACTS } from "@/data/contact";
+import { useMeasurementModal } from "@/context/ModalContext";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -12,6 +13,7 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const { openMeasurementModal } = useMeasurementModal();
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -83,9 +85,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <div className="space-y-1.5 text-xs text-slate-600">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-cyan-600 flex-shrink-0" />
-            <span className="font-semibold text-slate-900">Владивосток и Уссурийск</span>
+            <span className="font-semibold text-slate-900">Владивосток: ул. Ильичева, 29 (оф. 8)</span>
           </div>
-          <p className="text-[11px] text-slate-500 pl-6">Перед визитом уточните адрес офиса по телефону</p>
+          <p className="text-[11px] text-slate-500 pl-6">Уссурийск: ул. Кирова, 12 (оф. 202)</p>
         </div>
 
         <div className="grid grid-cols-2 gap-3 pt-2">
@@ -108,13 +110,16 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </a>
         </div>
 
-        <Link
-          href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-          onClick={onClose}
-          className="block w-full py-4 text-center rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-slate-900/10 transition-colors"
+        <button
+          type="button"
+          onClick={() => {
+            onClose();
+            openMeasurementModal("Мобильное меню");
+          }}
+          className="block w-full py-4 text-center rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-slate-900/10 transition-colors cursor-pointer"
         >
           Бесплатный выезд замерщика 0 ₽
-        </Link>
+        </button>
       </div>
     </div>
   );

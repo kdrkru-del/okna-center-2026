@@ -134,6 +134,9 @@ const organizationSchema = {
   ],
 };
 
+import { ModalProvider } from "@/context/ModalContext";
+import QuickLeadModal from "@/components/QuickLeadModal";
+
 export default function RootLayout({
   children,
 }: {
@@ -147,7 +150,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href={asset("/images/hero/hero-daylight-villa.jpg")}
+          href={asset("/images/hero/hero-apartment-window-interior.jpg")}
           fetchPriority="high"
         />
         <script
@@ -156,11 +159,14 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-white text-slate-900 font-sans selection:bg-cyan-600 selection:text-white">
-        <YandexMetrika />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <MobileBottomNav />
+        <ModalProvider>
+          <YandexMetrika />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <MobileBottomNav />
+          <QuickLeadModal />
+        </ModalProvider>
       </body>
     </html>
   );

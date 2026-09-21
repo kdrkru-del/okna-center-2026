@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowRight, Calculator, Ruler, Phone } from "lucide-react";
 import { asset } from "@/lib/assetPath";
 import { COMPANY_INFO } from "@/data/company_info";
+import { useMeasurementModal } from "@/context/ModalContext";
 
 const QUICK_LINKS = [
   { label: "Пластиковые окна", href: "/kupit_plastikovye_okna_vladivostok" },
@@ -15,6 +16,8 @@ const QUICK_LINKS = [
 ];
 
 export default function HeroArchitectural() {
+  const { openMeasurementModal } = useMeasurementModal();
+
   return (
     <section className="relative min-h-[92dvh] sm:min-h-[100dvh] w-full flex items-center overflow-hidden pt-28 pb-14 sm:pb-20">
       {/* 1. CRYSTAL-CLEAR APARTMENT WINDOW WITH COZY LIVING ROOM INTERIOR & BAY VIEW */}
@@ -62,13 +65,14 @@ export default function HeroArchitectural() {
               <span>Рассчитать стоимость окна</span>
             </a>
 
-            <Link
-              href="/zaiavka_na_uslughi_kompanii_oknatsientr"
+            <button
+              type="button"
+              onClick={() => openMeasurementModal("Пластиковые окна")}
               className="px-6 py-4 rounded-2xl bg-white/70 hover:bg-white text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider border border-white/80 shadow-sm backdrop-blur-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Ruler className="w-4 h-4 text-cyan-700" />
               <span>Вызвать замерщика 0 ₽</span>
-            </Link>
+            </button>
 
             {/* Mobile quick call button */}
             <a

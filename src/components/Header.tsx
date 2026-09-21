@@ -5,8 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, ChevronDown, Menu, X, Clock, ShieldCheck, MapPin } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
+import { useMeasurementModal } from "@/context/ModalContext";
 
 export default function Header() {
+  const { openMeasurementModal } = useMeasurementModal();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -174,12 +176,13 @@ export default function Header() {
                 </span>
               </div>
 
-              <Link
-                href="/zaiavka_na_uslughi_kompanii_oknatsientr"
+              <button
+                type="button"
+                onClick={() => openMeasurementModal("Шапка сайта")}
                 className="px-4 py-2 sm:px-5 sm:py-2.5 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-full text-xs uppercase tracking-wider shadow-md hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
               >
                 Заявка на замер
-              </Link>
+              </button>
 
               {/* Mobile Burger Button */}
               <button

@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { Phone, MessageCircle, Calculator } from "lucide-react";
+import { Phone, MessageCircle, Ruler } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
+import { useMeasurementModal } from "@/context/ModalContext";
 
 export default function MobileBottomNav() {
+  const { openMeasurementModal } = useMeasurementModal();
+
   return (
     <nav
       className="md:hidden fixed bottom-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-t border-slate-200/90 px-3 py-2 pb-safe shadow-[0_-4px_20px_rgba(0,0,0,0.06)]"
@@ -31,13 +33,14 @@ export default function MobileBottomNav() {
           <span className="text-[11px] font-semibold">WhatsApp</span>
         </a>
 
-        <Link
-          href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-900 hover:bg-black text-white font-bold transition-transform active:scale-95 shadow-md shadow-slate-900/10"
+        <button
+          type="button"
+          onClick={() => openMeasurementModal("Мобильное меню")}
+          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-900 hover:bg-black text-white font-bold transition-transform active:scale-95 shadow-md shadow-slate-900/10 cursor-pointer"
         >
-          <Calculator className="w-4 h-4 mb-1 text-cyan-300" />
-          <span className="text-[11px]">Расчет 0 ₽</span>
-        </Link>
+          <Ruler className="w-4 h-4 mb-1 text-cyan-300" />
+          <span className="text-[11px]">Замер 0 ₽</span>
+        </button>
       </div>
     </nav>
   );

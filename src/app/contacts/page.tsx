@@ -99,7 +99,7 @@ export default function ContactsPage() {
                   <MapPin className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-slate-900 block">Адрес офиса:</span>
-                    <span className="text-cyan-800 font-semibold">Перед визитом уточните адрес офиса по телефону</span>
+                    <span className="text-slate-900 font-bold text-base">г. Владивосток, ул. Ильичева, д. 29, оф. 8</span>
                     <span className="block text-xs text-slate-500 mt-0.5">Мастера выезжают на бесплатный замер по всему Владивостоку и пригороду</span>
                   </div>
                 </div>
@@ -165,7 +165,7 @@ export default function ContactsPage() {
                   <MapPin className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-slate-900 block">Адрес офиса:</span>
-                    <span className="text-cyan-800 font-semibold">Перед визитом уточните адрес офиса по телефону</span>
+                    <span className="text-slate-900 font-bold text-base">г. Уссурийск, ул. Кирова, д. 12, оф. 202</span>
                     <span className="block text-xs text-slate-500 mt-0.5">Бесплатный выезд на замер и монтаж по всему Уссурийску и району</span>
                   </div>
                 </div>
