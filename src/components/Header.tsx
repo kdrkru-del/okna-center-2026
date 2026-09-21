@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, ChevronDown, Menu, X, Clock, ShieldCheck, MapPin, MessageCircle, Ruler, ChevronRight } from "lucide-react";
+import { Phone, ChevronDown, Menu, X, ShieldCheck, MapPin, MessageCircle, Ruler, ChevronRight } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import { useMeasurementModal } from "@/context/ModalContext";
 
@@ -176,30 +176,24 @@ export default function Header() {
 
             {/* Right actions: Phone & CTA */}
             <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-              {/* Desktop phone numbers for both cities */}
-              <div className="hidden lg:flex flex-col text-right">
-                <div className="flex items-center gap-2.5 justify-end text-xs xl:text-sm font-bold font-mono whitespace-nowrap">
-                  <a
-                    href="tel:+74232725725"
-                    className="text-slate-950 hover:text-cyan-700 transition-colors flex items-center gap-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
-                    title="Офис Владивосток"
-                  >
-                    <Phone className="w-3 h-3 text-cyan-600 shrink-0" />
-                    <span>Вл: 2-725-725</span>
-                  </a>
-                  <span className="text-slate-300">|</span>
-                  <a
-                    href="tel:+79242606350"
-                    className="text-slate-950 hover:text-cyan-700 transition-colors flex items-center gap-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
-                    title="Офис Уссурийск"
-                  >
-                    <span>Усс: 8 (924) 260-63-50</span>
-                  </a>
-                </div>
-                <span className="text-[10px] text-slate-600 font-medium flex items-center gap-1 justify-end drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] mt-0.5">
-                  <Clock className="w-3 h-3 text-slate-500" />
-                  Пн–Сб 9:00–18:00
-                </span>
+              {/* Desktop phone numbers for both cities (vertical column) */}
+              <div className="hidden lg:flex flex-col text-right justify-center space-y-0.5">
+                <a
+                  href="tel:+74232725725"
+                  className="text-xs xl:text-[13px] font-bold font-mono text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  title="Офис Владивосток: ул. Ильичева, 29, оф. 8"
+                >
+                  <span className="text-[11px] xl:text-xs font-semibold text-slate-500 font-sans">Владивосток:</span>
+                  <span className="text-slate-950 hover:text-cyan-700">8 (423) 2-725-725</span>
+                </a>
+                <a
+                  href="tel:+79242606350"
+                  className="text-xs xl:text-[13px] font-bold font-mono text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  title="Офис Уссурийск: ул. Кирова, 12, оф. 202"
+                >
+                  <span className="text-[11px] xl:text-xs font-semibold text-slate-500 font-sans">Уссурийск:</span>
+                  <span className="text-slate-950 hover:text-cyan-700">8 (924) 260-63-50</span>
+                </a>
               </div>
 
               {/* Mobile phone call link: visible below lg, styled as a pill */}
