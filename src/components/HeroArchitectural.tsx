@@ -17,21 +17,21 @@ const QUICK_LINKS = [
 export default function HeroArchitectural() {
   return (
     <section className="relative min-h-[92dvh] sm:min-h-[100dvh] w-full flex items-center overflow-hidden pt-28 pb-14 sm:pb-20">
-      {/* 1. CRYSTAL-CLEAR PHOTOGRAPHY WITHOUT ANY FOG OR MILKY GRADIENT */}
+      {/* 1. CRYSTAL-CLEAR APARTMENT WINDOW WITH COZY LIVING ROOM INTERIOR & BAY VIEW */}
       <div className="absolute inset-0 z-0 select-none">
         <Image
-          src={asset("/images/hero/hero-window-vladivostok.jpg")}
-          alt="Пластиковые окна во Владивостоке от производителя Окна Центр"
+          src={asset("/images/hero/hero-apartment-window-interior.jpg")}
+          alt="Пластиковые окна в квартиру во Владивостоке — Окна Центр"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center sm:object-[center_35%]"
+          className="object-cover object-center sm:object-[center_center]"
         />
       </div>
 
       {/* 2. TRANSLUCENT FROSTED GLASS CARD / ПОЛУПРОЗРАЧНАЯ ПЛАШКА */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
-        <div className="max-w-xl lg:max-w-2xl p-6 sm:p-9 lg:p-11 rounded-3xl bg-white/45 sm:bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_20px_50px_rgba(0,0,0,0.15)] ring-1 ring-white/50">
+        <div className="max-w-xl lg:max-w-2xl p-6 sm:p-9 lg:p-11 rounded-3xl bg-white/40 sm:bg-white/35 backdrop-blur-md border border-white/60 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.22)] ring-1 ring-white/50">
           
           {/* Trust badge line */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/60 border border-white/70 text-slate-950 text-xs font-semibold mb-4 shadow-2xs backdrop-blur-xs">
@@ -40,7 +40,7 @@ export default function HeroArchitectural() {
           </div>
 
           {/* Main H1 Title */}
-          <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-4 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+          <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-4 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
             Пластиковые окна <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-slate-900 to-cyan-900">
               во Владивостоке
@@ -48,7 +48,7 @@ export default function HeroArchitectural() {
           </h1>
 
           {/* Core Subtitle for Mass Demand */}
-          <p className="text-slate-900 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+          <p className="text-slate-900 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 font-medium drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)]">
             С установкой и без. Для квартир, частных домов, балконов и лоджий. Собственное производство, надежные профили Rehau, KBE и Funke, доставка и профессиональный монтаж по ГОСТ.
           </p>
 
@@ -81,11 +81,11 @@ export default function HeroArchitectural() {
           </div>
 
           {/* Price jump link */}
-          <div className="mb-6 flex items-center gap-2 text-xs sm:text-sm text-slate-900 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <div className="mb-6 flex items-center gap-2 text-xs sm:text-sm text-slate-900 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
             <span>Хотите сразу узнать ориентир цен?</span>
             <a
               href="#prices"
-              className="text-cyan-900 hover:text-cyan-950 font-bold inline-flex items-center gap-1 underline underline-offset-4 decoration-cyan-600"
+              className="text-cyan-900 hover:text-cyan-950 font-extrabold inline-flex items-center gap-1 underline underline-offset-4 decoration-cyan-600"
             >
               <span>Смотреть цены</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -94,7 +94,7 @@ export default function HeroArchitectural() {
 
           {/* Quick Service Links Strip */}
           <div className="pt-5 border-t border-slate-950/15">
-            <span className="text-[11px] font-mono text-slate-900 font-semibold uppercase tracking-wider block mb-2.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+            <span className="text-[11px] font-mono text-slate-900 font-bold uppercase tracking-wider block mb-2.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
               Быстрый переход к услугам:
             </span>
             <div className="flex flex-wrap gap-2">

@@ -120,7 +120,7 @@ export const BENTO_SERVICES = [
     tagline: "Для квартир, домов и дач. С установкой и без. Надежные профили Rehau, KBE и Funke от производителя.",
     price: "от 9 500 ₽",
     href: "/kupit_plastikovye_okna_vladivostok",
-    image: "/images/hero/hero-window-vladivostok.jpg",
+    image: "/images/hero/hero-apartment-window-interior.jpg",
     cols: "lg:col-span-8",
     cta: "Рассчитать окно",
     isLarge: true,
