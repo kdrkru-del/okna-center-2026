@@ -100,8 +100,8 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
             {/* Architectural Emblem & Brand */}
-            <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-red-600 via-rose-600 to-red-700 flex items-center justify-center p-2.5 shadow-sm text-white flex-shrink-0 group-hover:scale-105 transition-transform ring-1 ring-red-500/30">
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-red-600 via-rose-600 to-red-700 flex items-center justify-center p-2 sm:p-2.5 shadow-sm text-white flex-shrink-0 group-hover:scale-105 transition-transform ring-1 ring-red-500/30">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
                   <rect x="3" y="3" width="18" height="18" rx="2.5" />
                   <line x1="12" y1="3" x2="12" y2="21" strokeWidth="2" />
@@ -109,10 +109,11 @@ export default function Header() {
                 </svg>
               </div>
               <div className="flex flex-col">
-                <span className="text-lg sm:text-2xl font-black tracking-tight text-slate-950 uppercase leading-none group-hover:text-cyan-700 transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                <span className="text-base sm:text-2xl font-black tracking-tight text-slate-950 uppercase leading-none group-hover:text-cyan-700 transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
                   ОКНА<span className="text-red-600">-</span>ЦЕНТР
                 </span>
-                <span className="text-[10px] sm:text-[11px] text-slate-700 font-medium tracking-wide mt-1 flex items-center gap-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                {/* Hidden on mobile, shown on sm+ */}
+                <span className="hidden sm:flex text-[10px] sm:text-[11px] text-slate-700 font-medium tracking-wide mt-1 items-center gap-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   Владивосток · с 2004 года
                 </span>
@@ -174,25 +175,28 @@ export default function Header() {
             </nav>
 
             {/* Right actions: Phone & CTA */}
-            <div className="flex items-center gap-3 sm:gap-5 flex-shrink-0">
-              <div className="hidden lg:flex flex-col text-right">
+            <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+              {/* Phone call link: visible on all screens, styled as a pill on mobile */}
+              <div className="flex flex-col text-right">
                 <a
                   href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                  className="text-sm sm:text-base font-bold text-slate-950 hover:text-cyan-700 transition-colors font-mono tracking-tight flex items-center gap-1.5 justify-end whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="flex items-center gap-1.5 py-1.5 px-2.5 sm:py-1 sm:px-3 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-950 font-bold text-xs sm:text-base font-mono tracking-tight transition-colors border border-slate-200/80 sm:border-0 sm:bg-transparent shadow-2xs sm:shadow-none whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                 >
-                  <Phone className="w-3.5 h-3.5 text-cyan-600" />
-                  {COMPANY_INFO.mainPhone}
+                  <Phone className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span className="hidden sm:inline">8 (423) </span>
+                  <span>2-725-725</span>
                 </a>
-                <span className="text-[10px] text-slate-600 font-medium flex items-center gap-1 justify-end drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                <span className="hidden lg:flex text-[10px] text-slate-600 font-medium items-center gap-1 justify-end drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
                   <Clock className="w-3 h-3 text-slate-500" />
                   Пн–Сб 9:00–18:00
                 </span>
               </div>
 
+              {/* Desktop CTA Button: Заявка на замер on the right */}
               <button
                 type="button"
                 onClick={() => openMeasurementModal("Шапка сайта")}
-                className="px-4 py-2 sm:px-5 sm:py-2.5 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-full text-xs uppercase tracking-wider shadow-md hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
+                className="hidden lg:inline-flex px-4 py-2 sm:px-5 sm:py-2.5 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-full text-xs uppercase tracking-wider shadow-md hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
               >
                 Заявка на замер
               </button>
@@ -200,7 +204,7 @@ export default function Header() {
               {/* Mobile Burger Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2.5 rounded-xl bg-white/40 hover:bg-white/60 text-slate-900 border border-white/50 backdrop-blur-md transition-colors"
+                className="lg:hidden p-2 sm:p-2.5 rounded-xl bg-white/60 hover:bg-white text-slate-900 border border-slate-200/80 shadow-2xs backdrop-blur-md transition-colors"
                 aria-label="Открыть меню"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
