@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Building2, ShieldCheck, MapPin, Eye, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck, MapPin, Eye, Sparkles } from "lucide-react";
 import { KEY_OBJECTS, galleryItems } from "@/data/gallery_data";
 import { asset } from "@/lib/assetPath";
 
@@ -25,10 +25,6 @@ export default function KeyObjectsShowcase() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/60 text-cyan-300 text-xs font-mono uppercase tracking-wider mb-4">
-              <Building2 className="w-3.5 h-3.5" />
-              <span>Фактические результаты с 2004 года</span>
-            </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
               Ключевые объекты и выполненные работы
             </h2>
