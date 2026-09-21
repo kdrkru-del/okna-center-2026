@@ -106,10 +106,10 @@ export default function ZaiavkaPage() {
                     г. Уссурийск, ул. Кирова, д. 12, оф. 202
                   </p>
                   <a
-                    href="tel:+79242606350"
+                    href="tel:+79502800300"
                     className="text-xs font-mono font-bold text-slate-900 hover:text-cyan-700 block mt-2"
                   >
-                    8 (924) 260-63-50
+                    8 (950) 2-800-300
                   </a>
                 </div>
               </div>

@@ -184,8 +184,8 @@ export default function ContactsPage() {
                   <Phone className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-slate-900 block">Телефон:</span>
-                    <a href="tel:+79242606350" className="text-base font-mono text-cyan-700 hover:underline font-bold">
-                      8 (924) 260-63-50
+                    <a href="tel:+79502800300" className="text-base font-mono text-cyan-700 hover:underline font-bold">
+                      8 (950) 2-800-300
                     </a>
                   </div>
                 </div>
@@ -214,7 +214,7 @@ export default function ContactsPage() {
 
             <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center gap-4">
               <a
-                href="tel:+79242606350"
+                href="tel:+79502800300"
                 className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 font-mono shadow-sm"
               >
                 <Phone className="w-3.5 h-3.5" />

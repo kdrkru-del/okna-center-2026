@@ -187,12 +187,12 @@ export default function Header() {
                   <span className="text-slate-950 hover:text-cyan-700">8 (423) 2-725-725</span>
                 </a>
                 <a
-                  href="tel:+79242606350"
+                  href="tel:+79502800300"
                   className="text-xs xl:text-[13px] font-bold font-mono text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Уссурийск: ул. Кирова, 12, оф. 202"
                 >
                   <span className="text-[11px] xl:text-xs font-semibold text-slate-500 font-sans">Уссурийск:</span>
-                  <span className="text-slate-950 hover:text-cyan-700">8 (924) 260-63-50</span>
+                  <span className="text-slate-950 hover:text-cyan-700">8 (950) 2-800-300</span>
                 </a>
               </div>
 

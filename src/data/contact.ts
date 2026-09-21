@@ -24,8 +24,8 @@ export const CONTACTS = {
   phones: {
     mainDisplay: "8 (423) 2-725-725",
     mainRaw: "+74232725725",
-    ussuriyskDisplay: "8 (924) 260-63-50",
-    ussuriyskRaw: "+79242606350",
+    ussuriyskDisplay: "8 (950) 2-800-300",
+    ussuriyskRaw: "+79502800300",
     additional: [
       { display: "8 (423) 2-733-414", raw: "+74232733414" },
       { display: "8 (423) 2-718-229", raw: "+74232718229" },
@@ -56,8 +56,8 @@ export const CONTACTS = {
     {
       city: "Уссурийск",
       address: "ул. Кирова, д. 12, оф. 202",
-      phone: "8 (924) 260-63-50",
-      phoneRaw: "+79242606350",
+      phone: "8 (950) 2-800-300",
+      phoneRaw: "+79502800300",
       email: "okno_ussur@mail.ru",
       schedule: "Пн-Пт 9:00 - 18:00, Сб 10:00 - 15:00",
       isMain: false,
