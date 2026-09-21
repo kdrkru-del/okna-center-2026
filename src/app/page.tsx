@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HeroArchitectural from "@/components/HeroArchitectural";
 import ServicesBento from "@/components/ServicesBento";
 import PopularSolutions from "@/components/PopularSolutions";
+import KeyObjectsShowcase from "@/components/KeyObjectsShowcase";
 import ClimateEngineering from "@/components/ClimateEngineering";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
 import ProcessSection from "@/components/ProcessSection";
@@ -38,6 +39,9 @@ export default function Home() {
 
       {/* 3. Popular Apartment & House Solutions: Популярные решения для квартир и домов */}
       <PopularSolutions />
+
+      {/* 4. Key Construction Projects & Real Works Portfolio: Ключевые объекты и выполненные работы */}
+      <KeyObjectsShowcase />
 
       {/* 5. Climate-Verified Quality for Primorye */}
       <ClimateEngineering />

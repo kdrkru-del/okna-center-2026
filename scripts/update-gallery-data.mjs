@@ -1,4 +1,6 @@
-export interface GalleryItem {
+import fs from 'fs';
+
+const content = `export interface GalleryItem {
   id: string;
   src: string;
   title: string;
@@ -469,3 +471,7 @@ export const galleryItems: GalleryItem[] = [
     badge: "Теплая лоджия"
   }
 ];
+`;
+
+fs.writeFileSync('src/data/gallery_data.ts', content, 'utf8');
+console.log('src/data/gallery_data.ts successfully updated with 43 real objects!');
