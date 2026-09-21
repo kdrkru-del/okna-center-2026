@@ -7,8 +7,6 @@ import BalconiesTurnkeySection from "@/components/BalconiesTurnkeySection";
 import WindowRepairCallout from "@/components/WindowRepairCallout";
 import ClimateEngineering from "@/components/ClimateEngineering";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
-import PricingTable from "@/components/PricingTable";
-import ProjectsGallery from "@/components/ProjectsGallery";
 import NonStandardSolutions from "@/components/NonStandardSolutions";
 import ProcessSection from "@/components/ProcessSection";
 import GeographySection from "@/components/GeographySection";
@@ -60,13 +58,7 @@ export default function Home() {
       {/* 8. Interactive Calculator */}
       <InteractiveCalculator />
 
-      {/* 9. Pricing Catalog Table */}
-      <PricingTable />
-
-      {/* 10. Authentic Completed Projects Gallery */}
-      <ProjectsGallery limit={8} />
-
-      {/* 11. Custom & Aluminum Solutions (Secondary Focus) */}
+      {/* 9. Custom & Aluminum Solutions (Secondary Focus) */}
       <NonStandardSolutions />
 
       {/* 12. How We Work Process Section */}

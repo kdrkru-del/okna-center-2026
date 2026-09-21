@@ -87,13 +87,13 @@ export default function HeroArchitectural() {
           {/* Price jump link */}
           <div className="mb-6 flex items-center gap-2 text-xs sm:text-sm text-slate-900 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
             <span>Хотите сразу узнать ориентир цен?</span>
-            <a
-              href="#prices"
+            <Link
+              href="/ceny"
               className="text-cyan-900 hover:text-cyan-950 font-extrabold inline-flex items-center gap-1 underline underline-offset-4 decoration-cyan-600"
             >
               <span>Смотреть цены</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
 
           {/* Quick Service Links Strip */}

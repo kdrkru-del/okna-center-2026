@@ -110,7 +110,7 @@ export const MAIN_NAVIGATION: NavSection[] = [
   {
     id: "prices",
     label: "Цены",
-    href: "/#prices",
+    href: "/ceny",
   },
   {
     id: "about",

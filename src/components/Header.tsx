@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, ChevronDown, Menu, X, Clock, ShieldCheck, MapPin } from "lucide-react";
+import { Phone, ChevronDown, Menu, X, Clock, ShieldCheck, MapPin, MessageCircle, Ruler, ChevronRight } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import { useMeasurementModal } from "@/context/ModalContext";
 
@@ -12,6 +12,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +71,20 @@ export default function Header() {
       ],
     },
     { id: "projects", label: "Наши работы", href: "/ghalierieia_rabot" },
-    { id: "prices", label: "Цены", href: "/#prices" },
+    {
+      id: "prices",
+      label: "Цены",
+      href: "/ceny",
+      items: [
+        { label: "Все цены и прайс-лист", href: "/ceny", desc: "Полный интерактивный каталог цен с поиском" },
+        { label: "Цены на окна с установкой", href: "/ustanovka_plastikovykh_okon_vo_vladivostokie", desc: "Монтаж по ГОСТ под ключ от 19 500 ₽" },
+        { label: "Окна от завода со склада", href: "/kupit_plastikovye_okna_vladivostok", desc: "Готовые окна без наценок от 14 000 ₽" },
+        { label: "Цены на остекление балконов", href: "/osteklenie_balkona_vladivostok", desc: "Теплый ПВХ и алюминий от 55 000 ₽" },
+        { label: "Цены на лоджии под ключ", href: "/lodgia_pod_klyuch_vladivostok", desc: "Остекление, утепление, отделка от 79 000 ₽" },
+        { label: "Прайс-лист на ремонт окон", href: "/remont_plastikovyh_okon_vladivostok", desc: "Регулировка, уплотнители от 250 ₽" },
+        { label: "Окна для дачи", href: "/okna_dlya_dachi_vladivostok", desc: "Эконом-решения от 4 000 ₽" },
+      ],
+    },
     { id: "about", label: "О компании", href: "/okonnaia_kompaniia_vladivostok" },
     { id: "contacts", label: "Контакты", href: "/contacts" },
   ];
@@ -112,7 +126,7 @@ export default function Header() {
                 sec.items ? (
                   <div
                     key={sec.id}
-                    className="relative"
+                    className="relative group"
                     onMouseEnter={() => setOpenDropdown(sec.id)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
@@ -198,41 +212,97 @@ export default function Header() {
 
         {/* Mobile Fullscreen Navigation Menu */}
         {mobileMenuOpen && (
-          <div className="xl:hidden fixed inset-x-0 top-full bg-white/98 backdrop-blur-2xl border-b border-slate-200 max-h-[85vh] overflow-y-auto p-6 animate-in slide-in-from-top-2 duration-300 shadow-xl">
-            <div className="space-y-6">
+          <div className="lg:hidden fixed inset-x-0 top-full bg-white/98 backdrop-blur-2xl border-b border-slate-200 max-h-[85vh] overflow-y-auto p-5 animate-in slide-in-from-top-2 duration-300 shadow-2xl">
+            <div className="space-y-3">
               {navSections.map((sec) => (
-                <div key={sec.id} className="border-b border-slate-100 pb-4">
-                  <Link
-                    href={sec.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-base font-bold text-slate-900 uppercase tracking-wider block mb-2"
-                  >
-                    {sec.label}
-                  </Link>
-                  {sec.items && (
-                    <div className="grid grid-cols-1 gap-2 pl-3">
-                      {sec.items.map((item) => (
+                <div key={sec.id} className="border-b border-slate-100 pb-2.5">
+                  {sec.items ? (
+                    <div>
+                      <div className="flex items-center justify-between">
                         <Link
-                          key={item.href}
-                          href={item.href}
+                          href={sec.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="text-sm text-slate-600 hover:text-cyan-600 py-1 block"
+                          className="text-base font-bold text-slate-950 uppercase tracking-wider block py-1"
                         >
-                          {item.label}
+                          {sec.label}
                         </Link>
-                      ))}
+                        <button
+                          type="button"
+                          onClick={() => setMobileExpanded(mobileExpanded === sec.id ? null : sec.id)}
+                          className="p-2 text-slate-500 hover:text-cyan-700"
+                          aria-label={`Развернуть ${sec.label}`}
+                        >
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              mobileExpanded === sec.id ? "rotate-180 text-cyan-600" : ""
+                            }`}
+                          />
+                        </button>
+                      </div>
+                      {mobileExpanded === sec.id && (
+                        <div className="grid grid-cols-1 gap-1 pl-2 pt-1 pb-1 animate-in fade-in duration-150">
+                          {sec.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="text-xs text-slate-600 hover:text-cyan-700 py-1.5 flex items-center justify-between border-l-2 border-slate-200 pl-3 hover:border-cyan-600 transition-colors"
+                            >
+                              <span>{item.label}</span>
+                              <ChevronRight className="w-3.5 h-3.5 opacity-40 flex-shrink-0" />
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </div>
+                  ) : (
+                    <Link
+                      href={sec.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-base font-bold text-slate-950 uppercase tracking-wider block py-1"
+                    >
+                      {sec.label}
+                    </Link>
                   )}
                 </div>
               ))}
-              <div className="pt-4 border-t border-slate-100">
-                <a
-                  href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                  className="block w-full text-center py-3 rounded-xl bg-slate-900 text-white hover:bg-cyan-600 font-bold text-sm uppercase tracking-wider transition-colors"
+
+              {/* Mobile Quick Action Buttons & Offices */}
+              <div className="pt-3 space-y-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openMeasurementModal("Мобильное меню");
+                  }}
+                  className="block w-full text-center py-3.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-md cursor-pointer"
                 >
-                  Позвонить: {COMPANY_INFO.mainPhone}
-                </a>
-                <p className="text-[11px] text-slate-500 text-center mt-2 font-mono">Владивосток и Приморский край · с 2004 года</p>
+                  Вызвать замерщика 0 ₽
+                </button>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
+                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs font-mono transition-colors"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-cyan-600" />
+                    <span>Позвонить</span>
+                  </a>
+                  <a
+                    href={COMPANY_INFO.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs font-mono transition-colors border border-emerald-200"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+
+                <div className="pt-2 text-[11px] text-slate-500 font-mono text-center leading-relaxed">
+                  <div>г. Владивосток, ул. Ильичева, 29, оф. 8</div>
+                  <div>г. Уссурийск, ул. Кирова, 12, оф. 202</div>
+                </div>
               </div>
             </div>
           </div>

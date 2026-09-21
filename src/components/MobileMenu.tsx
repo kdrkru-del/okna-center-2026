@@ -33,7 +33,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     { label: "Алюминиевые конструкции", href: "/alyuminievye_okna_vladivostok" },
     { label: "Ремонт окон", href: "/remont_plastikovyh_okon_vladivostok" },
     { label: "Наши работы", href: "/ghalierieia_rabot" },
-    { label: "Цены", href: "/#prices" },
+    { label: "Цены", href: "/ceny" },
     { label: "О компании", href: "/okonnaia_kompaniia_vladivostok" },
     { label: "Контакты", href: "/contacts" },
   ];
