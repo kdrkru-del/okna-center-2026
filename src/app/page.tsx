@@ -3,11 +3,8 @@ import HeroArchitectural from "@/components/HeroArchitectural";
 import TrustSection from "@/components/TrustSection";
 import PopularSolutions from "@/components/PopularSolutions";
 import ServicesBento from "@/components/ServicesBento";
-import BalconiesTurnkeySection from "@/components/BalconiesTurnkeySection";
-import WindowRepairCallout from "@/components/WindowRepairCallout";
 import ClimateEngineering from "@/components/ClimateEngineering";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
-import NonStandardSolutions from "@/components/NonStandardSolutions";
 import ProcessSection from "@/components/ProcessSection";
 import GeographySection from "@/components/GeographySection";
 import FAQSection from "@/components/FAQSection";
@@ -46,20 +43,11 @@ export default function Home() {
       {/* 4. Core Services Bento Grid */}
       <ServicesBento />
 
-      {/* 5. Balconies & Loggias Turnkey Section */}
-      <BalconiesTurnkeySection />
-
-      {/* 6. Window Repair & Service Callout */}
-      <WindowRepairCallout />
-
-      {/* 7. Climate-Verified Quality for Primorye */}
+      {/* 5. Climate-Verified Quality for Primorye */}
       <ClimateEngineering />
 
-      {/* 8. Interactive Calculator */}
+      {/* 6. Interactive Calculator */}
       <InteractiveCalculator />
-
-      {/* 9. Custom & Aluminum Solutions (Secondary Focus) */}
-      <NonStandardSolutions />
 
       {/* 12. How We Work Process Section */}
       <ProcessSection />

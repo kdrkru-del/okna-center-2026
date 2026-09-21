@@ -25,18 +25,7 @@ export default function TrustSection() {
           </p>
         </div>
 
-        {/* Demand Tags Pill Strip */}
-        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-12">
-          {HOME_PRACTICAL_NEEDS.tags.map((tag, idx) => (
-            <div
-              key={idx}
-              className="px-4 py-2 rounded-xl bg-white border border-slate-200/90 text-slate-800 text-xs font-mono font-semibold shadow-xs flex items-center gap-2"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-600" />
-              <span>{tag}</span>
-            </div>
-          ))}
-        </div>
+
 
         {/* 4 Practical Service Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
