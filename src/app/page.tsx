@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import HeroArchitectural from "@/components/HeroArchitectural";
-import TrustSection from "@/components/TrustSection";
-import PopularSolutions from "@/components/PopularSolutions";
 import ServicesBento from "@/components/ServicesBento";
+import PopularSolutions from "@/components/PopularSolutions";
 import ClimateEngineering from "@/components/ClimateEngineering";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
 import ProcessSection from "@/components/ProcessSection";
@@ -34,14 +33,11 @@ export default function Home() {
       {/* 1. Main Mass-Market Hero Screen */}
       <HeroArchitectural />
 
-      {/* 2. Practical Needs: 'Что вам нужно?' 4 Cards */}
-      <TrustSection />
-
-      {/* 3. Popular Apartment & House Solutions (6 items including Kitchen Window & Balcony Block) */}
-      <PopularSolutions />
-
-      {/* 4. Core Services Bento Grid */}
+      {/* 2. Core Services Bento Grid: Наши основные услуги */}
       <ServicesBento />
+
+      {/* 3. Popular Apartment & House Solutions: Популярные решения для квартир и домов */}
+      <PopularSolutions />
 
       {/* 5. Climate-Verified Quality for Primorye */}
       <ClimateEngineering />

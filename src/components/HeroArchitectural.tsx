@@ -36,11 +36,7 @@ export default function HeroArchitectural() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
         <div className="max-w-xl lg:max-w-2xl p-6 sm:p-9 lg:p-11 rounded-3xl bg-white/40 sm:bg-white/35 backdrop-blur-md border border-white/60 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.22)] ring-1 ring-white/50">
           
-          {/* Trust badge line */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/60 border border-white/70 text-slate-950 text-xs font-semibold mb-4 shadow-2xs backdrop-blur-xs">
-            <span className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
-            <span>Работаем во Владивостоке и Приморье с 2004 года</span>
-          </div>
+
 
           {/* Main H1 Title */}
           <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight leading-[1.08] text-slate-950 mb-4 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
