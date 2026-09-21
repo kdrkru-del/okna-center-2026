@@ -48,7 +48,7 @@ export default function HeroArchitectural() {
 
           {/* Core Subtitle for Mass Demand */}
           <p className="text-slate-900 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 font-medium drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)]">
-            Собственное производство с 2004 года. Фирменные офисы, бесплатный выезд мастера на замер и монтаж по ГОСТ во Владивостоке, Уссурийске и по всему Приморью.
+            Собственное производство с 2004 года, фирменные офисы во Владивостоке и Уссурийске, бесплатный выезд мастера на замер и монтаж по ГОСТу по всему Приморью.
           </p>
 
           {/* CTAs */}
