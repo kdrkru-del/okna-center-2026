@@ -35,10 +35,6 @@ export default function CenyPage() {
       {/* Header Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-semibold text-cyan-800 uppercase tracking-wider mb-4">
-            <span>Цены от завода-изготовителя · с 2004 года</span>
-          </div>
-
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-950 leading-tight mb-6">
             Цены на окна, балконы и ремонт во Владивостоке
           </h1>
@@ -77,7 +73,7 @@ export default function CenyPage() {
       </section>
 
       {/* Main Interactive Pricing Catalog Component */}
-      <PricingTable />
+      <PricingTable hideTitle={true} />
 
       {/* Pricing Clarification Block */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
