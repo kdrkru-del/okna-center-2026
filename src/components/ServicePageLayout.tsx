@@ -206,7 +206,9 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               {/* Price & Fact Badges */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <div className="px-4 py-2 rounded-xl bg-cyan-50 border border-cyan-200">
-                  <span className="text-[10px] uppercase font-mono text-cyan-800 block">Стоимость:</span>
+                  <span className="text-[10px] uppercase font-mono text-cyan-800 block">
+                    {page.priceLabel || (page.variant === "about" ? "На рынке:" : "Стоимость:")}
+                  </span>
                   <span className="text-xl sm:text-2xl font-black text-slate-900 font-mono">{page.priceFrom}</span>
                 </div>
 

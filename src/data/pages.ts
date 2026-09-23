@@ -21,6 +21,7 @@ export interface PageDefinition {
   keywordsIntent: string[];
   heroImage: string;
   badge: string;
+  priceLabel?: string;
   priceFrom: string;
   verifiedFacts: string[];
   sections: SectionData[];
@@ -306,6 +307,7 @@ export const PAGES_DATA: Record<string, PageDefinition> = {
     keywordsIntent: ["профиль для окон владивосток", "профиль рехау владивосток", "профиль кбе владивосток", "сравнение профилей пвх"],
     heroImage: "/images/legacy/0750ae929d693ff1338e75ba5bb3a0c7.jpg",
     badge: "Rehau · KBE · Funke",
+    priceLabel: "Стандарт:",
     priceFrom: "Класс А",
     verifiedFacts: ["Оригинальные немецкие марки", "Стальное оцинкованное армирование", "Класс энергоэффективности А", "Устойчивость к влажному климату"],
     sections: [
@@ -915,6 +917,7 @@ export const PAGES_DATA: Record<string, PageDefinition> = {
     keywordsIntent: ["окна центр владивосток о компании", "оконная компания владивосток", "производство окон владивосток"],
     heroImage: "/images/legacy/2a64735301341e2bcc1ff10380187519.jpg",
     badge: "Работаем с 2004 года",
+    priceLabel: "На рынке:",
     priceFrom: "С 2004 года",
     verifiedFacts: ["Собственное производство с 2004 года", "Офисы во Владивостоке и Уссурийске", "Монтаж по ГОСТ", "Официальный договор"],
     sections: [
