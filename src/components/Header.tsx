@@ -108,87 +108,90 @@ export default function Header() {
         }`}
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-2 lg:gap-3 xl:gap-4">
-            {/* Architectural Emblem & Brand */}
-            <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 xl:w-10 xl:h-10 rounded-xl bg-gradient-to-br from-red-600 via-rose-600 to-red-700 flex items-center justify-center p-1.5 shadow-sm text-white flex-shrink-0 group-hover:scale-105 transition-transform ring-1 ring-red-500/30">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                  <rect x="3" y="3" width="18" height="18" rx="2.5" />
-                  <line x1="12" y1="3" x2="12" y2="21" strokeWidth="2" />
-                  <line x1="3" y1="12" x2="21" y2="12" strokeWidth="2" />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-base sm:text-lg xl:text-xl font-black tracking-tight text-slate-950 uppercase leading-none group-hover:text-cyan-700 transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
-                  ОКНА<span className="text-red-600">-</span>ЦЕНТР
-                </span>
-                {/* Dual city tag: visible on xl (1280px+) to avoid any header overflow on smaller screens */}
-                <span className="hidden xl:flex text-[9.5px] text-slate-600 font-medium tracking-wide mt-0.5 items-center gap-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Владивосток · Уссурийск · с 2004 г.
-                </span>
-              </div>
-            </Link>
+          <div className="flex items-center justify-between gap-3">
+            {/* Left Group: Brand + Navigation adjacent */}
+            <div className="flex items-center gap-3 lg:gap-4 xl:gap-6 min-w-0">
+              {/* Architectural Emblem & Brand */}
+              <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 xl:w-10 xl:h-10 rounded-xl bg-gradient-to-br from-red-600 via-rose-600 to-red-700 flex items-center justify-center p-1.5 shadow-sm text-white flex-shrink-0 group-hover:scale-105 transition-transform ring-1 ring-red-500/30">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+                    <rect x="3" y="3" width="18" height="18" rx="2.5" />
+                    <line x1="12" y1="3" x2="12" y2="21" strokeWidth="2" />
+                    <line x1="3" y1="12" x2="21" y2="12" strokeWidth="2" />
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-base sm:text-lg xl:text-xl font-black tracking-tight text-slate-950 uppercase leading-none group-hover:text-cyan-700 transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
+                    ОКНА<span className="text-red-600">-</span>ЦЕНТР
+                  </span>
+                  {/* Dual city tag */}
+                  <span className="hidden xl:flex text-[9.5px] text-slate-600 font-medium tracking-wide mt-0.5 items-center gap-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Владивосток · Уссурийск · с 2004 г.
+                  </span>
+                </div>
+              </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-shrink">
-              {navSections.map((sec) => {
-                const responsiveClass = sec.lgOnly
-                  ? "lg:block xl:hidden"
-                  : sec.xlOnly
-                  ? "hidden xl:block"
-                  : "";
+              {/* Desktop Navigation immediately follows Brand */}
+              <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-shrink">
+                {navSections.map((sec) => {
+                  const responsiveClass = sec.lgOnly
+                    ? "lg:block xl:hidden"
+                    : sec.xlOnly
+                    ? "hidden xl:block"
+                    : "";
 
-                return sec.items ? (
-                  <div
-                    key={sec.id}
-                    className={`relative group ${responsiveClass}`}
-                    onMouseEnter={() => setOpenDropdown(sec.id)}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
-                    <Link
-                      href={sec.href}
-                      className="px-2 py-1.5 text-xs xl:text-[13px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-white/50 transition-colors flex items-center gap-1 rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap"
+                  return sec.items ? (
+                    <div
+                      key={sec.id}
+                      className={`relative group ${responsiveClass}`}
+                      onMouseEnter={() => setOpenDropdown(sec.id)}
+                      onMouseLeave={() => setOpenDropdown(null)}
                     >
-                      <span>{sec.label}</span>
-                      <ChevronDown className="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform" />
-                    </Link>
+                      <Link
+                        href={sec.href}
+                        className="px-2 py-1.5 text-xs xl:text-[13px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-white/50 transition-colors flex items-center gap-1 rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap"
+                      >
+                        <span>{sec.label}</span>
+                        <ChevronDown className="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform" />
+                      </Link>
 
-                    {openDropdown === sec.id && (
-                      <div className="absolute top-full left-0 w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
-                        <div className="bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] p-2 space-y-1">
-                          {sec.items.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              className="block p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item"
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              <div className="text-xs font-bold text-slate-950 group-hover/item:text-cyan-700 transition-colors">
-                                {item.label}
-                              </div>
-                              {item.desc && (
-                                <div className="text-[11px] text-slate-600 mt-0.5 leading-snug">
-                                  {item.desc}
+                      {openDropdown === sec.id && (
+                        <div className="absolute top-full left-0 w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
+                          <div className="bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] p-2 space-y-1">
+                            {sec.items.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className="block p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item"
+                                onClick={() => setOpenDropdown(null)}
+                              >
+                                <div className="text-xs font-bold text-slate-950 group-hover/item:text-cyan-700 transition-colors">
+                                  {item.label}
                                 </div>
-                              )}
-                            </Link>
-                          ))}
+                                {item.desc && (
+                                  <div className="text-[11px] text-slate-600 mt-0.5 leading-snug">
+                                    {item.desc}
+                                  </div>
+                                )}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    key={sec.id}
-                    href={sec.href}
-                    className={`px-2 py-1.5 text-xs xl:text-[13px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-white/50 transition-colors rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap ${responsiveClass}`}
-                  >
-                    {sec.label}
-                  </Link>
-                );
-              })}
-            </nav>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      key={sec.id}
+                      href={sec.href}
+                      className={`px-2 py-1.5 text-xs xl:text-[13px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-white/50 transition-colors rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap ${responsiveClass}`}
+                    >
+                      {sec.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
 
             {/* Right actions: Phone & CTA */}
             <div className="flex items-center gap-2 xl:gap-3 flex-shrink-0">

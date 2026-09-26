@@ -159,7 +159,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
   const gallery = GALLERY_BY_VARIANT[page.variant] || GALLERY_BY_VARIANT.windows;
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen pt-24 selection:bg-cyan-500 selection:text-white">
+    <div className="bg-white text-slate-900 min-h-screen pt-16 sm:pt-20 selection:bg-cyan-500 selection:text-white">
       {/* Schema.org scripts */}
       <script
         type="application/ld+json"
@@ -177,7 +177,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       )}
 
       {/* Breadcrumbs Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
         <nav className="flex items-center gap-2 text-xs text-slate-500 font-mono overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-cyan-700 transition-colors">Главная</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-40 flex-shrink-0" />
@@ -186,7 +186,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       </div>
 
       {/* COMPACT HERO SECTION (60-75vh) */}
-      <section className="relative overflow-hidden pt-6 pb-16 lg:py-20 border-b border-slate-200/80 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40">
+      <section className="relative overflow-hidden pt-4 pb-12 lg:pt-6 lg:pb-16 border-b border-slate-200/80 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-10 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
 

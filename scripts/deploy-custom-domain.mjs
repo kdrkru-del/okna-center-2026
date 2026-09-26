@@ -27,10 +27,12 @@ console.log('✓ .nojekyll created');
 // 3. Verify CNAME is present (copied from public/CNAME by Next.js)
 const cnamePath = path.join(outDir, 'CNAME');
 if (!fs.existsSync(cnamePath)) {
-  fs.writeFileSync(cnamePath, 'окнацентр.рф');
-  console.log('✓ CNAME created (окнацентр.рф)');
+  fs.writeFileSync(cnamePath, 'xn--80aknmcbtp7a.xn--p1ai');
+  console.log('✓ CNAME created (xn--80aknmcbtp7a.xn--p1ai)');
 } else {
-  console.log('✓ CNAME present:', fs.readFileSync(cnamePath, 'utf-8').trim());
+  // Ensure it has punycode
+  fs.writeFileSync(cnamePath, 'xn--80aknmcbtp7a.xn--p1ai');
+  console.log('✓ CNAME set to Punycode:', fs.readFileSync(cnamePath, 'utf-8').trim());
 }
 
 // 4. Deploy to gh-pages branch
