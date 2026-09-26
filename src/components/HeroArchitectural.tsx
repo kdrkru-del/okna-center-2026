@@ -33,19 +33,19 @@ export default function HeroArchitectural() {
       </div>
 
       {/* 2. TRANSLUCENT FROSTED GLASS CARD / ПОЛУПРОЗРАЧНАЯ ПЛАШКА */}
-      <div className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
-        <div className="max-w-xl lg:max-w-[620px] xl:max-w-2xl p-5 sm:p-6 lg:p-7 xl:p-8 rounded-3xl bg-white/45 sm:bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.22)] ring-1 ring-white/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+        <div className="max-w-xl lg:max-w-[540px] p-5 sm:p-6 lg:p-7 rounded-3xl bg-white/50 sm:bg-white/45 backdrop-blur-md border border-white/60 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.22)] ring-1 ring-white/50">
 
           {/* Main H1 Title */}
-          <h1 className="text-2xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem] font-extrabold tracking-tight leading-[1.1] text-slate-950 mb-2.5 sm:mb-3 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+          <h1 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-extrabold tracking-tight leading-[1.18] text-slate-950 mb-3 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
             Пластиковые окна <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-slate-900 to-cyan-900">
+            <span className="text-slate-950">
               с установкой и без под ключ
             </span>
           </h1>
 
           {/* Core Subtitle for Mass Demand */}
-          <p className="text-slate-900 text-xs sm:text-sm lg:text-[15px] leading-relaxed mb-3.5 sm:mb-4 font-medium drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)]">
+          <p className="text-slate-800 text-xs sm:text-sm lg:text-[14.5px] leading-relaxed mb-4 font-normal drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)]">
             Собственное производство с 2004 года, фирменные офисы во Владивостоке и Уссурийске, бесплатный выезд мастера на замер и монтаж по ГОСТу по всему Приморью.
           </p>
 

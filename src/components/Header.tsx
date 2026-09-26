@@ -107,7 +107,7 @@ export default function Header() {
             : "bg-white/60 backdrop-blur-2xl border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-2.5 sm:py-3"
         }`}
       >
-        <div className="w-full max-w-[1360px] mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-2 lg:gap-3 xl:gap-4">
             {/* Architectural Emblem & Brand */}
             <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0">
