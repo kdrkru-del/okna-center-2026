@@ -195,21 +195,23 @@ export default function Header() {
             {/* Right actions: Phone & CTA */}
             <div className="flex items-center gap-2.5 xl:gap-4 shrink-0">
               {/* Desktop phone numbers */}
-              <div className="hidden lg:flex flex-col text-right justify-center">
+              <div className="hidden lg:flex flex-col text-right justify-center space-y-0.5">
                 <a
                   href="tel:+74232725725"
-                  className="text-xs xl:text-[13px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="text-xs xl:text-[12.5px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Владивосток: ул. Ильичева, 29, оф. 8"
                 >
-                  <Phone className="w-3 h-3 text-cyan-600 hidden xl:inline shrink-0" />
+                  <span className="text-[10px] xl:text-[10.5px] font-semibold text-slate-500">Владивосток:</span>
                   <span className="text-slate-950 hover:text-cyan-700 font-bold">8 (423) 2-725-725</span>
                 </a>
-                <div className="flex items-center justify-end gap-1 text-[10px] text-slate-500 font-medium leading-tight mt-0.5 whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
-                  <Link href="/contacts" className="hover:text-cyan-700 hover:underline">
-                    Владивосток · Уссурийск
-                  </Link>
-                </div>
+                <a
+                  href="tel:+79502800300"
+                  className="text-[11px] xl:text-xs font-bold text-slate-700 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  title="Офис Уссурийск: ул. Кирова, 12, оф. 202"
+                >
+                  <span className="text-[10px] xl:text-[10.5px] font-semibold text-slate-500">Уссурийск:</span>
+                  <span className="text-slate-700 hover:text-cyan-700 font-semibold">8 (950) 2-800-300</span>
+                </a>
               </div>
 
               {/* Mobile phone call link: visible below lg */}
