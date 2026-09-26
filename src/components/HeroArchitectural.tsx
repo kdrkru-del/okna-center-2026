@@ -12,7 +12,6 @@ const QUICK_LINKS = [
   { label: "Пластиковые окна", href: "/kupit_plastikovye_okna_vladivostok" },
   { label: "С установкой", href: "/ustanovka_plastikovykh_okon_vo_vladivostokie" },
   { label: "Балконы и лоджии", href: "/osteklenie_balkona_vladivostok" },
-  { label: "Ремонт окон", href: "/remont_plastikovyh_okon_vladivostok" },
 ];
 
 export default function HeroArchitectural() {
@@ -95,12 +94,12 @@ export default function HeroArchitectural() {
             <span className="text-[11px] font-bold text-slate-800 uppercase tracking-wide block mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
               Быстрый переход к услугам:
             </span>
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
               {QUICK_LINKS.map((link, idx) => (
                 <Link
                   key={idx}
                   href={link.href}
-                  className="px-3 py-1 rounded-lg bg-white/70 hover:bg-white text-slate-950 text-[11px] sm:text-xs font-semibold transition-all border border-white/80 shadow-2xs backdrop-blur-xs"
+                  className="px-2 py-1.5 sm:px-3 sm:py-1.5 rounded-lg bg-white/75 hover:bg-white text-slate-950 text-[10.5px] sm:text-xs font-semibold transition-all border border-white/80 shadow-2xs backdrop-blur-xs text-center flex items-center justify-center whitespace-nowrap"
                 >
                   {link.label}
                 </Link>
