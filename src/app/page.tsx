@@ -97,11 +97,11 @@ export default function Home() {
                 className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-cyan-500/50 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <span className="text-[10px] font-mono text-cyan-700 uppercase tracking-wider block mb-2">{mat.tag}</span>
-                  <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-cyan-700 transition-colors">{mat.name}</h3>
+                  <span className="text-[10px] text-cyan-700 uppercase tracking-wide block mb-2 font-bold">{mat.tag}</span>
+                  <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-cyan-700 transition-colors font-heading">{mat.name}</h3>
                   <p className="text-xs text-slate-600 font-light leading-relaxed mb-4">{mat.desc}</p>
                 </div>
-                <span className="text-xs text-cyan-600 font-mono font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                <span className="text-xs text-cyan-600 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                   Подробнее о материале →
                 </span>
               </Link>
@@ -119,7 +119,7 @@ export default function Home() {
       {/* 16. Final CTA Banner */}
       <section className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200/80 text-slate-900 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 font-heading">
             Нужно новое окно или остекление?
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-light max-w-xl mx-auto mb-8">
@@ -129,14 +129,14 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-              className="px-8 py-4 bg-slate-950 hover:bg-cyan-600 text-white font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 transition-all transform hover:-translate-y-0.5"
+              className="px-8 py-4 bg-slate-950 hover:bg-cyan-600 text-white font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wide shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 transition-all transform hover:-translate-y-0.5"
             >
               Вызвать мастера на замер 0 ₽
             </Link>
 
             <a
               href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-              className="px-8 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 font-mono text-xs sm:text-sm uppercase tracking-wider border border-slate-300 shadow-sm flex items-center gap-2 transition-colors"
+              className="px-8 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 font-bold text-xs sm:text-sm tracking-wide border border-slate-300 shadow-sm flex items-center gap-2 transition-colors"
             >
               <Phone className="w-4 h-4 text-cyan-600" />
               <span>{COMPANY_INFO.mainPhone}</span>
@@ -146,7 +146,7 @@ export default function Home() {
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-4 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-mono text-xs sm:text-sm uppercase tracking-wider border border-emerald-200 transition-colors"
+              className="px-6 py-4 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs sm:text-sm tracking-wide border border-emerald-200 transition-colors"
             >
               Написать в WhatsApp
             </a>

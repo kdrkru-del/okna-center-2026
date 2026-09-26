@@ -21,7 +21,7 @@ export default function Footer() {
                 <span className="text-xl font-bold tracking-tight text-slate-950 uppercase font-sans">
                   ОКНА<span className="text-cyan-600">-</span>ЦЕНТР
                 </span>
-                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mt-0.5">
+                <span className="text-[10px] text-slate-500 uppercase tracking-wide mt-0.5 font-semibold">
                   Владивосток · Уссурийск · с 2004 года
                 </span>
               </div>
@@ -42,14 +42,14 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="pt-2 text-xs text-slate-500 font-mono">
+            <div className="pt-2 text-xs text-slate-500">
               {COMPANY_INFO.legalName}
             </div>
           </div>
 
           {/* Col 2: Окна */}
           <div>
-            <h3 className="text-xs font-mono uppercase tracking-widest text-slate-900 mb-4 font-bold">
+            <h3 className="text-xs uppercase tracking-wide text-slate-900 mb-4 font-bold">
               Пластиковые окна
             </h3>
             <ul className="space-y-2.5 text-xs">
@@ -65,7 +65,7 @@ export default function Footer() {
 
           {/* Col 3: Балконы и фасад */}
           <div>
-            <h3 className="text-xs font-mono uppercase tracking-widest text-slate-900 mb-4 font-bold">
+            <h3 className="text-xs uppercase tracking-wide text-slate-900 mb-4 font-bold">
               Балконы и фасад
             </h3>
             <ul className="space-y-2.5 text-xs">
@@ -84,7 +84,7 @@ export default function Footer() {
 
           {/* Col 4: Контакты и филиалы */}
           <div>
-            <h3 className="text-xs font-mono uppercase tracking-widest text-slate-900 mb-4 font-bold">
+            <h3 className="text-xs uppercase tracking-wide text-slate-900 mb-4 font-bold">
               Контакты и офисы
             </h3>
             <div className="space-y-4 text-xs">
@@ -96,7 +96,7 @@ export default function Footer() {
                 <div className="text-slate-600 mt-0.5 pl-5">
                   {COMPANY_INFO.offices[0].address}
                 </div>
-                <div className="text-[11px] text-slate-500 font-mono pl-5 mt-0.5">
+                <div className="text-[11px] text-slate-500 pl-5 mt-0.5">
                   <a href={`tel:${COMPANY_INFO.mainPhoneRaw}`} className="hover:text-cyan-700 font-bold text-slate-900">{COMPANY_INFO.mainPhone}</a> · okna.c@mail.ru
                 </div>
               </div>
@@ -109,13 +109,13 @@ export default function Footer() {
                 <div className="text-slate-600 mt-0.5 pl-5">
                   {COMPANY_INFO.offices[1].address}
                 </div>
-                <div className="text-[11px] text-slate-500 font-mono pl-5 mt-0.5">
+                <div className="text-[11px] text-slate-500 pl-5 mt-0.5">
                   <a href={`tel:${COMPANY_INFO.offices[1].phoneRaw}`} className="hover:text-cyan-700 font-bold text-slate-900">{COMPANY_INFO.offices[1].phone}</a> · okno_ussur@mail.ru
                 </div>
               </div>
 
               <div className="pt-1">
-                <div className="text-[11px] text-slate-500 font-mono">
+                <div className="text-[11px] text-slate-600 font-semibold">
                   WhatsApp: +7 (994) 010-03-00
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function Footer() {
               <div className="pt-1">
                 <Link
                   href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-                  className="inline-block px-4 py-2 bg-slate-900 hover:bg-black text-white rounded-lg text-xs uppercase font-mono tracking-wider transition-colors shadow-sm"
+                  className="inline-block px-4 py-2 bg-slate-900 hover:bg-black text-white rounded-lg text-xs uppercase font-bold tracking-wide transition-colors shadow-sm"
                 >
                   Записаться на замер
                 </Link>

@@ -100,8 +100,8 @@ export default function WindowDiagnosticBlock() {
         </div>
 
         <div className="text-right">
-          <span className="text-xs text-slate-500 block font-mono">Срочный выезд мастера:</span>
-          <span className="text-cyan-700 font-mono font-bold text-sm">во все районы Владивостока</span>
+          <span className="text-xs text-slate-500 block">Срочный выезд мастера:</span>
+          <span className="text-cyan-700 font-bold text-sm">во все районы Владивостока</span>
         </div>
       </div>
 
@@ -119,7 +119,7 @@ export default function WindowDiagnosticBlock() {
             <div className="flex items-center justify-between w-full">
               <span className="text-2xl">{sym.iconText}</span>
               <span
-                className={`text-[9px] font-mono px-2 py-0.5 rounded-full font-semibold ${
+                className={`text-[9px] px-2 py-0.5 rounded-full font-semibold ${
                   sym.urgency === "Критично"
                     ? "bg-rose-100 text-rose-800"
                     : sym.urgency === "Срочно"
@@ -150,7 +150,7 @@ export default function WindowDiagnosticBlock() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-4 rounded-xl bg-rose-50/70 border border-rose-200/70">
-                <div className="flex items-center gap-2 text-rose-700 text-xs font-mono uppercase tracking-wider mb-1 font-semibold">
+                <div className="flex items-center gap-2 text-rose-700 text-xs uppercase tracking-wide mb-1 font-semibold">
                   <AlertTriangle className="w-3.5 h-3.5" />
                   <span>Вероятная причина</span>
                 </div>
@@ -158,7 +158,7 @@ export default function WindowDiagnosticBlock() {
               </div>
 
               <div className="p-4 rounded-xl bg-cyan-50/70 border border-cyan-200/70">
-                <div className="flex items-center gap-2 text-cyan-800 text-xs font-mono uppercase tracking-wider mb-1 font-semibold">
+                <div className="flex items-center gap-2 text-cyan-800 text-xs uppercase tracking-wide mb-1 font-semibold">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Способ устранения</span>
                 </div>
@@ -169,7 +169,7 @@ export default function WindowDiagnosticBlock() {
 
           <div className="lg:col-span-4 bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col justify-between h-full">
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 block mb-1">
+              <span className="text-[10px] uppercase tracking-wide text-slate-500 block mb-1 font-bold">
                 Рекомендуемая услуга
               </span>
               <span className="text-sm font-bold text-slate-900 block mb-3 leading-snug">
@@ -177,8 +177,8 @@ export default function WindowDiagnosticBlock() {
               </span>
 
               <div className="p-3 rounded-lg bg-white border border-slate-200 mb-4 shadow-xs">
-                <span className="text-[10px] uppercase font-mono text-slate-500 block">Прайс мастера:</span>
-                <span className="text-lg font-bold text-slate-900 font-mono">{current.priceEstimate}</span>
+                <span className="text-[10px] uppercase text-slate-500 block font-bold tracking-wide">Прайс мастера:</span>
+                <span className="text-lg font-bold text-slate-900 font-heading">{current.priceEstimate}</span>
               </div>
             </div>
 
@@ -186,7 +186,7 @@ export default function WindowDiagnosticBlock() {
               href="https://wa.me/79940100300?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%BE%D0%BA%D0%BE%D0%BD%2C%20%D0%BD%D1%83%D0%B6%D0%BD%D0%B0%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-slate-900/10 cursor-pointer"
+              className="w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 transition-all shadow-md shadow-slate-900/10 cursor-pointer"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>Вызвать мастера по WhatsApp</span>

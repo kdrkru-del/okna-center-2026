@@ -199,26 +199,26 @@ export default function Header() {
               <div className="hidden lg:flex flex-col text-right justify-center space-y-0.5">
                 <a
                   href="tel:+74232725725"
-                  className="text-xs xl:text-[12.5px] font-bold font-mono text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="text-xs xl:text-[12.5px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Владивосток: ул. Ильичева, 29, оф. 8"
                 >
-                  <span className="hidden xl:inline text-[9.5px] font-semibold text-slate-500 font-sans">Вл:</span>
-                  <span className="text-slate-950 hover:text-cyan-700">8 (423) 2-725-725</span>
+                  <span className="hidden xl:inline text-[9.5px] font-semibold text-slate-500">Вл:</span>
+                  <span className="text-slate-950 hover:text-cyan-700 font-bold">8 (423) 2-725-725</span>
                 </a>
                 <a
                   href="tel:+79502800300"
-                  className="hidden xl:flex text-[11px] font-bold font-mono text-slate-700 hover:text-cyan-700 transition-colors items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="hidden xl:flex text-[11px] font-bold text-slate-700 hover:text-cyan-700 transition-colors items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Уссурийск: ул. Кирова, 12, оф. 202"
                 >
-                  <span className="text-[9.5px] font-semibold text-slate-500 font-sans">Усс:</span>
-                  <span className="text-slate-700 hover:text-cyan-700">8 (950) 2-800-300</span>
+                  <span className="text-[9.5px] font-semibold text-slate-500">Усс:</span>
+                  <span className="text-slate-700 hover:text-cyan-700 font-semibold">8 (950) 2-800-300</span>
                 </a>
               </div>
 
               {/* Mobile phone call link: visible below lg */}
               <a
                 href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                className="lg:hidden flex items-center gap-1.5 py-1.5 px-2.5 sm:py-1 sm:px-3 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-950 font-bold text-xs sm:text-base font-mono tracking-tight transition-colors border border-slate-200/80 shadow-2xs whitespace-nowrap"
+                className="lg:hidden flex items-center gap-1.5 py-1.5 px-2.5 sm:py-1 sm:px-3 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-950 font-bold text-xs sm:text-base tracking-tight transition-colors border border-slate-200/80 shadow-2xs whitespace-nowrap"
               >
                 <Phone className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
                 <span className="hidden sm:inline">8 (423) </span>
@@ -319,7 +319,7 @@ export default function Header() {
                 <div className="grid grid-cols-2 gap-2">
                   <a
                     href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs font-mono transition-colors"
+                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-cyan-600" />
                     <span>Позвонить</span>
@@ -328,14 +328,14 @@ export default function Header() {
                     href={COMPANY_INFO.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs font-mono transition-colors border border-emerald-200"
+                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs transition-colors border border-emerald-200"
                   >
                     <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
                     <span>WhatsApp</span>
                   </a>
                 </div>
 
-                <div className="pt-2 text-[11px] text-slate-500 font-mono text-center leading-relaxed">
+                <div className="pt-2 text-[11px] text-slate-500 text-center leading-relaxed font-normal">
                   <div>г. Владивосток, ул. Ильичева, 29, оф. 8</div>
                   <div>г. Уссурийск, ул. Кирова, 12, оф. 202</div>
                 </div>

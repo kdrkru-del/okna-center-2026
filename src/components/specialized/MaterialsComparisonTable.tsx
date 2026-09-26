@@ -120,7 +120,7 @@ export default function MaterialsComparisonTable() {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setFilter("all")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               filter === "all" ? "bg-slate-950 text-white font-bold shadow-sm" : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
             }`}
           >
@@ -128,7 +128,7 @@ export default function MaterialsComparisonTable() {
           </button>
           <button
             onClick={() => setFilter("insulation")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               filter === "insulation" ? "bg-slate-950 text-white font-bold shadow-sm" : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
             }`}
           >
@@ -136,7 +136,7 @@ export default function MaterialsComparisonTable() {
           </button>
           <button
             onClick={() => setFilter("exterior")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               filter === "exterior" ? "bg-slate-950 text-white font-bold shadow-sm" : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
             }`}
           >
@@ -144,7 +144,7 @@ export default function MaterialsComparisonTable() {
           </button>
           <button
             onClick={() => setFilter("interior")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               filter === "interior" ? "bg-slate-950 text-white font-bold shadow-sm" : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
             }`}
           >
@@ -161,12 +161,12 @@ export default function MaterialsComparisonTable() {
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-cyan-50 text-cyan-800 uppercase tracking-wider border border-cyan-200 font-semibold">
+                <span className="text-[10px] px-2.5 py-1 rounded-full bg-cyan-50 text-cyan-800 uppercase tracking-wide border border-cyan-200 font-bold">
                   {mat.categoryLabel}
                 </span>
               </div>
 
-              <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-700 transition-colors">
+              <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-700 transition-colors font-heading">
                 {mat.name}
               </h4>
 
@@ -185,7 +185,7 @@ export default function MaterialsComparisonTable() {
               </div>
 
               <div className="space-y-2 mb-4">
-                <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wide block">
                   Ключевые особенности:
                 </span>
                 {mat.keyFeatures.map((kf, i) => (

@@ -50,30 +50,30 @@ export default function HeroArchitectural() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3 mb-3 sm:mb-3.5">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3 mb-3.5">
             <a
               href="#calculator"
-              className="px-5 py-3 sm:px-6 sm:py-3 bg-slate-950 hover:bg-cyan-600 text-white font-bold rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-slate-950/20 hover:shadow-cyan-600/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
+              className="px-5 py-2.5 sm:py-3 bg-slate-950 hover:bg-cyan-600 text-white font-bold rounded-xl text-xs sm:text-[13px] tracking-wide shadow-lg shadow-slate-950/20 hover:shadow-cyan-600/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
             >
-              <Calculator className="w-4 h-4 text-cyan-400" />
-              <span>Рассчитать стоимость окна</span>
+              <Calculator className="w-4 h-4 text-cyan-400 shrink-0" />
+              <span>Рассчитать стоимость</span>
             </a>
 
             <button
               type="button"
               onClick={() => openMeasurementModal("Пластиковые окна")}
-              className="px-5 py-3 sm:px-5 sm:py-3 rounded-xl bg-white/75 hover:bg-white text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider border border-white/80 shadow-sm backdrop-blur-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="px-5 py-2.5 sm:py-3 rounded-xl bg-white/80 hover:bg-white text-slate-950 font-bold text-xs sm:text-[13px] tracking-wide border border-white/90 shadow-sm backdrop-blur-xs transition-all flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
             >
-              <Ruler className="w-4 h-4 text-cyan-700" />
+              <Ruler className="w-4 h-4 text-cyan-700 shrink-0" />
               <span>Вызвать замерщика 0 ₽</span>
             </button>
 
             {/* Mobile quick call button */}
             <a
               href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-              className="sm:hidden px-5 py-2.5 rounded-xl bg-white/85 text-slate-900 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-white/90 shadow-sm"
+              className="sm:hidden px-4 py-2 rounded-xl bg-white/85 text-slate-900 font-semibold text-xs flex items-center justify-center gap-2 border border-white/90 shadow-sm"
             >
-              <Phone className="w-4 h-4 text-cyan-700" />
+              <Phone className="w-3.5 h-3.5 text-cyan-700" />
               <span>Позвонить: {COMPANY_INFO.mainPhone}</span>
             </a>
           </div>
@@ -92,7 +92,7 @@ export default function HeroArchitectural() {
 
           {/* Quick Service Links Strip */}
           <div className="pt-3 border-t border-slate-950/15 mb-3">
-            <span className="text-[10px] sm:text-[11px] font-mono text-slate-900 font-bold uppercase tracking-wider block mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+            <span className="text-[11px] font-bold text-slate-800 uppercase tracking-wide block mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
               Быстрый переход к услугам:
             </span>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -100,7 +100,7 @@ export default function HeroArchitectural() {
                 <Link
                   key={idx}
                   href={link.href}
-                  className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-lg bg-white/65 hover:bg-white text-slate-950 text-[11px] sm:text-xs font-semibold transition-all border border-white/70 shadow-2xs backdrop-blur-xs"
+                  className="px-3 py-1 rounded-lg bg-white/70 hover:bg-white text-slate-950 text-[11px] sm:text-xs font-semibold transition-all border border-white/80 shadow-2xs backdrop-blur-xs"
                 >
                   {link.label}
                 </Link>
@@ -111,20 +111,20 @@ export default function HeroArchitectural() {
           {/* Trust Metric Strip */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3 border-t border-slate-950/15">
             <div>
-              <div className="text-base sm:text-lg xl:text-xl font-black text-slate-950 font-mono drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">20+ лет</div>
-              <div className="text-[10px] sm:text-[11px] text-slate-900 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">опыт с 2004 года</div>
+              <div className="text-base sm:text-lg xl:text-xl font-extrabold text-slate-950 font-heading drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">20+ лет</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-800 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">опыт с 2004 года</div>
             </div>
             <div>
-              <div className="text-base sm:text-lg xl:text-xl font-black text-slate-950 font-mono drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">0 ₽</div>
-              <div className="text-[10px] sm:text-[11px] text-slate-900 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">бесплатный замер</div>
+              <div className="text-base sm:text-lg xl:text-xl font-extrabold text-slate-950 font-heading drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">0 ₽</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-800 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">бесплатный замер</div>
             </div>
             <div>
-              <div className="text-base sm:text-lg xl:text-xl font-black text-cyan-950 font-mono drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">от 3 дней</div>
-              <div className="text-[10px] sm:text-[11px] text-slate-900 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">срок производства</div>
+              <div className="text-base sm:text-lg xl:text-xl font-extrabold text-cyan-950 font-heading drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">от 3 дней</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-800 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">срок производства</div>
             </div>
             <div>
-              <div className="text-base sm:text-lg xl:text-xl font-black text-slate-950 font-mono drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">5 лет</div>
-              <div className="text-[10px] sm:text-[11px] text-slate-900 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">гарантия по договору</div>
+              <div className="text-base sm:text-lg xl:text-xl font-extrabold text-slate-950 font-heading drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">5 лет</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-800 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">гарантия по договору</div>
             </div>
           </div>
 
