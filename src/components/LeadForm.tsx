@@ -47,7 +47,7 @@ export default function LeadForm() {
         setSubmitted(true);
         // Clear fields only on confirmed success
         setName('');
-        setPhone('');
+        setPhone('+7 (');
         setMessage('');
       } else {
         setError(result.error || 'Не удалось автоматически отправить заявку. Свяжитесь с нами напрямую.');
@@ -140,7 +140,7 @@ export default function LeadForm() {
 
               {/* Name */}
               <div>
-                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Ваше имя</label>
+                <label className="block text-xs text-slate-600 font-semibold uppercase tracking-wider mb-2">Ваше имя</label>
                 <input
                   type="text"
                   placeholder="Иван"
@@ -152,7 +152,7 @@ export default function LeadForm() {
 
               {/* Phone */}
               <div>
-                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Телефон *</label>
+                <label className="block text-xs text-slate-600 font-semibold uppercase tracking-wider mb-2">Телефон *</label>
                 <input
                   type="tel"
                   placeholder="+7 (999) 000-00-00"
@@ -170,7 +170,7 @@ export default function LeadForm() {
 
             {/* Message / Dimensions */}
             <div className="mb-8">
-              <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Размеры или пожелания (необязательно)</label>
+              <label className="block text-xs text-slate-600 font-semibold uppercase tracking-wider mb-2">Размеры или пожелания (необязательно)</label>
               <textarea
                 rows={3}
                 placeholder="Примерные размеры, тип дома или особые пожелания..."

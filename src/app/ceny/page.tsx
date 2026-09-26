@@ -25,7 +25,7 @@ export default function CenyPage() {
     <div className="bg-white text-slate-900 min-h-screen pt-24 pb-16">
       {/* Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <nav className="flex items-center gap-2 text-xs text-slate-500 font-mono">
+        <nav className="flex items-center gap-2 text-xs text-slate-500">
           <Link href="/" className="hover:text-cyan-700 transition-colors">Главная</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-50" />
           <span className="text-slate-900 font-semibold">Цены</span>

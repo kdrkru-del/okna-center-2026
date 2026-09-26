@@ -70,7 +70,6 @@ export default function Header() {
         { label: "Регулировка окон", href: "/regulirovka_plastikovykh_okon_vladivostok", desc: "Устранение продуваний, зимний прижим" },
       ],
     },
-    { id: "projects", label: "Работы", href: "/ghalierieia_rabot" },
     {
       id: "prices",
       label: "Цены",
@@ -84,18 +83,18 @@ export default function Header() {
         { label: "Окна для дачи", href: "/okna_dlya_dachi_vladivostok", desc: "Экономичные решения от 4 000 ₽" },
       ],
     },
+    { id: "projects", label: "Работы", href: "/ghalierieia_rabot", xlOnly: true },
     {
-      id: "more",
-      label: "Инфо",
+      id: "company",
+      label: "О компании",
       href: "/okonnaia_kompaniia_vladivostok",
-      lgOnly: true,
       items: [
-        { label: "О компании", href: "/okonnaia_kompaniia_vladivostok", desc: "Собственное производство с 2004 года" },
-        { label: "Контакты", href: "/contacts", desc: "Офисы во Владивостоке и Уссурийске" },
+        { label: "О компании и производство", href: "/okonnaia_kompaniia_vladivostok", desc: "Собственный цех с 2004 года, ГОСТ" },
+        { label: "Контакты и адреса офисов", href: "/contacts", desc: "Владивосток, Ильичева 29 / Уссурийск, Кирова 12" },
+        { label: "Галерея выполненных работ", href: "/ghalierieia_rabot", desc: "100+ реальных объектов по Приморью" },
       ],
     },
-    { id: "about", label: "О компании", href: "/okonnaia_kompaniia_vladivostok", xlOnly: true },
-    { id: "contacts", label: "Контакты", href: "/contacts", xlOnly: true },
+    { id: "contacts", label: "Контакты", href: "/contacts", wideOnly: true },
   ];
 
   return (
@@ -104,16 +103,16 @@ export default function Header() {
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
             ? "bg-white/95 backdrop-blur-2xl border-b border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.06)] py-2 sm:py-2.5"
-            : "bg-white/60 backdrop-blur-2xl border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-2.5 sm:py-3"
+            : "bg-white/70 backdrop-blur-2xl border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-2.5 sm:py-3"
         }`}
       >
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-3">
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-8">
+          <div className="flex items-center justify-between gap-3 xl:gap-6">
             {/* Left Group: Brand + Navigation adjacent */}
-            <div className="flex items-center gap-3 lg:gap-4 xl:gap-6 min-w-0">
+            <div className="flex items-center gap-3 lg:gap-4 xl:gap-5 shrink-0">
               {/* Architectural Emblem & Brand */}
-              <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 xl:w-10 xl:h-10 rounded-xl bg-gradient-to-br from-red-600 via-rose-600 to-red-700 flex items-center justify-center p-1.5 shadow-sm text-white flex-shrink-0 group-hover:scale-105 transition-transform ring-1 ring-red-500/30">
+              <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group shrink-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 xl:w-9 xl:h-9 rounded-xl bg-gradient-to-br from-red-600 via-rose-600 to-red-700 flex items-center justify-center p-1.5 shadow-sm text-white shrink-0 group-hover:scale-105 transition-transform ring-1 ring-red-500/30">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
                     <rect x="3" y="3" width="18" height="18" rx="2.5" />
                     <line x1="12" y1="3" x2="12" y2="21" strokeWidth="2" />
@@ -121,11 +120,11 @@ export default function Header() {
                   </svg>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-base sm:text-lg xl:text-xl font-black tracking-tight text-slate-950 uppercase leading-none group-hover:text-cyan-700 transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
+                  <span className="text-base sm:text-lg xl:text-[19px] font-black tracking-tight text-slate-950 uppercase leading-none group-hover:text-cyan-700 transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
                     ОКНА<span className="text-red-600">-</span>ЦЕНТР
                   </span>
-                  {/* Dual city tag */}
-                  <span className="hidden xl:flex text-[9.5px] text-slate-600 font-medium tracking-wide mt-0.5 items-center gap-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
+                  {/* City tag on wide screens */}
+                  <span className="hidden 2xl:flex text-[9px] text-slate-600 font-medium tracking-wide mt-0.5 items-center gap-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                     Владивосток · Уссурийск · с 2004 г.
                   </span>
@@ -133,12 +132,12 @@ export default function Header() {
               </Link>
 
               {/* Desktop Navigation immediately follows Brand */}
-              <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-shrink">
+              <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 shrink-0">
                 {navSections.map((sec) => {
-                  const responsiveClass = sec.lgOnly
-                    ? "lg:block xl:hidden"
-                    : sec.xlOnly
+                  const responsiveClass = sec.xlOnly
                     ? "hidden xl:block"
+                    : sec.wideOnly
+                    ? "hidden 2xl:block"
                     : "";
 
                   return sec.items ? (
@@ -150,7 +149,7 @@ export default function Header() {
                     >
                       <Link
                         href={sec.href}
-                        className="px-2 py-1.5 text-xs xl:text-[13px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-white/50 transition-colors flex items-center gap-1 rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap"
+                        className="px-2 py-1.5 xl:px-2.5 text-xs xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors flex items-center gap-1 rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap"
                       >
                         <span>{sec.label}</span>
                         <ChevronDown className="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform" />
@@ -184,7 +183,7 @@ export default function Header() {
                     <Link
                       key={sec.id}
                       href={sec.href}
-                      className={`px-2 py-1.5 text-xs xl:text-[13px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-white/50 transition-colors rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap ${responsiveClass}`}
+                      className={`px-2 py-1.5 xl:px-2.5 text-xs xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap ${responsiveClass}`}
                     >
                       {sec.label}
                     </Link>
@@ -194,25 +193,23 @@ export default function Header() {
             </div>
 
             {/* Right actions: Phone & CTA */}
-            <div className="flex items-center gap-2 xl:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-2.5 xl:gap-4 shrink-0">
               {/* Desktop phone numbers */}
-              <div className="hidden lg:flex flex-col text-right justify-center space-y-0.5">
+              <div className="hidden lg:flex flex-col text-right justify-center">
                 <a
                   href="tel:+74232725725"
-                  className="text-xs xl:text-[12.5px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="text-xs xl:text-[13px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Владивосток: ул. Ильичева, 29, оф. 8"
                 >
-                  <span className="hidden xl:inline text-[9.5px] font-semibold text-slate-500">Вл:</span>
+                  <Phone className="w-3 h-3 text-cyan-600 hidden xl:inline shrink-0" />
                   <span className="text-slate-950 hover:text-cyan-700 font-bold">8 (423) 2-725-725</span>
                 </a>
-                <a
-                  href="tel:+79502800300"
-                  className="hidden xl:flex text-[11px] font-bold text-slate-700 hover:text-cyan-700 transition-colors items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
-                  title="Офис Уссурийск: ул. Кирова, 12, оф. 202"
-                >
-                  <span className="text-[9.5px] font-semibold text-slate-500">Усс:</span>
-                  <span className="text-slate-700 hover:text-cyan-700 font-semibold">8 (950) 2-800-300</span>
-                </a>
+                <div className="flex items-center justify-end gap-1 text-[10px] text-slate-500 font-medium leading-tight mt-0.5 whitespace-nowrap drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                  <Link href="/contacts" className="hover:text-cyan-700 hover:underline">
+                    Владивосток · Уссурийск
+                  </Link>
+                </div>
               </div>
 
               {/* Mobile phone call link: visible below lg */}
@@ -229,7 +226,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => openMeasurementModal("Шапка сайта")}
-                className="hidden lg:inline-flex px-3 py-2 xl:px-4 xl:py-2.5 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer shrink-0"
+                className="hidden lg:inline-flex px-3.5 py-2 xl:px-4 xl:py-2.5 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-sm hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer shrink-0"
               >
                 Заявка на замер
               </button>

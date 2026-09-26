@@ -25,7 +25,7 @@ export default function GalleryPage() {
     <div className="bg-white text-slate-900 min-h-screen pt-24">
       {/* Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <nav className="flex items-center gap-2 text-xs text-slate-500 font-mono">
+        <nav className="flex items-center gap-2 text-xs text-slate-500">
           <Link href="/" className="hover:text-cyan-700 transition-colors">Главная</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-50" />
           <span className="text-slate-900 font-semibold">Галерея работ</span>
@@ -46,7 +46,7 @@ export default function GalleryPage() {
 
           <Link
             href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-            className="px-6 py-3.5 bg-slate-950 hover:bg-cyan-600 text-white rounded-2xl text-xs font-mono uppercase tracking-wider transition-colors inline-flex items-center gap-2 self-start md:self-auto shadow-sm flex-shrink-0"
+            className="px-6 py-3.5 bg-slate-950 hover:bg-cyan-600 text-white rounded-2xl text-xs uppercase tracking-wider font-bold transition-colors inline-flex items-center gap-2 self-start md:self-auto shadow-sm flex-shrink-0"
           >
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
             <span>Рассчитать аналогичный проект</span>

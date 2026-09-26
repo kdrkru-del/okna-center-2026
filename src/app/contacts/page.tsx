@@ -265,7 +265,7 @@ export default function ContactsPage() {
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs text-cyan-700 font-mono uppercase tracking-wider font-semibold block">Для смет и чертежей</span>
+                <span className="text-xs text-cyan-700 uppercase tracking-wider font-semibold block">Для писем и вопросов</span>
                 <span className="text-base font-bold text-slate-900 group-hover:text-cyan-700 transition-colors">Электронная почта</span>
                 <span className="text-xs text-slate-500 block mt-0.5">{COMPANY_INFO.emails[0]}</span>
               </div>

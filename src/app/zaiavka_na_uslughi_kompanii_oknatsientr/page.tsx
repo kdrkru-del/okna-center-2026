@@ -25,7 +25,7 @@ export default function ZaiavkaPage() {
     <div className="bg-slate-50/50 text-slate-900 min-h-screen pt-24 pb-16">
       {/* Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <nav className="flex items-center gap-2 text-xs text-slate-500 font-mono">
+        <nav className="flex items-center gap-2 text-xs text-slate-500">
           <Link href="/" className="hover:text-cyan-700 transition-colors">Главная</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-50" />
           <span className="text-slate-900 font-semibold">Вызов замерщика</span>
@@ -94,7 +94,7 @@ export default function ZaiavkaPage() {
                   </p>
                   <a
                     href="tel:+74232725725"
-                    className="text-xs font-mono font-bold text-slate-900 hover:text-cyan-700 block mt-2"
+                    className="text-xs font-bold text-slate-900 hover:text-cyan-700 block mt-2"
                   >
                     8 (423) 2-725-725
                   </a>
@@ -107,7 +107,7 @@ export default function ZaiavkaPage() {
                   </p>
                   <a
                     href="tel:+79502800300"
-                    className="text-xs font-mono font-bold text-slate-900 hover:text-cyan-700 block mt-2"
+                    className="text-xs font-bold text-slate-900 hover:text-cyan-700 block mt-2"
                   >
                     8 (950) 2-800-300
                   </a>
