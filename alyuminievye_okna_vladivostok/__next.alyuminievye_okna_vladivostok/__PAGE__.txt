@@ -1,0 +1,45 @@
+1:"$Sreact.fragment"
+2:I[8154,["5559","static/chunks/5559-2a6bbaaee71739fa.js","5502","static/chunks/5502-d5c116c11dcd8b20.js","8626","static/chunks/8626-e896653b0059c19f.js","2159","static/chunks/app/alyuminievye_okna_vladivostok/page-12fe922d2862a944.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+9:I[484,[],"MetadataBoundary"]
+7:X
+24:X
+24:C
+0:{"buildId":"ORyjQOa6QXg0wSez0auE7","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"page":{"slug":"alyuminievye_okna_vladivostok","variant":"aluminium","categoryLabel":"Алюминиевые окна","categoryUrl":"/alyuminievye_okna_vladivostok","title":"Алюминиевые окна во Владивостоке — теплый и холодный алюминий | Окна Центр","description":"Производство и установка алюминиевых окон во Владивостоке и Приморье от компании «Окна Центр». Теплый профиль с терморазрывом, холодный алюминий, покраска по RAL, крупноформатное остекление.","h1":"Алюминиевые окна во Владивостоке","eyebrow":"Архитектурный алюминий · Долговечность","intro":"Алюминий — прочный и легкий материал, активно применяемый в современной архитектуре. Компания «Окна Центр» производит алюминиевые оконные и фасадные конструкции с 2004 года.","legacyUrl":"/alyuminievye_okna_vladivostok","canonical":"https://xn--80aknmcbtp7a.xn--p1ai/alyuminievye_okna_vladivostok/","keywordsIntent":["алюминиевые окна владивосток","теплый алюминиевый профиль","панорамные алюминиевые окна","алюминиевые конструкции владивосток"],"heroImage":"/images/legacy/22b24acef73acbfa491186e6072ea01d.jpg","badge":"Собственное производство с 2004 г.","priceFrom":"По расчёту","verifiedFacts":["Производство с 2004 года","Теплый и холодный профиль","Покраска по каталогу RAL","Крупноформатные конструкции"],"sections":[{"title":"Теплый и холодный алюминий: отличия","subtitle":"Решения для жилых помещений и террас","content":"Благодаря высокой жесткости металла алюминиевые профили позволяют создавать створки гораздо больших размеров, чем ПВХ.","type":"cards","items":[{"title":"Теплый алюминиевый профиль","desc":"Снабжен полиамидным термомостом (терморазрывом), разделяющим наружный и внутренний металл. Используется для отапливаемых квартир и коттеджей.","badge":"Жилые объекты"},{"title":"Холодный алюминиевый профиль","desc":"Легкий однокамерный профиль без терморазрыва. Оптимален для веранд, балконов, тамбуров и беседок.","badge":"Неотапливаемые зоны"}]},{"title":"Преимущества архитектурного алюминия","content":"Алюминий обладает абсолютной огнестойкостью, экологичностью и высокой коррозионной стойкостью к агрессивному соленому воздуху Японского моря. Профиль может быть окрашен в любой оттенок по шкале RAL порошковым методом.","type":"text"}],"faq":[{"question":"Холоднее ли алюминиевые окна, чем пластиковые?","answer":"Современный теплый алюминиевый профиль с многокамерным терморазрывом по коэффициенту сопротивления теплопередаче не уступает качественным пластиковым окнам."}],"relatedPages":[{"slug":"/aliuminiievyie_okna_i_dvieri","label":"Фасады и двери ALT F50","reason":"Фасадное остекление"},{"slug":"/osteklenie_balkona_vladivostok","label":"Остекление балконов","reason":"Раздвижные системы"},{"slug":"/kupit_plastikovye_okna_vladivostok","label":"Окна ПВХ","reason":"Сравнение с пластиком"}],"schemaType":"Service"}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}],["$","meta","2",{"name":"theme-color","content":"#ffffff"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Алюминиевые окна во Владивостоке — теплый и холодный алюминий | Окна Центр | Окна Центр Владивосток"}],["$","meta","1",{"name":"description","content":"Производство и установка алюминиевых окон во Владивостоке и Приморье от компании «Окна Центр». Теплый профиль с терморазрывом, холодный алюминий, покраска по RAL, крупноформатное остекление."}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20"]}]}]}],null]}],"isPartial":"$@21","staleTime":"$7","varyParams":null},{"rsc":"$L22","isPartial":"$@23","staleTime":"$7","varyParams":"$24"}],"isUpgradeableISRFallback":false,"a":"$@25","rootVaryParams":null,"needsRuntimeRequest":"$@26"}
+27:I[6869,[],"IconMark"]
+28:I[7121,[],""]
+29:I[4581,[],""]
+5:null
+a:["$","meta","2",{"name":"author","content":"Окна Центр"}]
+b:["$","meta","3",{"name":"keywords","content":"окна владивосток,пластиковые окна владивосток,установка пластиковых окон во владивостоке,остекление балконов владивосток,лоджия под ключ владивосток,ремонт окон владивосток,алюминиевые окна владивосток,окна центр,окна центр владивосток"}]
+c:["$","meta","4",{"name":"creator","content":"Окна Центр"}]
+d:["$","meta","5",{"name":"publisher","content":"Окна Центр"}]
+e:["$","meta","6",{"name":"robots","content":"index, follow"}]
+f:["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}]
+10:["$","link","8",{"rel":"canonical","href":"https://xn--80aknmcbtp7a.xn--p1ai/alyuminievye_okna_vladivostok/"}]
+11:["$","meta","9",{"property":"og:title","content":"Алюминиевые окна во Владивостоке — теплый и холодный алюминий | Окна Центр"}]
+12:["$","meta","10",{"property":"og:description","content":"Производство и установка алюминиевых окон во Владивостоке и Приморье от компании «Окна Центр». Теплый профиль с терморазрывом, холодный алюминий, покраска по RAL, крупноформатное остекление."}]
+13:["$","meta","11",{"property":"og:url","content":"https://xn--80aknmcbtp7a.xn--p1ai/alyuminievye_okna_vladivostok/"}]
+14:["$","meta","12",{"property":"og:site_name","content":"Окна Центр"}]
+15:["$","meta","13",{"property":"og:locale","content":"ru_RU"}]
+16:["$","meta","14",{"property":"og:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/22b24acef73acbfa491186e6072ea01d.jpg"}]
+17:["$","meta","15",{"property":"og:type","content":"website"}]
+18:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+19:["$","meta","17",{"name":"twitter:title","content":"Алюминиевые окна во Владивостоке — теплый и холодный алюминий | Окна Центр"}]
+1a:["$","meta","18",{"name":"twitter:description","content":"Производство и установка алюминиевых окон во Владивостоке и Приморье от компании «Окна Центр». Теплый профиль с терморазрывом, холодный алюминий, покраска по RAL, крупноформатное остекление."}]
+1b:["$","meta","19",{"name":"twitter:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/22b24acef73acbfa491186e6072ea01d.jpg"}]
+1c:["$","link","20",{"rel":"icon","href":"/favicon.ico?47718946ff472596","type":"image/x-icon","sizes":"16x16"}]
+1d:["$","link","21",{"rel":"icon","href":"/favicon.ico","sizes":"any"}]
+1e:["$","link","22",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}]
+1f:["$","link","23",{"rel":"apple-touch-icon","href":"/apple-icon.png"}]
+20:["$","$L27","24",{}]
+22:["$","$1","c",{"children":[null,["$","$L28",null,{"parallelRouterKey":"children","template":["$","$L29",null,{}]}]]}]
+26:true
+7:300
+7:C
+25:0
+21:"$undefined"
+23:"$undefined"
+6:"$undefined"

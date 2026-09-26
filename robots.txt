@@ -1,0 +1,16 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_not-found/
+Disallow: /undefined
+Disallow: /variants/
+
+User-Agent: Yandex
+Allow: /
+Disallow: /api/
+Disallow: /_not-found/
+Disallow: /undefined
+Disallow: /variants/
+
+Host: https://xn--80aknmcbtp7a.xn--p1ai
+Sitemap: https://xn--80aknmcbtp7a.xn--p1ai/sitemap.xml

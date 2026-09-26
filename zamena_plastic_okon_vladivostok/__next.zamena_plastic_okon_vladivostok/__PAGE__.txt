@@ -1,0 +1,46 @@
+1:"$Sreact.fragment"
+2:I[8154,["5559","static/chunks/5559-2a6bbaaee71739fa.js","5502","static/chunks/5502-d5c116c11dcd8b20.js","8626","static/chunks/8626-e896653b0059c19f.js","9031","static/chunks/app/zamena_plastic_okon_vladivostok/page-6cc104bf3dce201c.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+9:I[484,[],"MetadataBoundary"]
+7:X
+25:X
+25:C
+0:{"buildId":"ORyjQOa6QXg0wSez0auE7","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"page":{"slug":"zamena_plastic_okon_vladivostok","variant":"windows","categoryLabel":"Замена окон","categoryUrl":"/zamena_plastic_okon_vladivostok","title":"Замена пластиковых окон во Владивостоке — демонтаж и установка | Окна Центр","description":"Замена старых пластиковых и деревянных окон на энергосберегающие немецкие системы Funke, Rehau и Deceuninck с фурнитурой Roto во Владивостоке. Устранение продуваний, конденсата и промерзаний.","h1":"Замена пластиковых окон во Владивостоке","eyebrow":"Модернизация остекления · Тепло и тишина","intro":"Новое окно — лучше старого! Если ваши старые окна продувают, промерзают зимой или потеряли геометрию, компания «Окна Центр» выполнит аккуратную замену на современные теплые стеклопакеты.","legacyUrl":"/zamena_plastic_okon_vladivostok","canonical":"https://xn--80aknmcbtp7a.xn--p1ai/zamena_plastic_okon_vladivostok/","keywordsIntent":["замена окон владивосток","замена пластиковых окон цена","поменять окно в квартире","замена старых окон"],"heroImage":"/images/legacy/5d62a55290edb5a644e685a8eff0b6a0.jpg","badge":"Надежные материалы Funke & Deceuninck","priceFrom":"от 19 500 ₽","verifiedFacts":["Производство с 2004 года","Профили Funke и Deceuninck","Фурнитура ROTO","Бесплатный выезд на замер"],"sections":[{"title":"Когда необходимо менять окно","subtitle":"Основные признаки критического износа конструкции","content":"Не все проблемы можно решить регулировкой. В ряде случаев замена рамы является единственным надежным выходом.","type":"cards","items":[{"title":"Постоянное продувание","desc":"Деформация профиля или разрушение старого монтажного шва за пределами возможностей регулировки."},{"title":"Обильный конденсат и наледь","desc":"Устаревший однокамерный стеклопакет без энергосбережения, вызывающий промерзание зимой."},{"title":"Шум с улицы","desc":"Недостаточная шумоизоляция тонкого профиля вблизи оживленных магистралей города."},{"title":"Старые деревянные рамы","desc":"Рассыхание древесины, щели, необходимость ежегодного заклеивания и покраски."},{"title":"Пожелтение и трещины пластика","desc":"Использование дешевого некачественного пластика ранних поколений без УФ-стабилизаторов."}]},{"title":"Проверенные временем бренды","content":"Мы изготавливаем новые окна из проверенных материалов: Funke (Германия) и Deceuninck (Бельгия) с оригинальной фурнитурой Roto. В наличии всегда есть типовые размеры для кухни и зала.","type":"text"}],"faq":[{"question":"Повредится ли ремонт в комнате при замене окна?","answer":"Наши мастера выполняют демонтаж максимально бережно, сохраняя обои и отделку стен вокруг проема."},{"question":"Можно ли заменить только стеклопакет, не меняя раму?","answer":"Да, если сам пластиковый профиль в хорошем состоянии, мы можем заменить только стеклопакет на современный энергосберегающий."}],"relatedPages":[{"slug":"/ustanovka_plastikovykh_okon_vo_vladivostokie","label":"Установка по ГОСТ","reason":"Технология монтажа"},{"slug":"/kupit_plastikovye_okna_vladivostok","label":"Купить окна ПВХ","reason":"Каталог моделей"},{"slug":"/remont_plastikovyh_okon_vladivostok","label":"Ремонт окон","reason":"Если замена не требуется"}],"schemaType":"Service"}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}],["$","meta","2",{"name":"theme-color","content":"#ffffff"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Замена пластиковых окон во Владивостоке — демонтаж и установка | Окна Центр | Окна Центр Владивосток"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20","$L21"]}]}]}],null]}],"isPartial":"$@22","staleTime":"$7","varyParams":null},{"rsc":"$L23","isPartial":"$@24","staleTime":"$7","varyParams":"$25"}],"isUpgradeableISRFallback":false,"a":"$@26","rootVaryParams":null,"needsRuntimeRequest":"$@27"}
+28:I[6869,[],"IconMark"]
+29:I[7121,[],""]
+2a:I[4581,[],""]
+5:null
+a:["$","meta","1",{"name":"description","content":"Замена старых пластиковых и деревянных окон на энергосберегающие немецкие системы Funke, Rehau и Deceuninck с фурнитурой Roto во Владивостоке. Устранение продуваний, конденсата и промерзаний."}]
+b:["$","meta","2",{"name":"author","content":"Окна Центр"}]
+c:["$","meta","3",{"name":"keywords","content":"окна владивосток,пластиковые окна владивосток,установка пластиковых окон во владивостоке,остекление балконов владивосток,лоджия под ключ владивосток,ремонт окон владивосток,алюминиевые окна владивосток,окна центр,окна центр владивосток"}]
+d:["$","meta","4",{"name":"creator","content":"Окна Центр"}]
+e:["$","meta","5",{"name":"publisher","content":"Окна Центр"}]
+f:["$","meta","6",{"name":"robots","content":"index, follow"}]
+10:["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}]
+11:["$","link","8",{"rel":"canonical","href":"https://xn--80aknmcbtp7a.xn--p1ai/zamena_plastic_okon_vladivostok/"}]
+12:["$","meta","9",{"property":"og:title","content":"Замена пластиковых окон во Владивостоке — демонтаж и установка | Окна Центр"}]
+13:["$","meta","10",{"property":"og:description","content":"Замена старых пластиковых и деревянных окон на энергосберегающие немецкие системы Funke, Rehau и Deceuninck с фурнитурой Roto во Владивостоке. Устранение продуваний, конденсата и промерзаний."}]
+14:["$","meta","11",{"property":"og:url","content":"https://xn--80aknmcbtp7a.xn--p1ai/zamena_plastic_okon_vladivostok/"}]
+15:["$","meta","12",{"property":"og:site_name","content":"Окна Центр"}]
+16:["$","meta","13",{"property":"og:locale","content":"ru_RU"}]
+17:["$","meta","14",{"property":"og:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/5d62a55290edb5a644e685a8eff0b6a0.jpg"}]
+18:["$","meta","15",{"property":"og:type","content":"website"}]
+19:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+1a:["$","meta","17",{"name":"twitter:title","content":"Замена пластиковых окон во Владивостоке — демонтаж и установка | Окна Центр"}]
+1b:["$","meta","18",{"name":"twitter:description","content":"Замена старых пластиковых и деревянных окон на энергосберегающие немецкие системы Funke, Rehau и Deceuninck с фурнитурой Roto во Владивостоке. Устранение продуваний, конденсата и промерзаний."}]
+1c:["$","meta","19",{"name":"twitter:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/5d62a55290edb5a644e685a8eff0b6a0.jpg"}]
+1d:["$","link","20",{"rel":"icon","href":"/favicon.ico?47718946ff472596","type":"image/x-icon","sizes":"16x16"}]
+1e:["$","link","21",{"rel":"icon","href":"/favicon.ico","sizes":"any"}]
+1f:["$","link","22",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}]
+20:["$","link","23",{"rel":"apple-touch-icon","href":"/apple-icon.png"}]
+21:["$","$L28","24",{}]
+23:["$","$1","c",{"children":[null,["$","$L29",null,{"parallelRouterKey":"children","template":["$","$L2a",null,{}]}]]}]
+27:true
+7:300
+7:C
+26:0
+22:"$undefined"
+24:"$undefined"
+6:"$undefined"

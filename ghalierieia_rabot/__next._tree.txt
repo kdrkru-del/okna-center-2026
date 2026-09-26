@@ -1,0 +1,4 @@
+:HL["/_next/static/css/7972d242bc1781e8.css","style"]
+:HL["/_next/static/css/fa7b57dd63e28d74.css","style"]
+:HL["/images/hero/hero-apartment-window-interior.jpg","image",{"fetchPriority":"high"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"ghalierieia_rabot","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"ORyjQOa6QXg0wSez0auE7"}

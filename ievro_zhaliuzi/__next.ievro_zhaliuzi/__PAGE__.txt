@@ -1,0 +1,40 @@
+1:"$Sreact.fragment"
+2:I[8154,["5559","static/chunks/5559-2a6bbaaee71739fa.js","5502","static/chunks/5502-d5c116c11dcd8b20.js","8626","static/chunks/8626-e896653b0059c19f.js","4655","static/chunks/app/ievro_zhaliuzi/page-164e3f48d501a5b4.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+9:I[484,[],"MetadataBoundary"]
+7:X
+1f:X
+1f:C
+0:{"buildId":"ORyjQOa6QXg0wSez0auE7","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"page":{"slug":"ievro_zhaliuzi","variant":"windows","categoryLabel":"Жалюзи","categoryUrl":"/ievro_zhaliuzi","title":"Жалюзи и рулонные шторы на пластиковые окна во Владивостоке | Окна Центр","description":"Жалюзи «Зебра» (день-ночь), горизонтальные еврожалюзи и рулонные шторы точно в размер окна во Владивостоке. Защита от солнца и посторонних глаз. Бесплатный выезд на замер с образцами тканей.","h1":"Жалюзи и рулонные шторы на пластиковые окна","eyebrow":"Солнцезащита · Индивидуальный размер","intro":"Чтобы защитить комнаты от яркого дневного света, уберечь мебель от выгорания и создать уютную атмосферу, предлагаем жалюзи и рулонные шторы на окна любых размеров. Услугу выезда замерщика предоставляем бесплатно.","legacyUrl":"/ievro_zhaliuzi","canonical":"https://xn--80aknmcbtp7a.xn--p1ai/ievro_zhaliuzi/","keywordsIntent":["жалюзи владивосток","жалюзи зебра владивосток","еврожалюзи владивосток","рулонные шторы на окна"],"heroImage":"/images/legacy/670d18c69dd29e4036c09b9e6de54e25.jpg","badge":"Зебра · Еврожалюзи · Roll","priceFrom":"от 2 900 ₽","verifiedFacts":["Еврожалюзи от 2 900 ₽","Жалюзи Зебра от 3 500 ₽","Рулонные шторы от 3 200 ₽","Бесплатный выезд на замер"],"sections":[{"title":"Популярные виды оконных жалюзи","subtitle":"Монтаж непосредственно на створку окна","content":"Жалюзи крепятся вплотную к стеклу, оставляя подоконник полностью свободным для цветов и предметов интерьера.","type":"cards","items":[{"title":"Жалюзи «Зебра» (День-Ночь)","desc":"Чередование прозрачных и плотных тканевых полос позволяет плавно регулировать степень освещенности.","badge":"от 3 500 ₽","spec":"Хит продаж"},{"title":"Еврожалюзи горизонтальные","desc":"Алюминиевые ламели в компактной кассете. Легко моются, не впитывают запахи, подходят для кухонь.","badge":"от 2 900 ₽"},{"title":"Рулонные шторы (Roll)","desc":"Единое тканевое полотно, сворачивающееся в аккуратный рулон. Широкий выбор расцветок и плотности.","badge":"от 3 200 ₽"}]}],"faq":[{"question":"Можно ли открывать окно с установленными жалюзи?","answer":"Да, система направляющих лесок удерживает полотно жалюзи вплотную к створке даже при откидывании окна на проветривание."}],"relatedPages":[{"slug":"/kupit_plastikovye_okna_vladivostok","label":"Пластиковые окна","reason":"Заказ окон"},{"slug":"/okna_pod_derevo_vladivostok","label":"Окна под дерево","reason":"Подбор жалюзи"}],"schemaType":"Service"}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}],["$","meta","2",{"name":"theme-color","content":"#ffffff"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Жалюзи и рулонные шторы на пластиковые окна во Владивостоке | Окна Центр | Окна Центр Владивосток"}],["$","meta","1",{"name":"description","content":"Жалюзи «Зебра» (день-ночь), горизонтальные еврожалюзи и рулонные шторы точно в размер окна во Владивостоке. Защита от солнца и посторонних глаз. Бесплатный выезд на замер с образцами тканей."}],["$","meta","2",{"name":"author","content":"Окна Центр"}],["$","meta","3",{"name":"keywords","content":"окна владивосток,пластиковые окна владивосток,установка пластиковых окон во владивостоке,остекление балконов владивосток,лоджия под ключ владивосток,ремонт окон владивосток,алюминиевые окна владивосток,окна центр,окна центр владивосток"}],["$","meta","4",{"name":"creator","content":"Окна Центр"}],["$","meta","5",{"name":"publisher","content":"Окна Центр"}],["$","meta","6",{"name":"robots","content":"index, follow"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b"]}]}]}],null]}],"isPartial":"$@1c","staleTime":"$7","varyParams":null},{"rsc":"$L1d","isPartial":"$@1e","staleTime":"$7","varyParams":"$1f"}],"isUpgradeableISRFallback":false,"a":"$@20","rootVaryParams":null,"needsRuntimeRequest":"$@21"}
+22:I[6869,[],"IconMark"]
+23:I[7121,[],""]
+24:I[4581,[],""]
+5:null
+a:["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}]
+b:["$","link","8",{"rel":"canonical","href":"https://xn--80aknmcbtp7a.xn--p1ai/ievro_zhaliuzi/"}]
+c:["$","meta","9",{"property":"og:title","content":"Жалюзи и рулонные шторы на пластиковые окна во Владивостоке | Окна Центр"}]
+d:["$","meta","10",{"property":"og:description","content":"Жалюзи «Зебра» (день-ночь), горизонтальные еврожалюзи и рулонные шторы точно в размер окна во Владивостоке. Защита от солнца и посторонних глаз. Бесплатный выезд на замер с образцами тканей."}]
+e:["$","meta","11",{"property":"og:url","content":"https://xn--80aknmcbtp7a.xn--p1ai/ievro_zhaliuzi/"}]
+f:["$","meta","12",{"property":"og:site_name","content":"Окна Центр"}]
+10:["$","meta","13",{"property":"og:locale","content":"ru_RU"}]
+11:["$","meta","14",{"property":"og:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/670d18c69dd29e4036c09b9e6de54e25.jpg"}]
+12:["$","meta","15",{"property":"og:type","content":"website"}]
+13:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+14:["$","meta","17",{"name":"twitter:title","content":"Жалюзи и рулонные шторы на пластиковые окна во Владивостоке | Окна Центр"}]
+15:["$","meta","18",{"name":"twitter:description","content":"Жалюзи «Зебра» (день-ночь), горизонтальные еврожалюзи и рулонные шторы точно в размер окна во Владивостоке. Защита от солнца и посторонних глаз. Бесплатный выезд на замер с образцами тканей."}]
+16:["$","meta","19",{"name":"twitter:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/670d18c69dd29e4036c09b9e6de54e25.jpg"}]
+17:["$","link","20",{"rel":"icon","href":"/favicon.ico?47718946ff472596","type":"image/x-icon","sizes":"16x16"}]
+18:["$","link","21",{"rel":"icon","href":"/favicon.ico","sizes":"any"}]
+19:["$","link","22",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}]
+1a:["$","link","23",{"rel":"apple-touch-icon","href":"/apple-icon.png"}]
+1b:["$","$L22","24",{}]
+1d:["$","$1","c",{"children":[null,["$","$L23",null,{"parallelRouterKey":"children","template":["$","$L24",null,{}]}]]}]
+21:true
+7:300
+7:C
+20:0
+1c:"$undefined"
+1e:"$undefined"
+6:"$undefined"

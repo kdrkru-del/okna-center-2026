@@ -1,0 +1,46 @@
+1:"$Sreact.fragment"
+2:I[8154,["5559","static/chunks/5559-2a6bbaaee71739fa.js","5502","static/chunks/5502-d5c116c11dcd8b20.js","8626","static/chunks/8626-e896653b0059c19f.js","2687","static/chunks/app/lodgia_pod_klyuch_vladivostok/page-ef153ffa12fe4e26.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+9:I[484,[],"MetadataBoundary"]
+7:X
+25:X
+25:C
+0:{"buildId":"ORyjQOa6QXg0wSez0auE7","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"page":{"slug":"lodgia_pod_klyuch_vladivostok","variant":"balcony","categoryLabel":"Лоджии под ключ","categoryUrl":"/lodgia_pod_klyuch_vladivostok","title":"Лоджия под ключ во Владивостоке — остекление, утепление, отделка | Окна Центр","description":"Лоджия под ключ во Владивостоке и Приморском крае от компании «Окна Центр». Полный цикл: теплое остекление Rehau, утепление Изопинком, теплый пол, электрика, отделка МДФ и ПВХ. С 2004 года.","h1":"Лоджия под ключ во Владивостоке","eyebrow":"Комплексные работы · Теплый контур","intro":"Красивые и теплые лоджии — это то, что мы умеем. Предлагаем превратить вашу лоджию в полноценную уютную комнату, рабочий кабинет или зону отдыха с круглогодичной комфортной температурой.","legacyUrl":"/lodgia_pod_klyuch_vladivostok","canonical":"https://xn--80aknmcbtp7a.xn--p1ai/lodgia_pod_klyuch_vladivostok/","keywordsIntent":["лоджия под ключ владивосток","отделка лоджии владивосток","утепление лоджии под ключ","лоджия в комнату цена"],"heroImage":"/images/bento/bento-balconies-turnkey.jpg","badge":"Теплый жилой кабинет · С 2004 г.","priceFrom":"от 79 000 ₽","verifiedFacts":["Остекление и отделка с 2004 года","Утепление Изопинком и ПСБС","Электромонтаж и теплый пол","Договор и гарантия"],"sections":[{"title":"Пошаговый процесс лоджии под ключ","subtitle":"От пустого парапета до чистового интерьера","content":"Все работы выполняются одной ответственной бригадой под единым техническим контролем.","type":"steps","items":[{"title":"Теплое остекление","desc":"Установка 5-камерного профиля с двухкамерными энергосберегающими стеклопакетами."},{"title":"Гидроизоляция и герметизация","desc":"Обработка всех стыков и щелей полиуретановыми герметиками от сквозняков."},{"title":"Капитальное утепление","desc":"Укладка плит экструдированного пенополистирола (Изопинк) с проклейкой стыков пароизоляцией."},{"title":"Электрика и обогрев","desc":"Монтаж кабельного или пленочного теплого пола, вывод розеток, выключателей и точечных светильников."},{"title":"Чистовая отделка стен и потолка","desc":"Обшивка ламинированными панелями МДФ, пластиком ПВХ или евровагонкой по выбору."},{"title":"Напольное покрытие","desc":"Укладка ламината, кварцвинила или линолеума с установкой плинтусов."}]}],"faq":[{"question":"Можно ли снести балконный блок и объединить лоджию с залом?","answer":"Да, мы выполняем аккуратный демонтаж оконного блока и порога с сохранением несущих конструкций здания."},{"question":"Будет ли на лоджии тепло зимой без батареи?","answer":"При качественном утеплении Изопинком и установке инфракрасного теплого пола температура на лоджии поддерживается на уровне +22...+24 °C даже в январские морозы."}],"relatedPages":[{"slug":"/osteklenie_balkona_vladivostok","label":"Остекление балконов","reason":"Сравнение систем"},{"slug":"/riemont_lodzhii_vo_vladivostokie","label":"Ремонт лоджий","reason":"Отделочные работы"},{"slug":"/uteplenie_lodgiy_vladivostok","label":"Утепление лоджий","reason":"Материалы утепления"},{"slug":"/otdielochnyie_matierialy","label":"Отделочные материалы","reason":"Каталог панелей"}],"schemaType":"Service"}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}],["$","meta","2",{"name":"theme-color","content":"#ffffff"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Лоджия под ключ во Владивостоке — остекление, утепление, отделка | Окна Центр | Окна Центр Владивосток"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20","$L21"]}]}]}],null]}],"isPartial":"$@22","staleTime":"$7","varyParams":null},{"rsc":"$L23","isPartial":"$@24","staleTime":"$7","varyParams":"$25"}],"isUpgradeableISRFallback":false,"a":"$@26","rootVaryParams":null,"needsRuntimeRequest":"$@27"}
+28:I[6869,[],"IconMark"]
+29:I[7121,[],""]
+2a:I[4581,[],""]
+5:null
+a:["$","meta","1",{"name":"description","content":"Лоджия под ключ во Владивостоке и Приморском крае от компании «Окна Центр». Полный цикл: теплое остекление Rehau, утепление Изопинком, теплый пол, электрика, отделка МДФ и ПВХ. С 2004 года."}]
+b:["$","meta","2",{"name":"author","content":"Окна Центр"}]
+c:["$","meta","3",{"name":"keywords","content":"окна владивосток,пластиковые окна владивосток,установка пластиковых окон во владивостоке,остекление балконов владивосток,лоджия под ключ владивосток,ремонт окон владивосток,алюминиевые окна владивосток,окна центр,окна центр владивосток"}]
+d:["$","meta","4",{"name":"creator","content":"Окна Центр"}]
+e:["$","meta","5",{"name":"publisher","content":"Окна Центр"}]
+f:["$","meta","6",{"name":"robots","content":"index, follow"}]
+10:["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}]
+11:["$","link","8",{"rel":"canonical","href":"https://xn--80aknmcbtp7a.xn--p1ai/lodgia_pod_klyuch_vladivostok/"}]
+12:["$","meta","9",{"property":"og:title","content":"Лоджия под ключ во Владивостоке — остекление, утепление, отделка | Окна Центр"}]
+13:["$","meta","10",{"property":"og:description","content":"Лоджия под ключ во Владивостоке и Приморском крае от компании «Окна Центр». Полный цикл: теплое остекление Rehau, утепление Изопинком, теплый пол, электрика, отделка МДФ и ПВХ. С 2004 года."}]
+14:["$","meta","11",{"property":"og:url","content":"https://xn--80aknmcbtp7a.xn--p1ai/lodgia_pod_klyuch_vladivostok/"}]
+15:["$","meta","12",{"property":"og:site_name","content":"Окна Центр"}]
+16:["$","meta","13",{"property":"og:locale","content":"ru_RU"}]
+17:["$","meta","14",{"property":"og:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/bento/bento-balconies-turnkey.jpg"}]
+18:["$","meta","15",{"property":"og:type","content":"website"}]
+19:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+1a:["$","meta","17",{"name":"twitter:title","content":"Лоджия под ключ во Владивостоке — остекление, утепление, отделка | Окна Центр"}]
+1b:["$","meta","18",{"name":"twitter:description","content":"Лоджия под ключ во Владивостоке и Приморском крае от компании «Окна Центр». Полный цикл: теплое остекление Rehau, утепление Изопинком, теплый пол, электрика, отделка МДФ и ПВХ. С 2004 года."}]
+1c:["$","meta","19",{"name":"twitter:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/bento/bento-balconies-turnkey.jpg"}]
+1d:["$","link","20",{"rel":"icon","href":"/favicon.ico?47718946ff472596","type":"image/x-icon","sizes":"16x16"}]
+1e:["$","link","21",{"rel":"icon","href":"/favicon.ico","sizes":"any"}]
+1f:["$","link","22",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}]
+20:["$","link","23",{"rel":"apple-touch-icon","href":"/apple-icon.png"}]
+21:["$","$L28","24",{}]
+23:["$","$1","c",{"children":[null,["$","$L29",null,{"parallelRouterKey":"children","template":["$","$L2a",null,{}]}]]}]
+27:true
+7:300
+7:C
+26:0
+22:"$undefined"
+24:"$undefined"
+6:"$undefined"

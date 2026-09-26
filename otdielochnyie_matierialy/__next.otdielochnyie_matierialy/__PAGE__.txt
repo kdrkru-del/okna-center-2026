@@ -1,0 +1,43 @@
+1:"$Sreact.fragment"
+2:I[8154,["5559","static/chunks/5559-2a6bbaaee71739fa.js","5502","static/chunks/5502-d5c116c11dcd8b20.js","8626","static/chunks/8626-e896653b0059c19f.js","2983","static/chunks/app/otdielochnyie_matierialy/page-7b6726106aa3914c.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+9:I[484,[],"MetadataBoundary"]
+7:X
+22:X
+22:C
+0:{"buildId":"ORyjQOa6QXg0wSez0auE7","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"page":{"slug":"otdielochnyie_matierialy","variant":"materials","categoryLabel":"Материалы","categoryUrl":"/otdielochnyie_matierialy","title":"Отделочные материалы для балконов и лоджий во Владивостоке | Окна Центр","description":"Качественные отделочные материалы для обшивки балконов и лоджий во Владивостоке: МДФ-панели, пластиковые панели ПВХ, виниловый сайдинг, фасадные панели Ханьи, утеплители Изопинк и ПСБС.","h1":"Отделочные материалы для балконов и лоджий","eyebrow":"Каталог материалов · Практичность и уют","intro":"Компания «Окна Центр» предлагает полный ассортимент материалов для внутренней и внешней отделки балконов и лоджий. Все материалы устойчивы к перепадам температур и влажности.","legacyUrl":"/otdielochnyie_matierialy","canonical":"https://xn--80aknmcbtp7a.xn--p1ai/otdielochnyie_matierialy/","keywordsIntent":["отделочные материалы для балкона","панели мдф владивосток","панели пвх для лоджии","материалы для обшивки балкона"],"heroImage":"/images/legacy/f270d6f307895b915815537be47eacf2.jpg","badge":"МДФ · ПВХ · Ханьи · Сайдинг","priceFrom":"от 650 ₽/м²","verifiedFacts":["МДФ и ПВХ панели","Фасадные панели Ханьи","Утеплитель Изопинк","Сайдинг виниловый"],"sections":[{"title":"Каталог материалов для внутренней обшивки","subtitle":"Широкий выбор декоров и фактур под дерево, камень и текстиль","content":"Материалы не требуют сложного ухода, легко моются и сохраняют презентабельный вид годами.","type":"cards","items":[{"title":"Панели МДФ","desc":"Древесноволокнистые плиты с реалистичными древесными текстурами. Создают уютную атмосферу комнаты.","badge":"Интерьер"},{"title":"Пластиковые панели ПВХ","desc":"100% влагостойкие бесшовные ламинированные панели. Не боятся конденсата и влаги.","badge":"Влагостойкость"},{"title":"Фасадные панели Ханьи","desc":"Металлические формованные панели с полиуретановым утеплением для наружной отделки парапета.","badge":"Премиум фасад"},{"title":"Виниловый сайдинг","desc":"Легкий эластичный материал для наружной обшивки балкона с улицы.","badge":"Ветрозащита"}]}],"faq":[{"question":"Какой материал лучше для холодной лоджии?","answer":"Для неотапливаемой холодной лоджии оптимальны пластиковые панели ПВХ, так как они абсолютно не боятся сырости и перепадов влажности."}],"relatedPages":[{"slug":"/panieli_khani","label":"Панели Ханьи","reason":"Наружный фасад"},{"slug":"/vinilovyi_saidingh","label":"Виниловый сайдинг","reason":"Обшивка парапета"},{"slug":"/uteplenie_lodgiy_vladivostok","label":"Утепление лоджий","reason":"Изопинк"}],"schemaType":"CollectionPage"}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}],["$","meta","2",{"name":"theme-color","content":"#ffffff"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Отделочные материалы для балконов и лоджий во Владивостоке | Окна Центр | Окна Центр Владивосток"}],["$","meta","1",{"name":"description","content":"Качественные отделочные материалы для обшивки балконов и лоджий во Владивостоке: МДФ-панели, пластиковые панели ПВХ, виниловый сайдинг, фасадные панели Ханьи, утеплители Изопинк и ПСБС."}],["$","meta","2",{"name":"author","content":"Окна Центр"}],["$","meta","3",{"name":"keywords","content":"окна владивосток,пластиковые окна владивосток,установка пластиковых окон во владивостоке,остекление балконов владивосток,лоджия под ключ владивосток,ремонт окон владивосток,алюминиевые окна владивосток,окна центр,окна центр владивосток"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e"]}]}]}],null]}],"isPartial":"$@1f","staleTime":"$7","varyParams":null},{"rsc":"$L20","isPartial":"$@21","staleTime":"$7","varyParams":"$22"}],"isUpgradeableISRFallback":false,"a":"$@23","rootVaryParams":null,"needsRuntimeRequest":"$@24"}
+25:I[6869,[],"IconMark"]
+26:I[7121,[],""]
+27:I[4581,[],""]
+5:null
+a:["$","meta","4",{"name":"creator","content":"Окна Центр"}]
+b:["$","meta","5",{"name":"publisher","content":"Окна Центр"}]
+c:["$","meta","6",{"name":"robots","content":"index, follow"}]
+d:["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}]
+e:["$","link","8",{"rel":"canonical","href":"https://xn--80aknmcbtp7a.xn--p1ai/otdielochnyie_matierialy/"}]
+f:["$","meta","9",{"property":"og:title","content":"Отделочные материалы для балконов и лоджий во Владивостоке | Окна Центр"}]
+10:["$","meta","10",{"property":"og:description","content":"Качественные отделочные материалы для обшивки балконов и лоджий во Владивостоке: МДФ-панели, пластиковые панели ПВХ, виниловый сайдинг, фасадные панели Ханьи, утеплители Изопинк и ПСБС."}]
+11:["$","meta","11",{"property":"og:url","content":"https://xn--80aknmcbtp7a.xn--p1ai/otdielochnyie_matierialy/"}]
+12:["$","meta","12",{"property":"og:site_name","content":"Окна Центр"}]
+13:["$","meta","13",{"property":"og:locale","content":"ru_RU"}]
+14:["$","meta","14",{"property":"og:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/f270d6f307895b915815537be47eacf2.jpg"}]
+15:["$","meta","15",{"property":"og:type","content":"website"}]
+16:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+17:["$","meta","17",{"name":"twitter:title","content":"Отделочные материалы для балконов и лоджий во Владивостоке | Окна Центр"}]
+18:["$","meta","18",{"name":"twitter:description","content":"Качественные отделочные материалы для обшивки балконов и лоджий во Владивостоке: МДФ-панели, пластиковые панели ПВХ, виниловый сайдинг, фасадные панели Ханьи, утеплители Изопинк и ПСБС."}]
+19:["$","meta","19",{"name":"twitter:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/f270d6f307895b915815537be47eacf2.jpg"}]
+1a:["$","link","20",{"rel":"icon","href":"/favicon.ico?47718946ff472596","type":"image/x-icon","sizes":"16x16"}]
+1b:["$","link","21",{"rel":"icon","href":"/favicon.ico","sizes":"any"}]
+1c:["$","link","22",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}]
+1d:["$","link","23",{"rel":"apple-touch-icon","href":"/apple-icon.png"}]
+1e:["$","$L25","24",{}]
+20:["$","$1","c",{"children":[null,["$","$L26",null,{"parallelRouterKey":"children","template":["$","$L27",null,{}]}]]}]
+24:true
+7:300
+7:C
+23:0
+1f:"$undefined"
+21:"$undefined"
+6:"$undefined"

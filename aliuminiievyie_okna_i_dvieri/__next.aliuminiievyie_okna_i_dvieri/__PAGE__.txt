@@ -1,0 +1,43 @@
+1:"$Sreact.fragment"
+2:I[8154,["5559","static/chunks/5559-2a6bbaaee71739fa.js","5502","static/chunks/5502-d5c116c11dcd8b20.js","8626","static/chunks/8626-e896653b0059c19f.js","9076","static/chunks/app/aliuminiievyie_okna_i_dvieri/page-1a233f546faf7848.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+9:I[484,[],"MetadataBoundary"]
+7:X
+22:X
+22:C
+0:{"buildId":"ORyjQOa6QXg0wSez0auE7","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"page":{"slug":"aliuminiievyie_okna_i_dvieri","variant":"aluminium","categoryLabel":"Фасады и двери","categoryUrl":"/aliuminiievyie_okna_i_dvieri","title":"Алюминиевые двери и фасадное остекление во Владивостоке — ALT F50 | Окна Центр","description":"Входные группы, алюминиевые двери и стоечно-ригельные фасады ALT F50, навесные вентфасады ALT 150 во Владивостоке от компании «Окна Центр». Проектирование, производство и монтаж по ГОСТ.","h1":"Алюминиевые двери, входные группы и фасады ALT F50 / ALT 150","eyebrow":"Стоечно-ригельные системы · Входные группы","intro":"Компания «Окна Центр» проектирует, изготавливает и монтирует стоечно-ригельные светопрозрачные фасады ALT F50, навесные вентилируемые фасады ALT 150, входные группы и двери для коммерческих и частных объектов.","legacyUrl":"/aliuminiievyie_okna_i_dvieri","canonical":"https://xn--80aknmcbtp7a.xn--p1ai/aliuminiievyie_okna_i_dvieri/","keywordsIntent":["алюминиевые двери владивосток","фасадное остекление владивосток","alt f50 владивосток","входные группы из алюминия"],"heroImage":"/images/legacy/Al2fspIs.jpg","badge":"ALT F50 & ALT 150","priceFrom":"По расчёту","verifiedFacts":["Стоечно-ригельные фасады ALT F50","Вентилируемые фасады ALT 150","Усиленные входные двери","Опыт работы с 2004 года"],"sections":[{"title":"Технические направления систем Alutech","subtitle":"Надежные сертифицированные конструкции для высоких нагрузок","content":"Конструкции рассчитаны на интенсивные ветровые нагрузки побережья Приморья.","type":"cards","items":[{"title":"Стоечно-ригельные фасады ALT F50","desc":"Максимальная светопроницаемость и визуальная легкость. Ширина видимых стоек всего 50 мм, интеграция оконных створок и дверей.","badge":"Фасады"},{"title":"Навесные вентфасады ALT 150","desc":"Надежная система крепления облицовочных композитных панелей с зазором для естественной вентиляции утеплителя.","badge":"Вентфасады"},{"title":"Входные группы и маятниковые двери","desc":"Теплые и холодные двери для магазинов, офисных центров, коттеджей и автосалонов с усиленными петлями.","badge":"Двери"}]}],"faq":[{"question":"Возможна ли покраска профиля в нестандартный цвет?","answer":"Да, алюминиевые профили окрашиваются порошковым полимерным методом в любой цвет каталога RAL, включая матовые и муаровые фактуры."}],"relatedPages":[{"slug":"/alyuminievye_okna_vladivostok","label":"Алюминиевые окна","reason":"Оконные системы"},{"slug":"/kupit_plastikovye_okna_vladivostok","label":"Пластиковые окна","reason":"Для квартир"}],"schemaType":"Service"}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}],["$","meta","2",{"name":"theme-color","content":"#ffffff"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Алюминиевые двери и фасадное остекление во Владивостоке — ALT F50 | Окна Центр | Окна Центр Владивосток"}],["$","meta","1",{"name":"description","content":"Входные группы, алюминиевые двери и стоечно-ригельные фасады ALT F50, навесные вентфасады ALT 150 во Владивостоке от компании «Окна Центр». Проектирование, производство и монтаж по ГОСТ."}],["$","meta","2",{"name":"author","content":"Окна Центр"}],["$","meta","3",{"name":"keywords","content":"окна владивосток,пластиковые окна владивосток,установка пластиковых окон во владивостоке,остекление балконов владивосток,лоджия под ключ владивосток,ремонт окон владивосток,алюминиевые окна владивосток,окна центр,окна центр владивосток"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e"]}]}]}],null]}],"isPartial":"$@1f","staleTime":"$7","varyParams":null},{"rsc":"$L20","isPartial":"$@21","staleTime":"$7","varyParams":"$22"}],"isUpgradeableISRFallback":false,"a":"$@23","rootVaryParams":null,"needsRuntimeRequest":"$@24"}
+25:I[6869,[],"IconMark"]
+26:I[7121,[],""]
+27:I[4581,[],""]
+5:null
+a:["$","meta","4",{"name":"creator","content":"Окна Центр"}]
+b:["$","meta","5",{"name":"publisher","content":"Окна Центр"}]
+c:["$","meta","6",{"name":"robots","content":"index, follow"}]
+d:["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}]
+e:["$","link","8",{"rel":"canonical","href":"https://xn--80aknmcbtp7a.xn--p1ai/aliuminiievyie_okna_i_dvieri/"}]
+f:["$","meta","9",{"property":"og:title","content":"Алюминиевые двери и фасадное остекление во Владивостоке — ALT F50 | Окна Центр"}]
+10:["$","meta","10",{"property":"og:description","content":"Входные группы, алюминиевые двери и стоечно-ригельные фасады ALT F50, навесные вентфасады ALT 150 во Владивостоке от компании «Окна Центр». Проектирование, производство и монтаж по ГОСТ."}]
+11:["$","meta","11",{"property":"og:url","content":"https://xn--80aknmcbtp7a.xn--p1ai/aliuminiievyie_okna_i_dvieri/"}]
+12:["$","meta","12",{"property":"og:site_name","content":"Окна Центр"}]
+13:["$","meta","13",{"property":"og:locale","content":"ru_RU"}]
+14:["$","meta","14",{"property":"og:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/Al2fspIs.jpg"}]
+15:["$","meta","15",{"property":"og:type","content":"website"}]
+16:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+17:["$","meta","17",{"name":"twitter:title","content":"Алюминиевые двери и фасадное остекление во Владивостоке — ALT F50 | Окна Центр"}]
+18:["$","meta","18",{"name":"twitter:description","content":"Входные группы, алюминиевые двери и стоечно-ригельные фасады ALT F50, навесные вентфасады ALT 150 во Владивостоке от компании «Окна Центр». Проектирование, производство и монтаж по ГОСТ."}]
+19:["$","meta","19",{"name":"twitter:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/Al2fspIs.jpg"}]
+1a:["$","link","20",{"rel":"icon","href":"/favicon.ico?47718946ff472596","type":"image/x-icon","sizes":"16x16"}]
+1b:["$","link","21",{"rel":"icon","href":"/favicon.ico","sizes":"any"}]
+1c:["$","link","22",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}]
+1d:["$","link","23",{"rel":"apple-touch-icon","href":"/apple-icon.png"}]
+1e:["$","$L25","24",{}]
+20:["$","$1","c",{"children":[null,["$","$L26",null,{"parallelRouterKey":"children","template":["$","$L27",null,{}]}]]}]
+24:true
+7:300
+7:C
+23:0
+1f:"$undefined"
+21:"$undefined"
+6:"$undefined"

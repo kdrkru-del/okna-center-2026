@@ -1,0 +1,43 @@
+1:"$Sreact.fragment"
+2:I[8154,["5559","static/chunks/5559-2a6bbaaee71739fa.js","5502","static/chunks/5502-d5c116c11dcd8b20.js","8626","static/chunks/8626-e896653b0059c19f.js","9604","static/chunks/app/uteplenie_lodgiy_vladivostok/page-26940b4a2049985d.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+9:I[484,[],"MetadataBoundary"]
+7:X
+22:X
+22:C
+0:{"buildId":"ORyjQOa6QXg0wSez0auE7","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"page":{"slug":"uteplenie_lodgiy_vladivostok","variant":"materials","categoryLabel":"Утепление","categoryUrl":"/uteplenie_lodgiy_vladivostok","title":"Утепление лоджий и балконов во Владивостоке — Изопинк, ПСБС | Окна Центр","description":"Профессиональное утепление лоджий и балконов во Владивостоке современными материалами: экструдированный Изопинк, пенополистирол ПСБС, базальтовая минвата. Бесшовный теплый контур без мостиков холода.","h1":"Утепление лоджий во Владивостоке","eyebrow":"Теплоизоляция · Защита от промерзания","intro":"В лоджии как в комнате! Компания «Окна Центр» занимается остеклением и утеплением лоджий с 2004 года. Используем сертифицированные материалы, не впитывающие влагу и гарантирующие долгий срок службы.","legacyUrl":"/uteplenie_lodgiy_vladivostok","canonical":"https://xn--80aknmcbtp7a.xn--p1ai/uteplenie_lodgiy_vladivostok/","keywordsIntent":["утепление лоджии владивосток","утепление изопинком","утепление балкона псбс","как утеплить лоджию"],"heroImage":"/images/legacy/1dfc145b98c74e9896680cc9ec397d6b.jpg","badge":"Изопинк · ПСБС · Минвата","priceFrom":"от 1 200 ₽/м²","verifiedFacts":["Экструдированный пенополистирол Изопинк","Влагостойкость 100%","С 2004 года в Приморье","Бесплатный выезд на замер"],"sections":[{"title":"Сравнение утеплителей для балконов и лоджий","subtitle":"Материалы, проверенные влажным климатом Приморья","content":"Толщина утеплителя подбирается индивидуально в зависимости от назначения помещения (от 30 до 100 мм).","type":"table","items":[{"title":"Изопинк (XPS)","desc":"Экструдированный пенополистирол с пазогребневым замком. Абсолютно влагостоек, прочен на сжатие, идеален для пола и парапета.","spec":"Влагостойкость: 99.8% | Назначение: Пол, парапет, потолок"},{"title":"ПСБС (Пенопласт)","desc":"Классический ячеистый пенополистирол. Экономичный и легкий материал для парапетов и ненагруженных перегородок.","spec":"Влагостойкость: базовая | Назначение: Стены, парапет"},{"title":"Базальтовая минвата","desc":"Негорючая минеральная вата. Отличная звукоизоляция, требует качественной пароизоляции от влаги.","spec":"Влагостойкость: гидрофобная | Назначение: Звукоизоляция"}]}],"faq":[{"question":"Появится ли плесень под утеплителем?","answer":"Нет, правильная технология монтажа включает обработку антисептиком и герметичную пароизоляцию фольгированным изолоном, исключающим попадание теплого комнатного пара в толщу утеплителя."}],"relatedPages":[{"slug":"/lodgia_pod_klyuch_vladivostok","label":"Лоджия под ключ","reason":"Полный комплекс"},{"slug":"/otdielochnyie_matierialy","label":"Отделочные материалы","reason":"Каталог обшивки"},{"slug":"/osteklenie_balkona_vladivostok","label":"Остекление балконов","reason":"Установка рам"}],"schemaType":"Service"}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}],["$","meta","2",{"name":"theme-color","content":"#ffffff"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Утепление лоджий и балконов во Владивостоке — Изопинк, ПСБС | Окна Центр | Окна Центр Владивосток"}],["$","meta","1",{"name":"description","content":"Профессиональное утепление лоджий и балконов во Владивостоке современными материалами: экструдированный Изопинк, пенополистирол ПСБС, базальтовая минвата. Бесшовный теплый контур без мостиков холода."}],["$","meta","2",{"name":"author","content":"Окна Центр"}],["$","meta","3",{"name":"keywords","content":"окна владивосток,пластиковые окна владивосток,установка пластиковых окон во владивостоке,остекление балконов владивосток,лоджия под ключ владивосток,ремонт окон владивосток,алюминиевые окна владивосток,окна центр,окна центр владивосток"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e"]}]}]}],null]}],"isPartial":"$@1f","staleTime":"$7","varyParams":null},{"rsc":"$L20","isPartial":"$@21","staleTime":"$7","varyParams":"$22"}],"isUpgradeableISRFallback":false,"a":"$@23","rootVaryParams":null,"needsRuntimeRequest":"$@24"}
+25:I[6869,[],"IconMark"]
+26:I[7121,[],""]
+27:I[4581,[],""]
+5:null
+a:["$","meta","4",{"name":"creator","content":"Окна Центр"}]
+b:["$","meta","5",{"name":"publisher","content":"Окна Центр"}]
+c:["$","meta","6",{"name":"robots","content":"index, follow"}]
+d:["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}]
+e:["$","link","8",{"rel":"canonical","href":"https://xn--80aknmcbtp7a.xn--p1ai/uteplenie_lodgiy_vladivostok/"}]
+f:["$","meta","9",{"property":"og:title","content":"Утепление лоджий и балконов во Владивостоке — Изопинк, ПСБС | Окна Центр"}]
+10:["$","meta","10",{"property":"og:description","content":"Профессиональное утепление лоджий и балконов во Владивостоке современными материалами: экструдированный Изопинк, пенополистирол ПСБС, базальтовая минвата. Бесшовный теплый контур без мостиков холода."}]
+11:["$","meta","11",{"property":"og:url","content":"https://xn--80aknmcbtp7a.xn--p1ai/uteplenie_lodgiy_vladivostok/"}]
+12:["$","meta","12",{"property":"og:site_name","content":"Окна Центр"}]
+13:["$","meta","13",{"property":"og:locale","content":"ru_RU"}]
+14:["$","meta","14",{"property":"og:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/1dfc145b98c74e9896680cc9ec397d6b.jpg"}]
+15:["$","meta","15",{"property":"og:type","content":"website"}]
+16:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+17:["$","meta","17",{"name":"twitter:title","content":"Утепление лоджий и балконов во Владивостоке — Изопинк, ПСБС | Окна Центр"}]
+18:["$","meta","18",{"name":"twitter:description","content":"Профессиональное утепление лоджий и балконов во Владивостоке современными материалами: экструдированный Изопинк, пенополистирол ПСБС, базальтовая минвата. Бесшовный теплый контур без мостиков холода."}]
+19:["$","meta","19",{"name":"twitter:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/1dfc145b98c74e9896680cc9ec397d6b.jpg"}]
+1a:["$","link","20",{"rel":"icon","href":"/favicon.ico?47718946ff472596","type":"image/x-icon","sizes":"16x16"}]
+1b:["$","link","21",{"rel":"icon","href":"/favicon.ico","sizes":"any"}]
+1c:["$","link","22",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}]
+1d:["$","link","23",{"rel":"apple-touch-icon","href":"/apple-icon.png"}]
+1e:["$","$L25","24",{}]
+20:["$","$1","c",{"children":[null,["$","$L26",null,{"parallelRouterKey":"children","template":["$","$L27",null,{}]}]]}]
+24:true
+7:300
+7:C
+23:0
+1f:"$undefined"
+21:"$undefined"
+6:"$undefined"
