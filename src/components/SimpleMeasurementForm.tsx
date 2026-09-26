@@ -5,6 +5,7 @@ import { CheckCircle2, MessageCircle, ArrowRight, ShieldCheck, Clock } from "luc
 import { submitLead } from "@/lib/submitLead";
 import { reachGoal } from "@/components/YandexMetrika";
 import { COMPANY_INFO } from "@/data/company_info";
+import { formatRussianPhone } from "@/lib/phoneMask";
 
 interface SimpleMeasurementFormProps {
   initialService?: string;
@@ -16,7 +17,7 @@ export default function SimpleMeasurementForm({
   source = "zaiavka_page",
 }: SimpleMeasurementFormProps) {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("+7 (");
   const [website, setWebsite] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -131,9 +132,12 @@ export default function SimpleMeasurementForm({
             type="tel"
             required
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="+7 (___) ___-__-__"
-            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 font-mono text-sm focus:bg-white focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all"
+            onFocus={() => {
+              if (!phone || phone.length <= 4) setPhone("+7 (");
+            }}
+            onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
+            placeholder="+7 (999) 000-00-00"
+            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 font-mono text-sm focus:bg-white focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all font-medium"
           />
         </div>
 

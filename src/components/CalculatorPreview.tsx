@@ -6,10 +6,11 @@ import { Calculator, ArrowRight, CheckCircle2, Phone, MessageCircle } from "luci
 import { CONTACTS } from "@/data/contact";
 import { reachGoal } from "@/components/YandexMetrika";
 import { submitLead } from "@/lib/submitLead";
+import { formatRussianPhone } from "@/lib/phoneMask";
 
 export default function CalculatorPreview() {
   const [selectedType, setSelectedType] = useState<string>("window");
-  const [phone, setPhone] = useState<string>("");
+  const [phone, setPhone] = useState<string>("+7 (");
   const [website, setWebsite] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
@@ -184,9 +185,12 @@ export default function CalculatorPreview() {
                     type="tel"
                     required
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+7 (___) ___-__-__"
-                    className="flex-1 px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none text-sm font-mono"
+                    onFocus={() => {
+                      if (!phone || phone.length <= 4) setPhone("+7 (");
+                    }}
+                    onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
+                    placeholder="+7 (999) 000-00-00"
+                    className="flex-1 px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none text-sm font-mono font-medium"
                   />
                   <button
                     type="submit"

@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle2, ArrowRight, Upload, Phone, Sparkles, MessageCircle } from "lucide-react";
+import { CheckCircle2, ArrowRight, Phone, Sparkles, MessageCircle } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import { reachGoal } from "@/components/YandexMetrika";
 import { submitLead } from "@/lib/submitLead";
+import { formatRussianPhone } from "@/lib/phoneMask";
 
 export default function InteractiveCalculator() {
   const [step, setStep] = useState(1);
@@ -13,7 +14,7 @@ export default function InteractiveCalculator() {
   const [profile, setProfile] = useState("consult");
   const [options, setOptions] = useState<string[]>(["installation", "sill"]);
   const [city, setCity] = useState("Владивосток");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("+7 (");
   const [name, setName] = useState("");
   const [website, setWebsite] = useState("");
   const [loading, setLoading] = useState(false);
@@ -82,7 +83,7 @@ export default function InteractiveCalculator() {
       if (result.ok) {
         setSubmitted(true);
         setName('');
-        setPhone('');
+        setPhone('+7 (');
       } else {
         setError(result.error || "Не удалось автоматически отправить заявку. Свяжитесь с нами напрямую.");
       }
@@ -357,9 +358,12 @@ export default function InteractiveCalculator() {
                         type="tel"
                         required
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        onFocus={() => {
+                          if (!phone || phone.length <= 4) setPhone("+7 (");
+                        }}
+                        onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
                         placeholder="+7 (999) 000-00-00"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none"
+                        className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none font-medium"
                       />
                     </div>
                   </div>
@@ -379,16 +383,6 @@ export default function InteractiveCalculator() {
                           {c}
                         </button>
                       ))}
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-xl border border-dashed border-slate-300 bg-slate-50 flex items-center gap-3">
-                    <Upload className="w-5 h-5 text-cyan-600 flex-shrink-0" />
-                    <div className="text-xs text-slate-600">
-                      <span>Есть фото проема или чертеж? Отправьте в </span>
-                      <a href={COMPANY_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-700 font-semibold underline hover:text-emerald-800">
-                        WhatsApp (+7 994 010-03-00)
-                      </a>
                     </div>
                   </div>
 

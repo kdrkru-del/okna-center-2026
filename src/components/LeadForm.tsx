@@ -2,11 +2,12 @@
 import { useState } from 'react';
 import { submitLead } from '@/lib/submitLead';
 import { MessageCircle, CheckCircle2 } from 'lucide-react';
+import { formatRussianPhone } from '@/lib/phoneMask';
 
 export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState('+7 (');
   const [name, setName] = useState('');
   const [city, setCity] = useState('Владивосток');
   const [service, setService] = useState('Окна ПВХ');
@@ -154,11 +155,14 @@ export default function LeadForm() {
                 <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Телефон *</label>
                 <input
                   type="tel"
-                  placeholder="+7 (___) ___-__-__"
+                  placeholder="+7 (999) 000-00-00"
                   required
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm"
+                  onFocus={() => {
+                    if (!phone || phone.length <= 4) setPhone("+7 (");
+                  }}
+                  onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
+                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm font-medium"
                 />
               </div>
 

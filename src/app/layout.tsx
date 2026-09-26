@@ -146,6 +146,9 @@ export default function RootLayout({
     <html lang="ru" className={`${inter.variable} ${manrope.variable} h-full antialiased scroll-smooth`}>
       <head>
         {isGithubPages && <meta name="robots" content="noindex,nofollow" />}
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
         <link rel="icon" href={asset("/favicon.ico")} sizes="any" />
         <link
           rel="preload"
