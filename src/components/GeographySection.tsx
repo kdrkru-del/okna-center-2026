@@ -8,10 +8,10 @@ export default function GeographySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
-            Работаем во Владивостоке и по всему Приморью
+            Работаем по всему Приморскому краю
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-light">
-            Собственные офисы и монтажные службы во Владивостоке и Уссурийске, регулярные выезды в пригороды и отправка по ДФО
+            Собственные офисы и монтажные службы, регулярные выезды по краю и доставка окон по всему Дальнему Востоку
           </p>
         </div>
 
@@ -61,8 +61,8 @@ export default function GeographySection() {
           <div className="flex items-center gap-4 text-xs sm:text-sm text-slate-600">
             <Truck className="w-6 h-6 text-cyan-600 flex-shrink-0" />
             <div>
-              <span className="font-semibold text-slate-900 block">Продажа и доставка окон без установки:</span>
-              <span className="text-slate-500">Во Владивостоке и Уссурийске, доставка в любую точку Приморского края. Также осуществляем отправку любого количества окон в г. Анадырь, Южно-Сахалинск, Петропавловск-Камчатский и г. Магадан.</span>
+              <span className="font-semibold text-slate-900 block">Продажа и доставка окон по всему Дальнему Востоку:</span>
+              <span className="text-slate-500">Доставка в любую точку Приморского края. Также осуществляем отправку любого количества окон в г. Анадырь, Южно-Сахалинск, Петропавловск-Камчатский и г. Магадан.</span>
             </div>
           </div>
           <a

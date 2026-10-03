@@ -5,14 +5,14 @@ import { COMPANY_INFO } from "@/data/company_info";
 import SimpleMeasurementForm from "@/components/SimpleMeasurementForm";
 
 export const metadata: Metadata = {
-  title: "Онлайн-заявка на замер и расчет стоимости — компания «Окна Центр» Владивосток",
-  description: "Оставьте заявку на бесплатный выезд замерщика пластиковых окон, балкона или лоджии во Владивостоке и Уссурийске. Скидка при онлайн-заявке, бесплатная консультация мастера.",
+  title: "Онлайн-заявка на замер и расчет стоимости — компания «Окна Центр»",
+  description: "Оставьте заявку на бесплатный выезд замерщика пластиковых окон, балкона или лоджии по Приморскому краю. Скидка при онлайн-заявке, бесплатная консультация мастера.",
   alternates: {
     canonical: `${COMPANY_INFO.domain}/zaiavka_na_uslughi_kompanii_oknatsientr/`,
   },
   openGraph: {
     title: "Онлайн-заявка на замер — «Окна Центр»",
-    description: "Бесплатный выезд инженера-замерщика по Владивостоку и Уссурийску. Официальный договор и гарантия.",
+    description: "Бесплатный выезд инженера-замерщика по Приморскому краю. Официальный договор и гарантия.",
     url: `${COMPANY_INFO.domain}/zaiavka_na_uslughi_kompanii_oknatsientr/`,
     siteName: COMPANY_INFO.name,
     locale: "ru_RU",
@@ -40,7 +40,7 @@ export default function ZaiavkaPage() {
           <div className="lg:col-span-7 space-y-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-cyan-800 uppercase tracking-wider mb-4">
-                <span>0 ₽ выезд по Владивостоку и краю</span>
+                <span>0 ₽ выезд по Приморскому краю</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950 leading-tight">

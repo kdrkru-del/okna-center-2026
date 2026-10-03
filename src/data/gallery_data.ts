@@ -25,7 +25,7 @@ export const KEY_OBJECTS: GalleryItem[] = [
     src: "/images/portfolio/key-objects/kaplunova-10.png",
     title: "Каплунова, 10. Многоквартирный жилой дом, 24 этажа",
     category: "key-objects",
-    location: "г. Владивосток, ул. Каплунова, 10",
+    location: "ул. Каплунова, 10",
     specs: "4 100 м² · 24 этажа",
     client: "СЗ «Ремстройцентр»",
     year: "2019–2020",
@@ -37,7 +37,7 @@ export const KEY_OBJECTS: GalleryItem[] = [
     src: "/images/portfolio/key-objects/kashtanovy-dvor.png",
     title: "ЖК «Каштановый двор» (литер 4). Многоквартирный дом, 25 этажей",
     category: "key-objects",
-    location: "г. Владивосток",
+    location: "Приморский край",
     specs: "25 этажей · Фасадное остекление",
     client: "«Девелопмент-Юг» / ООО «ПСК-Восток»",
     year: "2023",
@@ -73,7 +73,7 @@ export const KEY_OBJECTS: GalleryItem[] = [
     src: "/images/portfolio/key-objects/lineynaya-20.png",
     title: "Линейная, 20. 4-этажный многоквартирный дом",
     category: "key-objects",
-    location: "г. Владивосток, ул. Линейная, 20",
+    location: "ул. Линейная, 20",
     specs: "4 этажа · Светопрозрачные конструкции",
     client: "СЗ «Ремстройцентр»",
     year: "2021",
@@ -85,7 +85,7 @@ export const KEY_OBJECTS: GalleryItem[] = [
     src: "/images/portfolio/key-objects/sadgorodskaya-23d.jpg",
     title: "Садгородская, 23Д. 4-этажный многоквартирный дом",
     category: "key-objects",
-    location: "г. Владивосток, ст. Садгород",
+    location: "ст. Садгород",
     specs: "4 этажа · Монтаж по ГОСТ",
     client: "СЗ «Ремстройцентр»",
     year: "2021",
@@ -97,7 +97,7 @@ export const KEY_OBJECTS: GalleryItem[] = [
     src: "/images/portfolio/key-objects/sadgorodskaya-23v.jpg",
     title: "Садгородская, 23В. 4-этажный многоквартирный дом",
     category: "key-objects",
-    location: "г. Владивосток, ст. Садгород",
+    location: "ст. Садгород",
     specs: "4 этажа · Остекление фасадов",
     client: "СЗ «Ремстройцентр»",
     year: "2021",
@@ -116,7 +116,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-11-0d7a3898.jpg",
     title: "Остекление корпуса Дальзаводской больницы",
     category: "facades",
-    location: "г. Владивосток",
+    location: "Приморский край",
     specs: "Алюминиевый профиль · Теплый фасад",
     client: "Дальзаводская больница",
     badge: "Гособъект"
@@ -126,7 +126,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-12-b090d201.jpg",
     title: "Фасадные алюминиевые конструкции медкомплекса",
     category: "facades",
-    location: "г. Владивосток",
+    location: "Приморский край",
     specs: "Ударопрочные энергосберегающие стеклопакеты",
     client: "Дальзаводская больница",
     badge: "Алюминий"
@@ -136,7 +136,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-13-c085b343.jpg",
     title: "Подъемно-раздвижная портальная система выхода на террасу",
     category: "facades",
-    location: "Владивосток, пригородный коттедж",
+    location: "пригородный коттедж",
     specs: "HS-портал · Панорамный вид",
     badge: "Портальная система"
   },
@@ -145,7 +145,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-14-9bd3d680.jpg",
     title: "Теплое фасадное остекление загородной террасы",
     category: "facades",
-    location: "Владивосток, ст. Океанская",
+    location: "ст. Океанская",
     specs: "Архитектурный алюминиевый профиль",
     badge: "Алюминий"
   },
@@ -172,7 +172,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-18-af4a1ae5.jpg",
     title: "Комплексное фасадное остекление частного дома",
     category: "facades",
-    location: "Владивосток, ст. Садгород",
+    location: "ст. Садгород",
     specs: "Индивидуальный проект",
     badge: "Коттедж"
   },
@@ -183,7 +183,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/balconies/balcony-05-3c626b82.jpg",
     title: "Лоджия под ключ с утеплением и отделкой ламинатом",
     category: "balconies",
-    location: "Владивосток, ул. Русская",
+    location: "ул. Русская",
     specs: "Утепление Изопинк 50 мм · Теплый пол",
     badge: "Под ключ"
   },
@@ -192,7 +192,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/balconies/balcony-06-26d0aa83.jpg",
     title: "Французский балкон от пола до потолка с энергосбережением",
     category: "balconies",
-    location: "Владивосток, ул. Кирова",
+    location: "ул. Кирова",
     specs: "5-камерный профиль ПВХ 70 мм",
     badge: "Французский балкон"
   },
@@ -201,7 +201,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/balconies/balcony-07-1ee21426.jpg",
     title: "Вынос балкона с расширением плиты и сайдингом снаружи",
     category: "balconies",
-    location: "Владивосток, ул. Нейбута",
+    location: "ул. Нейбута",
     specs: "Сварочные работы · Вынос 30 см",
     badge: "Вынос плиты"
   },
@@ -219,7 +219,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/balconies/balcony-09-3bf641ae.jpg",
     title: "Остекление 6-метровой лоджии с поворотно-откидными створками",
     category: "balconies",
-    location: "Владивосток, ул. Баляева",
+    location: "ул. Баляева",
     specs: "Профиль Rehau 70 мм · Москитные сетки",
     badge: "6 метров"
   },
@@ -228,7 +228,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/balconies/balcony-10-af7ce6f5.jpg",
     title: "Утепление парапета и боковых стен с гидроизоляцией",
     category: "balconies",
-    location: "Владивосток, ул. Чкалова",
+    location: "ул. Чкалова",
     specs: "Монтаж козырька и отлива с виброизоляцией",
     badge: "Гидроизоляция"
   },
@@ -237,7 +237,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/balconies/balcony-11-d9b4c9aa.jpg",
     title: "П-образное остекление балкона последнего этажа с независимой крышей",
     category: "balconies",
-    location: "Владивосток, Океанский пр-т",
+    location: "Океанский пр-т",
     specs: "Сварной каркас крыши · Профнастил с шумоизоляцией",
     badge: "Крыша балкона"
   },
@@ -246,7 +246,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/balconies/balcony-12-f22dfe99.jpg",
     title: "Встроенная мебель и шкаф на утепленном балконе",
     category: "balconies",
-    location: "Владивосток, ул. Фадеева",
+    location: "ул. Фадеева",
     specs: "Индивидуальный встроенный шкаф",
     badge: "Встроенная мебель"
   },
@@ -257,7 +257,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-19-dee7f927.jpg",
     title: "Установка окон ПВХ с широким подоконником и теплыми откосами",
     category: "windows",
-    location: "Владивосток, ул. Некрасовская",
+    location: "ул. Некрасовская",
     specs: "Профиль KBE 70 мм · Откосы сэндвич 10 мм",
     badge: "Монтаж по ГОСТ"
   },
@@ -275,7 +275,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-21-04d71992.jpg",
     title: "Трехстворчатое окно в кирпичном доме с шумоизоляцией",
     category: "windows",
-    location: "Владивосток, Партизанский пр-т",
+    location: "Партизанский пр-т",
     specs: "Шумоизоляционный стеклопакет 40 мм",
     badge: "Шумоизоляция"
   },
@@ -284,7 +284,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-22-f5c20034.jpg",
     title: "Кухонное пластиковое окно с поворотно-откидной створкой",
     category: "windows",
-    location: "Владивосток, ул. Калинина",
+    location: "ул. Калинина",
     specs: "Энергосберегающее i-стекло",
     badge: "Кухня"
   },
@@ -293,7 +293,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-23-22f1f076.jpg",
     title: "Окна с двухсторонней ламинацией «темный дуб» в загородном доме",
     category: "windows",
-    location: "Владивосток, ст. Весенняя",
+    location: "ст. Весенняя",
     specs: "Пленка Renolit Германия",
     badge: "Ламинация дуб"
   },
@@ -311,7 +311,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-25-ec03a9dc.jpg",
     title: "Балконный блок: дверь с защелкой и глухое окно",
     category: "windows",
-    location: "Владивосток, ул. Светланская",
+    location: "ул. Светланская",
     specs: "Профиль Rehau Grazio 70 мм",
     badge: "Балконный блок"
   },
@@ -320,7 +320,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-26-b20475ba.jpg",
     title: "Комплексная замена окон во всей 3-комнатной квартире",
     category: "windows",
-    location: "Владивосток, пр-т 100-летия Владивостока",
+    location: "Приморский край",
     specs: "4 окна под ключ за 1 день",
     badge: "Квартира под ключ"
   },
@@ -347,7 +347,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-29-7423c5e1.jpg",
     title: "Окна с повышенной звукоизоляцией для выходящих на трассу комнат",
     category: "windows",
-    location: "Владивосток, ул. Алеутская",
+    location: "ул. Алеутская",
     specs: "Стекла разной толщины (6 мм + 4 мм)",
     badge: "Антишум"
   },
@@ -356,7 +356,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-30-979e6bf8.jpg",
     title: "Остекление двухэтажного коттеджа из газобетона",
     category: "windows",
-    location: "Владивосток, урочище Соловей Ключ",
+    location: "урочище Соловей Ключ",
     specs: "14 оконных конструкций Rehau",
     badge: "Коттедж 14 окон"
   },
@@ -365,7 +365,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-31-eec00674.jpg",
     title: "Пластиковое окно с 4-ступенчатым микропроветриванием",
     category: "windows",
-    location: "Владивосток, ул. Луговая",
+    location: "ул. Луговая",
     specs: "Зимнее и щелевое проветривание",
     badge: "Микропроветривание"
   },
@@ -374,7 +374,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-32-2ce58345.jpg",
     title: "Панорамные окна в гостиную с выходом во двор",
     category: "windows",
-    location: "Владивосток, ст. Садгород",
+    location: "ст. Садгород",
     specs: "Армирование 1.8 мм · Ветроустойчивость",
     badge: "Панорама"
   },
@@ -383,7 +383,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-33-b0781224.jpg",
     title: "Установка окон в кирпичном доме с глубокими четвертями",
     category: "windows",
-    location: "Владивосток, ул. Суханова",
+    location: "ул. Суханова",
     specs: "Глубокие подоконники Danke 45 см",
     badge: "Кирпичный дом"
   },
@@ -392,7 +392,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-34-56a29c19.jpg",
     title: "Современные окна в трендовом цвете «антрацит» (темно-серый)",
     category: "windows",
-    location: "Владивосток, ул. Прапорщика Комарова",
+    location: "ул. Прапорщика Комарова",
     specs: "Матовая ламинация Антрацит",
     badge: "Стиль Антрацит"
   },
@@ -410,7 +410,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-36-5afd5904.jpg",
     title: "Окна в высотном доме с повышенной ветровой нагрузкой",
     category: "windows",
-    location: "Владивосток, ул. Жигура",
+    location: "ул. Жигура",
     specs: "Усиленный стальной вкладыш",
     badge: "Ветрозащита"
   },
@@ -419,7 +419,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-37-b8c935bb.jpg",
     title: "Остекление загородной резиденции премиальным профилем Funke",
     category: "windows",
-    location: "Владивосток, район Шаморы",
+    location: "район Шаморы",
     specs: "Шелковисто-глянцевая поверхность",
     badge: "Профиль Funke"
   },
@@ -428,7 +428,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-38-08f212b7.jpg",
     title: "Окно на кухне с акриловым термостойким подоконником",
     category: "windows",
-    location: "Владивосток, ул. Толстого",
+    location: "ул. Толстого",
     specs: "Подоконник устойчив к царапинам и горячему",
     badge: "Подоконник Danke"
   },
@@ -437,7 +437,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-39-9cf1267a.jpg",
     title: "Светопрозрачный эркер в гостиной панельного дома 83 серии",
     category: "windows",
-    location: "Владивосток, ул. Сабанеева",
+    location: "ул. Сабанеева",
     specs: "Идеальная теплоизоляция угла",
     badge: "83 серия"
   },
@@ -455,7 +455,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-41-1f14b64f.jpg",
     title: "Видовые окна с видом на Амурский залив",
     category: "windows",
-    location: "Владивосток, мыс Бурный",
+    location: "мыс Бурный",
     specs: "Солнцезащитное напыление Solar",
     badge: "Видовая квартира"
   },
@@ -464,7 +464,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/portfolio/works/work-42-ca1c8018.jpg",
     title: "Утепленная лоджия с двухкамерными стеклопакетами",
     category: "balconies",
-    location: "Владивосток, ул. Добровольского",
+    location: "ул. Добровольского",
     specs: "3 стекла · Аргон внутри стеклопакета",
     badge: "Теплая лоджия"
   }

@@ -28,9 +28,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   if (!isOpen) return null;
 
   const navLinks = [
-    { label: "Окна", href: "/kupit_plastikovye_okna_vladivostok" },
-    { label: "Балконы и лоджии", href: "/osteklenie_balkona_vladivostok" },
-    { label: "Алюминиевые конструкции", href: "/alyuminievye_okna_vladivostok" },
+    { label: "Продажа и доставка окон", href: "/kupit_plastikovye_okna_vladivostok" },
+    { label: "Остекление и утепление балконов", href: "/osteklenie_balkona_vladivostok" },
+    { label: "Алюминиевые окна и витражи", href: "/alyuminievye_okna_vladivostok" },
     { label: "Ремонт окон", href: "/remont_plastikovyh_okon_vladivostok" },
     { label: "Наши работы", href: "/ghalierieia_rabot" },
     { label: "Цены", href: "/ceny" },
@@ -47,7 +47,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             ОКНА<span className="text-cyan-600">-</span>ЦЕНТР
           </span>
           <span className="text-[10px] font-mono text-slate-500 tracking-wider">
-            Владивосток · с 2004 года
+            Приморский край · с 2004 года
           </span>
         </div>
 

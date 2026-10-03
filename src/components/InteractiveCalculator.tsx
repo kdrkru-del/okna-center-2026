@@ -168,17 +168,20 @@ export default function InteractiveCalculator() {
               <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-8 text-xs font-mono">
                 <div className={`flex items-center gap-2 ${step >= 1 ? "text-cyan-700 font-bold" : "text-slate-400"}`}>
                   <span className={`w-2.5 h-2.5 rounded-full ${step >= 1 ? "bg-cyan-600 ring-4 ring-cyan-100" : "bg-slate-300"}`} />
-                  <span>1. Тип конструкции</span>
+                  <span className="hidden sm:inline">1. Тип конструкции</span>
+                  <span className="sm:hidden">1</span>
                 </div>
                 <div className="w-8 sm:w-12 h-px bg-slate-200"></div>
                 <div className={`flex items-center gap-2 ${step >= 2 ? "text-cyan-700 font-bold" : "text-slate-400"}`}>
                   <span className={`w-2.5 h-2.5 rounded-full ${step >= 2 ? "bg-cyan-600 ring-4 ring-cyan-100" : "bg-slate-300"}`} />
-                  <span>2. Параметры</span>
+                  <span className="hidden sm:inline">2. Параметры</span>
+                  <span className="sm:hidden">2</span>
                 </div>
                 <div className="w-8 sm:w-12 h-px bg-slate-200"></div>
                 <div className={`flex items-center gap-2 ${step >= 3 ? "text-cyan-700 font-bold" : "text-slate-400"}`}>
                   <span className={`w-2.5 h-2.5 rounded-full ${step >= 3 ? "bg-cyan-600 ring-4 ring-cyan-100" : "bg-slate-300"}`} />
-                  <span>3. Результат</span>
+                  <span className="hidden sm:inline">3. Результат</span>
+                  <span className="sm:hidden">3</span>
                 </div>
               </div>
 
@@ -332,7 +335,7 @@ export default function InteractiveCalculator() {
                     <span className="text-xs font-mono uppercase tracking-widest text-cyan-800 block mb-1">
                       Ориентировочная стоимость:
                     </span>
-                    <div className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight my-2 font-mono">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight my-2 font-mono">
                       от {calculateEstimate()} ₽
                     </div>
                     <span className="text-xs text-slate-500">
@@ -371,7 +374,7 @@ export default function InteractiveCalculator() {
                   <div>
                     <label className="text-xs text-slate-700 block mb-1 font-semibold">Город / Район:</label>
                     <div className="grid grid-cols-3 gap-2">
-                      {["Владивосток", "Уссурийск", "Артем / Пригород"].map((c) => (
+                      {["Владивосток", "Уссурийск", "Артём"].map((c) => (
                         <button
                           key={c}
                           type="button"

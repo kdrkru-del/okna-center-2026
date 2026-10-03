@@ -15,14 +15,14 @@ import { COMPANY_INFO } from "@/data/company_info";
 import LeadForm from "@/components/LeadForm";
 
 export const metadata: Metadata = {
-  title: "Контакты компании «Окна Центр» во Владивостоке и Уссурийске — адреса, телефоны, реквизиты",
-  description: "Офисы «Окна Центр»: Владивосток и Уссурийск. Телефоны: 8 (423) 2-725-725, WhatsApp: +7 (994) 010-03-00. Режим работы, консультация и бесплатный выезд замерщика по Приморскому краю.",
+  title: "Контакты компании «Окна Центр» — адреса, телефоны, реквизиты",
+  description: "Офисы и контакты «Окна Центр». Телефоны: 8 (423) 2-725-725, 8 (950) 2-800-300, WhatsApp: +7 (994) 010-03-00. Режим работы, консультация и бесплатный выезд замерщика по всему Приморскому краю.",
   alternates: {
     canonical: `${COMPANY_INFO.domain}/contacts/`,
   },
   openGraph: {
-    title: "Контакты компании «Окна Центр» — адреса, телефоны, карта",
-    description: "Офисы во Владивостоке и Уссурийске. С 2004 года на рынке Приморья.",
+    title: "Контакты компании «Окна Центр» — адреса, телефоны, реквизиты",
+    description: "Фирменные офисы и сервисная служба. С 2004 года на рынке Приморского края и Дальнего Востока.",
     url: `${COMPANY_INFO.domain}/contacts/`,
     siteName: COMPANY_INFO.name,
     locale: "ru_RU",
@@ -72,7 +72,7 @@ export default function ContactsPage() {
             Контакты компании «Окна Центр»
           </h1>
           <p className="text-slate-600 text-base sm:text-lg font-light leading-relaxed">
-            Приглашаем вас в наши фирменные офисы во Владивостоке и Уссурийске. Вы сможете лично оценить образцы профилей Rehau, KBE, Funke, варианты ламинации, фурнитуру и стеклопакеты, а также получить детальный расчет стоимости.
+            Приглашаем вас в наши фирменные офисы. Вы сможете лично оценить образцы профилей Rehau, KBE, Funke, варианты ламинации, фурнитуру и стеклопакеты, а также получить детальный расчет стоимости. Работаем по всему Приморскому краю, отправляем заказы по Дальнему Востоку.
           </p>
         </div>
       </section>
@@ -100,7 +100,7 @@ export default function ContactsPage() {
                   <div>
                     <span className="font-semibold text-slate-900 block">Адрес офиса:</span>
                     <span className="text-slate-900 font-bold text-base">г. Владивосток, ул. Ильичева, д. 29, оф. 8</span>
-                    <span className="block text-xs text-slate-500 mt-0.5">Мастера выезжают на бесплатный замер по всему Владивостоку и пригороду</span>
+                    <span className="block text-xs text-slate-500 mt-0.5">Мастера выезжают на бесплатный замер по всему Приморскому краю</span>
                   </div>
                 </div>
 
@@ -302,7 +302,7 @@ export default function ContactsPage() {
             </div>
             <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-slate-200/80 gap-1">
               <span className="text-slate-500">Торговая марка:</span>
-              <span className="text-slate-900">«Окна Центр» (Владивосток / Уссурийск)</span>
+              <span className="text-slate-900">«Окна Центр» (Приморский край)</span>
             </div>
             <div className="flex flex-col sm:flex-row justify-between py-2 border-b border-slate-200/80 gap-1">
               <span className="text-slate-500">Опыт работы:</span>

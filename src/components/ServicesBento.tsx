@@ -18,18 +18,18 @@ export default function ServicesBento() {
             </h2>
           </div>
           <p className="text-slate-600 text-sm sm:text-base font-normal max-w-md leading-relaxed">
-            Собственное производство окон, монтаж бригадами с опытом от 10 лет, остекление балконов под ключ и сервисный ремонт во Владивостоке.
+            Собственное производство окон, монтаж бригадами с опытом от 10 лет, остекление и утепление балконов и лоджий под ключ и сервисный ремонт по всему Приморскому краю.
           </p>
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
           {BENTO_SERVICES.map((item) => (
             <Link
               key={item.id}
               href={item.href}
               className={`group relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/80 hover:border-cyan-500/50 transition-all duration-500 flex flex-col justify-between ${item.cols} ${
-                item.isSmall ? "min-h-[220px]" : item.isLarge ? "min-h-[380px] sm:min-h-[420px]" : "min-h-[340px]"
+                item.isSmall ? "min-h-[160px] sm:min-h-[220px]" : item.isLarge ? "min-h-[200px] sm:min-h-[320px] lg:min-h-[420px]" : "min-h-[180px] sm:min-h-[280px] lg:min-h-[340px]"
               } shadow-sm hover:shadow-xl`}
             >
               {/* Background image with high clarity and contrast gradient */}

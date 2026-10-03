@@ -61,7 +61,7 @@ const GALLERY_BY_VARIANT: Record<string, { src: string; caption: string }[]> = {
     { src: "/images/hero/hero-daylight-villa.jpg", caption: "Панорамное фасадное остекление загородной виллы" },
     { src: "/images/hero/hero-daylight-patio.jpg", caption: "Остекление террасы с раздвижными порталами" },
     { src: "/images/legacy/45027f0d562513ff204e3f1eb597c264.jpg", caption: "Двухэтажные витражные французские окна коттеджа" },
-    { src: "/images/legacy/22b24acef73acbfa491186e6072ea01d.jpg", caption: "Сданный объект архитектурного остекления во Владивостоке" }
+    { src: "/images/legacy/22b24acef73acbfa491186e6072ea01d.jpg", caption: "Сданный объект архитектурного остекления" }
   ]
 };
 
@@ -195,7 +195,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900 font-heading">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900 font-heading">
                 {page.h1}
               </h1>
 
@@ -213,13 +213,18 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                 </div>
 
                 <div className="px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
-                  <span className="text-[10px] uppercase font-bold text-slate-500 block tracking-wide">Монтаж:</span>
-                  <span className="text-sm sm:text-base font-semibold text-slate-900">по ГОСТ</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-500 block tracking-wide">Срок сборки:</span>
+                  <span className="text-sm sm:text-base font-semibold text-slate-900">4–7 рабочих дней</span>
                 </div>
 
                 <div className="px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
                   <span className="text-[10px] uppercase font-bold text-slate-500 block tracking-wide">Гарантия:</span>
-                  <span className="text-sm sm:text-base font-semibold text-emerald-700">по договору</span>
+                  <span className="text-sm sm:text-base font-semibold text-emerald-700">5 лет</span>
+                </div>
+
+                <div className="px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="text-[10px] uppercase font-bold text-slate-500 block tracking-wide">Мусор:</span>
+                  <span className="text-sm sm:text-base font-semibold text-slate-900">вывозим сами</span>
                 </div>
               </div>
 
@@ -239,7 +244,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                   href="/zaiavka_na_uslughi_kompanii_oknatsientr"
                   className="px-6 py-3.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Записаться на замер</span>
+                  <span>Вызвать мастера на замер 0 ₽</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
@@ -281,7 +286,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                       <span className="text-[10px] uppercase font-bold text-slate-500 block tracking-wide">Статус:</span>
                       <span className="text-xs font-semibold text-slate-900">Выезд инженера бесплатно</span>
                     </div>
-                    <span className="text-xs text-cyan-700 font-bold">Владивосток и край</span>
+                    <span className="text-xs text-cyan-700 font-bold">Приморский край</span>
                   </div>
                 </div>
               </div>
@@ -461,7 +466,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-xs sm:text-sm">
+            <table className="w-full min-w-[600px] text-left border-collapse text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-slate-200 text-slate-600 font-semibold text-xs">
                   <th className="py-3 px-4">Услуга / Конструкция</th>
@@ -473,13 +478,15 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               <tbody className="divide-y divide-slate-200/60">
                 {pagePrices.map((p) => (
                   <tr key={p.id} className="hover:bg-white transition-colors">
-                    <td className="py-3.5 px-4 font-semibold text-slate-900 flex items-center gap-2">
-                      <span>{p.name}</span>
-                      {p.isPopular && (
-                        <span className="px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 font-bold border border-cyan-300 text-[10px]">
-                          Хит
-                        </span>
-                      )}
+                    <td className="py-3.5 px-4 font-semibold text-slate-900">
+                      <div className="flex items-center gap-2">
+                        <span>{p.name}</span>
+                        {p.isPopular && (
+                          <span className="px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 font-bold border border-cyan-300 text-[10px]">
+                            Хит
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="py-3.5 px-4 text-slate-500 font-medium">{p.unit || "услуга"}</td>
                     <td className="py-3.5 px-4 font-bold text-slate-950 whitespace-nowrap">
@@ -531,7 +538,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               </div>
               <div className="p-4">
                 <p className="text-xs text-slate-700 leading-snug">{item.caption}</p>
-                <span className="text-[10px] font-medium text-slate-500 block mt-2">г. Владивосток</span>
+                <span className="text-[10px] font-medium text-slate-500 block mt-2">Приморский край</span>
               </div>
             </div>
           ))}
@@ -618,7 +625,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
-            Инженер приедет с образцами профилей Rehau, KBE, Funke, выполнит лазерный замер проемов и рассчитает итоговую смету с гарантией по договору.
+            Мастер бесплатно приедет в любой город Приморья с образцами профилей Rehau, KBE и Funke, снимет точные размеры и назовёт окончательную смету. Сборка за 4–7 рабочих дней, гарантия 5 лет, а старый мусор вывозим сами.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -626,7 +633,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="px-8 py-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center gap-2 cursor-pointer"
             >
-              <span>Оставить заявку онлайн</span>
+              <span>Вызвать мастера на замер 0 ₽</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 

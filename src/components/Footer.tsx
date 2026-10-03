@@ -22,23 +22,27 @@ export default function Footer() {
                   ОКНА<span className="text-cyan-600">-</span>ЦЕНТР
                 </span>
                 <span className="text-[10px] text-slate-500 uppercase tracking-wide mt-0.5 font-semibold">
-                  Владивосток · Уссурийск · с 2004 года
+                  Приморский край · с 2004 года
                 </span>
               </div>
             </Link>
 
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md font-light">
-              Производство, продажа и монтаж пластиковых окон, теплого и холодного остекления балконов, лоджий под ключ, вентилируемых фасадов и алюминиевых систем в Приморском крае с 2004 года.
+              Производство, продажа и доставка окон по всему Дальнему Востоку, профессиональный монтаж, остекление и утепление балконов и лоджий под ключ, алюминиевые окна и витражи в Приморском крае с 2004 года.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-1">
+            <div className="flex flex-wrap gap-3 pt-1">
               <div className="flex items-center gap-2 text-xs text-slate-700 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
                 <Shield className="w-4 h-4 text-cyan-600" />
-                <span>Гарантия по договору</span>
+                <span>Гарантия 5 лет по договору</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-700 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>Заводской монтаж</span>
+                <span>Сборка 4–7 рабочих дней</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-slate-700 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>Мусор вывозим сами</span>
               </div>
             </div>
 
@@ -53,7 +57,7 @@ export default function Footer() {
               Пластиковые окна
             </h3>
             <ul className="space-y-2.5 text-xs">
-              <li><Link href="/kupit_plastikovye_okna_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Купить окна ПВХ</Link></li>
+              <li><Link href="/kupit_plastikovye_okna_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Продажа и доставка окон по ДФО</Link></li>
               <li><Link href="/ustanovka_plastikovykh_okon_vo_vladivostokie" className="text-slate-600 hover:text-slate-950 transition-colors">Установка окон по ГОСТ</Link></li>
               <li><Link href="/zamena_plastic_okon_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Замена старых окон</Link></li>
               <li><Link href="/okna_pod_derevo_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Окна под дерево</Link></li>
@@ -69,7 +73,7 @@ export default function Footer() {
               Балконы и фасад
             </h3>
             <ul className="space-y-2.5 text-xs">
-              <li><Link href="/osteklenie_balkona_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Остекление балконов</Link></li>
+              <li><Link href="/osteklenie_balkona_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Остекление и утепление балконов</Link></li>
               <li><Link href="/lodgia_pod_klyuch_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Лоджия под ключ</Link></li>
               <li><Link href="/riemont_balkonov_vo_vladivostokie" className="text-slate-600 hover:text-slate-950 transition-colors">Ремонт и вынос балкона</Link></li>
               <li><Link href="/riemont_lodzhii_vo_vladivostokie" className="text-slate-600 hover:text-slate-950 transition-colors">Ремонт лоджий в комнату</Link></li>
@@ -77,7 +81,7 @@ export default function Footer() {
               <li><Link href="/otdielochnyie_matierialy" className="text-slate-600 hover:text-slate-950 transition-colors">Отделочные материалы</Link></li>
               <li><Link href="/panieli_khani" className="text-slate-600 hover:text-slate-950 transition-colors">Фасадные панели Ханьи</Link></li>
               <li><Link href="/vinilovyi_saidingh" className="text-slate-600 hover:text-slate-950 transition-colors">Виниловый сайдинг</Link></li>
-              <li><Link href="/alyuminievye_okna_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Алюминиевые окна</Link></li>
+              <li><Link href="/alyuminievye_okna_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Алюминиевые окна и витражи</Link></li>
               <li><Link href="/aliuminiievyie_okna_i_dvieri" className="text-slate-600 hover:text-slate-950 transition-colors">Фасады ALT F50 / ALT 150</Link></li>
             </ul>
           </div>
@@ -125,7 +129,7 @@ export default function Footer() {
                   href="/zaiavka_na_uslughi_kompanii_oknatsientr"
                   className="inline-block px-4 py-2 bg-slate-900 hover:bg-black text-white rounded-lg text-xs uppercase font-bold tracking-wide transition-colors shadow-sm"
                 >
-                  Записаться на замер
+                  Вызвать мастера на замер 0 ₽
                 </Link>
               </div>
             </div>
@@ -135,8 +139,19 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-slate-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div>
-            © 2004–2026 Компания «Окна Центр». Все права защищены.
+          <div className="flex flex-col gap-1">
+            <span>© 2004–2026 Компания «Окна Центр». Все права защищены.</span>
+            <span className="text-[10px] text-slate-400">
+              Создание и продвижение —{" "}
+              <a
+                href="https://voltrena.ru"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-600 transition-colors underline underline-offset-2"
+              >
+                voltrena.ru
+              </a>
+            </span>
           </div>
           <div className="flex flex-wrap gap-6">
             <Link href="/ghalierieia_rabot" className="hover:text-slate-900 transition-colors">Галерея работ</Link>

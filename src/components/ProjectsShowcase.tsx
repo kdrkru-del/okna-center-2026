@@ -6,7 +6,7 @@ export default function ProjectsShowcase() {
     {
       id: 1,
       title: 'Панорамное остекление лоджии с отделкой',
-      category: 'Владивосток · Жилой фонд',
+      category: 'Приморский край · Жилой фонд',
       image: 'https://xn--80aknmcbtp7a.xn--p1ai/uploads/s/f/2/6/f26rer8ig8fw/img/full_Abph58A9.jpg',
       colSpan: 'col-span-1 md:col-span-2 md:row-span-2'
     },
@@ -27,7 +27,7 @@ export default function ProjectsShowcase() {
     {
       id: 4,
       title: 'Коттедж: окна ПВХ с ламинацией и порталом Patio',
-      category: 'Пригород Владивостока',
+      category: 'Приморский край',
       image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop',
       colSpan: 'col-span-1 md:col-span-2'
     },

@@ -34,20 +34,20 @@ const isGithubPages = process.env.GITHUB_PAGES === 'true' || process.env.NEXT_PU
 export const metadata: Metadata = {
   metadataBase: new URL(COMPANY_INFO.domain),
   title: {
-    default: "Пластиковые окна, балконы и остекление во Владивостоке — компания «Окна Центр»",
-    template: "%s | Окна Центр Владивосток",
+    default: "Пластиковые окна, балконы и остекление — компания «Окна Центр»",
+    template: "%s | Окна Центр",
   },
-  description: "Производство, продажа и установка пластиковых окон, балконов и лоджий под ключ во Владивостоке и Приморском крае с 2004 года. Замер, подбор профиля и монтаж по договору.",
+  description: "Производство, продажа и установка пластиковых окон, балконов и лоджий под ключ по всему Приморскому краю с 2004 года. Замер, подбор профиля и монтаж по договору.",
   keywords: [
-    "окна владивосток",
-    "пластиковые окна владивосток",
-    "установка пластиковых окон во владивостоке",
-    "остекление балконов владивосток",
-    "лоджия под ключ владивосток",
-    "ремонт окон владивосток",
-    "алюминиевые окна владивосток",
+    "пластиковые окна",
+    "купить пластиковые окна",
+    "установка пластиковых окон",
+    "остекление и утепление балконов и лоджий",
+    "лоджия под ключ",
+    "ремонт окон",
+    "алюминиевые окна и витражи",
     "окна центр",
-    "окна центр владивосток"
+    "окна приморский край"
   ],
   authors: [{ name: COMPANY_INFO.name }],
   creator: COMPANY_INFO.name,
@@ -62,8 +62,8 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     url: COMPANY_INFO.domain,
     siteName: COMPANY_INFO.name,
-    title: "Пластиковые окна и балконы во Владивостоке — «Окна Центр»",
-    description: "Собственное производство и монтаж во Владивостоке и Приморье с 2004 года.",
+    title: "Пластиковые окна, балконы и витражи — «Окна Центр»",
+    description: "Собственное производство, доставка и монтаж по всему Приморскому краю и Дальнему Востоку с 2004 года.",
   },
   robots: isGithubPages
     ? {
@@ -152,6 +152,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable} ${manrope.variable} h-full antialiased scroll-smooth`}>
       <head>
+        <meta name="yandex-verification" content="6433e2f96e236a1b" />
         {isGithubPages && <meta name="robots" content="noindex,nofollow" />}
         <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta httpEquiv="Pragma" content="no-cache" />

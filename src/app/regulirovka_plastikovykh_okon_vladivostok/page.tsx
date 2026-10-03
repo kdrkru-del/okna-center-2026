@@ -8,7 +8,7 @@ const pageData = PAGES_DATA["regulirovka_plastikovykh_okon_vladivostok"];
 
 export const metadata: Metadata = {
   title: pageData?.title || "regulirovka_plastikovykh_okon_vladivostok — Окна Центр",
-  description: pageData?.description || "Услуги остекления и отделки во Владивостоке от компании Окна Центр.",
+  description: pageData?.description || "Услуги остекления и отделки в Приморском крае от компании Окна Центр.",
   alternates: {
     canonical: pageData?.canonical || `${COMPANY_INFO.domain}/regulirovka_plastikovykh_okon_vladivostok/`,
   },

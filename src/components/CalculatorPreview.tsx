@@ -205,7 +205,7 @@ export default function CalculatorPreview() {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10 text-xs text-slate-400">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  <span>Бесплатный выезд инженера по Владивостоку и Уссурийску</span>
+                  <span>Бесплатный выезд инженера по Приморскому краю</span>
                 </div>
                 <Link
                   href="/zaiavka_na_uslughi_kompanii_oknatsientr"

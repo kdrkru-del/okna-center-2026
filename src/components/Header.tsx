@@ -28,7 +28,7 @@ export default function Header() {
       label: "Окна",
       href: "/kupit_plastikovye_okna_vladivostok",
       items: [
-        { label: "Пластиковые окна (купить)", href: "/kupit_plastikovye_okna_vladivostok", desc: "Окна от завода с установкой и без" },
+        { label: "Продажа и доставка окон", href: "/kupit_plastikovye_okna_vladivostok", desc: "По всему Дальнему Востоку от завода" },
         { label: "Установка пластиковых окон", href: "/ustanovka_plastikovykh_okon_vo_vladivostokie", desc: "Монтаж по ГОСТ с гарантией по договору" },
         { label: "Замена старых окон", href: "/zamena_plastic_okon_vladivostok", desc: "Демонтаж и замена холодных рам" },
         { label: "Окна под дерево (ламинация)", href: "/okna_pod_derevo_vladivostok", desc: "Более 40 фактур дуба и ореха" },
@@ -42,7 +42,7 @@ export default function Header() {
       label: "Балконы",
       href: "/osteklenie_balkona_vladivostok",
       items: [
-        { label: "Остекление балконов", href: "/osteklenie_balkona_vladivostok", desc: "Теплый ПВХ и раздвижной алюминий" },
+        { label: "Остекление и утепление балконов и лоджий", href: "/osteklenie_balkona_vladivostok", desc: "Теплый ПВХ и раздвижной алюминий" },
         { label: "Лоджия под ключ", href: "/lodgia_pod_klyuch_vladivostok", desc: "Остекление, утепление и отделка" },
         { label: "Ремонт балконов (сварка/вынос)", href: "/riemont_balkonov_vo_vladivostokie", desc: "Усиление плиты, сварка парапета" },
         { label: "Ремонт лоджий (в комнату)", href: "/riemont_lodzhii_vo_vladivostokie", desc: "Трансформация в жилой кабинет" },
@@ -57,7 +57,7 @@ export default function Header() {
       label: "Алюминий",
       href: "/alyuminievye_okna_vladivostok",
       items: [
-        { label: "Алюминиевые окна", href: "/alyuminievye_okna_vladivostok", desc: "Теплый и холодный профиль, RAL" },
+        { label: "Алюминиевые окна и витражи", href: "/alyuminievye_okna_vladivostok", desc: "Теплый и холодный профиль, RAL" },
         { label: "Двери и фасады ALT F50 / 150", href: "/aliuminiievyie_okna_i_dvieri", desc: "Входные группы, витражи, вентфасады" },
       ],
     },
@@ -76,8 +76,8 @@ export default function Header() {
       href: "/ceny",
       items: [
         { label: "Окна с установкой", href: "/ustanovka_plastikovykh_okon_vo_vladivostokie", desc: "Монтаж по ГОСТ под ключ от 19 500 ₽" },
-        { label: "Окна от завода", href: "/kupit_plastikovye_okna_vladivostok", desc: "Готовые конструкции со склада от 14 000 ₽" },
-        { label: "Остекление балконов", href: "/osteklenie_balkona_vladivostok", desc: "Теплый ПВХ и раздвижной алюминий от 55 000 ₽" },
+        { label: "Продажа и доставка окон", href: "/kupit_plastikovye_okna_vladivostok", desc: "По всему Дальнему Востоку от 14 000 ₽" },
+        { label: "Остекление и утепление балконов", href: "/osteklenie_balkona_vladivostok", desc: "Теплый ПВХ и раздвижной алюминий от 55 000 ₽" },
         { label: "Лоджии под ключ", href: "/lodgia_pod_klyuch_vladivostok", desc: "Остекление, утепление, отделка от 79 000 ₽" },
         { label: "Ремонт окон", href: "/remont_plastikovyh_okon_vladivostok", desc: "Регулировка створок, уплотнители от 250 ₽" },
         { label: "Окна для дачи", href: "/okna_dlya_dachi_vladivostok", desc: "Экономичные решения от 4 000 ₽" },
@@ -217,7 +217,7 @@ export default function Header() {
               {/* Mobile phone call link: visible below lg */}
               <a
                 href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                className="lg:hidden flex items-center gap-1.5 py-1.5 px-2.5 sm:py-1 sm:px-3 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-950 font-bold text-xs sm:text-base tracking-tight transition-colors border border-slate-200/80 shadow-2xs whitespace-nowrap"
+                className="lg:hidden flex items-center gap-1.5 py-1.5 px-2.5 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-950 font-bold text-xs sm:text-sm tracking-tight transition-colors border border-slate-200/80 shadow-2xs"
               >
                 <Phone className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
                 <span className="hidden sm:inline">8 (423) </span>
@@ -247,7 +247,7 @@ export default function Header() {
 
         {/* Mobile Fullscreen Navigation Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-full bg-white/98 backdrop-blur-2xl border-b border-slate-200 max-h-[85vh] overflow-y-auto p-5 animate-in slide-in-from-top-2 duration-300 shadow-2xl">
+          <div className="lg:hidden fixed inset-x-0 top-full z-[60] bg-white/98 backdrop-blur-2xl border-b border-slate-200 max-h-[85vh] overflow-y-auto p-5 animate-in slide-in-from-top-2 duration-300 shadow-2xl">
             <div className="space-y-3">
               {navSections.map((sec) => (
                 <div key={sec.id} className="border-b border-slate-100 pb-2.5">

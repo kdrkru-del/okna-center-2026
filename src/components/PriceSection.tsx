@@ -73,7 +73,7 @@ export default function PriceSection() {
         price: 'Индивидуально',
         badge: 'Южно-Сахалинск / Магадан',
         popular: false,
-        features: ['Усиленная транспортная упаковка', 'Полный комплект крепежа и инструкций', 'Прямая отгрузка в морской порт Владивостока', 'Работа с юр. и физ. лицами'],
+        features: ['Усиленная транспортная упаковка', 'Полный комплект крепежа и инструкций', 'Прямая отгрузка в морской порт', 'Работа с юр. и физ. лицами'],
       },
       {
         title: 'Доставка на Камчатку и Чукотку',
@@ -87,7 +87,7 @@ export default function PriceSection() {
   };
 
   return (
-    <section id="prices" className="py-28 bg-[#040912] text-white px-4 md:px-8 border-t border-white/5 relative overflow-hidden">
+    <section id="prices" className="py-16 sm:py-24 lg:py-28 bg-[#040912] text-white px-4 md:px-8 border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
@@ -102,36 +102,38 @@ export default function PriceSection() {
           </div>
           
           {/* Tabs */}
-          <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-slate-900 border border-white/10 self-start md:self-auto">
-            <button
-              onClick={() => setActiveTab('windows')}
-              className={`px-5 py-2 rounded-full text-xs font-medium transition-all ${
-                activeTab === 'windows' ? 'bg-cyan-500 text-slate-950 font-semibold shadow-md' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Окна ПВХ
-            </button>
-            <button
-              onClick={() => setActiveTab('balconies')}
-              className={`px-5 py-2 rounded-full text-xs font-medium transition-all ${
-                activeTab === 'balconies' ? 'bg-cyan-500 text-slate-950 font-semibold shadow-md' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Балконы и лоджии
-            </button>
-            <button
-              onClick={() => setActiveTab('delivery')}
-              className={`px-5 py-2 rounded-full text-xs font-medium transition-all ${
-                activeTab === 'delivery' ? 'bg-cyan-500 text-slate-950 font-semibold shadow-md' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Доставка по ДФО
-            </button>
+          <div className="overflow-x-auto pb-1 self-start md:self-auto">
+            <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-slate-900 border border-white/10 whitespace-nowrap w-max">
+              <button
+                onClick={() => setActiveTab('windows')}
+                className={`px-5 py-2 rounded-full text-xs font-medium transition-all ${
+                  activeTab === 'windows' ? 'bg-cyan-500 text-slate-950 font-semibold shadow-md' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Окна ПВХ
+              </button>
+              <button
+                onClick={() => setActiveTab('balconies')}
+                className={`px-5 py-2 rounded-full text-xs font-medium transition-all ${
+                  activeTab === 'balconies' ? 'bg-cyan-500 text-slate-950 font-semibold shadow-md' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Балконы и лоджии
+              </button>
+              <button
+                onClick={() => setActiveTab('delivery')}
+                className={`px-5 py-2 rounded-full text-xs font-medium transition-all ${
+                  activeTab === 'delivery' ? 'bg-cyan-500 text-slate-950 font-semibold shadow-md' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Доставка по ДФО
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Price Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
           {prices[activeTab].map((item, i) => (
             <div
               key={i}

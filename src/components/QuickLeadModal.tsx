@@ -79,7 +79,7 @@ export default function QuickLeadModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-[999] flex items-start sm:items-center justify-center p-4 sm:p-6 pt-10 sm:pt-6 overflow-y-auto">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-950/65 backdrop-blur-sm transition-opacity animate-in fade-in duration-200"

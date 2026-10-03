@@ -8,7 +8,7 @@ const pageData = PAGES_DATA["vinilovyi_saidingh"];
 
 export const metadata: Metadata = {
   title: pageData?.title || "vinilovyi_saidingh — Окна Центр",
-  description: pageData?.description || "Услуги остекления и отделки во Владивостоке от компании Окна Центр.",
+  description: pageData?.description || "Услуги остекления и отделки в Приморском крае от компании Окна Центр.",
   alternates: {
     canonical: pageData?.canonical || `${COMPANY_INFO.domain}/vinilovyi_saidingh/`,
   },

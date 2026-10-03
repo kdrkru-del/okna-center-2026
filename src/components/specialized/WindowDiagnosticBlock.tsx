@@ -101,7 +101,7 @@ export default function WindowDiagnosticBlock() {
 
         <div className="text-right">
           <span className="text-xs text-slate-500 block">Срочный выезд мастера:</span>
-          <span className="text-cyan-700 font-bold text-sm">во все районы Владивостока</span>
+          <span className="text-cyan-700 font-bold text-sm">по всему Приморскому краю</span>
         </div>
       </div>
 

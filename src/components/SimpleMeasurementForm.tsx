@@ -169,7 +169,7 @@ export default function SimpleMeasurementForm({
         </button>
 
         <p className="text-[11px] text-slate-500 text-center leading-relaxed">
-          Замер по Владивостоку и Уссурийску бесплатный и ни к чему вас не обязывает.
+          Бесплатный выезд 0 ₽ по Приморью · Гарантия 5 лет · Мусор вывозим сами
         </p>
       </form>
     </div>

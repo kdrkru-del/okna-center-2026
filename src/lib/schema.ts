@@ -12,7 +12,7 @@ export function getOrganizationSchema() {
     "email": CONTACTS.emails[0],
     "foundingDate": "2004",
     "priceRange": "₽₽",
-    "description": "Производство и монтаж пластиковых окон, остекление балконов и фасадных систем во Владивостоке с 2004 года.",
+    "description": "Производство, продажа и монтаж пластиковых окон, остекление и утепление балконов и лоджий в Приморском крае с 2004 года.",
     "address": CONTACTS.offices.map((off) => ({
       "@type": "PostalAddress",
       "streetAddress": off.address,

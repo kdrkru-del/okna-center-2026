@@ -1,22 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, ShieldCheck, Clock, CheckCircle2, Phone, MessageCircle, Ruler } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
+import { asset } from "@/lib/assetPath";
 import PricingTable from "@/components/PricingTable";
 
 export const metadata: Metadata = {
-  title: "Цены на пластиковые окна, остекление балконов и ремонт во Владивостоке — компания «Окна Центр»",
-  description: "Официальный прайс-лист на пластиковые окна, установку под ключ, остекление балконов, лоджий и ремонт окон во Владивостоке и Уссурийске. Цены от завода-изготовителя с 2004 года. Замер 0 ₽.",
+  title: "Цены на пластиковые окна, остекление балконов и ремонт — компания «Окна Центр»",
+  description: "Официальный прайс-лист на пластиковые окна, установку под ключ, остекление и утепление балконов, лоджий и ремонт окон по Приморскому краю. Цены от завода-изготовителя с 2004 года. Замер 0 ₽.",
   alternates: {
     canonical: `${COMPANY_INFO.domain}/ceny/`,
   },
   openGraph: {
-    title: "Цены на окна, балконы и ремонт во Владивостоке — «Окна Центр»",
+    title: "Цены на окна, балконы и ремонт — «Окна Центр»",
     description: "Честные цены напрямую от производителя. Без скрытых наценок, фиксация сметы в договоре.",
     url: `${COMPANY_INFO.domain}/ceny/`,
     siteName: COMPANY_INFO.name,
     locale: "ru_RU",
     type: "website",
+    images: [
+      {
+        url: "/images/hero/ceny-profile-card.jpg",
+        width: 1024,
+        height: 1024,
+        alt: "Цены на пластиковые окна, балконы и ремонт — Профиль 5 камер, армирование 1.5 мм, монтаж по ГОСТ",
+      },
+    ],
   },
 };
 
@@ -33,40 +43,57 @@ export default function CenyPage() {
       </div>
 
       {/* Header Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="max-w-3xl">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-950 leading-tight mb-6">
-            Цены на окна, балконы и ремонт во Владивостоке
-          </h1>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Title, Intro, Advantages */}
+          <div className="lg:col-span-7">
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-slate-950 leading-[1.12] mb-6">
+              Цены на окна, балконы и ремонт
+            </h1>
 
-          <p className="text-slate-600 text-base sm:text-lg font-light leading-relaxed mb-8">
-            Честные цены напрямую от производителя в Приморье. Без посреднических наценок. Итоговая смета рассчитывается на месте и фиксируется в официальном договоре по ГОСТ.
-          </p>
+            <p className="text-slate-600 text-base sm:text-lg font-light leading-relaxed mb-8">
+              Честные цены напрямую от производителя в Приморье. Без посреднических наценок. Итоговая смета рассчитывается на месте и фиксируется в официальном договоре по ГОСТ.
+            </p>
 
-          {/* Quick Advantages Strip */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-xs flex items-center gap-3">
-              <ShieldCheck className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-              <div className="text-xs">
-                <span className="font-bold text-slate-900 block">Фиксация сметы</span>
-                <span className="text-slate-500">Цена в договоре не растет</span>
+            {/* Quick Advantages Strip */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-xs flex items-center gap-3">
+                <ShieldCheck className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                <div className="text-xs">
+                  <span className="font-bold text-slate-900 block">Фиксация сметы</span>
+                  <span className="text-slate-500">Цена в договоре не растет</span>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-xs flex items-center gap-3">
+                <Ruler className="w-5 h-5 text-cyan-600 flex-shrink-0" />
+                <div className="text-xs">
+                  <span className="font-bold text-slate-900 block">Замер 0 ₽</span>
+                  <span className="text-slate-500">По всему Приморскому краю</span>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-xs flex items-center gap-3">
+                <Clock className="w-5 h-5 text-cyan-600 flex-shrink-0" />
+                <div className="text-xs">
+                  <span className="font-bold text-slate-900 block">4–7 рабочих дней</span>
+                  <span className="text-slate-500">Сборка в цеху</span>
+                </div>
               </div>
             </div>
+          </div>
 
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-xs flex items-center gap-3">
-              <Ruler className="w-5 h-5 text-cyan-600 flex-shrink-0" />
-              <div className="text-xs">
-                <span className="font-bold text-slate-900 block">Замер 0 ₽</span>
-                <span className="text-slate-500">Владивосток и Уссурийск</span>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-xs flex items-center gap-3">
-              <Clock className="w-5 h-5 text-cyan-600 flex-shrink-0" />
-              <div className="text-xs">
-                <span className="font-bold text-slate-900 block">Срок от 3 дней</span>
-                <span className="text-slate-500">Собственный цех</span>
-              </div>
+          {/* Right Column: Option 3 Profile Showcase Card */}
+          <div className="lg:col-span-5">
+            <div className="relative aspect-square max-w-[440px] mx-auto lg:ml-auto rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl bg-[#7690a9]">
+              <Image
+                src={asset("/images/hero/ceny-profile-card.jpg")}
+                alt="Пластиковые окна в разрезе — профиль 5 камер, армирование 1.5 мм, монтаж по ГОСТ, гарантия 5 лет"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 440px"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -85,11 +112,11 @@ export default function CenyPage() {
             <div className="space-y-3">
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-1" />
-                <span><strong className="font-semibold text-slate-900">Бесплатный точный замер</strong> — лазерное сканирование проема инженером с учетом четвертей и ветровых нагрузок.</span>
+                <span><strong className="font-semibold text-slate-900">Бесплатный выезд на замер 0 ₽</strong> — мастер приедет в удобное время с образцами профилей Rehau, KBE и Funke, снимет размеры и назовёт окончательную смету.</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-1" />
-                <span><strong className="font-semibold text-slate-900">Заводское изготовление</strong> — оригинальный профиль Rehau, KBE или Funke, армирование 1.5 мм, фурнитура Siegenia/Roto.</span>
+                <span><strong className="font-semibold text-slate-900">Заводское изготовление за 4–7 дней</strong> — оригинальный профиль Rehau, KBE или Funke, армирование 1.5 мм, надежная фурнитура Roto.</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-1" />
@@ -99,11 +126,11 @@ export default function CenyPage() {
             <div className="space-y-3">
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-1" />
-                <span><strong className="font-semibold text-slate-900">Демонтаж старого окна</strong> — аккуратное снятие старых рам с выносом на лестничную площадку.</span>
+                <span><strong className="font-semibold text-slate-900">Демонтаж и вывоз мусора</strong> — аккуратно снимаем старые рамы, упаковываем весь строительный мусор и вывозим сами. Квартира остаётся чистой.</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-1" />
-                <span><strong className="font-semibold text-slate-900">Монтаж по ГОСТ</strong> — 3-слойный монтажный шов (ПСУЛ, пена, пароизоляционная лента) против продуваний.</span>
+                <span><strong className="font-semibold text-slate-900">Монтаж по ГОСТ с гарантией 5 лет</strong> — 3-слойный монтажный шов (ПСУЛ, пена, пароизоляционная лента) против продуваний и сырости.</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-1" />

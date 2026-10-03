@@ -19,7 +19,7 @@ export default function FinalCTA() {
         </h2>
 
         <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-12">
-          Инженер компании «Окна Центр» бесплатно приедет во Владивостоке или Уссурийске, привезет каталоги профилей и рассчитает смету без скрытых доплат.
+          Мастер бесплатно приедет по вашему адресу в любой город Приморья с образцами профилей. Сборка в цеху за 4–7 рабочих дней, гарантия 5 лет, а старый мусор вывозим сами.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
@@ -27,7 +27,7 @@ export default function FinalCTA() {
             href="/zaiavka_na_uslughi_kompanii_oknatsientr"
             className="px-9 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_35px_rgba(6,182,212,0.35)] transition-all transform active:scale-98 flex items-center gap-2"
           >
-            <span>Записаться на замер</span>
+            <span>Вызвать мастера на замер 0 ₽</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
 
@@ -51,7 +51,7 @@ export default function FinalCTA() {
         </div>
 
         <div className="text-xs text-slate-500 font-mono">
-          Работаем с 2004 года · Владивосток · Уссурийск · Приморский край
+          Собственный цех с 2004 года · Выезд 0 ₽ везде · Гарантия 5 лет · Мусор вывозим сами
         </div>
       </div>
     </section>

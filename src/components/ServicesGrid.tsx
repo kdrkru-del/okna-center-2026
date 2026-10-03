@@ -63,7 +63,7 @@ export default function ServicesGrid() {
             Что нужно <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-cyan-300">остеклить?</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-400 font-light max-w-2xl mx-auto">
-            Фабричные конструкции с собственного сборочного цеха. Адаптированы под сложный климат Владивостока, соленый морской воздух и перепады температур.
+            Фабричные конструкции с собственного сборочного цеха. Адаптированы под сложный климат Приморья, соленый морской воздух и перепады температур.
           </p>
         </div>
 

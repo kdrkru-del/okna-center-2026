@@ -36,7 +36,7 @@ export const MAIN_NAVIGATION: NavSection[] = [
         {
           title: "Продажа и монтаж",
           items: [
-            { label: "Пластиковые окна (купить)", href: "/kupit_plastikovye_okna_vladivostok", desc: "С установкой под ключ и без монтажа" },
+            { label: "Продажа и доставка окон по всему Дальнему Востоку", href: "/kupit_plastikovye_okna_vladivostok", desc: "С установкой под ключ и без монтажа" },
             { label: "Установка окон по ГОСТ", href: "/ustanovka_plastikovykh_okon_vo_vladivostokie", desc: "3-слойный теплый шов, гарантия 5 лет" },
             { label: "Замена старых окон", href: "/zamena_plastic_okon_vladivostok", desc: "Демонтаж старых рам, монтаж без пыли" },
           ],
@@ -58,7 +58,7 @@ export const MAIN_NAVIGATION: NavSection[] = [
     label: "Балконы и лоджии",
     href: "/osteklenie_balkona_vladivostok",
     megaMenu: {
-      featuredTitle: "Балконы и лоджии под ключ",
+      featuredTitle: "Остекление и утепление балконов и лоджий",
       featuredDesc: "Комплексное остекление, сварочные работы, вынос парапета и чистовая отделка за 3-5 дней.",
       featuredImage: "/images/bento/bento-balconies-turnkey.jpg",
       featuredLink: "/lodgia_pod_klyuch_vladivostok",
@@ -66,7 +66,7 @@ export const MAIN_NAVIGATION: NavSection[] = [
         {
           title: "Остекление и перепланировка",
           items: [
-            { label: "Остекление балконов", href: "/osteklenie_balkona_vladivostok", desc: "Теплый ПВХ и раздвижной алюминий" },
+            { label: "Остекление и утепление балконов и лоджий", href: "/osteklenie_balkona_vladivostok", desc: "Теплый ПВХ и раздвижной алюминий" },
             { label: "Лоджия под ключ", href: "/lodgia_pod_klyuch_vladivostok", desc: "Утепление и превращение в комнату" },
             { label: "Ремонт балконов (сварка)", href: "/riemont_balkonov_vo_vladivostokie", desc: "Усиление плиты, вынос, независимая крыша" },
             { label: "Ремонт лоджий", href: "/riemont_lodzhii_vo_vladivostokie", desc: "Кабинет или лаунж-зона с теплым полом" },
@@ -75,7 +75,7 @@ export const MAIN_NAVIGATION: NavSection[] = [
         {
           title: "Материалы и утепление",
           items: [
-            { label: "Утепление лоджий", href: "/uteplenie_lodgiy_vladivostok", desc: "Изопинк, ПСБС, Пенофол" },
+            { label: "Утепление лоджий и балконов", href: "/uteplenie_lodgiy_vladivostok", desc: "Изопинк, ПСБС, Пенофол" },
             { label: "Отделочные материалы", href: "/otdielochnyie_matierialy", desc: "Панели МДФ, ПВХ, влагостойкий ламинат" },
             { label: "Фасадные панели Ханьи", href: "/panieli_khani", desc: "Японский стиль: камень, кирпич, утепление" },
             { label: "Виниловый сайдинг", href: "/vinilovyi_saidingh", desc: "Внешняя защита парапета от тайфунов" },
@@ -89,7 +89,7 @@ export const MAIN_NAVIGATION: NavSection[] = [
     label: "Алюминий",
     href: "/alyuminievye_okna_vladivostok",
     simpleItems: [
-      { label: "Алюминиевые окна", href: "/alyuminievye_okna_vladivostok", desc: "Теплые панорамные системы, покраска RAL" },
+      { label: "Алюминиевые окна и витражи", href: "/alyuminievye_okna_vladivostok", desc: "Теплые панорамные системы, покраска RAL" },
       { label: "Двери и фасады ALT F50 / 150", href: "/aliuminiievyie_okna_i_dvieri", desc: "Стоечно-ригельные витражи, входные группы" },
     ],
   },

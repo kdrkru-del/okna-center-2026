@@ -8,7 +8,7 @@ const pageData = PAGES_DATA["alyuminievye_okna_vladivostok"];
 
 export const metadata: Metadata = {
   title: pageData?.title || "alyuminievye_okna_vladivostok — Окна Центр",
-  description: pageData?.description || "Услуги остекления и отделки во Владивостоке от компании Окна Центр.",
+  description: pageData?.description || "Услуги остекления и отделки в Приморском крае от компании Окна Центр.",
   alternates: {
     canonical: pageData?.canonical || `${COMPANY_INFO.domain}/alyuminievye_okna_vladivostok/`,
   },
