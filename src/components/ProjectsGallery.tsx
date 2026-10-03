@@ -3,13 +3,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { galleryCategories, galleryItems, GalleryItem } from "@/data/gallery_data";
-import { X, ChevronLeft, ChevronRight, Eye, Sparkles, MapPin, Building2, Calendar, CheckCircle2 } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Eye, Sparkles, MapPin, Building2, CheckCircle2, Layers } from "lucide-react";
 import Link from "next/link";
 import { asset } from "@/lib/assetPath";
 
 export default function ProjectsGallery({ limit, hideHeader = false }: { limit?: number; hideHeader?: boolean }) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
+  const [activePhotoIdx, setActivePhotoIdx] = useState<number>(0);
 
   const filteredItems = galleryItems.filter((item) => {
     if (activeCategory === "all") return true;
@@ -23,6 +24,7 @@ export default function ProjectsGallery({ limit, hideHeader = false }: { limit?:
     const currentIndex = filteredItems.findIndex((i) => i.id === activeItem.id);
     const nextIndex = (currentIndex + 1) % filteredItems.length;
     setActiveItem(filteredItems[nextIndex]);
+    setActivePhotoIdx(0);
   }, [activeItem, filteredItems]);
 
   const handlePrev = useCallback(() => {
@@ -30,6 +32,7 @@ export default function ProjectsGallery({ limit, hideHeader = false }: { limit?:
     const currentIndex = filteredItems.findIndex((i) => i.id === activeItem.id);
     const prevIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
     setActiveItem(filteredItems[prevIndex]);
+    setActivePhotoIdx(0);
   }, [activeItem, filteredItems]);
 
   // Keyboard controls for lightbox
@@ -49,6 +52,11 @@ export default function ProjectsGallery({ limit, hideHeader = false }: { limit?:
     if (catId === "all") return galleryItems.length;
     return galleryItems.filter((item) => item.category === catId).length;
   };
+
+  const currentPhotos = activeItem?.photos && activeItem.photos.length > 0 
+    ? activeItem.photos 
+    : (activeItem ? [activeItem.src] : []);
+  const currentPhotoSrc = currentPhotos[activePhotoIdx] || activeItem?.src || "";
 
   return (
     <section id="projects" className={`${hideHeader ? "pb-24 bg-slate-50 text-slate-900" : "py-20 sm:py-24 bg-slate-50 text-slate-900 border-t border-slate-200/80"}`}>
@@ -108,61 +116,77 @@ export default function ProjectsGallery({ limit, hideHeader = false }: { limit?:
 
         {/* Grid of photos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {displayItems.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => setActiveItem(item)}
-              className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/80 cursor-pointer flex flex-col justify-between hover:border-cyan-500/50 transition-all hover:shadow-xl hover:shadow-slate-900/10"
-            >
-              {/* Image Container */}
-              <div className="relative aspect-4/3 w-full overflow-hidden bg-slate-100">
-                <Image
-                  src={asset(item.src)}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                
-                {/* Top Badge */}
-                {item.badge && (
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-white border border-white/20 shadow-sm">
-                      {item.badge}
-                    </span>
-                  </div>
-                )}
-
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 z-20">
-                  <span className="text-[11px] font-mono text-cyan-300 flex items-center gap-1.5 font-bold">
-                    <Eye className="w-3.5 h-3.5" />
-                    Нажмите для увеличения
-                  </span>
-                </div>
-              </div>
-
-              {/* Card Footer Info */}
-              <div className="p-4 flex flex-col justify-between flex-1">
-                <h3 className="text-sm font-bold text-slate-900 group-hover:text-cyan-700 transition-colors line-clamp-2 leading-snug mb-2">
-                  {item.title}
-                </h3>
-                <div className="space-y-1 text-xs text-slate-500 pt-2 border-t border-slate-100">
-                  {item.client && (
-                    <div className="flex items-center gap-1 text-[11px] text-slate-700 font-medium truncate">
-                      <Building2 className="w-3 h-3 text-cyan-600 flex-shrink-0" />
-                      <span className="truncate">{item.client}</span>
+          {displayItems.map((item) => {
+            const hasMultiple = item.photos && item.photos.length > 1;
+            return (
+              <div
+                key={item.id}
+                onClick={() => {
+                  setActiveItem(item);
+                  setActivePhotoIdx(0);
+                }}
+                className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/80 cursor-pointer flex flex-col justify-between hover:border-cyan-500/50 transition-all hover:shadow-xl hover:shadow-slate-900/10"
+              >
+                {/* Image Container */}
+                <div className="relative aspect-4/3 w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src={asset(item.src)}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  
+                  {/* Top Badge (category or feature) */}
+                  {item.badge && (
+                    <div className="absolute top-3 left-3 z-10">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-white border border-white/20 shadow-sm">
+                        {item.badge}
+                      </span>
                     </div>
                   )}
-                  <div className="flex items-center gap-1 text-[11px] text-slate-500 truncate">
-                    <MapPin className="w-3 h-3 text-slate-400 flex-shrink-0" />
-                    <span className="truncate">{item.location}</span>
+
+                  {/* Multi-photo badge */}
+                  {hasMultiple && (
+                    <div className="absolute top-3 right-3 z-10">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-cyan-950/85 backdrop-blur-md text-cyan-300 border border-cyan-400/30 shadow-sm flex items-center gap-1">
+                        <Layers className="w-3 h-3 text-cyan-400" />
+                        {item.photos?.length} фото
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 z-20">
+                    <span className="text-[11px] font-mono text-cyan-300 flex items-center gap-1.5 font-bold">
+                      <Eye className="w-3.5 h-3.5" />
+                      {hasMultiple ? `Смотреть все ${item.photos?.length} фото объекта` : "Нажмите для увеличения"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Footer Info */}
+                <div className="p-4 flex flex-col justify-between flex-1">
+                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-cyan-700 transition-colors line-clamp-2 leading-snug mb-2">
+                    {item.title}
+                  </h3>
+                  <div className="space-y-1 text-xs text-slate-500 pt-2 border-t border-slate-100">
+                    {item.client && (
+                      <div className="flex items-center gap-1 text-[11px] text-slate-700 font-medium truncate">
+                        <Building2 className="w-3 h-3 text-cyan-600 flex-shrink-0" />
+                        <span className="truncate">{item.client}</span>
+                      </div>
+                    )}
+                    <div className="flex items-center gap-1 text-[11px] text-slate-500 truncate">
+                      <MapPin className="w-3 h-3 text-slate-400 flex-shrink-0" />
+                      <span className="truncate">{item.location}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {limit && filteredItems.length > limit && (
@@ -192,26 +216,28 @@ export default function ProjectsGallery({ limit, hideHeader = false }: { limit?:
             <X className="w-6 h-6" />
           </button>
 
-          {/* Prev button */}
+          {/* Prev project button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               handlePrev();
             }}
             className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors z-50 cursor-pointer"
-            aria-label="Предыдущее фото"
+            aria-label="Предыдущий объект"
+            title="Предыдущий объект"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          {/* Next button */}
+          {/* Next project button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               handleNext();
             }}
             className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors z-50 cursor-pointer"
-            aria-label="Следующее фото"
+            aria-label="Следующий объект"
+            title="Следующий объект"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -222,18 +248,63 @@ export default function ProjectsGallery({ limit, hideHeader = false }: { limit?:
             onClick={(e) => e.stopPropagation()}
           >
             {/* Image Box */}
-            <div className="relative w-full h-[62vh] sm:h-[72vh] rounded-2xl overflow-hidden bg-slate-950 flex items-center justify-center">
+            <div className="relative w-full h-[58vh] sm:h-[68vh] rounded-2xl overflow-hidden bg-slate-950 flex items-center justify-center">
               <Image
-                src={asset(activeItem.src)}
+                src={asset(currentPhotoSrc)}
                 alt={activeItem.title}
                 fill
                 className="object-contain"
                 priority
               />
+
+              {/* Multi-photo switcher inside the active project */}
+              {currentPhotos.length > 1 && (
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-slate-950/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActivePhotoIdx((prev) => (prev - 1 + currentPhotos.length) % currentPhotos.length);
+                    }}
+                    className="p-1 rounded-full hover:bg-white/20 text-white cursor-pointer"
+                    title="Предыдущее фото объекта"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <span className="text-xs font-mono font-bold text-cyan-300 px-1">
+                    Фото {activePhotoIdx + 1} из {currentPhotos.length}
+                  </span>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActivePhotoIdx((prev) => (prev + 1) % currentPhotos.length);
+                    }}
+                    className="p-1 rounded-full hover:bg-white/20 text-white cursor-pointer"
+                    title="Следующее фото объекта"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
             </div>
 
+            {/* Thumbnail dots if multiple photos */}
+            {currentPhotos.length > 1 && (
+              <div className="flex items-center justify-center gap-2 mt-2">
+                {currentPhotos.map((photo, pIdx) => (
+                  <button
+                    key={pIdx}
+                    onClick={() => setActivePhotoIdx(pIdx)}
+                    className={`h-2 rounded-full transition-all cursor-pointer ${
+                      activePhotoIdx === pIdx ? "w-6 bg-cyan-400" : "w-2 bg-white/30 hover:bg-white/50"
+                    }`}
+                    aria-label={`Фото ${pIdx + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+
             {/* Bottom details */}
-            <div className="mt-4 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 max-w-2xl w-full text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="mt-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 max-w-2xl w-full text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
                 <div className="text-sm sm:text-base font-bold text-white leading-snug">
                   {activeItem.title}
