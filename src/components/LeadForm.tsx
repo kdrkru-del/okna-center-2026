@@ -65,7 +65,7 @@ export default function LeadForm() {
         
         <div className="text-center mb-12">
           <div className="inline-block px-3.5 py-1.5 mb-4 text-[11px] font-mono text-cyan-800 border border-cyan-200 rounded-full bg-cyan-50 shadow-sm uppercase tracking-widest font-semibold">
-            Бесплатный выезд мастера · 0 ₽ везде
+            Бесплатный выезд мастера
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950 mb-4 tracking-tight">
             Узнайте точную стоимость <br className="hidden sm:inline" />
@@ -220,7 +220,7 @@ export default function LeadForm() {
                 disabled={loading}
                 className="w-full sm:w-auto px-10 py-4 bg-slate-950 hover:bg-cyan-700 disabled:opacity-50 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-lg shadow-slate-900/10 cursor-pointer"
               >
-                {loading ? 'Отправка...' : 'Вызвать мастера на замер 0 ₽'}
+                {loading ? 'Отправка...' : 'Вызвать мастера на замер'}
               </button>
               <span className="text-[11px] text-slate-500 font-light text-center sm:text-right">
                 Нажимая кнопку, вы даете согласие на обработку персональных данных.

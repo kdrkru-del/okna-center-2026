@@ -131,7 +131,7 @@ export default function Home() {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="px-8 py-4 bg-slate-950 hover:bg-cyan-600 text-white font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wide shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 transition-all transform hover:-translate-y-0.5"
             >
-              Вызвать мастера на замер 0 ₽
+              Вызвать мастера на замер
             </Link>
 
             <a

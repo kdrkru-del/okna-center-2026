@@ -61,7 +61,7 @@ export default function HeroArchitectural() {
               className="px-5 py-2.5 sm:py-3 bg-slate-950 hover:bg-cyan-600 text-white font-bold rounded-xl text-xs sm:text-[13px] tracking-wide shadow-lg shadow-slate-950/20 hover:shadow-cyan-600/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
             >
               <Ruler className="w-4 h-4 text-cyan-400 shrink-0" />
-              <span>Вызвать мастера на замер 0 ₽</span>
+              <span>Вызвать мастера на замер</span>
             </button>
 
             <Link
@@ -102,7 +102,7 @@ export default function HeroArchitectural() {
           {/* Trust Metric Strip */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3 border-t border-slate-950/15">
             <div>
-              <div className="text-base sm:text-lg xl:text-xl font-extrabold text-slate-950 font-heading drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">0 ₽ везде</div>
+              <div className="text-base sm:text-lg xl:text-xl font-extrabold text-slate-950 font-heading drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] leading-tight">Бесплатный замер</div>
               <div className="text-[10px] sm:text-[11px] text-slate-800 font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">выезд мастера на замер</div>
             </div>
             <div>

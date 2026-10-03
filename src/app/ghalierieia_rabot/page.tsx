@@ -64,14 +64,14 @@ export default function GalleryPage() {
             Хотите такой же балкон или теплые окна?
           </h2>
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
-            Вызовите инженера-замерщика бесплатно: мастер приедет с образцами материалов, выполнит лазерный замер проемов и рассчитает итоговую смету.
+            Вызовите инженера-замерщика бесплатно: мастер приедет с образцами материалов, снимет точные размеры проемов и рассчитает итоговую смету.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="px-8 py-4 bg-slate-900 hover:bg-black text-white font-bold rounded-2xl text-xs uppercase tracking-wider shadow-lg shadow-slate-900/10 transition-all transform hover:-translate-y-0.5"
             >
-              Вызвать замерщика 0 ₽
+              Вызвать мастера на замер
             </Link>
             <a
               href={`tel:${COMPANY_INFO.mainPhoneRaw}`}

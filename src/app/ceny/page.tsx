@@ -5,10 +5,10 @@ import { ChevronRight, ShieldCheck, Clock, CheckCircle2, Phone, MessageCircle, R
 import { COMPANY_INFO } from "@/data/company_info";
 import { asset } from "@/lib/assetPath";
 import PricingTable from "@/components/PricingTable";
-
+// Header Section
 export const metadata: Metadata = {
   title: "Цены на пластиковые окна, остекление балконов и ремонт — компания «Окна Центр»",
-  description: "Официальный прайс-лист на пластиковые окна, установку под ключ, остекление и утепление балконов, лоджий и ремонт окон по Приморскому краю. Цены от завода-изготовителя с 2004 года. Замер 0 ₽.",
+  description: "Официальный прайс-лист на пластиковые окна, установку под ключ, остекление и утепление балконов, лоджий и ремонт окон по Приморскому краю. Цены от завода-изготовителя с 2004 года. Бесплатный замер.",
   alternates: {
     canonical: `${COMPANY_INFO.domain}/ceny/`,
   },
@@ -68,7 +68,7 @@ export default function CenyPage() {
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-xs flex items-center gap-3">
                 <Ruler className="w-5 h-5 text-cyan-600 flex-shrink-0" />
                 <div className="text-xs">
-                  <span className="font-bold text-slate-900 block">Замер 0 ₽</span>
+                  <span className="font-bold text-slate-900 block">Бесплатный замер</span>
                   <span className="text-slate-500">По всему Приморскому краю</span>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function CenyPage() {
             <div className="space-y-3">
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-1" />
-                <span><strong className="font-semibold text-slate-900">Бесплатный выезд на замер 0 ₽</strong> — мастер приедет в удобное время с образцами профилей Rehau, KBE и Funke, снимет размеры и назовёт окончательную смету.</span>
+                <span><strong className="font-semibold text-slate-900">Бесплатный выезд на замер</strong> — мастер приедет в удобное время с образцами профилей Rehau, KBE и Funke, снимет размеры и назовёт окончательную смету.</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-1" />
@@ -158,7 +158,7 @@ export default function CenyPage() {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="px-6 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
             >
-              Вызвать замерщика 0 ₽
+              Вызвать мастера на замер
             </Link>
 
             <a

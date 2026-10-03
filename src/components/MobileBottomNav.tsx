@@ -39,7 +39,7 @@ export default function MobileBottomNav() {
           className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-900 hover:bg-black text-white font-bold transition-transform active:scale-95 shadow-md shadow-slate-900/10 cursor-pointer"
         >
           <Ruler className="w-4 h-4 mb-1 text-cyan-300" />
-          <span className="text-[11px]">Замер 0 ₽</span>
+          <span className="text-[11px]">Замер</span>
         </button>
       </div>
     </nav>

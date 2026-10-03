@@ -437,7 +437,7 @@ export default function InteractiveCalculator() {
                       className="px-8 py-3.5 bg-slate-950 hover:bg-cyan-600 disabled:opacity-50 text-white font-bold rounded-xl text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 transition-all cursor-pointer"
                     >
                       <Sparkles className="w-4 h-4" />
-                      <span>{loading ? "Отправляем..." : "Получить точный расчет и замер 0 ₽"}</span>
+                      <span>{loading ? "Отправляем..." : "Получить расчет и вызвать мастера"}</span>
                     </button>
                   </div>
 

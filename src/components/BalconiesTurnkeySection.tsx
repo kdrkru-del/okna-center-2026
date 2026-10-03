@@ -70,7 +70,7 @@ export default function BalconiesTurnkeySection() {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="w-full py-3.5 px-4 rounded-xl bg-white hover:bg-cyan-500 hover:text-white text-slate-950 font-bold text-xs uppercase tracking-wider text-center transition-colors"
             >
-              Заказать замер балкона 0 ₽
+              Вызвать мастера на замер
             </Link>
           </div>
         </div>

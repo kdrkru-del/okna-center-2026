@@ -64,6 +64,7 @@ export default function Footer() {
               <li><Link href="/okna_dlya_dachi_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Окна для дачи от 4 000 ₽</Link></li>
               <li><Link href="/profil_dlya_okon" className="text-slate-600 hover:text-slate-950 transition-colors">Профили Rehau, KBE, Funke</Link></li>
               <li><Link href="/ievro_zhaliuzi" className="text-slate-600 hover:text-slate-950 transition-colors">Еврожалюзи и Зебра</Link></li>
+              <li><Link href="/regulirovka_plastikovykh_okon_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Регулировка пластиковых окон</Link></li>
             </ul>
           </div>
 
@@ -129,7 +130,7 @@ export default function Footer() {
                   href="/zaiavka_na_uslughi_kompanii_oknatsientr"
                   className="inline-block px-4 py-2 bg-slate-900 hover:bg-black text-white rounded-lg text-xs uppercase font-bold tracking-wide transition-colors shadow-sm"
                 >
-                  Вызвать мастера на замер 0 ₽
+                  Вызвать мастера на замер
                 </Link>
               </div>
             </div>

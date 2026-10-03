@@ -73,7 +73,7 @@ export default function ProjectsGallery({ limit, hideHeader = false }: { limit?:
               className="px-6 py-3.5 bg-slate-950 hover:bg-cyan-600 text-white rounded-2xl text-xs font-mono uppercase tracking-wider transition-colors inline-flex items-center gap-2 self-start md:self-auto shadow-sm flex-shrink-0"
             >
               <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Рассчитать свой проект 0 ₽</span>
+              <span>Рассчитать свой проект</span>
             </Link>
           </div>
         )}

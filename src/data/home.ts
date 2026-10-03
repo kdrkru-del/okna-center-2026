@@ -21,7 +21,7 @@ export const HOME_PRACTICAL_NEEDS = {
     {
       id: "install-windows",
       title: "Окна с установкой",
-      desc: "Замер 0 ₽, сборка за 4–7 дней, аккуратный монтаж по ГОСТу с гарантией 5 лет. Старые рамы и весь мусор вывозим сами.",
+      desc: "Бесплатный замер, сборка за 4–7 дней, аккуратный монтаж по ГОСТу с гарантией 5 лет. Старые рамы и весь мусор вывозим сами.",
       price: "от 14 000 ₽",
       href: "/ustanovka_plastikovykh_okon_vo_vladivostokie",
       action: "Заказать установку",
@@ -129,7 +129,7 @@ export const BENTO_SERVICES = [
     id: "install-windows",
     title: "Окна с установкой",
     category: "МОНТАЖ ПО ГОСТ",
-    tagline: "Монтаж по ГОСТу опытными бригадами. Замер 0 ₽, договор с гарантией 5 лет. Старые рамы и весь мусор упаковываем и вывозим сами.",
+    tagline: "Монтаж по ГОСТу опытными бригадами. Бесплатный замер, договор с гарантией 5 лет. Старые рамы и весь мусор упаковываем и вывозим сами.",
     price: "от 14 000 ₽",
     href: "/ustanovka_plastikovykh_okon_vo_vladivostokie",
     image: "/images/bento/bento-rehau-windows.jpg",

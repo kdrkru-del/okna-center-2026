@@ -164,12 +164,12 @@ export default function SimpleMeasurementForm({
           disabled={loading}
           className="w-full py-4 px-6 bg-slate-950 hover:bg-cyan-600 disabled:opacity-50 text-white font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center justify-center gap-2 cursor-pointer"
         >
-          <span>{loading ? "Отправка..." : "Вызвать мастера на замер 0 ₽"}</span>
+          <span>{loading ? "Отправка..." : "Вызвать мастера на замер"}</span>
           <ArrowRight className="w-4 h-4" />
         </button>
 
         <p className="text-[11px] text-slate-500 text-center leading-relaxed">
-          Бесплатный выезд 0 ₽ по Приморью · Гарантия 5 лет · Мусор вывозим сами
+          Бесплатный выезд по Приморью · Гарантия 5 лет · Мусор вывозим сами
         </p>
       </form>
     </div>

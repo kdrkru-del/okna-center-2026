@@ -178,7 +178,7 @@ export default function KeyObjectsShowcase() {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="w-full sm:w-auto px-6 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl text-xs uppercase tracking-wider transition-all text-center whitespace-nowrap shadow-lg shadow-cyan-600/30"
             >
-              Вызвать замерщика 0 ₽
+              Вызвать мастера на замер
             </Link>
             <Link
               href="/ghalierieia_rabot"

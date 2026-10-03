@@ -97,7 +97,7 @@ export default function ServiceTemplate({ page }: { page: PageContent }) {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-2xl text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/30 transition-all transform hover:-translate-y-0.5"
             >
-              Вызвать замерщика 0 ₽
+              Вызвать мастера на замер
             </Link>
 
             <a

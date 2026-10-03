@@ -312,7 +312,7 @@ export default function Header() {
                   }}
                   className="block w-full text-center py-3.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-md cursor-pointer"
                 >
-                  Вызвать замерщика 0 ₽
+                  Вызвать мастера на замер
                 </button>
 
                 <div className="grid grid-cols-2 gap-2">

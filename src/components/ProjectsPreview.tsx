@@ -14,8 +14,7 @@ export default function ProjectsPreview() {
     { id: "all", label: "Все проекты" },
     { id: "windows", label: "Окна" },
     { id: "balconies", label: "Балконы" },
-    { id: "finishing", label: "Отделка" },
-    { id: "facades", label: "Алюминий" },
+    { id: "facades", label: "Алюминий и порталы" },
   ];
 
   const filtered = galleryItems

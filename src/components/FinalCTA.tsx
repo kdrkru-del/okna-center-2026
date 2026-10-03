@@ -27,7 +27,7 @@ export default function FinalCTA() {
             href="/zaiavka_na_uslughi_kompanii_oknatsientr"
             className="px-9 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_35px_rgba(6,182,212,0.35)] transition-all transform active:scale-98 flex items-center gap-2"
           >
-            <span>Вызвать мастера на замер 0 ₽</span>
+            <span>Вызвать мастера на замер</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
 
@@ -51,7 +51,7 @@ export default function FinalCTA() {
         </div>
 
         <div className="text-xs text-slate-500 font-mono">
-          Собственный цех с 2004 года · Выезд 0 ₽ везде · Гарантия 5 лет · Мусор вывозим сами
+          Собственный цех с 2004 года · Бесплатный выезд на замер · Гарантия 5 лет · Мусор вывозим сами
         </div>
       </div>
     </section>

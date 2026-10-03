@@ -84,5 +84,5 @@ export const CONTACTS = {
 
   workScheduleSummary: "Пн–Сб 9:00–18:00",
   guaranteeSummary: "5 лет гарантии по официальному договору",
-  measurementSummary: "Бесплатный выезд замерщика 0 ₽ по Приморскому краю",
+  measurementSummary: "Бесплатный выезд замерщика по Приморскому краю",
 };

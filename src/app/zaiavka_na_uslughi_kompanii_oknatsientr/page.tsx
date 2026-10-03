@@ -40,7 +40,7 @@ export default function ZaiavkaPage() {
           <div className="lg:col-span-7 space-y-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-cyan-800 uppercase tracking-wider mb-4">
-                <span>0 ₽ выезд по Приморскому краю</span>
+                <span>Бесплатный выезд по Приморскому краю</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950 leading-tight">
@@ -48,7 +48,7 @@ export default function ZaiavkaPage() {
               </h1>
 
               <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed mt-4">
-                Наш инженер приедет в удобное для вас время с каталогами оригинальных профилей Rehau, KBE, Funke, образцами ламинации и фурнитуры. Точный лазерный замер исключает ошибки при производстве.
+                Наш мастер приедет в удобное для вас время с каталогами оригинальных профилей Rehau, KBE, Funke, образцами ламинации и фурнитуры. Точный замер исключает ошибки при производстве.
               </p>
             </div>
 
@@ -65,7 +65,7 @@ export default function ZaiavkaPage() {
               <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex items-center gap-3">
                 <ShieldCheck className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                 <div className="text-xs">
-                  <span className="font-bold text-slate-900 block">0 ₽ выезд</span>
+                  <span className="font-bold text-slate-900 block">Бесплатный замер</span>
                   <span className="text-slate-500">Без обязательств</span>
                 </div>
               </div>

@@ -41,11 +41,11 @@ export default function ProcessSection() {
     {
       id: "measurement",
       stepNum: "3",
-      shortTitle: "Замер 0 ₽",
-      title: "Замер 0 ₽",
+      shortTitle: "Замер",
+      title: "Бесплатный замер",
       badge: "Бесплатный выезд",
       desc: "Мастер бесплатно приедет по вашему адресу в любой город или посёлок края. Привезёт образцы профилей Rehau, KBE и Funke, снимет размеры и подскажет решение.",
-      feature: "Выезд 0 ₽ по всему краю",
+      feature: "Выезд мастера бесплатно",
       nextLabel: "К согласованию договора",
       icon: Ruler,
     },
@@ -291,7 +291,7 @@ export default function ProcessSection() {
                 href="/zaiavka_na_uslughi_kompanii_oknatsientr"
                 className="w-full py-3 px-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-cyan-500/20 cursor-pointer"
               >
-                <span>Вызвать мастера на замер 0 ₽</span>
+                <span>Вызвать мастера на замер</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

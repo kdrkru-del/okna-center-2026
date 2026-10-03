@@ -329,7 +329,7 @@ export default function HeroArchitectureOfLight() {
               href="#contact"
               className="inline-flex items-center px-6 py-3.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-full text-xs uppercase tracking-wider transition-colors shadow-lg shadow-cyan-500/25 cursor-pointer"
             >
-              Оставить заявку на замер 0 ₽ →
+              Вызвать мастера на замер →
             </a>
           </div>
         </div>

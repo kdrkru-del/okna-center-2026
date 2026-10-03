@@ -110,362 +110,362 @@ export const galleryItems: GalleryItem[] = [
   // --- КЛЮЧЕВЫЕ ОБЪЕКТЫ ---
   ...KEY_OBJECTS,
 
-  // --- АЛЮМИНИЙ, ПОРТАЛЫ И СПЕЦПРОЕКТЫ ---
+  // --- АЛЮМИНИЕВЫЕ КОНСТРУКЦИИ, ВИТРАЖИ И ПОРТАЛЫ ---
   {
-    id: "dalzavod-hospital-1",
+    id: "entrance-lobby-hospital-1",
     src: "/images/portfolio/works/work-11-0d7a3898.jpg",
-    title: "Остекление корпуса Дальзаводской больницы",
+    title: "Остекленный входной тамбур административного здания",
     category: "facades",
     location: "Приморский край",
-    specs: "Алюминиевый профиль · Теплый фасад",
-    client: "Дальзаводская больница",
-    badge: "Гособъект"
+    specs: "Алюминиевый профиль · Стеклянная распашная дверь",
+    client: "Медицинский комплекс",
+    badge: "Входная группа"
   },
   {
-    id: "dalzavod-hospital-2",
+    id: "entrance-lobby-hospital-2",
     src: "/images/portfolio/works/work-12-b090d201.jpg",
-    title: "Фасадные алюминиевые конструкции медкомплекса",
+    title: "Витражный входной тамбур под козырьком — боковой ракурс",
     category: "facades",
     location: "Приморский край",
-    specs: "Ударопрочные энергосберегающие стеклопакеты",
-    client: "Дальзаводская больница",
-    badge: "Алюминий"
+    specs: "Теплый фасадный профиль · Ударопрочные стеклопакеты",
+    client: "Медицинский комплекс",
+    badge: "Фасадный витраж"
   },
   {
-    id: "sliding-portal-system-1",
+    id: "cottage-stained-glass-facade",
     src: "/images/portfolio/works/work-13-c085b343.jpg",
-    title: "Подъемно-раздвижная портальная система выхода на террасу",
+    title: "Витражное остекление первого этажа коттеджа с зеркальной тонировкой",
     category: "facades",
-    location: "пригородный коттедж",
-    specs: "HS-портал · Панорамный вид",
-    badge: "Портальная система"
+    location: "Пригородный поселок",
+    specs: "Тонированные солнцезащитные стекла · Профиль в темном цвете",
+    badge: "Витраж коттеджа"
   },
   {
-    id: "aluminum-glazing-terrace",
+    id: "sliding-portal-deck-terrace",
     src: "/images/portfolio/works/work-14-9bd3d680.jpg",
-    title: "Теплое фасадное остекление загородной террасы",
+    title: "Раздвижной панорамный портал с выходом на открытую террасу",
     category: "facades",
-    location: "ст. Океанская",
-    specs: "Архитектурный алюминиевый профиль",
-    badge: "Алюминий"
+    location: "Загородный дом, Приморье",
+    specs: "Портальная раздвижная система · Низкий порог в пол",
+    badge: "Раздвижной портал"
   },
   {
-    id: "commercial-facade-vitrazh",
+    id: "wood-house-sliding-portal",
     src: "/images/portfolio/works/work-15-8ef9a3c3.jpg",
-    title: "Витражное остекление коммерческого здания",
+    title: "Раздвижной портал под темный дуб с внутрипольным конвектором",
     category: "facades",
-    location: "г. Уссурийск",
-    specs: "Входная группа и витражные секции",
-    badge: "Коммерция"
+    location: "Загородная резиденция",
+    specs: "Ламинация «темный дуб» · Энергосберегающий стеклопакет",
+    badge: "Панорамный портал"
   },
   {
-    id: "private-villa-portal",
+    id: "timber-house-entrance-annex",
     src: "/images/portfolio/works/work-16-25c9019d.jpg",
-    title: "Панорамное безрамное остекление загородного дома",
+    title: "Остекленная входная веранда дома из бруса",
     category: "facades",
-    location: "Приморье, б. Лазурная",
-    specs: "Закаленное стекло 8 мм",
-    badge: "Панорама"
+    location: "Пригородный поселок",
+    specs: "Остекление в пол · Пластиковая дверь со стеклопакетом",
+    badge: "Входная веранда"
   },
   {
-    id: "cottage-architectural-windows",
+    id: "arched-entrance-cottage",
     src: "/images/portfolio/works/work-18-af4a1ae5.jpg",
-    title: "Комплексное фасадное остекление частного дома",
+    title: "Арочная входная группа со стеклянной дверью и шпросами",
     category: "facades",
-    location: "ст. Садгород",
-    specs: "Индивидуальный проект",
-    badge: "Коттедж"
-  },
-
-  // --- БАЛКОНЫ И ЛОДЖИИ ПОД КЛЮЧ ---
-  {
-    id: "balcony-turnkey-wood-finish",
-    src: "/images/portfolio/balconies/balcony-05-3c626b82.jpg",
-    title: "Лоджия под ключ с утеплением и отделкой ламинатом",
-    category: "balconies",
-    location: "ул. Русская",
-    specs: "Утепление Изопинк 50 мм · Теплый пол",
-    badge: "Под ключ"
+    location: "Частный коттедж",
+    specs: "Арочная фрамуга с лучевой раскладкой · Индивидуальный проект",
+    badge: "Арочная группа"
   },
   {
-    id: "balcony-panoramic-french",
-    src: "/images/portfolio/balconies/balcony-06-26d0aa83.jpg",
-    title: "Французский балкон от пола до потолка с энергосбережением",
-    category: "balconies",
-    location: "ул. Кирова",
-    specs: "5-камерный профиль ПВХ 70 мм",
-    badge: "Французский балкон"
-  },
-  {
-    id: "balcony-extension-cladding",
-    src: "/images/portfolio/balconies/balcony-07-1ee21426.jpg",
-    title: "Вынос балкона с расширением плиты и сайдингом снаружи",
-    category: "balconies",
-    location: "ул. Нейбута",
-    specs: "Сварочные работы · Вынос 30 см",
-    badge: "Вынос плиты"
-  },
-  {
-    id: "balcony-cabinet-warm",
-    src: "/images/portfolio/balconies/balcony-08-efb4ba04.jpg",
-    title: "Обустройство рабочего кабинета на утепленной лоджии",
-    category: "balconies",
-    location: "г. Уссурийск, ул. Кирова",
-    specs: "Влагостойкие ПВХ-панели · Розетки и свет",
-    badge: "Лоджия-кабинет"
-  },
-  {
-    id: "balcony-glazing-pvc-turnkey",
-    src: "/images/portfolio/balconies/balcony-09-3bf641ae.jpg",
-    title: "Остекление 6-метровой лоджии с поворотно-откидными створками",
-    category: "balconies",
-    location: "ул. Баляева",
-    specs: "Профиль Rehau 70 мм · Москитные сетки",
-    badge: "6 метров"
-  },
-  {
-    id: "balcony-side-insulation",
-    src: "/images/portfolio/balconies/balcony-10-af7ce6f5.jpg",
-    title: "Утепление парапета и боковых стен с гидроизоляцией",
-    category: "balconies",
-    location: "ул. Чкалова",
-    specs: "Монтаж козырька и отлива с виброизоляцией",
-    badge: "Гидроизоляция"
-  },
-  {
-    id: "balcony-p-shape-roof",
-    src: "/images/portfolio/balconies/balcony-11-d9b4c9aa.jpg",
-    title: "П-образное остекление балкона последнего этажа с независимой крышей",
-    category: "balconies",
-    location: "Океанский пр-т",
-    specs: "Сварной каркас крыши · Профнастил с шумоизоляцией",
-    badge: "Крыша балкона"
-  },
-  {
-    id: "balcony-interior-storage",
-    src: "/images/portfolio/balconies/balcony-12-f22dfe99.jpg",
-    title: "Встроенная мебель и шкаф на утепленном балконе",
-    category: "balconies",
-    location: "ул. Фадеева",
-    specs: "Индивидуальный встроенный шкаф",
-    badge: "Встроенная мебель"
-  },
-
-  // --- ПЛАСТИКОВЫЕ ОКНА В КВАРТИРАХ И ДОМАХ ---
-  {
-    id: "win-apartment-white-turnkey",
-    src: "/images/portfolio/works/work-19-dee7f927.jpg",
-    title: "Установка окон ПВХ с широким подоконником и теплыми откосами",
-    category: "windows",
-    location: "ул. Некрасовская",
-    specs: "Профиль KBE 70 мм · Откосы сэндвич 10 мм",
-    badge: "Монтаж по ГОСТ"
-  },
-  {
-    id: "win-two-leaf-bedroom",
+    id: "commercial-anthracite-entrance",
     src: "/images/portfolio/works/work-20-0d799fd4.jpg",
-    title: "Двустворчатое окно с детским замком безопасности",
-    category: "windows",
-    location: "г. Уссурийск, ул. Ленина",
-    specs: "Фурнитура ROTO NX · Микропроветривание",
-    badge: "Детский замок"
+    title: "Алюминиевая входная группа и витраж 2 этажа в цвете антрацит",
+    category: "facades",
+    location: "Офисный центр, Приморье",
+    specs: "Теплый алюминий · Двустворчатая входная дверь",
+    badge: "Бизнес-центр"
   },
   {
-    id: "win-three-leaf-living-large",
-    src: "/images/portfolio/works/work-21-04d71992.jpg",
-    title: "Трехстворчатое окно в кирпичном доме с шумоизоляцией",
-    category: "windows",
-    location: "Партизанский пр-т",
-    specs: "Шумоизоляционный стеклопакет 40 мм",
-    badge: "Шумоизоляция"
-  },
-  {
-    id: "win-kitchen-turnkey-installation",
+    id: "winter-pavilion-glazing",
     src: "/images/portfolio/works/work-22-f5c20034.jpg",
-    title: "Кухонное пластиковое окно с поворотно-откидной створкой",
-    category: "windows",
-    location: "ул. Калинина",
-    specs: "Энергосберегающее i-стекло",
-    badge: "Кухня"
+    title: "Теплое остекление зимней садовой беседки в темном профиле",
+    category: "facades",
+    location: "Загородный участок",
+    specs: "Двухкамерные стеклопакеты · Ламинация в темный цвет",
+    badge: "Зимняя беседка"
   },
   {
-    id: "win-wood-lamination-cottage-1",
+    id: "commercial-tinted-pavilion",
     src: "/images/portfolio/works/work-23-22f1f076.jpg",
-    title: "Окна с двухсторонней ламинацией «темный дуб» в загородном доме",
-    category: "windows",
-    location: "ст. Весенняя",
-    specs: "Пленка Renolit Германия",
-    badge: "Ламинация дуб"
+    title: "Витражное остекление торгового павильона с зеркальным стеклом",
+    category: "facades",
+    location: "Коммерческий сектор",
+    specs: "Зеркальная тонировка Solar · Декоративное оформление",
+    badge: "Торговый витраж"
   },
   {
-    id: "win-cottage-panoramic-bay",
-    src: "/images/portfolio/works/work-24-fb478276.jpg",
-    title: "Эркерные оконные конструкции в частном доме",
-    category: "windows",
-    location: "Пригород, пос. Трудовое",
-    specs: "Усиленные соединительные трубы",
-    badge: "Эркер"
-  },
-  {
-    id: "win-balcony-block-turnkey",
+    id: "commercial-lobby-frame-assembly",
     src: "/images/portfolio/works/work-25-ec03a9dc.jpg",
-    title: "Балконный блок: дверь с защелкой и глухое окно",
-    category: "windows",
-    location: "ул. Светланская",
-    specs: "Профиль Rehau Grazio 70 мм",
-    badge: "Балконный блок"
+    title: "Монтаж каркаса входного остекленного тамбура здания",
+    category: "facades",
+    location: "Общественное здание",
+    specs: "Сборка несущего каркаса · Подготовка к установке стеклопакетов",
+    badge: "Монтаж тамбура"
   },
   {
-    id: "win-multi-room-apartment",
+    id: "frame-house-panoramic-glazing",
     src: "/images/portfolio/works/work-26-b20475ba.jpg",
-    title: "Комплексная замена окон во всей 3-комнатной квартире",
-    category: "windows",
-    location: "Приморский край",
-    specs: "4 окна под ключ за 1 день",
-    badge: "Квартира под ключ"
+    title: "Панорамное остекление каркасного дома на сваях",
+    category: "facades",
+    location: "Пригородный поселок",
+    specs: "Окна в пол 1 этажа · Скошенный мансардный блок",
+    badge: "Каркасный дом"
   },
   {
-    id: "win-residential-renovation",
-    src: "/images/portfolio/works/work-27-c9f65638.jpg",
-    title: "Замена старых рассохшихся деревянных рам на теплый пластик",
-    category: "windows",
-    location: "г. Уссурийск, ул. Пушкина",
-    specs: "Чистый демонтаж и вывоз старых рам",
-    badge: "Замена окон"
-  },
-  {
-    id: "win-cottage-shpros-decor",
+    id: "barnhouse-black-facade-glazing",
     src: "/images/portfolio/works/work-28-819c4402.jpg",
-    title: "Окна с декоративными золотыми шпросами внутри стеклопакета",
-    category: "windows",
-    location: "Пригород, ст. Седанка",
-    specs: "Внутренняя раскладка 18 мм",
-    badge: "Шпросы"
+    title: "Фасадное остекление дома в стиле барнхаус в черном профиле",
+    category: "facades",
+    location: "Загородный дом",
+    specs: "Черная матовая ламинация · Скошенные окна под конек крыши",
+    badge: "Барнхаус"
   },
   {
-    id: "win-apartment-soundproof",
-    src: "/images/portfolio/works/work-29-7423c5e1.jpg",
-    title: "Окна с повышенной звукоизоляцией для выходящих на трассу комнат",
-    category: "windows",
-    location: "ул. Алеутская",
-    specs: "Стекла разной толщины (6 мм + 4 мм)",
-    badge: "Антишум"
-  },
-  {
-    id: "win-suburban-cottage-white",
-    src: "/images/portfolio/works/work-30-979e6bf8.jpg",
-    title: "Остекление двухэтажного коттеджа из газобетона",
-    category: "windows",
-    location: "урочище Соловей Ключ",
-    specs: "14 оконных конструкций Rehau",
-    badge: "Коттедж 14 окон"
-  },
-  {
-    id: "win-turn-tilt-microvent",
-    src: "/images/portfolio/works/work-31-eec00674.jpg",
-    title: "Пластиковое окно с 4-ступенчатым микропроветриванием",
-    category: "windows",
-    location: "ул. Луговая",
-    specs: "Зимнее и щелевое проветривание",
-    badge: "Микропроветривание"
-  },
-  {
-    id: "win-cottage-large-glazing",
-    src: "/images/portfolio/works/work-32-2ce58345.jpg",
-    title: "Панорамные окна в гостиную с выходом во двор",
-    category: "windows",
-    location: "ст. Садгород",
-    specs: "Армирование 1.8 мм · Ветроустойчивость",
-    badge: "Панорама"
-  },
-  {
-    id: "win-brick-house-installation",
-    src: "/images/portfolio/works/work-33-b0781224.jpg",
-    title: "Установка окон в кирпичном доме с глубокими четвертями",
-    category: "windows",
-    location: "ул. Суханова",
-    specs: "Глубокие подоконники Danke 45 см",
-    badge: "Кирпичный дом"
-  },
-  {
-    id: "win-laminated-grey-modern",
-    src: "/images/portfolio/works/work-34-56a29c19.jpg",
-    title: "Современные окна в трендовом цвете «антрацит» (темно-серый)",
-    category: "windows",
-    location: "ул. Прапорщика Комарова",
-    specs: "Матовая ламинация Антрацит",
-    badge: "Стиль Антрацит"
-  },
-  {
-    id: "win-cottage-attic-glazing",
+    id: "modular-house-anthracite-portals",
     src: "/images/portfolio/works/work-35-37c3432f.jpg",
-    title: "Остекление мансардного этажа загородного дома",
-    category: "windows",
-    location: "Пригород, пос. Новый",
-    specs: "Скошенные трапециевидные рамы",
-    badge: "Мансарда"
+    title: "Панорамные раздвижные порталы модульного дома в цвете антрацит",
+    category: "facades",
+    location: "Современный модульный дом",
+    specs: "Два раздвижных портала в пол · Цвет профиля антрацит",
+    badge: "Модульный дом"
   },
   {
-    id: "win-apartment-high-floor",
+    id: "modular-house-corner-terrace",
     src: "/images/portfolio/works/work-36-5afd5904.jpg",
-    title: "Окна в высотном доме с повышенной ветровой нагрузкой",
-    category: "windows",
-    location: "ул. Жигура",
-    specs: "Усиленный стальной вкладыш",
-    badge: "Ветрозащита"
+    title: "Угловой портальный фасад модульного дома с террасой",
+    category: "facades",
+    location: "Современный модульный дом",
+    specs: "Панорамные сдвижные двери · Выход на открытую террасу",
+    badge: "Террасный портал"
   },
   {
-    id: "win-private-residence-full",
+    id: "modular-house-side-vitrazh",
     src: "/images/portfolio/works/work-37-b8c935bb.jpg",
-    title: "Остекление загородной резиденции премиальным профилем Funke",
-    category: "windows",
-    location: "район Шаморы",
-    specs: "Шелковисто-глянцевая поверхность",
-    badge: "Профиль Funke"
+    title: "Витражное остекление торцевого фасада модульного дома",
+    category: "facades",
+    location: "Современный модульный дом",
+    specs: "Глухие и сдвижные секции · Энергосберегающие стеклопакеты",
+    badge: "Витражный фасад"
   },
   {
-    id: "win-kitchen-danke-sill",
+    id: "modular-house-terrace-access",
     src: "/images/portfolio/works/work-38-08f212b7.jpg",
-    title: "Окно на кухне с акриловым термостойким подоконником",
-    category: "windows",
-    location: "ул. Толстого",
-    specs: "Подоконник устойчив к царапинам и горячему",
-    badge: "Подоконник Danke"
+    title: "Выход на открытую террасу через раздвижную портальную дверь",
+    category: "facades",
+    location: "Современный модульный дом",
+    specs: "Портальная фурнитура с легким ходом · Безбарьерный порог",
+    badge: "Сдвижной портал"
   },
   {
-    id: "win-living-room-bay-3",
+    id: "timber-annex-front-angle",
     src: "/images/portfolio/works/work-39-9cf1267a.jpg",
-    title: "Светопрозрачный эркер в гостиной панельного дома 83 серии",
-    category: "windows",
-    location: "ул. Сабанеева",
-    specs: "Идеальная теплоизоляция угла",
-    badge: "83 серия"
+    title: "Остекленный входной тамбур дома из бруса — фасадный ракурс",
+    category: "facades",
+    location: "Пригородный поселок",
+    specs: "Входная пластиковая дверь со стеклом · Остекление в пол",
+    badge: "Теплый тамбур"
   },
   {
-    id: "win-cottage-entrance-glazing",
+    id: "modular-cottage-full-facade",
     src: "/images/portfolio/works/work-40-6a26f500.jpg",
-    title: "Входной тамбур коттеджа с теплыми стеклопакетами",
-    category: "windows",
-    location: "г. Уссурийск, п. Радужный",
-    specs: "Многозапорный замок · Теплый порог",
-    badge: "Входной тамбур"
+    title: "Фасадный комплекс модульного коттеджа с панорамными порталами",
+    category: "facades",
+    location: "Современный модульный дом",
+    specs: "Комплексное портальное остекление · Ламинация антрацит",
+    badge: "Портальный фасад"
   },
+
+  // --- БАЛКОНЫ И ЛОДЖИИ ---
   {
-    id: "win-panoramic-view-vladivostok",
-    src: "/images/portfolio/works/work-41-1f14b64f.jpg",
-    title: "Видовые окна с видом на Амурский залив",
-    category: "windows",
-    location: "мыс Бурный",
-    specs: "Солнцезащитное напыление Solar",
-    badge: "Видовая квартира"
-  },
-  {
-    id: "win-loggia-turnkey-interior",
-    src: "/images/portfolio/works/work-42-ca1c8018.jpg",
-    title: "Утепленная лоджия с двухкамерными стеклопакетами",
+    id: "balcony-columns-cottage-1",
+    src: "/images/portfolio/balconies/balcony-05-3c626b82.jpg",
+    title: "Остекление выносного балкона коттеджа на опорных колоннах",
     category: "balconies",
-    location: "ул. Добровольского",
-    specs: "3 стекла · Аргон внутри стеклопакета",
+    location: "Пригородный коттедж",
+    specs: "Белый профиль ПВХ 70 мм · Двухкамерный энергопакет",
+    badge: "Балкон на опорах"
+  },
+  {
+    id: "balcony-columns-cottage-facade",
+    src: "/images/portfolio/balconies/balcony-06-26d0aa83.jpg",
+    title: "Фасадный вид кирпичного коттеджа с остекленным балконом",
+    category: "balconies",
+    location: "Пригородный коттедж",
+    specs: "Комплексное остекление балкона на опорах и фасадных окон",
+    badge: "Фасад с балконом"
+  },
+  {
+    id: "balcony-top-floor-roof-extension",
+    src: "/images/portfolio/balconies/balcony-07-1ee21426.jpg",
+    title: "Балкон последнего этажа с независимой крышей и обшивкой",
+    category: "balconies",
+    location: "Кирпичный жилой дом",
+    specs: "Сварная скатная кровля · Наружная отделка фасадными панелями",
+    badge: "Балкон с крышей"
+  },
+  {
+    id: "balcony-first-floor-brick-parapet",
+    src: "/images/portfolio/balconies/balcony-08-efb4ba04.jpg",
+    title: "П-образное остекление лоджии на кирпичном парапете",
+    category: "balconies",
+    location: "Жилой фонд, Приморье",
+    specs: "Профиль 70 мм · Козырьки и водоотливы с виброизоляцией",
     badge: "Теплая лоджия"
-  }
+  },
+  {
+    id: "balcony-corner-highrise-tinted",
+    src: "/images/portfolio/balconies/balcony-09-3bf641ae.jpg",
+    title: "Угловая лоджия в кирпичной новостройке с тонированными стеклами",
+    category: "balconies",
+    location: "Жилой комплекс, Приморье",
+    specs: "Угловой эркерный соединитель · Тонированные стекла Solar",
+    badge: "Угловая лоджия"
+  },
+  {
+    id: "balcony-panoramic-bay-window",
+    src: "/images/portfolio/balconies/balcony-10-af7ce6f5.jpg",
+    title: "Панорамный эркерный балкон от пола до потолка",
+    category: "balconies",
+    location: "Многоквартирный дом",
+    specs: "Трапециевидное остекление · Усиленный эркерный профиль",
+    badge: "Панорамный эркер"
+  },
+  {
+    id: "balcony-second-floor-cottage-terrace",
+    src: "/images/portfolio/balconies/balcony-11-d9b4c9aa.jpg",
+    title: "Панорамное остекление террасы второго этажа коттеджа",
+    category: "balconies",
+    location: "Загородный дом",
+    specs: "Темно-серый профиль · Зеркальное солнцезащитное напыление",
+    badge: "Терраса 2 этажа"
+  },
+  {
+    id: "balcony-raised-steel-terrace",
+    src: "/images/portfolio/balconies/balcony-12-f22dfe99.jpg",
+    title: "Остекление высокой террасы на металлокаркасе с лестницей",
+    category: "balconies",
+    location: "Частный сектор",
+    specs: "Монтаж на металлокаркасе · Ветрозащитная фурнитура",
+    badge: "Терраса на опорах"
+  },
+  {
+    id: "balcony-panoramic-long-gallery",
+    src: "/images/portfolio/works/work-41-1f14b64f.jpg",
+    title: "Панорамная лоджия от пола до потолка на этапе чистовой отделки",
+    category: "balconies",
+    location: "Пригородный жилой комплекс",
+    specs: "Остекление в пол · Поворотно-откидные створки с микропроветриванием",
+    badge: "Панорамная лоджия"
+  },
+
+  // --- ПЛАСТИКОВЫЕ ОКНА В КВАРТИРАХ И КОТТЕДЖАХ ---
+  {
+    id: "win-trapezoid-attic-shpros",
+    src: "/images/portfolio/works/work-19-dee7f927.jpg",
+    title: "Скошенные трапециевидные окна мансарды со шпросами",
+    category: "windows",
+    location: "Загородный коттедж",
+    specs: "Нестандартная форма под скат крыши · Внутренняя раскладка",
+    badge: "Мансардные трапеции"
+  },
+  {
+    id: "win-timber-chalet-second-light",
+    src: "/images/portfolio/works/work-21-04d71992.jpg",
+    title: "Остекление второго света в строящемся коттедже из бруса",
+    category: "windows",
+    location: "Коттеджный поселок",
+    specs: "Высокие фасадные трапеции со шпросами · Усиленный профиль",
+    badge: "Второй свет"
+  },
+  {
+    id: "win-trapezoid-closeup-shpros",
+    src: "/images/portfolio/works/work-24-fb478276.jpg",
+    title: "Трапециевидные окна со шпросами — крупный план монтажа",
+    category: "windows",
+    location: "Коттеджный поселок",
+    specs: "Точная подгонка углов скоса · Армирование профиля 1.8 мм",
+    badge: "Сложная геометрия"
+  },
+  {
+    id: "win-luxury-chalet-woodgrain",
+    src: "/images/portfolio/works/work-27-c9f65638.jpg",
+    title: "Остекление двухэтажного шале из бруса окнами со шпросами",
+    category: "windows",
+    location: "Загородная усадьба",
+    specs: "Двусторонняя ламинация под дерево · Декоративная раскладка",
+    badge: "Усадьба из бруса"
+  },
+  {
+    id: "win-brick-gazebo-shpros-1",
+    src: "/images/portfolio/works/work-29-7423c5e1.jpg",
+    title: "Остекление кирпичной садовой беседки окнами со шпросами",
+    category: "windows",
+    location: "Дачный участок",
+    specs: "Многостворчатые окна с раскладкой · Надежная фурнитура",
+    badge: "Кирпичная беседка"
+  },
+  {
+    id: "win-timber-house-ladder-montage",
+    src: "/images/portfolio/works/work-30-979e6bf8.jpg",
+    title: "Монтаж ламинированных окон в коттедже из клееного бруса",
+    category: "windows",
+    location: "Коттеджная застройка",
+    specs: "Установка в обсадную коробку · Монтаж по лазерному уровню",
+    badge: "Монтаж в брус"
+  },
+  {
+    id: "win-three-sash-grey-siding",
+    src: "/images/portfolio/works/work-31-eec00674.jpg",
+    title: "Трехстворчатое окно со шпросами на фасаде частного дома",
+    category: "windows",
+    location: "Пригородный дом",
+    specs: "Профиль 70 мм · Теплый стеклопакет со шпросами",
+    badge: "Фасадное окно"
+  },
+  {
+    id: "win-brick-gazebo-corner-view",
+    src: "/images/portfolio/works/work-32-2ce58345.jpg",
+    title: "Остекление беседки из облицовочного кирпича — угловой ракурс",
+    category: "windows",
+    location: "Дачный участок",
+    specs: "Защита от ветра и осадков · Замки и ручки в цвет профиля",
+    badge: "Беседка со шпросами"
+  },
+  {
+    id: "win-arched-dormer-sea-view",
+    src: "/images/portfolio/works/work-33-b0781224.jpg",
+    title: "Арочное окно со шпросами в мансарде с видом на залив",
+    category: "windows",
+    location: "Прибрежная зона, Приморье",
+    specs: "Арочный гиб ПВХ-профиля · Энергосберегающий стеклопакет",
+    badge: "Арочное окно"
+  },
+  {
+    id: "win-timber-chalet-finished-view",
+    src: "/images/portfolio/works/work-34-56a29c19.jpg",
+    title: "Готовое остекление дома из бруса темными окнами со шпросами",
+    category: "windows",
+    location: "Коттеджная застройка",
+    specs: "Ламинация профиля под дерево · Москитные сетки на створках",
+    badge: "Дом под ключ"
+  },
+  {
+    id: "win-aerated-concrete-two-story",
+    src: "/images/portfolio/works/work-42-ca1c8018.jpg",
+    title: "Остекление двухэтажного коттеджа из газобетона: панорамные и стандартные окна",
+    category: "windows",
+    location: "Строящийся коттедж",
+    specs: "Панорамные окна в пол 1 этажа + двухстворчатые окна 2 этажа",
+    badge: "Коттедж из блоков"
+  },
 ];

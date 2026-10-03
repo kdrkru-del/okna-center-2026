@@ -118,7 +118,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           }}
           className="block w-full py-4 text-center rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-slate-900/10 transition-colors cursor-pointer"
         >
-          Бесплатный выезд замерщика 0 ₽
+          Вызвать мастера на замер
         </button>
       </div>
     </div>

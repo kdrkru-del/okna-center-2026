@@ -1,4 +1,4 @@
-﻿import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 
 const outDir = path.resolve('out');
@@ -51,13 +51,14 @@ for (const link of linksFound) {
   checkedTargets.add(targetNorm);
 
   let targetPath = path.join(outDir, targetNorm);
+  const isAsset = /\.(png|jpg|jpeg|svg|ico|webp|txt|xml|json|pdf)$/i.test(targetNorm);
   if (targetNorm.endsWith('/')) {
     targetPath = path.join(targetPath, 'index.html');
-  } else if (!targetNorm.endsWith('.html') && !targetNorm.endsWith('.xml') && !targetNorm.endsWith('.txt')) {
+  } else if (!isAsset && !targetNorm.endsWith('.html')) {
     targetPath = path.join(targetPath, 'index.html');
   }
 
-  const exists = fs.existsSync(targetPath) || fs.existsSync(path.join(outDir, targetNorm, 'index.html')) || fs.existsSync(path.join(outDir, targetNorm + '.html'));
+  const exists = fs.existsSync(targetPath) || fs.existsSync(path.join(outDir, targetNorm)) || fs.existsSync(path.join(outDir, targetNorm, 'index.html')) || fs.existsSync(path.join(outDir, targetNorm + '.html'));
   if (!exists) {
     console.log('BROKEN LINK:', link.source, '->', link.target);
     broken++;

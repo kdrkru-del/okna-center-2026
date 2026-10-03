@@ -111,7 +111,7 @@ export default function ClimateEngineering() {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-cyan-500 hover:text-white text-slate-950 font-bold text-xs uppercase tracking-wider text-center transition-all shadow-md"
             >
-              Вызвать мастера на замер 0 ₽
+              Вызвать мастера на замер
             </Link>
           </div>
         </div>

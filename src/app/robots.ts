@@ -22,12 +22,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_not-found/", "/undefined", "/variants/"],
+        disallow: ["/api/", "/_not-found/", "/variants/"],
       },
       {
         userAgent: "Yandex",
         allow: "/",
-        disallow: ["/api/", "/_not-found/", "/undefined", "/variants/"],
+        disallow: ["/api/", "/_not-found/", "/variants/"],
       },
     ],
     sitemap: `${COMPANY_INFO.domain}/sitemap.xml`,
