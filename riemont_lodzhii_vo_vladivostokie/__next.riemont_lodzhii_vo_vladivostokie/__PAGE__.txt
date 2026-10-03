@@ -1,0 +1,42 @@
+1:"$Sreact.fragment"
+2:I[8154,["5559","static/chunks/5559-2a6bbaaee71739fa.js","8437","static/chunks/8437-572fdccb9561e536.js","8626","static/chunks/8626-751a4cf141d5748a.js","9358","static/chunks/app/riemont_lodzhii_vo_vladivostokie/page-9dde1fb067e7bba5.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+9:I[484,[],"MetadataBoundary"]
+7:X
+21:X
+21:C
+0:{"buildId":"g3-oXu9Q2Mxy4WYAw8DS-","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"page":{"slug":"riemont_lodzhii_vo_vladivostokie","variant":"balcony","categoryLabel":"Ремонт лоджий","categoryUrl":"/riemont_lodzhii_vo_vladivostokie","title":"Ремонт, остекление и утепление лоджий и балконов — отделка | Окна Центр","description":"Качественный ремонт, остекление и утепление лоджий и балконов по Приморскому краю от компании «Окна Центр». Превратим лоджию в теплый жилой кабинет, зону отдыха или детскую. Утепление Изопинком, чистовая отделка, теплый пол. С 2004 года.","h1":"Ремонт, остекление и утепление лоджий и балконов","eyebrow":"Интерьерные решения · Теплый контур","intro":"В отличие от балкона, лоджия имеет капитальные боковые стены, что делает её идеальным объектом для превращения в полноценную жилую комнату. Производим капитальный и косметический ремонт, остекление и утепление лоджий под ключ.","legacyUrl":"/riemont_lodzhii_vo_vladivostokie","canonical":"https://xn--80aknmcbtp7a.xn--p1ai/riemont_lodzhii_vo_vladivostokie/","keywordsIntent":["ремонт лоджии","переделка лоджии в комнату","отделка стен лоджии","теплый пол на лоджии"],"heroImage":"/images/legacy/4fa464e8acb40b581b6ce25f7ae2cbbc.jpg","badge":"Трансформация в жилую комнату","priceFrom":"от 65 000 ₽","verifiedFacts":["Опыт работы с 2004 года","Утепление Изопинком","Внутренняя отделка МДФ и ПВХ","Договор и гарантия"],"sections":[{"title":"Популярные сценарии использования лоджии","subtitle":"Рациональное использование каждого квадратного метра","content":"После профессионального ремонта температура на лоджии не отличается от комнатной.","type":"cards","items":[{"title":"Рабочий кабинет","desc":"Установка компьютерного стола, полок, розеток и направленного освещения для комфортной удаленной работы."},{"title":"Зона отдыха и релакса","desc":"Панорамный вид, кофейный столик, мягкие кресла и теплый пол под ногами."},{"title":"Спортивный уголок или оранжерея","desc":"Место для тренажера или круглогодичного выращивания цветов с регулируемым микроклиматом."}]}],"faq":[{"question":"Сколько времени длится ремонт лоджии?","answer":"В среднем комплексный ремонт типовой лоджии занимает от 3 до 5 рабочих дней."}],"relatedPages":[{"slug":"/lodgia_pod_klyuch_vladivostok","label":"Лоджия под ключ","reason":"Комплексные работы"},{"slug":"/uteplenie_lodgiy_vladivostok","label":"Утепление лоджий","reason":"Технологии тепла"},{"slug":"/otdielochnyie_matierialy","label":"Отделочные материалы","reason":"Выбор обшивки"}],"schemaType":"Service"}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}],["$","meta","2",{"name":"theme-color","content":"#ffffff"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Ремонт, остекление и утепление лоджий и балконов — отделка | Окна Центр | Окна Центр"}],["$","meta","1",{"name":"description","content":"Качественный ремонт, остекление и утепление лоджий и балконов по Приморскому краю от компании «Окна Центр». Превратим лоджию в теплый жилой кабинет, зону отдыха или детскую. Утепление Изопинком, чистовая отделка, теплый пол. С 2004 года."}],["$","meta","2",{"name":"author","content":"Окна Центр"}],["$","meta","3",{"name":"keywords","content":"пластиковые окна,купить пластиковые окна,установка пластиковых окон,остекление и утепление балконов и лоджий,лоджия под ключ,ремонт окон,алюминиевые окна и витражи,окна центр,окна приморский край"}],["$","meta","4",{"name":"creator","content":"Окна Центр"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d"]}]}]}],null]}],"isPartial":"$@1e","staleTime":"$7","varyParams":null},{"rsc":"$L1f","isPartial":"$@20","staleTime":"$7","varyParams":"$21"}],"isUpgradeableISRFallback":false,"a":"$@22","rootVaryParams":null,"needsRuntimeRequest":"$@23"}
+24:I[6869,[],"IconMark"]
+25:I[7121,[],""]
+26:I[4581,[],""]
+5:null
+a:["$","meta","5",{"name":"publisher","content":"Окна Центр"}]
+b:["$","meta","6",{"name":"robots","content":"index, follow"}]
+c:["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}]
+d:["$","link","8",{"rel":"canonical","href":"https://xn--80aknmcbtp7a.xn--p1ai/riemont_lodzhii_vo_vladivostokie/"}]
+e:["$","meta","9",{"property":"og:title","content":"Ремонт, остекление и утепление лоджий и балконов — отделка | Окна Центр"}]
+f:["$","meta","10",{"property":"og:description","content":"Качественный ремонт, остекление и утепление лоджий и балконов по Приморскому краю от компании «Окна Центр». Превратим лоджию в теплый жилой кабинет, зону отдыха или детскую. Утепление Изопинком, чистовая отделка, теплый пол. С 2004 года."}]
+10:["$","meta","11",{"property":"og:url","content":"https://xn--80aknmcbtp7a.xn--p1ai/riemont_lodzhii_vo_vladivostokie/"}]
+11:["$","meta","12",{"property":"og:site_name","content":"Окна Центр"}]
+12:["$","meta","13",{"property":"og:locale","content":"ru_RU"}]
+13:["$","meta","14",{"property":"og:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/4fa464e8acb40b581b6ce25f7ae2cbbc.jpg"}]
+14:["$","meta","15",{"property":"og:type","content":"website"}]
+15:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+16:["$","meta","17",{"name":"twitter:title","content":"Ремонт, остекление и утепление лоджий и балконов — отделка | Окна Центр"}]
+17:["$","meta","18",{"name":"twitter:description","content":"Качественный ремонт, остекление и утепление лоджий и балконов по Приморскому краю от компании «Окна Центр». Превратим лоджию в теплый жилой кабинет, зону отдыха или детскую. Утепление Изопинком, чистовая отделка, теплый пол. С 2004 года."}]
+18:["$","meta","19",{"name":"twitter:image","content":"https://xn--80aknmcbtp7a.xn--p1ai/images/legacy/4fa464e8acb40b581b6ce25f7ae2cbbc.jpg"}]
+19:["$","link","20",{"rel":"icon","href":"/favicon.ico?47718946ff472596","type":"image/x-icon","sizes":"16x16"}]
+1a:["$","link","21",{"rel":"icon","href":"/favicon.ico","sizes":"any"}]
+1b:["$","link","22",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}]
+1c:["$","link","23",{"rel":"apple-touch-icon","href":"/apple-icon.png"}]
+1d:["$","$L24","24",{}]
+1f:["$","$1","c",{"children":[null,["$","$L25",null,{"parallelRouterKey":"children","template":["$","$L26",null,{}]}]]}]
+23:true
+7:300
+7:C
+22:0
+1e:"$undefined"
+20:"$undefined"
+6:"$undefined"
