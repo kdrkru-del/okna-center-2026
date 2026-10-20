@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Eye, Sparkles, Building2 } from "lucide-react";
 import { KEY_OBJECTS, galleryItems } from "@/data/gallery_data";
-import MaxButton from "@/components/MaxButton";
 import { asset } from "@/lib/assetPath";
 
 export default function KeyObjectsShowcase() {
@@ -201,11 +200,6 @@ export default function KeyObjectsShowcase() {
             >
               Вызвать мастера на замер
             </Link>
-            <MaxButton
-              placement="homepage_key_objects_cta"
-              variant="primary"
-              className="w-full sm:w-auto py-3.5 px-5 rounded-2xl"
-            />
             <Link
               href="/klyuchevye-obekty"
               className="w-full sm:w-auto px-5 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-2xl text-xs uppercase tracking-wider transition-all text-center whitespace-nowrap border border-white/20"

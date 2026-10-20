@@ -95,17 +95,6 @@ export default function CalculatorPreview() {
               <p className="text-sm text-slate-300 mx-auto">
                 Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.
               </p>
-              <a
-                href={`https://wa.me/79940100300?text=${encodeURIComponent(
-                  `Здравствуйте! Экспресс-расчет с сайта: ${types.find((t) => t.id === selectedType)?.label || selectedType}. Номер телефона: ${phone}`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Дублировать заявку в WhatsApp
-              </a>
               <button
                 onClick={() => setSubmitted(false)}
                 className="mt-4 px-6 py-2 rounded-xl bg-white/10 text-xs font-mono uppercase text-white hover:bg-white/20 transition-colors"
@@ -125,15 +114,6 @@ export default function CalculatorPreview() {
                     >
                       <Phone className="w-3.5 h-3.5" />
                       <span>{CONTACTS.phones.mainDisplay}</span>
-                    </a>
-                    <a
-                      href={CONTACTS.whatsapp.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs transition-colors w-full sm:w-auto text-center"
-                    >
-                      <MessageCircle className="w-3.5 h-3.5" />
-                      <span>Написать в WhatsApp</span>
                     </a>
                   </div>
                 </div>

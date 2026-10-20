@@ -146,20 +146,20 @@ export default function ContactsPage() {
                 <span>Позвонить в офис</span>
               </a>
 
-              <MaxButton
-                placement="contacts_vladivostok_card"
-                variant="compact"
-              />
-
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
+                className="px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold tracking-wide transition-colors inline-flex items-center gap-1.5"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Уточнить в WhatsApp</span>
+                <span>WhatsApp</span>
               </a>
+
+              <MaxButton
+                placement="contacts_vladivostok_card"
+                variant="compact"
+              />
             </div>
           </div>
 
@@ -227,20 +227,20 @@ export default function ContactsPage() {
                 <span>Позвонить в филиал</span>
               </a>
 
-              <MaxButton
-                placement="contacts_ussuriysk_card"
-                variant="compact"
-              />
-
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
+                className="px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold tracking-wide transition-colors inline-flex items-center gap-1.5"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Уточнить в WhatsApp</span>
+                <span>WhatsApp</span>
               </a>
+
+              <MaxButton
+                placement="contacts_ussuriysk_card"
+                variant="compact"
+              />
             </div>
           </div>
 
@@ -259,8 +259,8 @@ export default function ContactsPage() {
                   <MaxIcon className="w-7 h-7" />
                 </div>
                 <div>
-                  <span className="text-xs text-indigo-700 font-mono uppercase tracking-wider font-semibold block">Официальный мессенджер</span>
-                  <span className="text-base font-bold text-slate-900">Мессенджер MAX</span>
+                  <span className="text-xs text-indigo-700 font-mono uppercase tracking-wider font-semibold block">Мессенджер</span>
+                  <span className="text-base font-bold text-slate-900">MAX</span>
                   <span className="text-xs text-slate-500 block mt-0.5">Быстрый расчет и консультация</span>
                 </div>
               </div>
@@ -271,21 +271,27 @@ export default function ContactsPage() {
               />
             </div>
 
-            <a
-              href={COMPANY_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition-all flex items-center gap-4 group"
-            >
-              <div className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold shadow-sm">
-                <MessageSquare className="w-6 h-6" />
+            <div className="p-6 rounded-2xl bg-white border border-emerald-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold shadow-sm shrink-0">
+                  <MessageSquare className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-xs text-emerald-700 font-mono uppercase tracking-wider font-semibold block">Мессенджер</span>
+                  <span className="text-base font-bold text-slate-900">WhatsApp</span>
+                  <span className="text-xs text-slate-500 block mt-0.5">+7 (994) 010-03-00</span>
+                </div>
               </div>
-              <div>
-                <span className="text-xs text-emerald-700 font-mono uppercase tracking-wider font-semibold block">Быстрый ответ в чате</span>
-                <span className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">Чат WhatsApp</span>
-                <span className="text-xs text-slate-500 block mt-0.5">+7 (994) 010-03-00</span>
-              </div>
-            </a>
+              <a
+                href={COMPANY_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-colors inline-flex items-center justify-center gap-2"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
 
             <a
               href={`mailto:${COMPANY_INFO.emails[0]}`}

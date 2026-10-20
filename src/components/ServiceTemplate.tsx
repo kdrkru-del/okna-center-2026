@@ -5,15 +5,9 @@ import { ChevronRight, CheckCircle2, Shield, Clock, Phone, Sparkles, MapPin } fr
 import InteractiveCalculator from "@/components/InteractiveCalculator";
 import FAQSection from "@/components/FAQSection";
 import ProjectsGallery from "@/components/ProjectsGallery";
-import MaxButton from "@/components/MaxButton";
-import { LoggiaPromoMobileBanner } from "@/components/LoggiaPromoWidget";
 import { COMPANY_INFO } from "@/data/company_info";
 
 export default function ServiceTemplate({ page }: { page: PageContent }) {
-  const isBalconyOrLoggia =
-    page.slug.includes("balkon") ||
-    page.slug.includes("lodzh") ||
-    page.slug.includes("lodgi");
 
   // Schema.org Service markup
   const serviceSchema = {
@@ -107,12 +101,6 @@ export default function ServiceTemplate({ page }: { page: PageContent }) {
               Вызвать мастера на замер
             </Link>
 
-            <MaxButton
-              placement={`template_hero_${page.slug}`}
-              variant="primary"
-              className="py-4 px-6 rounded-2xl"
-            />
-
             <a
               href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
               className="px-6 py-4 rounded-2xl bg-white/5 hover:bg-white/10 text-white font-mono text-xs uppercase tracking-wider border border-white/10 transition-colors flex items-center gap-2"
@@ -121,10 +109,6 @@ export default function ServiceTemplate({ page }: { page: PageContent }) {
               <span>{COMPANY_INFO.mainPhone}</span>
             </a>
           </div>
-
-          {isBalconyOrLoggia && (
-            <LoggiaPromoMobileBanner sourcePage={page.slug} />
-          )}
 
           {/* Key bullets */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-white/10">

@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { KEY_OBJECTS } from "@/data/gallery_data";
 import { COMPANY_INFO } from "@/data/company_info";
-import MaxButton from "@/components/MaxButton";
 import { CopyObjectLinkButton } from "@/components/KeyObjectDetailClient";
 import LeadForm from "@/components/LeadForm";
 import { asset } from "@/lib/assetPath";
@@ -161,11 +160,13 @@ export default function KeyObjectsPage() {
 
             {/* Hero Actions */}
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
-              <MaxButton
-                placement="key_objects_hero"
-                variant="primary"
-                className="px-6 py-4"
-              />
+              <Link
+                href="/zaiavka_na_uslughi_kompanii_oknatsientr"
+                className="px-6 py-4 rounded-xl bg-slate-950 hover:bg-cyan-700 text-white font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2 shadow-md"
+              >
+                <span>Запросить расчёт / замер</span>
+                <ArrowRight className="w-4 h-4 text-cyan-400" />
+              </Link>
               <Link
                 href="/ghalierieia_rabot"
                 className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2 shadow-2xs"
@@ -405,11 +406,13 @@ export default function KeyObjectsPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <MaxButton
-              placement="key_objects_bottom_banner"
-              variant="primary"
-              className="py-4 px-6"
-            />
+            <Link
+              href="/zaiavka_na_uslughi_kompanii_oknatsientr"
+              className="py-4 px-6 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-cyan-600/20 inline-flex items-center gap-2"
+            >
+              <span>Вызвать мастера на замер</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
             <a
               href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
               className="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/15 font-mono font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2"

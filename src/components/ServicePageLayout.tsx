@@ -23,8 +23,6 @@ import MaterialsComparisonTable from "@/components/specialized/MaterialsComparis
 import BalconyStepsSequence from "@/components/specialized/BalconyStepsSequence";
 import WindowTypesShowcase from "@/components/specialized/WindowTypesShowcase";
 import CompanyTimeline from "@/components/specialized/CompanyTimeline";
-import MaxButton from "@/components/MaxButton";
-import { LoggiaPromoMobileBanner } from "@/components/LoggiaPromoWidget";
 import { asset } from "@/lib/assetPath";
 
 // Gallery image mapping by variant
@@ -250,21 +248,12 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
-                <MaxButton
-                  placement={`service_hero_${page.slug}`}
-                  variant="primary"
-                />
-
                 <a
-                  href={`https://wa.me/79940100300?text=${encodeURIComponent(
-                    `Здравствуйте! Интересует услуга: ${page.h1}. Подскажите стоимость и проконсультируйте.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="tel:+74232725725"
                   className="px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 border border-slate-300 shadow-sm cursor-pointer"
                 >
-                  <Phone className="w-4 h-4 text-emerald-600" />
-                  <span>WhatsApp консультация</span>
+                  <Phone className="w-4 h-4 text-cyan-600" />
+                  <span>8 (423) 2-725-725</span>
                 </a>
               </div>
             </div>
@@ -316,7 +305,6 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
 
         {page.variant === "balcony" && (
           <div className="space-y-12">
-            <LoggiaPromoMobileBanner sourcePage={page.slug} />
             <BalconyStepsSequence />
             <MaterialsComparisonTable />
           </div>
@@ -644,12 +632,6 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               <span>Вызвать мастера на замер</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-
-            <MaxButton
-              placement={`service_bottom_cta_${page.slug}`}
-              variant="primary"
-              className="px-7 py-4"
-            />
 
             <a
               href="tel:+74232725725"

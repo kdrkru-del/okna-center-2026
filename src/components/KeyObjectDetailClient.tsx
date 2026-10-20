@@ -15,7 +15,6 @@ import {
 import { GalleryItem } from "@/data/gallery_data";
 import { COMPANY_INFO } from "@/data/company_info";
 import { useMeasurementModal } from "@/context/ModalContext";
-import MaxButton from "@/components/MaxButton";
 import { asset } from "@/lib/assetPath";
 
 export function CopyObjectLinkButton({
@@ -218,11 +217,6 @@ export default function KeyObjectDetailClient({ item }: { item: GalleryItem }) {
             <Ruler className="w-4 h-4 text-cyan-400" />
             <span>Запросить расчёт / замер</span>
           </button>
-
-          <MaxButton
-            placement={`key_object_detail_${item.id}`}
-            variant="primary"
-          />
 
           <a
             href={`tel:${COMPANY_INFO.mainPhoneRaw}`}

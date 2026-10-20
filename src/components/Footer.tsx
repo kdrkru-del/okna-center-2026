@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Shield, CheckCircle2 } from "lucide-react";
+import { MapPin, Shield, CheckCircle2, MessageCircle } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import MaxButton from "@/components/MaxButton";
 import logoImg from "../../public/images/logo/logo-original.png";
@@ -121,15 +121,21 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="pt-1 space-y-2">
+              <div className="pt-1 flex flex-wrap items-center gap-2">
+                <a
+                  href={COMPANY_INFO.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-xs tracking-wide transition-colors inline-flex items-center gap-1.5 shadow-2xs"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>WhatsApp</span>
+                </a>
                 <MaxButton
                   placement="footer"
                   variant="compact"
-                  className="w-full sm:w-auto"
+                  className="px-3.5 py-2"
                 />
-                <div className="text-[11px] text-slate-600 font-semibold">
-                  WhatsApp: +7 (994) 010-03-00
-                </div>
               </div>
 
               <div className="pt-1">

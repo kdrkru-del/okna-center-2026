@@ -2,10 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Phone, ChevronDown, MessageCircle, ChevronRight } from "lucide-react";
+import { Phone, ChevronDown, ChevronRight } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import { useMeasurementModal } from "@/context/ModalContext";
-import MaxButton from "@/components/MaxButton";
 
 interface NavSubItem {
   label: string;
@@ -218,24 +217,24 @@ export default function Header() {
               </nav>
             </div>
 
-            {/* Right actions: Phone, MAX & CTA */}
-            <div className="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 shrink-0">
+            {/* Right actions: Phone numbers & CTA */}
+            <div className="flex items-center gap-2 sm:gap-2.5 xl:gap-4 shrink-0">
               {/* Desktop phone numbers */}
-              <div className="hidden xl:flex flex-col text-right justify-center space-y-0.5">
+              <div className="hidden lg:flex flex-col text-right justify-center space-y-0.5">
                 <a
                   href="tel:+74232725725"
-                  className="text-[12px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="text-[11.5px] xl:text-[12.5px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Владивосток: ул. Ильичева, 29, оф. 8"
                 >
-                  <span className="text-[10px] font-semibold text-slate-500">Владивосток:</span>
+                  <span className="hidden xl:inline text-[10px] font-semibold text-slate-500">Владивосток:</span>
                   <span className="text-slate-950 hover:text-cyan-700 font-bold">8 (423) 2-725-725</span>
                 </a>
                 <a
                   href="tel:+79502800300"
-                  className="text-[11px] font-bold text-slate-700 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="text-[11px] xl:text-[11.5px] font-bold text-slate-700 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Уссурийск: ул. Кирова, 12, оф. 202"
                 >
-                  <span className="text-[10px] font-semibold text-slate-500">Уссурийск:</span>
+                  <span className="hidden xl:inline text-[10px] font-semibold text-slate-500">Уссурийск:</span>
                   <span className="text-slate-700 hover:text-cyan-700 font-semibold">8 (950) 2-800-300</span>
                 </a>
               </div>
@@ -250,20 +249,11 @@ export default function Header() {
                 <span>2-725-725</span>
               </a>
 
-              {/* Desktop MAX Button */}
-              <div className="hidden lg:block">
-                <MaxButton
-                  placement="header_desktop"
-                  variant="header"
-                  iconClassName="w-4 h-4"
-                />
-              </div>
-
               {/* Desktop CTA Button: Заявка на замер */}
               <button
                 type="button"
                 onClick={() => openMeasurementModal("Шапка сайта")}
-                className="hidden lg:inline-flex px-3 py-2 xl:px-3.5 xl:py-2 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-xl text-[11.5px] uppercase tracking-wider shadow-sm hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer shrink-0"
+                className="hidden lg:inline-flex px-3.5 py-2 xl:px-4 xl:py-2.5 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-xl text-[11.5px] xl:text-xs uppercase tracking-wider shadow-sm hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer shrink-0"
               >
                 Заявка на замер
               </button>
@@ -363,29 +353,20 @@ export default function Header() {
                   Вызвать мастера на замер
                 </button>
 
-                <MaxButton
-                  placement="header_mobile_menu"
-                  variant="primary"
-                  className="w-full py-3.5"
-                  onClickAfter={() => setMobileMenuOpen(false)}
-                />
-
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <a
-                    href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
+                    href="tel:+74232725725"
                     className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-cyan-600" />
-                    <span>Позвонить</span>
+                    <span>Владивосток: 8 (423) 2-725-725</span>
                   </a>
                   <a
-                    href={COMPANY_INFO.whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs transition-colors border border-emerald-200"
+                    href="tel:+79502800300"
+                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs transition-colors"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>WhatsApp</span>
+                    <Phone className="w-3.5 h-3.5 text-cyan-600" />
+                    <span>Уссурийск: 8 (950) 2-800-300</span>
                   </a>
                 </div>
 

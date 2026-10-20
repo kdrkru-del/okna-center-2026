@@ -183,13 +183,11 @@ export default function WindowDiagnosticBlock() {
             </div>
 
             <a
-              href="https://wa.me/79940100300?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%BE%D0%BA%D0%BE%D0%BD%2C%20%D0%BD%D1%83%D0%B6%D0%BD%D0%B0%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0."
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/zaiavka_na_uslughi_kompanii_oknatsientr/"
               className="w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 transition-all shadow-md shadow-slate-900/10 cursor-pointer"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>Вызвать мастера по WhatsApp</span>
+              <span>Вызвать мастера на замер</span>
             </a>
           </div>
         </div>

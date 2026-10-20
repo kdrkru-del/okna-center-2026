@@ -141,17 +141,6 @@ export default function InteractiveCalculator() {
               <p className="text-slate-600 text-sm mx-auto">
                 Специалист компании «Окна Центр» свяжется с вами по номеру <span className="text-cyan-700 font-mono font-bold">{phone}</span> в ближайшее время для уточнения деталей.
               </p>
-              <a
-                href={`https://wa.me/79940100300?text=${encodeURIComponent(
-                  `Здравствуйте! Расчет на калькуляторе: ${serviceType}, профиль: ${profile}, город: ${city}, предварительно: ${calculateEstimate()} ₽. Имя: ${name}, телефон: ${phone}`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors shadow-sm"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Дублировать заявку в WhatsApp
-              </a>
               <button
                 onClick={() => {
                   setSubmitted(false);
@@ -410,14 +399,6 @@ export default function InteractiveCalculator() {
                           className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-slate-950 text-white font-bold text-xs w-full sm:w-auto text-center"
                         >
                           Позвонить: 8 (423) 2-725-725
-                        </a>
-                        <a
-                          href={COMPANY_INFO.whatsappUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs transition-colors w-full sm:w-auto text-center"
-                        >
-                          Написать в WhatsApp
                         </a>
                       </div>
                     </div>

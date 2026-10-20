@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroArchitectural from "@/components/HeroArchitectural";
+import { LoggiaPromoMobileSection } from "@/components/LoggiaPromoWidget";
 import ServicesBento from "@/components/ServicesBento";
 import PopularSolutions from "@/components/PopularSolutions";
 import KeyObjectsShowcase from "@/components/KeyObjectsShowcase";
@@ -9,7 +10,7 @@ import ProcessSection from "@/components/ProcessSection";
 import GeographySection from "@/components/GeographySection";
 import FAQSection from "@/components/FAQSection";
 import Link from "next/link";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 
 export const metadata: Metadata = {
@@ -33,6 +34,9 @@ export default function Home() {
     <div className="bg-white text-slate-900">
       {/* 1. Main Mass-Market Hero Screen */}
       <HeroArchitectural />
+
+      {/* 1b. Built-in Mobile Special Offer Section (immediately after first Hero screen on mobile) */}
+      <LoggiaPromoMobileSection />
 
       {/* 2. Core Services Bento Grid: Наши основные услуги */}
       <ServicesBento />
@@ -140,15 +144,6 @@ export default function Home() {
             >
               <Phone className="w-4 h-4 text-cyan-600" />
               <span>{COMPANY_INFO.mainPhone}</span>
-            </a>
-
-            <a
-              href={COMPANY_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-4 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs sm:text-sm tracking-wide border border-emerald-200 transition-colors"
-            >
-              Написать в WhatsApp
             </a>
           </div>
         </div>

@@ -59,16 +59,6 @@ export default function WindowRepairCallout() {
                 <Phone className="w-4 h-4 text-cyan-700" />
                 <span>{COMPANY_INFO.mainPhone}</span>
               </a>
-
-              <a
-                href={COMPANY_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors border border-emerald-200"
-              >
-                <MessageCircle className="w-4 h-4 text-emerald-600" />
-                <span>Написать мастеру в WhatsApp</span>
-              </a>
             </div>
 
             <span className="text-xs text-slate-500 font-light">

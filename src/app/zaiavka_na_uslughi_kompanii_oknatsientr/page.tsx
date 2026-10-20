@@ -126,7 +126,7 @@ export default function ZaiavkaPage() {
                   className="text-emerald-700 font-semibold hover:underline flex items-center gap-1"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
-                  WhatsApp: +7 994 010-03-00
+                  WhatsApp
                 </a>
               </div>
             </div>

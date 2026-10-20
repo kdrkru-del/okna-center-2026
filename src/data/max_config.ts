@@ -24,7 +24,7 @@ export const MAX_MANAGERS: readonly [MaxManager, MaxManager] = [
 ] as const;
 
 export const MAX_BRAND = {
-  buttonText: 'Написать в MAX',
+  buttonText: 'MAX',
   iconPath: '/images/icons/max-logo.svg',
   brandbookUrl: 'https://go.max.ru/brandbook',
   counterNamespace: 'oknacentr_rf_prod',

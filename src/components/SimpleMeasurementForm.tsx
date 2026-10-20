@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle2, MessageCircle, ArrowRight, ShieldCheck, Clock } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck, Clock } from "lucide-react";
 import { submitLead } from "@/lib/submitLead";
 import { reachGoal } from "@/components/YandexMetrika";
 import { COMPANY_INFO } from "@/data/company_info";
 import { formatRussianPhone } from "@/lib/phoneMask";
-import MaxButton from "@/components/MaxButton";
 
 interface SimpleMeasurementFormProps {
   initialService?: string;
@@ -76,25 +75,7 @@ export default function SimpleMeasurementForm({
           <span className="text-cyan-700 font-mono font-bold">{phone}</span> в течение 10–15 минут для согласования точного времени.
         </p>
 
-        <div className="pt-2 flex flex-col gap-2.5">
-          <MaxButton
-            placement="simple_measurement_form_success"
-            variant="primary"
-            className="w-full py-3.5"
-          />
-
-          <a
-            href={`https://wa.me/79940100300?text=${encodeURIComponent(
-              `Здравствуйте! Я оставил заявку на замер на сайте. Мой номер: ${phone}, имя: ${name}.`
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-sm"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Написать в WhatsApp</span>
-          </a>
-
+        <div className="pt-2">
           <div className="text-xs text-slate-500 font-mono pt-1">
             {COMPANY_INFO.mainPhone} · {COMPANY_INFO.offices[0].address}
           </div>
