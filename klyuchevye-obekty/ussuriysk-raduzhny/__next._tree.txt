@@ -1,4 +1,4 @@
 :HL["/_next/static/css/2f3ef915493d20d0.css","style"]
 :HL["/_next/static/css/1ee8e10001475945.css","style"]
 :HL["/images/hero/hero-apartment-window-interior.jpg","image",{"fetchPriority":"high"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"klyuchevye-obekty","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"ussuriysk-raduzhny","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"eWiY9FzsZg-IxxrY_VqNw"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"klyuchevye-obekty","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"ussuriysk-raduzhny","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"i5lQ4sLWMQRmNfs9rmsn0"}
