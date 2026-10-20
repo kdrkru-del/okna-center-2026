@@ -11,8 +11,7 @@ import { reachGoal } from "@/components/YandexMetrika";
 import { useMeasurementModal } from "@/context/ModalContext";
 import { asset } from "@/lib/assetPath";
 
-const SESSION_SHOWN_KEY = "_okna_loggia_promo_session_v1";
-const CLOSED_UNTIL_KEY = "_okna_loggia_promo_closed_until_v1";
+const SESSION_DISMISSED_KEY = "_okna_loggia_promo_dismissed_v3";
 
 function normalizePathname(pathname: string | null): string {
   if (!pathname) return "/";
@@ -28,6 +27,10 @@ export function isPromoAllowedOnPath(pathname: string | null): boolean {
     if (norm === excluded || norm.startsWith(`${excluded}/`)) {
       return false;
     }
+  }
+
+  if (LOGGIA_PROMO_CONFIG.allowedDesktopPaths.includes("*")) {
+    return true;
   }
 
   return LOGGIA_PROMO_CONFIG.allowedDesktopPaths.includes(norm);
@@ -174,26 +177,35 @@ export default function LoggiaPromoDesktopDock() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const navEntries = window.performance?.getEntriesByType?.("navigation") as
+        | PerformanceNavigationTiming[]
+        | undefined;
+      if (navEntries && navEntries[0]?.type === "reload") {
+        window.sessionStorage.removeItem(SESSION_DISMISSED_KEY);
+      }
+    } catch {}
+  }, []);
+
   const triggerAutoOpen = useCallback(() => {
     if (typeof window === "undefined") return;
     if (window.innerWidth < 768) return; // Never open popup on mobile
 
     try {
-      const alreadyShownInSession = window.sessionStorage.getItem(SESSION_SHOWN_KEY);
-      if (alreadyShownInSession === "1") return;
+      const dismissedInSession = window.sessionStorage.getItem(SESSION_DISMISSED_KEY);
+      if (dismissedInSession === "1") return;
 
-      const closedUntilRaw = window.localStorage.getItem(CLOSED_UNTIL_KEY);
-      if (closedUntilRaw) {
-        const closedUntil = parseInt(closedUntilRaw, 10);
-        if (!isNaN(closedUntil) && Date.now() < closedUntil) {
-          return;
+      setIsOpen((prev) => {
+        if (!prev) {
+          reachGoal("promo_loggia_impression", { pathname: pathname || "/" });
         }
-      }
-
-      window.sessionStorage.setItem(SESSION_SHOWN_KEY, "1");
+        return true;
+      });
+    } catch {
       setIsOpen(true);
-      reachGoal("promo_loggia_impression", { pathname: pathname || "/" });
-    } catch {}
+    }
   }, [pathname]);
 
   useEffect(() => {
@@ -204,12 +216,12 @@ export default function LoggiaPromoDesktopDock() {
 
     if (typeof window === "undefined") return;
 
-    // 1. Timer trigger: 10 seconds
+    // 1. Timer trigger: 2 seconds after page load
     const timer = window.setTimeout(() => {
       triggerAutoOpen();
     }, LOGGIA_PROMO_CONFIG.triggerDelayMs);
 
-    // 2. Scroll trigger: 35% of page height
+    // 2. Scroll trigger: 15% of page height
     const handleScroll = () => {
       if (window.innerWidth < 768) return;
       const docEl = document.documentElement;
@@ -232,13 +244,7 @@ export default function LoggiaPromoDesktopDock() {
     setIsOpen(false);
     if (typeof window !== "undefined") {
       try {
-        const suppressMs =
-          LOGGIA_PROMO_CONFIG.suppressDaysAfterClose * 24 * 60 * 60 * 1000;
-        window.localStorage.setItem(
-          CLOSED_UNTIL_KEY,
-          String(Date.now() + suppressMs)
-        );
-        window.sessionStorage.setItem(SESSION_SHOWN_KEY, "1");
+        window.sessionStorage.setItem(SESSION_DISMISSED_KEY, "1");
       } catch {}
     }
   };
