@@ -300,7 +300,7 @@ export default function LoggiaPromoDesktopDock() {
       data-testid="loggia-promo-slide-card"
       className="hidden md:block fixed bottom-5 right-5 z-40 w-[370px] rounded-3xl bg-white border border-slate-200/95 shadow-[0_24px_60px_rgba(15,23,42,0.22)] overflow-hidden text-slate-900 animate-in slide-in-from-bottom-5 fade-in duration-300"
     >
-      {/* Top Visual Header with Photo + Company Logo + Close X */}
+      {/* Top Visual Header with Photo + Close X */}
       <div className="relative h-40 w-full overflow-hidden bg-slate-900">
         <Image
           src={asset(LOGGIA_PROMO_CONFIG.imagePath)}
@@ -311,17 +311,8 @@ export default function LoggiaPromoDesktopDock() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-slate-950/30" />
 
-        {/* Top Bar: Logo + Close Button */}
-        <div className="absolute top-3 left-3.5 right-3 flex items-center justify-between">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-md shadow-xs">
-            <span className="w-4 h-4 rounded-md bg-red-600 text-white flex items-center justify-center text-[9px] font-black">
-              ОЦ
-            </span>
-            <span className="text-[11px] font-black tracking-tight text-slate-950 uppercase">
-              ОКНА<span className="text-red-600">-</span>ЦЕНТР
-            </span>
-          </div>
-
+        {/* Top Bar: Close Button */}
+        <div className="absolute top-3 right-3 flex items-center justify-end">
           <button
             type="button"
             onClick={handleCloseByUser}
