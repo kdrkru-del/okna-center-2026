@@ -64,8 +64,8 @@ export const LOGGIA_PROMO_CONFIG: LoggiaPromoConfig = {
   ],
   disclaimer: 'Подробности комплектации уточняйте у менеджера.',
   validUntil: '',
-  triggerDelayMs: 2000,
-  triggerScrollPercent: 15,
+  triggerDelayMs: 1000,
+  triggerScrollPercent: 8,
   suppressDaysAfterClose: 1,
   allowedDesktopPaths: [
     '*',
