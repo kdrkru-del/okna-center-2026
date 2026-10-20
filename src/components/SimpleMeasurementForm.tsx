@@ -6,6 +6,7 @@ import { submitLead } from "@/lib/submitLead";
 import { reachGoal } from "@/components/YandexMetrika";
 import { COMPANY_INFO } from "@/data/company_info";
 import { formatRussianPhone } from "@/lib/phoneMask";
+import MaxButton from "@/components/MaxButton";
 
 interface SimpleMeasurementFormProps {
   initialService?: string;
@@ -76,6 +77,12 @@ export default function SimpleMeasurementForm({
         </p>
 
         <div className="pt-2 flex flex-col gap-2.5">
+          <MaxButton
+            placement="simple_measurement_form_success"
+            variant="primary"
+            className="w-full py-3.5"
+          />
+
           <a
             href={`https://wa.me/79940100300?text=${encodeURIComponent(
               `Здравствуйте! Я оставил заявку на замер на сайте. Мой номер: ${phone}, имя: ${name}.`

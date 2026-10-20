@@ -13,10 +13,11 @@ import {
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import LeadForm from "@/components/LeadForm";
+import MaxButton, { MaxIcon } from "@/components/MaxButton";
 
 export const metadata: Metadata = {
   title: "Контакты компании «Окна Центр» — адреса, телефоны, реквизиты",
-  description: "Офисы и контакты «Окна Центр». Телефоны: 8 (423) 2-725-725, 8 (950) 2-800-300, WhatsApp: +7 (994) 010-03-00. Режим работы, консультация и бесплатный выезд замерщика по всему Приморскому краю.",
+  description: "Офисы и контакты «Окна Центр». Телефоны: 8 (423) 2-725-725, 8 (950) 2-800-300, мессенджер MAX и WhatsApp: +7 (994) 010-03-00. Режим работы, консультация и бесплатный выезд замерщика по всему Приморскому краю.",
   alternates: {
     canonical: `${COMPANY_INFO.domain}/contacts/`,
   },
@@ -136,7 +137,7 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center gap-4">
+            <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center gap-3">
               <a
                 href="tel:+74232725725"
                 className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 font-mono shadow-sm"
@@ -144,6 +145,11 @@ export default function ContactsPage() {
                 <Phone className="w-3.5 h-3.5" />
                 <span>Позвонить в офис</span>
               </a>
+
+              <MaxButton
+                placement="contacts_vladivostok_card"
+                variant="compact"
+              />
 
               <a
                 href={COMPANY_INFO.whatsappUrl}
@@ -212,7 +218,7 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center gap-4">
+            <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center gap-3">
               <a
                 href="tel:+79502800300"
                 className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 font-mono shadow-sm"
@@ -220,6 +226,11 @@ export default function ContactsPage() {
                 <Phone className="w-3.5 h-3.5" />
                 <span>Позвонить в филиал</span>
               </a>
+
+              <MaxButton
+                placement="contacts_ussuriysk_card"
+                variant="compact"
+              />
 
               <a
                 href={COMPANY_INFO.whatsappUrl}
@@ -239,8 +250,27 @@ export default function ContactsPage() {
       {/* Online Messengers & Channels */}
       <section className="py-14 bg-slate-50 border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
+            {/* MAX Messenger Card */}
+            <div className="p-6 rounded-2xl bg-white border border-indigo-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0">
+                  <MaxIcon className="w-7 h-7" />
+                </div>
+                <div>
+                  <span className="text-xs text-indigo-700 font-mono uppercase tracking-wider font-semibold block">Официальный мессенджер</span>
+                  <span className="text-base font-bold text-slate-900">Мессенджер MAX</span>
+                  <span className="text-xs text-slate-500 block mt-0.5">Быстрый расчет и консультация</span>
+                </div>
+              </div>
+              <MaxButton
+                placement="contacts_messengers_grid"
+                variant="primary"
+                className="w-full py-2.5"
+              />
+            </div>
+
             <a
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"

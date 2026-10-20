@@ -3,9 +3,9 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { X, Phone, MessageCircle, MapPin, ArrowRight } from "lucide-react";
-import { MAIN_NAVIGATION } from "@/data/navigation";
 import { CONTACTS } from "@/data/contact";
 import { useMeasurementModal } from "@/context/ModalContext";
+import MaxButton from "@/components/MaxButton";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -33,6 +33,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     { label: "Алюминиевые окна и витражи", href: "/alyuminievye_okna_vladivostok" },
     { label: "Ремонт окон", href: "/remont_plastikovyh_okon_vladivostok" },
     { label: "Наши работы", href: "/ghalierieia_rabot" },
+    { label: "Ключевые объекты", href: "/klyuchevye-obekty" },
     { label: "Цены", href: "/ceny" },
     { label: "О компании", href: "/okonnaia_kompaniia_vladivostok" },
     { label: "Контакты", href: "/contacts" },
@@ -81,7 +82,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       </div>
 
       {/* Footer contacts & quick actions */}
-      <div className="p-6 bg-slate-50 border-t border-slate-200/80 space-y-4">
+      <div className="p-6 bg-slate-50 border-t border-slate-200/80 space-y-3">
         <div className="space-y-1.5 text-xs text-slate-600">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-cyan-600 flex-shrink-0" />
@@ -90,7 +91,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <p className="text-[11px] text-slate-500 pl-6">Уссурийск: ул. Кирова, 12 (оф. 202)</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 pt-2">
+        <MaxButton
+          placement="mobile_menu_overlay"
+          variant="primary"
+          className="w-full py-3.5"
+          onClickAfter={onClose}
+        />
+
+        <div className="grid grid-cols-2 gap-3">
           <a
             href={`tel:${CONTACTS.phones.mainRaw}`}
             className="py-3 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm"

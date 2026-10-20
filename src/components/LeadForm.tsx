@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { submitLead } from '@/lib/submitLead';
 import { MessageCircle, CheckCircle2 } from 'lucide-react';
 import { formatRussianPhone } from '@/lib/phoneMask';
+import MaxButton from '@/components/MaxButton';
 
 export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -87,15 +88,22 @@ export default function LeadForm() {
             <p className="text-slate-600 text-sm font-light leading-relaxed mb-6">
               Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.
             </p>
-            <a
-              href={whatsappDirectUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 mb-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors shadow-sm"
-            >
-              <MessageCircle className="w-4 h-4" />
-              Отправить напрямую в WhatsApp
-            </a>
+            <div className="space-y-2.5 mb-4">
+              <MaxButton
+                placement="lead_form_success"
+                variant="primary"
+                className="w-full py-3.5"
+              />
+              <a
+                href={whatsappDirectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors shadow-sm"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Отправить напрямую в WhatsApp
+              </a>
+            </div>
             <div className="text-xs font-mono text-cyan-800 font-semibold">
               Компания «Окна Центр» · 8 (423) 2-725-725
             </div>

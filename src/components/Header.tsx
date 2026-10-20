@@ -2,10 +2,25 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Phone, ChevronDown, Menu, X, ShieldCheck, MapPin, MessageCircle, Ruler, ChevronRight } from "lucide-react";
+import { Phone, ChevronDown, MessageCircle, ChevronRight } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import { useMeasurementModal } from "@/context/ModalContext";
+import MaxButton from "@/components/MaxButton";
+
+interface NavSubItem {
+  label: string;
+  href: string;
+  desc?: string;
+}
+
+interface NavSection {
+  id: string;
+  label: string;
+  href: string;
+  items?: NavSubItem[];
+  xlOnly?: boolean;
+  wideOnly?: boolean;
+}
 
 export default function Header() {
   const { openMeasurementModal } = useMeasurementModal();
@@ -22,7 +37,17 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navSections = [
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
+  const navSections: NavSection[] = [
     {
       id: "windows",
       label: "Окна",
@@ -83,15 +108,17 @@ export default function Header() {
         { label: "Окна для дачи", href: "/okna_dlya_dachi_vladivostok", desc: "Экономичные решения от 4 000 ₽" },
       ],
     },
-    { id: "projects", label: "Работы", href: "/ghalierieia_rabot", xlOnly: true },
+    { id: "projects", label: "Работы", href: "/ghalierieia_rabot" },
+    { id: "key-objects", label: "Ключевые объекты", href: "/klyuchevye-obekty" },
     {
       id: "company",
       label: "О компании",
       href: "/okonnaia_kompaniia_vladivostok",
       items: [
         { label: "О компании и производство", href: "/okonnaia_kompaniia_vladivostok", desc: "Собственный цех с 2004 года, ГОСТ" },
+        { label: "Ключевые объекты и ЖК", href: "/klyuchevye-obekty", desc: "Крупные реализованные проекты компании" },
+        { label: "Галерея выполненных работ", href: "/ghalierieia_rabot", desc: "Реальные объекты по Приморью" },
         { label: "Контакты и адреса офисов", href: "/contacts", desc: "Владивосток, Ильичева 29 / Уссурийск, Кирова 12" },
-        { label: "Галерея выполненных работ", href: "/ghalierieia_rabot", desc: "100+ реальных объектов по Приморью" },
       ],
     },
     { id: "contacts", label: "Контакты", href: "/contacts", wideOnly: true },
@@ -106,13 +133,13 @@ export default function Header() {
             : "bg-white/70 backdrop-blur-2xl border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-2.5 sm:py-3"
         }`}
       >
-        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-8">
-          <div className="flex items-center justify-between gap-3 xl:gap-6">
+        <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-5 xl:px-8">
+          <div className="flex items-center justify-between gap-2 xl:gap-4">
             {/* Left Group: Brand + Navigation adjacent */}
-            <div className="flex items-center gap-3 lg:gap-4 xl:gap-5 shrink-0">
+            <div className="flex items-center gap-2 lg:gap-2.5 xl:gap-4 shrink-0">
               {/* Architectural Emblem & Brand */}
-              <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group shrink-0">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 xl:w-9 xl:h-9 rounded-xl bg-gradient-to-br from-red-600 via-rose-600 to-red-700 flex items-center justify-center p-1.5 shadow-sm text-white shrink-0 group-hover:scale-105 transition-transform ring-1 ring-red-500/30">
+              <Link href="/" className="flex items-center gap-1.5 sm:gap-2.5 group shrink-0">
+                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-red-600 via-rose-600 to-red-700 flex items-center justify-center p-1.5 shadow-sm text-white shrink-0 group-hover:scale-105 transition-transform ring-1 ring-red-500/30">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
                     <rect x="3" y="3" width="18" height="18" rx="2.5" />
                     <line x1="12" y1="3" x2="12" y2="21" strokeWidth="2" />
@@ -120,10 +147,9 @@ export default function Header() {
                   </svg>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-base sm:text-lg xl:text-[19px] font-black tracking-tight text-slate-950 uppercase leading-none group-hover:text-cyan-700 transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
+                  <span className="text-[14px] sm:text-lg xl:text-[18px] font-black tracking-tight text-slate-950 uppercase leading-none group-hover:text-cyan-700 transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
                     ОКНА<span className="text-red-600">-</span>ЦЕНТР
                   </span>
-                  {/* City tag on wide screens */}
                   <span className="hidden 2xl:flex text-[9px] text-slate-600 font-medium tracking-wide mt-0.5 items-center gap-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] whitespace-nowrap">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                     Владивосток · Уссурийск · с 2004 г.
@@ -132,7 +158,7 @@ export default function Header() {
               </Link>
 
               {/* Desktop Navigation immediately follows Brand */}
-              <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 shrink-0">
+              <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 shrink-0" aria-label="Основная навигация">
                 {navSections.map((sec) => {
                   const responsiveClass = sec.xlOnly
                     ? "hidden xl:block"
@@ -149,7 +175,7 @@ export default function Header() {
                     >
                       <Link
                         href={sec.href}
-                        className="px-2 py-1.5 xl:px-2.5 text-xs xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors flex items-center gap-1 rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap"
+                        className="px-1.5 py-1.5 xl:px-2.5 text-[11.5px] xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors flex items-center gap-0.5 rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap"
                       >
                         <span>{sec.label}</span>
                         <ChevronDown className="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform" />
@@ -183,7 +209,7 @@ export default function Header() {
                     <Link
                       key={sec.id}
                       href={sec.href}
-                      className={`px-2 py-1.5 xl:px-2.5 text-xs xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap ${responsiveClass}`}
+                      className={`px-1.5 py-1.5 xl:px-2.5 text-[11.5px] xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap ${responsiveClass}`}
                     >
                       {sec.label}
                     </Link>
@@ -192,24 +218,24 @@ export default function Header() {
               </nav>
             </div>
 
-            {/* Right actions: Phone & CTA */}
-            <div className="flex items-center gap-2.5 xl:gap-4 shrink-0">
+            {/* Right actions: Phone, MAX & CTA */}
+            <div className="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 shrink-0">
               {/* Desktop phone numbers */}
-              <div className="hidden lg:flex flex-col text-right justify-center space-y-0.5">
+              <div className="hidden xl:flex flex-col text-right justify-center space-y-0.5">
                 <a
                   href="tel:+74232725725"
-                  className="text-xs xl:text-[12.5px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="text-[12px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Владивосток: ул. Ильичева, 29, оф. 8"
                 >
-                  <span className="text-[10px] xl:text-[10.5px] font-semibold text-slate-500">Владивосток:</span>
+                  <span className="text-[10px] font-semibold text-slate-500">Владивосток:</span>
                   <span className="text-slate-950 hover:text-cyan-700 font-bold">8 (423) 2-725-725</span>
                 </a>
                 <a
                   href="tel:+79502800300"
-                  className="text-[11px] xl:text-xs font-bold text-slate-700 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="text-[11px] font-bold text-slate-700 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Уссурийск: ул. Кирова, 12, оф. 202"
                 >
-                  <span className="text-[10px] xl:text-[10.5px] font-semibold text-slate-500">Уссурийск:</span>
+                  <span className="text-[10px] font-semibold text-slate-500">Уссурийск:</span>
                   <span className="text-slate-700 hover:text-cyan-700 font-semibold">8 (950) 2-800-300</span>
                 </a>
               </div>
@@ -217,29 +243,45 @@ export default function Header() {
               {/* Mobile phone call link: visible below lg */}
               <a
                 href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-                className="lg:hidden flex items-center gap-1.5 py-1.5 px-2.5 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-950 font-bold text-xs sm:text-sm tracking-tight transition-colors border border-slate-200/80 shadow-2xs"
+                className="lg:hidden flex items-center gap-1 py-1.5 px-2 sm:px-2.5 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-950 font-bold text-[11px] sm:text-xs tracking-tight transition-colors border border-slate-200/80 shadow-2xs whitespace-nowrap"
               >
-                <Phone className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-600 shrink-0" />
                 <span className="hidden sm:inline">8 (423) </span>
                 <span>2-725-725</span>
               </a>
+
+              {/* Desktop MAX Button */}
+              <div className="hidden lg:block">
+                <MaxButton
+                  placement="header_desktop"
+                  variant="header"
+                  iconClassName="w-4 h-4"
+                />
+              </div>
 
               {/* Desktop CTA Button: Заявка на замер */}
               <button
                 type="button"
                 onClick={() => openMeasurementModal("Шапка сайта")}
-                className="hidden lg:inline-flex px-3.5 py-2 xl:px-4 xl:py-2.5 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-sm hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer shrink-0"
+                className="hidden lg:inline-flex px-3 py-2 xl:px-3.5 xl:py-2 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-xl text-[11.5px] uppercase tracking-wider shadow-sm hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer shrink-0"
               >
                 Заявка на замер
               </button>
 
-              {/* Mobile Burger Button */}
+              {/* Mobile Menu Text Button («Меню» without hamburger 3-lines icon) */}
               <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 sm:p-2.5 rounded-xl bg-white/60 hover:bg-white text-slate-900 border border-slate-200/80 shadow-2xs backdrop-blur-md transition-colors"
-                aria-label="Открыть меню"
+                type="button"
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
+                aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation-panel"
+                className={`lg:hidden px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all cursor-pointer select-none whitespace-nowrap ${
+                  mobileMenuOpen
+                    ? "bg-slate-950 text-white border-slate-950 shadow-sm"
+                    : "bg-white/90 hover:bg-white text-slate-950 border-slate-300/90 shadow-2xs backdrop-blur-md"
+                }`}
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                Меню
               </button>
             </div>
           </div>
@@ -247,7 +289,12 @@ export default function Header() {
 
         {/* Mobile Fullscreen Navigation Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-full z-[60] bg-white/98 backdrop-blur-2xl border-b border-slate-200 max-h-[85vh] overflow-y-auto p-5 animate-in slide-in-from-top-2 duration-300 shadow-2xl">
+          <div
+            id="mobile-navigation-panel"
+            role="region"
+            aria-label="Мобильное меню"
+            className="lg:hidden fixed inset-x-0 top-full z-[60] bg-white/98 backdrop-blur-2xl border-b border-slate-200 max-h-[85vh] overflow-y-auto p-5 animate-in slide-in-from-top-2 duration-300 shadow-2xl"
+          >
             <div className="space-y-3">
               {navSections.map((sec) => (
                 <div key={sec.id} className="border-b border-slate-100 pb-2.5">
@@ -266,6 +313,7 @@ export default function Header() {
                           onClick={() => setMobileExpanded(mobileExpanded === sec.id ? null : sec.id)}
                           className="p-2 text-slate-500 hover:text-cyan-700"
                           aria-label={`Развернуть ${sec.label}`}
+                          aria-expanded={mobileExpanded === sec.id}
                         >
                           <ChevronDown
                             className={`w-4 h-4 transition-transform duration-200 ${
@@ -303,7 +351,7 @@ export default function Header() {
               ))}
 
               {/* Mobile Quick Action Buttons & Offices */}
-              <div className="pt-3 space-y-3">
+              <div className="pt-3 space-y-2.5">
                 <button
                   type="button"
                   onClick={() => {
@@ -314,6 +362,13 @@ export default function Header() {
                 >
                   Вызвать мастера на замер
                 </button>
+
+                <MaxButton
+                  placement="header_mobile_menu"
+                  variant="primary"
+                  className="w-full py-3.5"
+                  onClickAfter={() => setMobileMenuOpen(false)}
+                />
 
                 <div className="grid grid-cols-2 gap-2">
                   <a

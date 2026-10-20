@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2 } from "lucide-react";
+import { MapPin, Shield, CheckCircle2 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
+import MaxButton from "@/components/MaxButton";
 import logoImg from "../../public/images/logo/logo-original.png";
 
 export default function Footer() {
@@ -84,6 +85,7 @@ export default function Footer() {
               <li><Link href="/vinilovyi_saidingh" className="text-slate-600 hover:text-slate-950 transition-colors">Виниловый сайдинг</Link></li>
               <li><Link href="/alyuminievye_okna_vladivostok" className="text-slate-600 hover:text-slate-950 transition-colors">Алюминиевые окна и витражи</Link></li>
               <li><Link href="/aliuminiievyie_okna_i_dvieri" className="text-slate-600 hover:text-slate-950 transition-colors">Фасады ALT F50 / ALT 150</Link></li>
+              <li><Link href="/klyuchevye-obekty" className="font-semibold text-cyan-700 hover:text-cyan-900 transition-colors">Ключевые объекты и ЖК</Link></li>
             </ul>
           </div>
 
@@ -119,7 +121,12 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="pt-1">
+              <div className="pt-1 space-y-2">
+                <MaxButton
+                  placement="footer"
+                  variant="compact"
+                  className="w-full sm:w-auto"
+                />
                 <div className="text-[11px] text-slate-600 font-semibold">
                   WhatsApp: +7 (994) 010-03-00
                 </div>
@@ -128,7 +135,7 @@ export default function Footer() {
               <div className="pt-1">
                 <Link
                   href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-                  className="inline-block px-4 py-2 bg-slate-900 hover:bg-black text-white rounded-lg text-xs uppercase font-bold tracking-wide transition-colors shadow-sm"
+                  className="inline-block px-4 py-2.5 bg-slate-900 hover:bg-black text-white rounded-xl text-xs uppercase font-bold tracking-wide transition-colors shadow-sm"
                 >
                   Вызвать мастера на замер
                 </Link>
@@ -155,6 +162,7 @@ export default function Footer() {
             </span>
           </div>
           <div className="flex flex-wrap gap-6">
+            <Link href="/klyuchevye-obekty" className="hover:text-slate-900 transition-colors font-semibold text-slate-700">Ключевые объекты</Link>
             <Link href="/ghalierieia_rabot" className="hover:text-slate-900 transition-colors">Галерея работ</Link>
             <Link href="/okonnaia_kompaniia_vladivostok" className="hover:text-slate-900 transition-colors">О компании</Link>
             <Link href="/contacts" className="hover:text-slate-900 transition-colors">Контакты</Link>

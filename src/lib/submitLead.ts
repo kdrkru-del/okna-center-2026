@@ -4,6 +4,10 @@ import {
   recordSubmission,
   setSubmittingLock,
 } from '@/lib/rateLimiter';
+import {
+  allocateVisitorMaxManager,
+  AssignedManagerRecord,
+} from '@/lib/maxRotator';
 
 export interface LeadPayload {
   name?: string;
@@ -15,6 +19,7 @@ export interface LeadPayload {
   pageUrl?: string;
   website?: string; // honeypot field
   isCalculator?: boolean;
+  promoOption?: string;
   calculatorData?: {
     type?: string;
     profile?: string;
@@ -29,13 +34,14 @@ export interface SubmitLeadResult {
   ok: boolean;
   message?: string;
   error?: string;
+  assignedManager?: AssignedManagerRecord;
 }
 
 export const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/okna.c@mail.ru';
 
 /**
- * Unified lead submission helper with anti-spam and per-IP/device rate limiting.
- * Protects okna.c@mail.ru from flooding, duplicate submissions, and automated bots.
+ * Unified lead submission helper with anti-spam, per-IP/device rate limiting,
+ * and 50/50 Round Robin MAX manager assignment.
  */
 export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult> {
   const {
@@ -48,6 +54,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     pageUrl,
     website,
     isCalculator,
+    promoOption,
     calculatorData,
   } = payload;
 
@@ -79,6 +86,12 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     };
   }
 
+  // 3. Allocate 50/50 Round Robin manager
+  const assignedManager = await allocateVisitorMaxManager(
+    'lead_form',
+    source || 'lead_form'
+  );
+
   // Timestamp in local Primorye timezone
   const dateTimeStr =
     new Date().toLocaleString('ru-RU', {
@@ -107,8 +120,10 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
   }
 
   const subject = isCalculator
-    ? 'Новая заявка из калькулятора — «Окна Центр»'
-    : 'Новая заявка с сайта «Окна Центр»';
+    ? `Новая заявка из калькулятора (${assignedManager.managerLabel}) — «Окна Центр»`
+    : promoOption
+    ? `Акция на лоджии: ${promoOption} (${assignedManager.managerLabel}) — «Окна Центр»`
+    : `Новая заявка с сайта (${assignedManager.managerLabel}) — «Окна Центр»`;
 
   const resolvedUrl =
     pageUrl || (typeof window !== 'undefined' ? window.location.href : 'https://окнацентр.рф/');
@@ -124,9 +139,12 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
   body['Телефон'] = phone.trim();
   if (city && city.trim()) body['Город'] = city.trim();
   if (service && service.trim()) body['Услуга'] = service.trim();
+  if (promoOption && promoOption.trim()) body['Выбранный вариант по акции'] = promoOption.trim();
   if (comment && comment.trim()) body['Комментарий'] = comment.trim();
   if (formattedCalcData) body['Параметры калькулятора'] = formattedCalcData;
   if (source && source.trim()) body['Источник формы'] = source.trim();
+  body['Назначенный менеджер (50/50)'] = assignedManager.managerLabel;
+  body['Ссылка MAX менеджера'] = assignedManager.url;
   body['Страница'] = resolvedUrl;
   body['Дата и время'] = dateTimeStr;
 
@@ -162,11 +180,13 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
         service: service || '',
         city: city || '',
         isCalculator: Boolean(isCalculator),
+        assignedManager: assignedManager.managerId,
       });
 
       return {
         ok: true,
         message: 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.',
+        assignedManager,
       };
     } else {
       return {
@@ -174,6 +194,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
         error:
           data.message ||
           'Не удалось автоматически отправить заявку. Пожалуйста, позвоните нам: 8 (423) 2-725-725.',
+        assignedManager,
       };
     }
   } catch {
@@ -181,6 +202,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
       ok: false,
       error:
         'Не удалось автоматически отправить заявку. Пожалуйста, позвоните нам: 8 (423) 2-725-725.',
+      assignedManager,
     };
   } finally {
     setSubmittingLock(false);

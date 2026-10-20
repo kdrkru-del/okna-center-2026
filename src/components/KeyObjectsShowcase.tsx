@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, MapPin, Eye, Sparkles } from "lucide-react";
+import { ArrowRight, MapPin, Eye, Sparkles, Building2 } from "lucide-react";
 import { KEY_OBJECTS, galleryItems } from "@/data/gallery_data";
+import MaxButton from "@/components/MaxButton";
 import { asset } from "@/lib/assetPath";
 
 export default function KeyObjectsShowcase() {
-  // 4 flagship large construction projects
+  // 4 flagship large construction projects (starting with ЖК Архитектор)
   const flagshipObjects = KEY_OBJECTS.slice(0, 4);
 
   // 6 diverse real residential & commercial projects
@@ -33,13 +34,24 @@ export default function KeyObjectsShowcase() {
             </p>
           </div>
 
-          <Link
-            href="/ghalierieia_rabot"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white text-white hover:text-slate-950 font-bold text-xs uppercase tracking-wider border border-white/20 hover:border-white transition-all shadow-sm group self-start md:self-auto"
-          >
-            <span>Вся фотогалерея (40+ работ)</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="flex flex-wrap items-center gap-3 self-start md:self-auto">
+            <Link
+              href="/klyuchevye-obekty"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-cyan-600/20 group"
+            >
+              <Building2 className="w-4 h-4" />
+              <span>Ключевые объекты ({KEY_OBJECTS.length})</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link
+              href="/ghalierieia_rabot"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white text-white hover:text-slate-950 font-bold text-xs uppercase tracking-wider border border-white/20 hover:border-white transition-all shadow-sm group"
+            >
+              <span>Вся фотогалерея</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
 
         {/* 1. Flagship Construction Projects Grid (4 Large Cards) */}
@@ -49,16 +61,21 @@ export default function KeyObjectsShowcase() {
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
               Крупные объекты остекления домов и ЖК
             </span>
-            <span className="text-xs text-slate-400 font-mono hidden sm:inline">
-              Собственное производство и монтаж по ГОСТ
-            </span>
+            <Link
+              href="/klyuchevye-obekty"
+              className="text-xs text-cyan-400 hover:text-cyan-300 font-mono font-semibold flex items-center gap-1 group"
+            >
+              <span>Все ключевые объекты ({KEY_OBJECTS.length})</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {flagshipObjects.map((obj) => (
-              <div
+              <Link
                 key={obj.id}
-                className="group rounded-3xl overflow-hidden bg-slate-800/80 border border-slate-700/70 hover:border-cyan-500/60 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:shadow-cyan-950/40"
+                href={`/klyuchevye-obekty/${obj.id}`}
+                className="group rounded-3xl overflow-hidden bg-slate-800/80 border border-slate-700/70 hover:border-cyan-500/60 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:shadow-cyan-950/40 block"
               >
                 {/* Photo container */}
                 <div className="relative h-64 w-full overflow-hidden bg-slate-950">
@@ -107,8 +124,12 @@ export default function KeyObjectsShowcase() {
                       )}
                     </div>
                   </div>
+                  <div className="pt-3 mt-3 border-t border-slate-700/60 flex items-center justify-between text-xs font-semibold text-cyan-400">
+                    <span>Подробнее об объекте</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -158,7 +179,7 @@ export default function KeyObjectsShowcase() {
         </div>
 
         {/* Bottom CTA Banner */}
-        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-800 to-slate-800/80 border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-800 to-slate-800/80 border border-slate-700 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center flex-shrink-0">
               <Sparkles className="w-6 h-6 text-cyan-400" />
@@ -173,18 +194,23 @@ export default function KeyObjectsShowcase() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
             <Link
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="w-full sm:w-auto px-6 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl text-xs uppercase tracking-wider transition-all text-center whitespace-nowrap shadow-lg shadow-cyan-600/30"
             >
               Вызвать мастера на замер
             </Link>
+            <MaxButton
+              placement="homepage_key_objects_cta"
+              variant="primary"
+              className="w-full sm:w-auto py-3.5 px-5 rounded-2xl"
+            />
             <Link
-              href="/ghalierieia_rabot"
+              href="/klyuchevye-obekty"
               className="w-full sm:w-auto px-5 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-2xl text-xs uppercase tracking-wider transition-all text-center whitespace-nowrap border border-white/20"
             >
-              Все объекты →
+              Ключевые объекты →
             </Link>
           </div>
         </div>

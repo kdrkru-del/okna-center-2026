@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { PAGES_DATA } from "@/data/pages";
+import { KEY_OBJECTS } from "@/data/gallery_data";
 import { COMPANY_INFO } from "@/data/company_info";
 
 export const dynamic = "force-static";
@@ -13,6 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 1.0,
+    },
+    {
+      url: `${COMPANY_INFO.domain}/klyuchevye-obekty/`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${COMPANY_INFO.domain}/ghalierieia_rabot/`,
@@ -39,6 +46,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
   ];
+
+  // Individual key object pages
+  KEY_OBJECTS.forEach((obj) => {
+    routes.push({
+      url: `${COMPANY_INFO.domain}/klyuchevye-obekty/${obj.id}/`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    });
+  });
 
   Object.keys(PAGES_DATA).forEach((slug) => {
     routes.push({
