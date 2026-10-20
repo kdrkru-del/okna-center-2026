@@ -1,4 +1,4 @@
 :HL["/_next/static/css/2f3ef915493d20d0.css","style"]
 :HL["/_next/static/css/f49bca22aebbeddb.css","style"]
 :HL["/images/hero/hero-apartment-window-interior.jpg","image",{"fetchPriority":"high"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"ustanovka_plastikovykh_okon_vo_vladivostokie","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"EH-XLcJ0msHLFJrdxIkm3"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"ustanovka_plastikovykh_okon_vo_vladivostokie","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"LsZ6d_uMUbMZ4QCrxTYwY"}
