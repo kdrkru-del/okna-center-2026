@@ -40,7 +40,7 @@ export const KEY_OBJECTS: GalleryItem[] = [
     specs: "Поставка и монтаж изделий ПВХ — 6 500 м²",
     scope: "Поставка и монтаж изделий ПВХ — 6 500 м²",
     client: "«Девелопмент-Юг»",
-    year: "2024–2025",
+    year: "2025–2026",
     isKeyObject: true,
     badge: "6 500 м² · Девелопмент-Юг",
     description:

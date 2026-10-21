@@ -21,7 +21,7 @@ import { asset } from "@/lib/assetPath";
 export const metadata: Metadata = {
   title: "Ключевые объекты компании «Окна Центр» — остекление ЖК и крупных зданий",
   description:
-    "Крупные реализованные проекты компании «Окна Центр» во Владивостоке, Уссурийске и Приморском крае: ЖК «Архитектор» (6 500 м²), ЖД на Каплунова 10 (4 100 м²), ЖК «Каштановый двор», ЖК «Радужный» и объекты Минобороны РФ.",
+    "Крупные реализованные проекты компании «Окна Центр» во Владивостоке, Уссурийске и Приморском крае: ЖК «Архитектор» (6 500 м²), ЖД на Каплунова 10 (4 100 м²), ЖК «Каштановый двор», проекты для ПИК, GloraX, Девелопмент-Юг и Минобороны РФ.",
   alternates: {
     canonical: `${COMPANY_INFO.domain}/klyuchevye-obekty/`,
   },
@@ -152,7 +152,7 @@ export default function KeyObjectsPage() {
                     Партнёры и заказчики:
                   </span>
                   <span className="text-sm sm:text-base font-extrabold text-slate-950">
-                    Девелопмент-Юг, СЗ Ремстройцентр, Минобороны РФ
+                    ПИК, GloraX, Девелопмент-Юг, СЗ Ремстройцентр, Минобороны РФ
                   </span>
                 </div>
               </div>
@@ -174,6 +174,127 @@ export default function KeyObjectsPage() {
                 <span>Общая галерея работ</span>
                 <ArrowRight className="w-4 h-4 text-cyan-600" />
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Federal Partners & Clients Showcase with Official Regalia */}
+      <section className="border-y border-slate-200/80 bg-white py-10 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-700 block mb-1">
+                Доверие лидеров строительной отрасли
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950">
+                Партнёры и заказчики
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
+              Работаем с крупнейшими федеральными застройщиками России и государственными заказчиками. Комплексно остекляем объекты с соблюдением ГОСТ, строгих проектных стандартов и графиков сдачи.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* 1. ПИК */}
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-base font-black text-slate-950 tracking-tight">
+                    ПАО «ПИК СЗ»
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-cyan-100 text-cyan-900 text-[10px] font-bold uppercase font-mono">
+                    Девелопер № 1 в РФ
+                  </span>
+                </div>
+                <p className="text-xs text-slate-700 font-medium mb-1.5">
+                  Крупнейший федеральный девелопер жилья в России
+                </p>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Системообразующее предприятие РФ, абсолютный лидер по объемам текущего строительства в стране. Проекты во Владивостоке: ЖК «Босфорский парк», ЖК «Снежный парк», ЖК «Борисенко 48», ЖК «Wave».
+                </p>
+              </div>
+            </div>
+
+            {/* 2. GloraX */}
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-base font-black text-slate-950 tracking-tight">
+                    GloraX
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[10px] font-bold uppercase font-mono">
+                    Федеральный девелопер
+                  </span>
+                </div>
+                <p className="text-xs text-slate-700 font-medium mb-1.5">
+                  Лидер проектов КРТ и архитектурного девелопмента
+                </p>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Федеральный девелопер мультиформатного жилья, лауреат премий Urban Awards. Масштабный портфель проектов в Приморском крае (более 239 000 м²) со стандартами премиального и комфорт-класса.
+                </p>
+              </div>
+            </div>
+
+            {/* 3. Девелопмент-Юг */}
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-base font-black text-slate-950 tracking-tight">
+                    «Девелопмент-Юг»
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-900 text-[10px] font-bold uppercase font-mono">
+                    30+ лет на рынке
+                  </span>
+                </div>
+                <p className="text-xs text-slate-700 font-medium mb-1.5">
+                  Федеральная строительно-инвестиционная корпорация
+                </p>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Заказчик флагманского проекта компании «Окна Центр» — современного жилого комплекса «Архитектор» во Владивостоке (6 500 м² светопрозрачных конструкций ПВХ).
+                </p>
+              </div>
+            </div>
+
+            {/* 4. СЗ «Ремстройцентр» */}
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-base font-black text-slate-950 tracking-tight">
+                    СЗ «Ремстройцентр»
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-bold uppercase font-mono">
+                    Приморский край
+                  </span>
+                </div>
+                <p className="text-xs text-slate-700 font-medium mb-1.5">
+                  Специализированный застройщик высотного жилья
+                </p>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Строительство современных высотных жилых домов в Приморье. Заказчик остекления 24-этажного многоквартирного дома на ул. Каплунова, 10 (4 100 м²).
+                </p>
+              </div>
+            </div>
+
+            {/* 5. Минобороны РФ */}
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-base font-black text-slate-950 tracking-tight">
+                    Минобороны РФ
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-red-100 text-red-900 text-[10px] font-bold uppercase font-mono">
+                    Госзаказ
+                  </span>
+                </div>
+                <p className="text-xs text-slate-700 font-medium mb-1.5">
+                  Государственный заказчик, федеральные объекты
+                </p>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Выполнение контрактов государственного заказа для Министерства обороны РФ. Безупречное соответствие ГОСТ, строжайший контроль надежности и долговечности конструкций.
+                </p>
+              </div>
             </div>
           </div>
         </div>
