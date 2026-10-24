@@ -1,4 +1,4 @@
 :HL["/_next/static/css/2f3ef915493d20d0.css","style"]
-:HL["/_next/static/css/b214c4bf37758e37.css","style"]
+:HL["/_next/static/css/dc35aa9803a5825a.css","style"]
 :HL["/images/hero/hero-apartment-window-interior.jpg","image",{"fetchPriority":"high"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"contacts","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"ZvjmL5w3-ULCB0g-T1dE6"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"contacts","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"I3BkueLVtzpJpK3D_kB_t"}
