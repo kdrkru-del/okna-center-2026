@@ -1,4 +1,4 @@
 :HL["/_next/static/css/2f3ef915493d20d0.css","style"]
-:HL["/_next/static/css/dc35aa9803a5825a.css","style"]
+:HL["/_next/static/css/36c412d7c5d75ae6.css","style"]
 :HL["/images/hero/hero-apartment-window-interior.jpg","image",{"fetchPriority":"high"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"klyuchevye-obekty","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"zhk-tuhachevskogo-80","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"Jk_ZDMeu2FmrETmNO5iRE"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"klyuchevye-obekty","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"zhk-tuhachevskogo-80","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"EDQimzVZGVSTBjHhRlWt_"}
