@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ChevronRight,
-  Building2,
   ArrowRight,
   Layers,
   Phone,
@@ -111,11 +110,6 @@ export default function KeyObjectsPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider font-mono">
-              <Building2 className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Производственно-монтажный комплекс с 2004 года · Приморский край</span>
-            </div>
-
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
               Остекление жилых комплексов и высотных объектов до 25 этажей
             </h1>
