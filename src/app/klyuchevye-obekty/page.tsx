@@ -108,200 +108,146 @@ export default function KeyObjectsPage() {
         </nav>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-slate-50 via-white to-slate-50/50 py-10 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-900 text-xs font-semibold uppercase tracking-wider">
-                <Building2 className="w-3.5 h-3.5 text-cyan-600" />
-                <span>Крупные строительные проекты · Приморский край</span>
-              </div>
+      {/* Hero Section: Executive B2B Presentation */}
+      <section className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white py-12 sm:py-18">
+        {/* Subtle ambient lighting */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-950 leading-[1.1]">
-                Ключевые объекты компании «Окна Центр»
-              </h1>
-
-              <p className="text-slate-600 text-base sm:text-lg font-light leading-relaxed">
-                С 2004 года выполняем комплексное остекление многоэтажных жилых комплексов,
-                многоквартирных домов, коммерческих зданий и государственных объектов по всему
-                Приморскому краю. У каждого объекта есть постоянная прямая ссылка для удобной
-                отправки заказчикам и партнёрам.
-              </p>
-
-              {/* Key Stats Pills */}
-              <div className="flex flex-wrap gap-3 pt-1">
-                <div className="px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                  <span className="text-[10px] font-mono uppercase text-slate-500 block">
-                    Флагманский проект:
-                  </span>
-                  <span className="text-sm sm:text-base font-extrabold text-slate-950">
-                    ЖК «Архитектор» — 6 500 м²
-                  </span>
-                </div>
-                <div className="px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                  <span className="text-[10px] font-mono uppercase text-slate-500 block">
-                    Высотное строительство:
-                  </span>
-                  <span className="text-sm sm:text-base font-extrabold text-slate-950">
-                    Дома до 25 этажей по ГОСТ
-                  </span>
-                </div>
-                <div className="px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                  <span className="text-[10px] font-mono uppercase text-slate-500 block">
-                    Партнёры и заказчики:
-                  </span>
-                  <span className="text-sm sm:text-base font-extrabold text-slate-950">
-                    ПИК, GloraX, Девелопмент-Юг, СЗ Ремстройцентр, Минобороны РФ
-                  </span>
-                </div>
-              </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider font-mono">
+              <Building2 className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Производственно-монтажный комплекс с 2004 года · Приморский край</span>
             </div>
 
-            {/* Hero Actions */}
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
-              <Link
-                href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-                className="px-6 py-4 rounded-xl bg-slate-950 hover:bg-cyan-700 text-white font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2 shadow-md"
-              >
-                <span>Запросить расчёт / замер</span>
-                <ArrowRight className="w-4 h-4 text-cyan-400" />
-              </Link>
-              <Link
-                href="/ghalierieia_rabot"
-                className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2 shadow-2xs"
-              >
-                <span>Общая галерея работ</span>
-                <ArrowRight className="w-4 h-4 text-cyan-600" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+              Остекление жилых комплексов и высотных объектов до 25 этажей
+            </h1>
 
-      {/* Federal Partners & Clients Showcase with Official Regalia */}
-      <section className="border-y border-slate-200/80 bg-white py-10 sm:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-            <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-700 block mb-1">
-                Доверие лидеров строительной отрасли
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950">
-                Партнёры и заказчики
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
-              Работаем с крупнейшими федеральными застройщиками России и государственными заказчиками. Комплексно остекляем объекты с соблюдением ГОСТ, строгих проектных стандартов и графиков сдачи.
+            <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed max-w-3xl">
+              Собственное автоматизированное производство светопрозрачных конструкций ПВХ и алюминия в Приморье.
+              Инженерный расчёт ветровых нагрузок, закрытие теплового контура в утверждённый график генподрядчика и сдача технадзору по ГОСТ.
             </p>
+
+            {/* 4 Core B2B Metrics */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                <span className="text-2xl sm:text-3xl font-black text-cyan-300 font-mono block">
+                  6 500+ м²
+                </span>
+                <span className="text-xs text-slate-300 font-medium block mt-1">
+                  Объём крупнейшего сданного ЖК
+                </span>
+              </div>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                <span className="text-2xl sm:text-3xl font-black text-cyan-300 font-mono block">
+                  до 25 эт.
+                </span>
+                <span className="text-xs text-slate-300 font-medium block mt-1">
+                  Высотный монтаж с допуском
+                </span>
+              </div>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                <span className="text-2xl sm:text-3xl font-black text-cyan-300 font-mono block">
+                  с 2004 г.
+                </span>
+                <span className="text-xs text-slate-300 font-medium block mt-1">
+                  20+ лет производственной базы
+                </span>
+              </div>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                <span className="text-2xl sm:text-3xl font-black text-cyan-300 font-mono block">
+                  с НДС
+                </span>
+                <span className="text-xs text-slate-300 font-medium block mt-1">
+                  Акты КС-2 / КС-3 по ГОСТ
+                </span>
+              </div>
+            </div>
+
+            {/* Primary B2B Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-3">
+              <a
+                href="#tender-calc"
+                className="px-6 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-lg shadow-cyan-500/20"
+              >
+                <span>Отправить проект на расчёт</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="#portfolio-list"
+                className="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2"
+              >
+                <Layers className="w-4 h-4 text-cyan-400" />
+                <span>Смотреть сданные объекты ({KEY_OBJECTS.length})</span>
+              </a>
+              <a
+                href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
+                className="px-5 py-4 rounded-xl bg-transparent hover:bg-white/5 text-slate-300 hover:text-white font-mono text-xs font-semibold inline-flex items-center gap-2 transition-colors"
+              >
+                <Phone className="w-4 h-4 text-cyan-400" />
+                <span>{COMPANY_INFO.mainPhone} (ПТО / Тендерный отдел)</span>
+              </a>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* 1. ПИК */}
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-base font-black text-slate-950 tracking-tight">
-                    ПАО «ПИК СЗ»
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-cyan-100 text-cyan-900 text-[10px] font-bold uppercase font-mono">
-                    Девелопер № 1 в РФ
-                  </span>
-                </div>
-                <p className="text-xs text-slate-700 font-medium mb-1.5">
-                  Крупнейший федеральный девелопер жилья в России
-                </p>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Системообразующее предприятие РФ, абсолютный лидер по объемам текущего строительства в стране. Проекты во Владивостоке: ЖК «Босфорский парк», ЖК «Снежный парк», ЖК «Борисенко 48», ЖК «Wave».
-                </p>
-              </div>
+      {/* Trust Line: Federal Developers & Partners (Clean Bar instead of text walls) */}
+      <section className="border-b border-slate-200/90 bg-white py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div className="shrink-0">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-bold block">
+                Доверие лидеров строительной отрасли:
+              </span>
+              <span className="text-xs font-semibold text-slate-900">
+                Генеральные подрядчики и девелоперы
+              </span>
             </div>
 
-            {/* 2. GloraX */}
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-base font-black text-slate-950 tracking-tight">
-                    GloraX
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[10px] font-bold uppercase font-mono">
-                    Федеральный девелопер
-                  </span>
-                </div>
-                <p className="text-xs text-slate-700 font-medium mb-1.5">
-                  Лидер проектов КРТ и архитектурного девелопмента
-                </p>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Федеральный девелопер мультиформатного жилья, лауреат премий Urban Awards. Масштабный портфель проектов в Приморском крае (более 239 000 м²) со стандартами премиального и комфорт-класса.
-                </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 flex-1 lg:max-w-4xl">
+              <div className="px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2 shadow-2xs">
+                <span className="text-xs font-extrabold text-slate-950">ПИК</span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-sm bg-cyan-100 text-cyan-900 font-bold">№1 в РФ</span>
               </div>
-            </div>
-
-            {/* 3. Девелопмент-Юг */}
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-base font-black text-slate-950 tracking-tight">
-                    «Девелопмент-Юг»
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-900 text-[10px] font-bold uppercase font-mono">
-                    30+ лет на рынке
-                  </span>
-                </div>
-                <p className="text-xs text-slate-700 font-medium mb-1.5">
-                  Федеральная строительно-инвестиционная корпорация
-                </p>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Заказчик флагманского проекта компании «Окна Центр» — современного жилого комплекса «Архитектор» во Владивостоке (6 500 м² светопрозрачных конструкций ПВХ).
-                </p>
+              <div className="px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2 shadow-2xs">
+                <span className="text-xs font-extrabold text-slate-950">GloraX</span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-sm bg-amber-100 text-amber-900 font-bold">КРТ</span>
               </div>
-            </div>
-
-            {/* 4. СЗ «Ремстройцентр» */}
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-base font-black text-slate-950 tracking-tight">
-                    СЗ «Ремстройцентр»
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-bold uppercase font-mono">
-                    Приморский край
-                  </span>
-                </div>
-                <p className="text-xs text-slate-700 font-medium mb-1.5">
-                  Специализированный застройщик высотного жилья
-                </p>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Строительство современных высотных жилых домов в Приморье. Заказчик остекления 24-этажного многоквартирного дома на ул. Каплунова, 10 (4 100 м²).
-                </p>
+              <div className="px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2 shadow-2xs">
+                <span className="text-xs font-extrabold text-slate-950">Девелопмент-Юг</span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-sm bg-blue-100 text-blue-900 font-bold">30+ лет</span>
               </div>
-            </div>
-
-            {/* 5. Минобороны РФ */}
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-cyan-500/50 transition-colors shadow-2xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-base font-black text-slate-950 tracking-tight">
-                    Минобороны РФ
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-red-100 text-red-900 text-[10px] font-bold uppercase font-mono">
-                    Госзаказ
-                  </span>
-                </div>
-                <p className="text-xs text-slate-700 font-medium mb-1.5">
-                  Государственный заказчик, федеральные объекты
-                </p>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Выполнение контрактов государственного заказа для Министерства обороны РФ. Безупречное соответствие ГОСТ, строжайший контроль надежности и долговечности конструкций.
-                </p>
+              <div className="px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2 shadow-2xs">
+                <span className="text-xs font-extrabold text-slate-950">Ремстройцентр</span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-sm bg-emerald-100 text-emerald-900 font-bold">25 эт.</span>
+              </div>
+              <div className="px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2 shadow-2xs col-span-2 sm:col-span-1">
+                <span className="text-xs font-extrabold text-slate-950">Минобороны РФ</span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-sm bg-red-100 text-red-900 font-bold">Госзаказ</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Key Objects List (Large Presentation Cards) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12">
+      {/* Main Key Objects List (Large Presentation Cards - Right at the Top!) */}
+      <section id="portfolio-list" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-5">
+          <div>
+            <span className="text-xs font-mono uppercase tracking-wider text-cyan-700 font-bold block mb-1">
+              Референс-лист подрядчика
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950">
+              Реализованные объекты и жилые комплексы
+            </h2>
+          </div>
+          <span className="text-xs text-slate-500 font-mono">
+            {KEY_OBJECTS.length} ключевых строительных проектов
+          </span>
+        </div>
         {KEY_OBJECTS.map((obj, index) => {
           const photos =
             obj.photos && obj.photos.length > 0 ? obj.photos : [obj.src];
@@ -509,38 +455,138 @@ export default function KeyObjectsPage() {
         })}
       </section>
 
-      {/* B2B / Corporate & Private CTA Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="p-8 sm:p-12 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-          <div className="max-w-2xl space-y-3">
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">
-              <ShieldCheck className="w-4 h-4" />
-              Приглашаем к сотрудничеству застройщиков и частных заказчиков
+      {/* B2B Value Proposition for Developers & General Contractors */}
+      <section className="border-t border-slate-200/90 bg-slate-50/70 py-14 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs font-mono uppercase tracking-wider text-cyan-700 font-bold block mb-1.5">
+              Инженерно-производственные гарантии
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-              Нужен расчёт остекления объекта или квартиры?
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-950 mb-3">
+              Почему девелоперы и генподрядчики выбирают «Окна Центр»
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed">
-              Собственное автоматизированное производство с 2004 года, соблюдение графиков
-              поставок, работа по ГОСТ и официальная гарантия 5 лет по договору.
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Закрываем потребности строительных компаний полного цикла: от согласования рабочей документации и ветровых расчётов до сдачи фасадного контура Госстройнадзору.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <Link
-              href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-              className="py-4 px-6 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-cyan-600/20 inline-flex items-center gap-2"
-            >
-              <span>Вызвать мастера на замер</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
-              className="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/15 font-mono font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-cyan-400" />
-              <span>{COMPANY_INFO.mainPhone}</span>
-            </a>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* 1 */}
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-800 flex items-center justify-center font-black text-sm mb-4">
+                01
+              </div>
+              <h3 className="text-base font-extrabold text-slate-950 mb-2">
+                Собственный завод в Приморье
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Автоматизированные линии резки, пайки и остекления. Отсутствие посредников гарантирует прямое ценообразование и бесперебойную ритмичность поставок на объект.
+              </p>
+            </div>
+
+            {/* 2 */}
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-800 flex items-center justify-center font-black text-sm mb-4">
+                02
+              </div>
+              <h3 className="text-base font-extrabold text-slate-950 mb-2">
+                ПТО и ветровые расчёты
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Собственный инженерный отдел разрабатывает узлы примыканий, рассчитывает статику и ветровые нагрузки побережья Владивостока для высотных домов до 25 этажей.
+              </p>
+            </div>
+
+            {/* 3 */}
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-800 flex items-center justify-center font-black text-sm mb-4">
+                03
+              </div>
+              <h3 className="text-base font-extrabold text-slate-950 mb-2">
+                Штатные звенья высотного монтажа
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Аттестованные монтажники с допусками на высотные работы. Поэтапный монтаж по этажным захваткам в строгом соответствии с утверждённым графиком генподрядчика.
+              </p>
+            </div>
+
+            {/* 4 */}
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-800 flex items-center justify-center font-black text-sm mb-4">
+                04
+              </div>
+              <h3 className="text-base font-extrabold text-slate-950 mb-2">
+                Сдача технадзору по ГОСТ и НДС
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Полный комплект исполнительной документации: сертификаты, паспорта качества на каждое изделие, акты скрытых работ и подписание КС-2 / КС-3 в срок.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tender & Project Documentation Intake (id="tender-calc") */}
+      <section id="tender-calc" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
+        <div className="p-8 sm:p-14 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-2xl relative overflow-hidden">
+          {/* Subtle glow */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">
+                <ShieldCheck className="w-4 h-4" />
+                Служба заказчика и тендерный отдел
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                Требуется расчёт светопрозрачных конструкций по проекту?
+              </h2>
+              <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed">
+                Отправьте спецификации проёмов (разделы АР / КР) или техническое задание.
+                Инженерно-сметный отдел компании подготовит детальный расчёт сметы, технические узлы примыканий и проект графика поставок в течение 48 часов.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href={`tel:${COMPANY_INFO.mainPhoneRaw}`}
+                  className="px-6 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-lg shadow-cyan-500/20"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>Позвонить: {COMPANY_INFO.mainPhone}</span>
+                </a>
+                <Link
+                  href="/zaiavka_na_uslughi_kompanii_oknatsientr"
+                  className="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2"
+                >
+                  <span>Форма отправки проектной документации</span>
+                  <ArrowRight className="w-4 h-4 text-cyan-400" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-7 space-y-3.5 backdrop-blur-xs">
+              <span className="text-xs font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                Прямой контакт для девелоперов:
+              </span>
+              <div className="space-y-2 text-xs sm:text-sm text-slate-200">
+                <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                  <span className="text-slate-400">Формат работы:</span>
+                  <span className="font-bold text-white">Генподряд / Субподряд</span>
+                </div>
+                <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                  <span className="text-slate-400">Налогообложение:</span>
+                  <span className="font-bold text-white">Общая система (с НДС)</span>
+                </div>
+                <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                  <span className="text-slate-400">Срок подготовки КП:</span>
+                  <span className="font-bold text-cyan-300">до 48 часов</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-400">География:</span>
+                  <span className="font-bold text-white">Владивосток и весь Приморский край</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
