@@ -5,7 +5,6 @@ import {
   Building2,
   ArrowRight,
   Layers,
-  ShieldCheck,
   Phone,
 } from "lucide-react";
 import { KEY_OBJECTS } from "@/data/gallery_data";
@@ -232,14 +231,9 @@ export default function KeyObjectsPage() {
       {/* Main Key Objects List (Large Presentation Cards - Right at the Top!) */}
       <section id="portfolio-list" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-5">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-wider text-cyan-700 font-bold block mb-1">
-              Референс-лист подрядчика
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950">
-              Реализованные объекты и жилые комплексы
-            </h2>
-          </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950">
+            Реализованные объекты и жилые комплексы
+          </h2>
           <span className="text-xs text-slate-500 font-mono">
             {KEY_OBJECTS.length} ключевых строительных проектов
           </span>
@@ -251,9 +245,6 @@ export default function KeyObjectsPage() {
       <section className="border-t border-slate-200/90 bg-slate-50/70 py-14 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono uppercase tracking-wider text-cyan-700 font-bold block mb-1.5">
-              Инженерно-производственные гарантии
-            </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-950 mb-3">
               Почему девелоперы и генподрядчики выбирают «Окна Центр»
             </h2>
@@ -265,9 +256,6 @@ export default function KeyObjectsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* 1 */}
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-800 flex items-center justify-center font-black text-sm mb-4">
-                01
-              </div>
               <h3 className="text-base font-extrabold text-slate-950 mb-2">
                 Собственный завод в Приморье
               </h3>
@@ -278,9 +266,6 @@ export default function KeyObjectsPage() {
 
             {/* 2 */}
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-800 flex items-center justify-center font-black text-sm mb-4">
-                02
-              </div>
               <h3 className="text-base font-extrabold text-slate-950 mb-2">
                 ПТО и ветровые расчёты
               </h3>
@@ -291,9 +276,6 @@ export default function KeyObjectsPage() {
 
             {/* 3 */}
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-800 flex items-center justify-center font-black text-sm mb-4">
-                03
-              </div>
               <h3 className="text-base font-extrabold text-slate-950 mb-2">
                 Штатные звенья высотного монтажа
               </h3>
@@ -304,9 +286,6 @@ export default function KeyObjectsPage() {
 
             {/* 4 */}
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-800 flex items-center justify-center font-black text-sm mb-4">
-                04
-              </div>
               <h3 className="text-base font-extrabold text-slate-950 mb-2">
                 Сдача технадзору по ГОСТ и НДС
               </h3>
@@ -326,10 +305,6 @@ export default function KeyObjectsPage() {
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">
-                <ShieldCheck className="w-4 h-4" />
-                Служба заказчика и тендерный отдел
-              </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 Требуется расчёт светопрозрачных конструкций по проекту?
               </h2>

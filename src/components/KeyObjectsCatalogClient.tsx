@@ -192,26 +192,19 @@ export default function KeyObjectsCatalogClient({
               {/* Right Column: Project Passport & Specifications */}
               <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between">
                 <div className="space-y-5">
-                  <div className="flex items-center justify-between gap-2">
-                    <span
-                      className={`text-xs font-mono uppercase tracking-wider font-bold ${
-                        isFeatured ? "text-cyan-400" : "text-cyan-700"
-                      }`}
-                    >
-                      Реализованный проект #{index + 1}
-                    </span>
-                    {obj.year && (
+                  {obj.year && (
+                    <div>
                       <span
-                        className={`text-xs font-mono px-2.5 py-0.5 rounded-md font-bold ${
+                        className={`text-xs font-mono px-3 py-1 rounded-lg font-bold inline-flex items-center ${
                           isFeatured
-                            ? "bg-white/10 text-slate-300"
-                            : "bg-slate-100 text-slate-700"
+                            ? "bg-white/10 text-cyan-300 border border-cyan-500/30"
+                            : "bg-slate-100 text-slate-700 border border-slate-200"
                         }`}
                       >
                         {obj.year}
                       </span>
-                    )}
-                  </div>
+                    </div>
+                  )}
 
                   <h2
                     className={`text-2xl sm:text-3xl font-extrabold tracking-tight leading-snug ${
