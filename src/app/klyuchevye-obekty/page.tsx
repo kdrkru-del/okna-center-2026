@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ChevronRight,
-  MapPin,
   Building2,
-  CheckCircle2,
   ArrowRight,
   Layers,
   ShieldCheck,
-  Camera,
   Phone,
 } from "lucide-react";
 import { KEY_OBJECTS } from "@/data/gallery_data";
 import { COMPANY_INFO } from "@/data/company_info";
-import { CopyObjectLinkButton } from "@/components/KeyObjectDetailClient";
+import KeyObjectsCatalogClient from "@/components/KeyObjectsCatalogClient";
 import LeadForm from "@/components/LeadForm";
 import { asset } from "@/lib/assetPath";
 
@@ -248,211 +244,7 @@ export default function KeyObjectsPage() {
             {KEY_OBJECTS.length} ключевых строительных проектов
           </span>
         </div>
-        {KEY_OBJECTS.map((obj, index) => {
-          const photos =
-            obj.photos && obj.photos.length > 0 ? obj.photos : [obj.src];
-          const isFeatured = index === 0;
-
-          return (
-            <article
-              key={obj.id}
-              id={obj.id}
-              className={`rounded-3xl border overflow-hidden transition-all shadow-lg ${
-                isFeatured
-                  ? "bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white border-cyan-500/40 shadow-2xl"
-                  : "bg-white text-slate-900 border-slate-200/90 hover:border-cyan-500/50"
-              }`}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12">
-                {/* Left Column: High-Quality Visuals */}
-                <div className="lg:col-span-7 p-4 sm:p-6 flex flex-col gap-3">
-                  <Link
-                    href={`/klyuchevye-obekty/${obj.id}`}
-                    className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-950 group block"
-                  >
-                    <Image
-                      src={asset(photos[0])}
-                      alt={`${obj.title} — ${obj.location}, ${obj.scope || obj.specs || ""}`}
-                      fill
-                      priority={index < 2}
-                      sizes="(max-width: 1024px) 100vw, 58vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent opacity-70" />
-
-                    {/* Top Badges */}
-                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2">
-                      <span className="px-3 py-1 rounded-full bg-slate-950/85 backdrop-blur-md text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">
-                        {obj.badge || "Ключевой объект"}
-                      </span>
-                      <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-slate-950 text-xs font-semibold flex items-center gap-1.5 shadow-xs">
-                        <Camera className="w-3.5 h-3.5 text-cyan-600" />
-                        <span>{photos.length} фото</span>
-                      </span>
-                    </div>
-
-                    {/* Bottom Location */}
-                    <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between text-white">
-                      <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium">
-                        <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
-                        <span>{obj.location}</span>
-                      </div>
-                      <span className="text-xs font-semibold text-cyan-300 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                        <span>Смотреть проект</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </span>
-                    </div>
-                  </Link>
-
-                  {/* Sub-photos preview strip if object has multiple photos */}
-                  {photos.length > 1 && (
-                    <div className="grid grid-cols-3 gap-3">
-                      {photos.slice(0, 3).map((pSrc, pIdx) => (
-                        <Link
-                          key={pSrc}
-                          href={`/klyuchevye-obekty/${obj.id}`}
-                          className="relative aspect-[16/10] rounded-xl overflow-hidden border border-slate-500/20 group block"
-                        >
-                          <Image
-                            src={asset(pSrc)}
-                            alt={`${obj.title} — ракурс ${pIdx + 1}`}
-                            fill
-                            sizes="(max-width: 768px) 33vw, 18vw"
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Right Column: Project Passport & Details */}
-                <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between">
-                  <div className="space-y-5">
-                    <div className="flex items-center justify-between gap-2">
-                      <span
-                        className={`text-xs font-mono uppercase tracking-wider font-bold ${
-                          isFeatured ? "text-cyan-400" : "text-cyan-700"
-                        }`}
-                      >
-                        Реализованный проект #{index + 1}
-                      </span>
-                      {obj.year && (
-                        <span
-                          className={`text-xs font-mono px-2.5 py-0.5 rounded-md ${
-                            isFeatured
-                              ? "bg-white/10 text-slate-300"
-                              : "bg-slate-100 text-slate-600"
-                          }`}
-                        >
-                          {obj.year}
-                        </span>
-                      )}
-                    </div>
-
-                    <h2
-                      className={`text-2xl sm:text-3xl font-extrabold tracking-tight leading-snug ${
-                        isFeatured ? "text-white" : "text-slate-950"
-                      }`}
-                    >
-                      <Link
-                        href={`/klyuchevye-obekty/${obj.id}`}
-                        className="hover:text-cyan-500 transition-colors"
-                      >
-                        {obj.title}
-                      </Link>
-                    </h2>
-
-                    {/* Structured Specifications Card */}
-                    <div
-                      className={`p-4 rounded-2xl border space-y-3 text-xs sm:text-sm ${
-                        isFeatured
-                          ? "bg-white/5 border-white/10 text-slate-200"
-                          : "bg-slate-50 border-slate-200/80 text-slate-700"
-                      }`}
-                    >
-                      <div className="flex items-start justify-between gap-3 pb-2.5 border-b border-current/10">
-                        <span className={isFeatured ? "text-slate-400" : "text-slate-500"}>
-                          Локация:
-                        </span>
-                        <span className="font-bold text-right">{obj.location}</span>
-                      </div>
-
-                      {obj.client && (
-                        <div className="flex items-start justify-between gap-3 pb-2.5 border-b border-current/10">
-                          <span className={isFeatured ? "text-slate-400" : "text-slate-500"}>
-                            Заказчик:
-                          </span>
-                          <span className="font-bold text-right">{obj.client}</span>
-                        </div>
-                      )}
-
-                      <div className="flex items-start justify-between gap-3">
-                        <span className={isFeatured ? "text-slate-400" : "text-slate-500"}>
-                          Выполненные работы:
-                        </span>
-                        <span
-                          className={`font-extrabold text-right ${
-                            isFeatured ? "text-cyan-300" : "text-cyan-800"
-                          }`}
-                        >
-                          {obj.scope || obj.specs}
-                        </span>
-                      </div>
-                    </div>
-
-                    {obj.description && (
-                      <p
-                        className={`text-xs sm:text-sm leading-relaxed ${
-                          isFeatured ? "text-slate-300" : "text-slate-600"
-                        }`}
-                      >
-                        {obj.description}
-                      </p>
-                    )}
-
-                    {obj.highlights && obj.highlights.length > 0 && (
-                      <ul className="space-y-1.5 pt-1">
-                        {obj.highlights.map((h, hIdx) => (
-                          <li
-                            key={hIdx}
-                            className={`flex items-start gap-2 text-xs ${
-                              isFeatured ? "text-slate-300" : "text-slate-700"
-                            }`}
-                          >
-                            <CheckCircle2
-                              className={`w-4 h-4 shrink-0 mt-0.5 ${
-                                isFeatured ? "text-cyan-400" : "text-cyan-600"
-                              }`}
-                            />
-                            <span>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-
-                  {/* Card Footer Buttons */}
-                  <div className="pt-6 mt-6 border-t border-current/10 flex flex-wrap items-center gap-3">
-                    <Link
-                      href={`/klyuchevye-obekty/${obj.id}`}
-                      className={`px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-sm ${
-                        isFeatured
-                          ? "bg-cyan-500 hover:bg-cyan-400 text-slate-950"
-                          : "bg-slate-950 hover:bg-cyan-700 text-white"
-                      }`}
-                    >
-                      <span>Страница объекта</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-
-                    <CopyObjectLinkButton slug={obj.id} compact />
-                  </div>
-                </div>
-              </div>
-            </article>
-          );
-        })}
+        <KeyObjectsCatalogClient items={KEY_OBJECTS} />
       </section>
 
       {/* B2B Value Proposition for Developers & General Contractors */}

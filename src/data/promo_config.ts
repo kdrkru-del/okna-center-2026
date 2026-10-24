@@ -70,5 +70,5 @@ export const LOGGIA_PROMO_CONFIG: LoggiaPromoConfig = {
   allowedDesktopPaths: [
     '*',
   ],
-  excludedPaths: ['/contacts', '/zaiavka_na_uslughi_kompanii_oknatsientr'],
+  excludedPaths: ['/klyuchevye-obekty', '/contacts', '/zaiavka_na_uslughi_kompanii_oknatsientr'],
 };
