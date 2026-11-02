@@ -95,7 +95,7 @@ export default function PricingTable({ hideTitle = false }: { hideTitle?: boolea
                 </div>
 
                 <Link
-                  href="/zaiavka_na_uslughi_kompanii_oknatsientr"
+                  href={item.category === "repairs" ? "/remont-plastikovyh-okon#vyzov-mastera" : "/zaiavka_na_uslughi_kompanii_oknatsientr"}
                   className="px-4 py-2 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm"
                 >
                   Заказать

@@ -238,7 +238,7 @@ export const ALL_PRICES: PriceItem[] = [
     name: "Регулировка створки окна (простая)",
     priceFrom: "от 250 ₽",
     unit: "створка",
-    sourcePage: "/remont_plastikovyh_okon_vladivostok",
+    sourcePage: "/remont-plastikovyh-okon",
     status: "confirmed",
     needsReview: false,
     note: "Настройка прижима зима/лето, устранение легкого провисания и трения.",
@@ -250,7 +250,7 @@ export const ALL_PRICES: PriceItem[] = [
     name: "Регулировка створки сложная / с восстановлением геометрии",
     priceFrom: "от 700 ₽",
     unit: "створка",
-    sourcePage: "/regulirovka_plastikovykh_okon_vladivostok",
+    sourcePage: "/remont-plastikovyh-okon",
     status: "confirmed",
     needsReview: false,
     note: "Перепакечивание, выправление геометрии створки технологическими подкладками."
@@ -261,7 +261,7 @@ export const ALL_PRICES: PriceItem[] = [
     name: "Замена уплотнителя на створке и раме",
     priceFrom: "от 250 ₽",
     unit: "пог. м",
-    sourcePage: "/remont_plastikovyh_okon_vladivostok",
+    sourcePage: "/remont-plastikovyh-okon",
     status: "confirmed",
     needsReview: false,
     note: "Качественный резиновый уплотнитель EPDM, устранение продуваний и свиста ветра.",
@@ -273,7 +273,7 @@ export const ALL_PRICES: PriceItem[] = [
     name: "Замена ручки оконной белой",
     priceFrom: "от 350 ₽",
     unit: "шт.",
-    sourcePage: "/remont_plastikovyh_okon_vladivostok",
+    sourcePage: "/remont-plastikovyh-okon",
     status: "confirmed",
     needsReview: false,
     note: "Прочная алюминиевая ручка Roto / Hoppe взамен треснувшей."
@@ -284,7 +284,7 @@ export const ALL_PRICES: PriceItem[] = [
     name: "Установка оконной ручки с ключом (детский замок)",
     priceFrom: "от 750 ₽",
     unit: "шт.",
-    sourcePage: "/remont_plastikovyh_okon_vladivostok",
+    sourcePage: "/remont-plastikovyh-okon",
     status: "confirmed",
     needsReview: false,
     note: "Блокировка открывания окна детьми, ключи в комплекте."
@@ -295,7 +295,7 @@ export const ALL_PRICES: PriceItem[] = [
     name: "Ремонт / замена основного запора фурнитуры",
     priceFrom: "По расчёту",
     unit: "створка",
-    sourcePage: "/remont_plastikovyh_okon_vladivostok",
+    sourcePage: "/remont-plastikovyh-okon",
     status: "unknown",
     needsReview: false,
     note: "Замена вышедших из строя механизмов, шестеренок, угловых переключателей."
@@ -306,7 +306,7 @@ export const ALL_PRICES: PriceItem[] = [
     name: "Замена разбитого / разгерметизированного стеклопакета",
     priceFrom: "от 1 500 ₽",
     unit: "изделие",
-    sourcePage: "/remont_plastikovyh_okon_vladivostok",
+    sourcePage: "/remont-plastikovyh-okon",
     status: "confirmed",
     needsReview: false,
     note: "Замер проема, заводское изготовление и замена с новыми штапиками."

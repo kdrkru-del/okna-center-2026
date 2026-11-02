@@ -258,6 +258,38 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
               </div>
             </div>
           </div>
+
+          {block.subItems && block.subItems.length > 0 && (
+            <div className="mt-8 pt-6 border-t border-slate-100">
+              {block.subItemsTitle && (
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-4 font-heading">
+                  {block.subItemsTitle}
+                </h3>
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {block.subItems.map((sub) => (
+                  <div
+                    key={sub.title}
+                    className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between"
+                  >
+                    <div>
+                      {sub.badge && (
+                        <span className="inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-cyan-50 text-cyan-800 font-bold border border-cyan-200 mb-2">
+                          {sub.badge}
+                        </span>
+                      )}
+                      <h4 className="text-sm font-bold text-slate-900 mb-1.5 leading-snug">
+                        {sub.title}
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-light">
+                        {sub.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
       ))}
 

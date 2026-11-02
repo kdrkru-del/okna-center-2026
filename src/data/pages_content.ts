@@ -97,7 +97,7 @@ export const ALL_PAGES: Record<string, PageContent> = {
       },
       {
         "label": "Регулировка и ремонт окон",
-        "url": "/remont_plastikovyh_okon_vladivostok"
+        "url": "/remont-plastikovyh-okon"
       }
     ]
   },
@@ -244,7 +244,7 @@ export const ALL_PAGES: Record<string, PageContent> = {
       },
       {
         "label": "Ремонт окон без замены",
-        "url": "/remont_plastikovyh_okon_vladivostok"
+        "url": "/remont-plastikovyh-okon"
       },
       {
         "label": "Остекление балконов",
@@ -995,7 +995,7 @@ export const ALL_PAGES: Record<string, PageContent> = {
       },
       {
         "label": "Ремонт окон",
-        "url": "/remont_plastikovyh_okon_vladivostok"
+        "url": "/remont-plastikovyh-okon"
       }
     ]
   },
@@ -1129,7 +1129,7 @@ export const ALL_PAGES: Record<string, PageContent> = {
     "slug": "remont_plastikovyh_okon_vladivostok",
     "category": "repairs",
     "categoryLabel": "Ремонт окон",
-    "categoryUrl": "/remont_plastikovyh_okon_vladivostok",
+    "categoryUrl": "/remont-plastikovyh-okon",
     "title": "Ремонт пластиковых окон — срочный выезд мастера, прайс-лист | Окна Центр",
     "description": "Профессиональный ремонт пластиковых окон от 250 руб. Срочный выезд мастера в день обращения. Ремонт фурнитуры, замена уплотнителя, замена разбитых стеклопакетов. Опыт с 2004 г.",
     "h1": "Ремонт пластиковых окон — официальный прайс-лист",
@@ -1191,7 +1191,7 @@ export const ALL_PAGES: Record<string, PageContent> = {
     "relatedLinks": [
       {
         "label": "Регулировка окон",
-        "url": "/regulirovka_plastikovykh_okon_vladivostok"
+        "url": "/remont-plastikovyh-okon#regulirovka-okon"
       },
       {
         "label": "Замена старых окон",
@@ -1207,7 +1207,7 @@ export const ALL_PAGES: Record<string, PageContent> = {
     "slug": "regulirovka_plastikovykh_okon_vladivostok",
     "category": "repairs",
     "categoryLabel": "Ремонт окон",
-    "categoryUrl": "/remont_plastikovyh_okon_vladivostok",
+    "categoryUrl": "/remont-plastikovyh-okon",
     "title": "Регулировка пластиковых окон — устранение продуваний и провисаний | Окна Центр",
     "description": "Срочная регулировка пластиковых окон от 300 руб. Устранение продуваний, тугого хода ручки, трения створок, перевод фурнитуры в зимний режим. Выезд мастера во все районы города.",
     "h1": "Регулировка пластиковых окон",
@@ -1254,11 +1254,11 @@ export const ALL_PAGES: Record<string, PageContent> = {
     "relatedLinks": [
       {
         "label": "Ремонт окон цены",
-        "url": "/remont_plastikovyh_okon_vladivostok"
+        "url": "/remont-plastikovyh-okon"
       },
       {
         "label": "Замена уплотнителя",
-        "url": "/remont_plastikovyh_okon_vladivostok"
+        "url": "/remont-plastikovyh-okon"
       },
       {
         "label": "Установка окон",

@@ -23,13 +23,14 @@ export default function WindowRepairCallout() {
           {/* 4 Repair Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             {REPAIR_SERVICES_ITEMS.map((item, idx) => (
-              <div
+              <Link
                 key={idx}
-                className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 hover:border-cyan-500/50 hover:bg-cyan-50/20 transition-all flex flex-col justify-between"
+                href={item.href || "/remont-plastikovyh-okon"}
+                className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 hover:border-cyan-500/50 hover:bg-cyan-50/20 transition-all flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <h3 className="text-base font-bold text-slate-900">{item.name}</h3>
+                    <h3 className="text-base font-bold text-slate-900 group-hover:text-cyan-700 transition-colors">{item.name}</h3>
                     <span className="text-xs font-mono font-bold text-cyan-700 bg-white px-2 py-0.5 rounded-md border border-slate-200">
                       {item.price}
                     </span>
@@ -38,7 +39,7 @@ export default function WindowRepairCallout() {
                     {item.desc}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
