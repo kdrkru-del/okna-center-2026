@@ -70,5 +70,12 @@ export const LOGGIA_PROMO_CONFIG: LoggiaPromoConfig = {
   allowedDesktopPaths: [
     '*',
   ],
-  excludedPaths: ['/klyuchevye-obekty', '/contacts', '/zaiavka_na_uslughi_kompanii_oknatsientr'],
+  excludedPaths: [
+    '/klyuchevye-obekty',
+    '/contacts',
+    '/zaiavka_na_uslughi_kompanii_oknatsientr',
+    // Рекламные страницы ремонта окон (Яндекс.Директ): акция на лоджии отвлекает
+    '/remont_plastikovyh_okon_vladivostok',
+    '/regulirovka_plastikovykh_okon_vladivostok',
+  ],
 };
