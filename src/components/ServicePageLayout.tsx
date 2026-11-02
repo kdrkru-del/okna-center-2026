@@ -24,6 +24,7 @@ import BalconyStepsSequence from "@/components/specialized/BalconyStepsSequence"
 import WindowTypesShowcase from "@/components/specialized/WindowTypesShowcase";
 import CompanyTimeline from "@/components/specialized/CompanyTimeline";
 import { asset } from "@/lib/assetPath";
+import { REPAIR_PRICE_ROWS, REPAIR_PRICE_FALLBACK } from "@/data/repair_landing";
 
 // Gallery image mapping by variant
 const GALLERY_BY_VARIANT: Record<string, { src: string; caption: string }[]> = {
@@ -69,8 +70,22 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   // Prices relevant for this specific page
+  const isRepair = page.variant === "repair";
   let pagePrices = getPricesBySourcePage(page.slug);
-  if (pagePrices.length === 0) {
+  if (isRepair) {
+    // Ремонт: показываем только подтверждённые цены (см. src/data/repair_landing.ts)
+    pagePrices = REPAIR_PRICE_ROWS.map((r) => ({
+      id: r.id,
+      category: "repairs",
+      name: r.service,
+      priceFrom: r.price && r.status === "confirmed" ? r.price : REPAIR_PRICE_FALLBACK,
+      unit: r.unit,
+      sourcePage: page.slug,
+      status: r.status === "confirmed" ? "confirmed" : "unknown",
+      needsReview: r.status !== "confirmed",
+      note: r.note,
+    })) as PriceItem[];
+  } else if (pagePrices.length === 0) {
     // Fallback to category
     const catMap: Record<string, string> = {
       windows: "windows",
@@ -110,12 +125,16 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       { "@type": "City", "name": "Артём" },
       { "@type": "AdministrativeArea", "name": "Приморский край" }
     ],
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "RUB",
-      "lowPrice": page.priceFrom.replace(/[^0-9]/g, "") || "1000",
-      "offerCount": pagePrices.length || 1
-    }
+    ...(isRepair
+      ? {}
+      : {
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "RUB",
+            "lowPrice": page.priceFrom.replace(/[^0-9]/g, "") || "1000",
+            "offerCount": pagePrices.length || 1
+          }
+        })
   };
 
   const breadcrumbSchema = {
@@ -204,6 +223,23 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               </p>
 
               {/* Price & Fact Badges */}
+              {isRepair ? (
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <div className="px-4 py-2 rounded-xl bg-cyan-50 border border-cyan-200">
+                    <span className="text-[10px] uppercase font-bold text-cyan-800 block tracking-wide">Стоимость:</span>
+                    <span className="text-sm sm:text-base font-semibold text-slate-900">после осмотра мастером</span>
+                  </div>
+                  <div className="px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                    <span className="text-[10px] uppercase font-bold text-slate-500 block tracking-wide">Выезд:</span>
+                    <span className="text-sm sm:text-base font-semibold text-slate-900">Владивосток и Приморье</span>
+                  </div>
+                  <div className="px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                    <span className="text-[10px] uppercase font-bold text-slate-500 block tracking-wide">Гарантия:</span>
+                    <span className="text-sm sm:text-base font-semibold text-emerald-700">на работы по договору</span>
+                  </div>
+                </div>
+              ) : (
+                <>
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <div className="px-4 py-2 rounded-xl bg-cyan-50 border border-cyan-200">
                   <span className="text-[10px] uppercase font-bold text-cyan-800 block tracking-wide">
@@ -228,6 +264,9 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                 </div>
               </div>
 
+                </>
+              )}
+
               {/* Verified Facts Checkmarks */}
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 pt-2 text-xs text-slate-700">
                 {page.verifiedFacts.map((fact, idx) => (
@@ -244,7 +283,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                   href="/zaiavka_na_uslughi_kompanii_oknatsientr"
                   className="px-6 py-3.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Вызвать мастера на замер</span>
+                  <span>{isRepair ? "Вызвать мастера" : "Вызвать мастера на замер"}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
@@ -280,7 +319,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="text-[10px] uppercase font-bold text-slate-500 block tracking-wide">Статус:</span>
-                      <span className="text-xs font-semibold text-slate-900">Выезд инженера бесплатно</span>
+                      <span className="text-xs font-semibold text-slate-900">{isRepair ? "Выезд мастера по заявке" : "Выезд инженера бесплатно"}</span>
                     </div>
                     <span className="text-xs text-cyan-700 font-bold">Приморский край</span>
                   </div>
@@ -445,10 +484,12 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight font-heading">
-                Стоимость услуг и конструкций
+                {isRepair ? "Стоимость ремонта" : "Стоимость услуг и конструкций"}
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm mt-1">
-                Цены являются ориентировочными. Точная стоимость рассчитывается инженером на бесплатном замере с учетом конфигурации и параметров проема.
+                {isRepair
+                  ? "Стоимость зависит от вида неисправности и объёма работ. Мастер называет итоговую сумму до начала ремонта."
+                  : "Цены являются ориентировочными. Точная стоимость рассчитывается инженером на бесплатном замере с учетом конфигурации и параметров проема."}
               </p>
             </div>
 
@@ -456,7 +497,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="px-5 py-2.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-colors inline-flex items-center gap-2 self-start lg:self-center shadow-sm"
             >
-              <span>Рассчитать стоимость</span>
+              <span>{isRepair ? "Узнать стоимость" : "Рассчитать стоимость"}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -489,7 +530,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
                       {p.priceFrom}
                     </td>
                     <td className="py-3.5 px-4 text-xs text-slate-500 hidden md:table-cell max-w-xs">
-                      {p.note || "Монтаж по ГОСТ, выезд мастера"}
+                      {p.note || (isRepair ? "" : "Монтаж по ГОСТ, выезд мастера")}
                     </td>
                   </tr>
                 ))}
@@ -617,11 +658,13 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200/80 text-center relative overflow-hidden text-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 font-heading">
-            Закажите точный расчет стоимости
+            {isRepair ? "Вызовите мастера" : "Закажите точный расчет стоимости"}
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
-            Мастер бесплатно приедет в любой город Приморья с образцами профилей Rehau, KBE и Funke, снимет точные размеры и назовёт окончательную смету. Сборка за 4–7 рабочих дней, гарантия 5 лет, а старый мусор вывозим сами.
+            {isRepair
+              ? "Оставьте заявку или позвоните — уточним неисправность, согласуем время визита мастера и назовём стоимость ремонта до начала работ."
+              : "Мастер бесплатно приедет в любой город Приморья с образцами профилей Rehau, KBE и Funke, снимет точные размеры и назовёт окончательную смету. Сборка за 4–7 рабочих дней, гарантия 5 лет, а старый мусор вывозим сами."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -629,7 +672,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               href="/zaiavka_na_uslughi_kompanii_oknatsientr"
               className="px-8 py-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center gap-2 cursor-pointer"
             >
-              <span>Вызвать мастера на замер</span>
+              <span>{isRepair ? "Вызвать мастера" : "Вызвать мастера на замер"}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 

@@ -7,9 +7,14 @@ import { submitLead } from "@/lib/submitLead";
 import { reachGoal } from "@/components/YandexMetrika";
 import { COMPANY_INFO } from "@/data/company_info";
 import { formatRussianPhone } from "@/lib/phoneMask";
+import { isRepairPath } from "@/lib/repairPaths";
+import { usePathname } from "next/navigation";
 
 export default function QuickLeadModal() {
   const { isOpen, serviceTitle, closeMeasurementModal } = useMeasurementModal();
+  const pathname = usePathname();
+  const isRepair = isRepairPath(pathname);
+  const effectiveTitle = isRepair ? "Вызов мастера по ремонту окон" : serviceTitle || "Вызов замерщика";
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+7 (");
   const [website, setWebsite] = useState("");
@@ -54,19 +59,21 @@ export default function QuickLeadModal() {
 
     setLoading(true);
     try {
-      reachGoal("lead_form_submit", { service: serviceTitle || "Вызов замерщика" });
-
       const result = await submitLead({
         name,
         phone,
-        service: serviceTitle || "Вызов замерщика",
-        comment: `Быстрая заявка на замер из модального окна: ${serviceTitle || "Вызов замерщика"}`,
+        service: effectiveTitle,
+        comment: isRepair
+          ? `Быстрая заявка на ремонт окон из модального окна: ${effectiveTitle}`
+          : `Быстрая заявка на замер из модального окна: ${effectiveTitle}`,
         source: "modal_lead_form",
         pageUrl: typeof window !== "undefined" ? window.location.href : "",
         website,
       });
 
       if (result.ok) {
+        // Цель фиксируется только после успешной отправки заявки
+        reachGoal("lead_form_submit", { service: effectiveTitle });
         setSubmitted(true);
       } else {
         setError(result.error || "Не удалось отправить заявку. Пожалуйста, позвоните нам.");
@@ -109,7 +116,7 @@ export default function QuickLeadModal() {
             </h3>
 
             <p className="text-sm text-slate-600 leading-relaxed max-w-xs mx-auto">
-              Спасибо, {name || "друг"}! Мастер свяжется с вами по номеру <span className="text-cyan-700 font-mono font-bold">{phone}</span> в течение 10–15 минут для согласования времени.
+              Спасибо, {name || "друг"}! {isRepair ? "Мы перезвоним по номеру" : "Мастер свяжется с вами по номеру"} <span className="text-cyan-700 font-mono font-bold">{phone}</span>{isRepair ? ", уточним неисправность и согласуем время визита." : " в течение 10–15 минут для согласования времени."}
             </p>
 
             <div className="pt-3 flex flex-col gap-2.5">
@@ -126,10 +133,12 @@ export default function QuickLeadModal() {
           <div>
             <div className="mb-6 pr-8">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-950 leading-tight">
-                Вызов мастера на замер
+                {isRepair ? "Вызвать мастера по ремонту окон" : "Вызов мастера на замер"}
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-light mt-2 leading-relaxed">
-                Мастер приедет с образцами профилей, ответит на вопросы и рассчитает точную смету на объекте бесплатно.
+                {isRepair
+                  ? "Оставьте телефон — мы перезвоним, уточним неисправность и согласуем время визита мастера."
+                  : "Мастер приедет с образцами профилей, ответит на вопросы и рассчитает точную смету на объекте бесплатно."}
               </p>
             </div>
 
@@ -190,11 +199,13 @@ export default function QuickLeadModal() {
                 disabled={loading}
                 className="w-full py-4 px-6 bg-slate-950 hover:bg-cyan-600 disabled:opacity-50 text-white font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 cursor-pointer"
               >
-                {loading ? "Отправка..." : "Вызвать мастера на замер"}
+                {loading ? "Отправка..." : isRepair ? "Вызвать мастера" : "Вызвать мастера на замер"}
               </button>
 
               <p className="text-[11px] text-slate-500 text-center leading-relaxed">
-                Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Выезд замерщика бесплатный и ни к чему вас не обязывает.
+                {isRepair
+                  ? "Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Заявка ни к чему вас не обязывает."
+                  : "Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Выезд замерщика бесплатный и ни к чему вас не обязывает."}
               </p>
             </form>
           </div>

@@ -10,12 +10,16 @@ import { formatRussianPhone } from "@/lib/phoneMask";
 interface SimpleMeasurementFormProps {
   initialService?: string;
   source?: string;
+  /** "repair" — тексты для вызова мастера по ремонту уже установленных окон */
+  variant?: "measurement" | "repair";
 }
 
 export default function SimpleMeasurementForm({
   initialService = "Вызов замерщика",
   source = "zaiavka_page",
+  variant = "measurement",
 }: SimpleMeasurementFormProps) {
+  const isRepair = variant === "repair";
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+7 (");
   const [website, setWebsite] = useState("");
@@ -35,19 +39,21 @@ export default function SimpleMeasurementForm({
 
     setLoading(true);
     try {
-      reachGoal("lead_form_submit", { service: initialService });
-
       const result = await submitLead({
         name,
         phone,
         service: initialService,
-        comment: `Заявка со страницы вызова замерщика: ${initialService}`,
+        comment: isRepair
+          ? `Заявка на ремонт окон: ${initialService}`
+          : `Заявка со страницы вызова замерщика: ${initialService}`,
         source,
         pageUrl: typeof window !== "undefined" ? window.location.href : "",
         website,
       });
 
       if (result.ok) {
+        // Цель фиксируется только после успешной отправки заявки
+        reachGoal("lead_form_submit", { service: initialService });
         setSubmitted(true);
       } else {
         setError(result.error || "Не удалось отправить заявку. Пожалуйста, позвоните нам.");
@@ -71,8 +77,17 @@ export default function SimpleMeasurementForm({
         </h3>
 
         <p className="text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
-          Спасибо, {name || "друг"}! Инженер свяжется с вами по номеру{" "}
-          <span className="text-cyan-700 font-mono font-bold">{phone}</span> в течение 10–15 минут для согласования точного времени.
+          {isRepair ? (
+            <>
+              Спасибо, {name || "друг"}! Мы перезвоним по номеру{" "}
+              <span className="text-cyan-700 font-mono font-bold">{phone}</span>, уточним неисправность и согласуем время визита мастера.
+            </>
+          ) : (
+            <>
+              Спасибо, {name || "друг"}! Инженер свяжется с вами по номеру{" "}
+              <span className="text-cyan-700 font-mono font-bold">{phone}</span> в течение 10–15 минут для согласования точного времени.
+            </>
+          )}
         </p>
 
         <div className="pt-2">
@@ -88,13 +103,15 @@ export default function SimpleMeasurementForm({
     <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xl shadow-slate-900/5 relative">
       <div className="mb-6">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-[11px] font-semibold uppercase tracking-wider mb-2">
-          <span>Бесплатный выезд</span>
+          <span>{isRepair ? "Ремонт окон" : "Бесплатный выезд"}</span>
         </div>
         <h3 className="text-xl sm:text-2xl font-black text-slate-950">
-          Заполните 2 поля
+          {isRepair ? "Вызвать мастера по ремонту" : "Заполните 2 поля"}
         </h3>
         <p className="text-xs sm:text-sm text-slate-600 mt-1">
-          Мастер приедет с образцами и сделает расчет на месте без обязательств
+          {isRepair
+            ? "Оставьте телефон — мы перезвоним, уточним неисправность и согласуем визит мастера"
+            : "Мастер приедет с образцами и сделает расчет на месте без обязательств"}
         </p>
       </div>
 
@@ -152,12 +169,14 @@ export default function SimpleMeasurementForm({
           disabled={loading}
           className="w-full py-4 px-6 bg-slate-950 hover:bg-cyan-600 disabled:opacity-50 text-white font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center justify-center gap-2 cursor-pointer"
         >
-          <span>{loading ? "Отправка..." : "Вызвать мастера на замер"}</span>
+          <span>{loading ? "Отправка..." : isRepair ? "Вызвать мастера" : "Вызвать мастера на замер"}</span>
           <ArrowRight className="w-4 h-4" />
         </button>
 
         <p className="text-[11px] text-slate-500 text-center leading-relaxed">
-          Бесплатный выезд по Приморью · Гарантия 5 лет · Мусор вывозим сами
+          {isRepair
+            ? "Гарантия на выполненные работы по договору · Звоните: 8 (423) 2-725-725"
+            : "Бесплатный выезд по Приморью · Гарантия 5 лет · Мусор вывозим сами"}
         </p>
       </form>
     </div>

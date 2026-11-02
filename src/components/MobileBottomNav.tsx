@@ -1,12 +1,17 @@
 "use client";
 
 import React from "react";
-import { Phone, Ruler } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Phone, Ruler, Wrench } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import { useMeasurementModal } from "@/context/ModalContext";
+import { isRepairPath } from "@/lib/repairPaths";
+import { REPAIR_ANCHORS } from "@/data/repair_landing";
 
 export default function MobileBottomNav() {
   const { openMeasurementModal } = useMeasurementModal();
+  const pathname = usePathname();
+  const isRepair = isRepairPath(pathname);
 
   return (
     <nav
@@ -23,14 +28,24 @@ export default function MobileBottomNav() {
           <span className="text-xs font-bold leading-none">Позвонить</span>
         </a>
 
-        <button
-          type="button"
-          onClick={() => openMeasurementModal("Мобильная панель")}
-          className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-black text-white font-bold transition-transform active:scale-95 shadow-md shadow-slate-900/10 cursor-pointer"
-        >
-          <Ruler className="w-4 h-4 text-cyan-300 shrink-0" />
-          <span className="text-xs leading-none">Бесплатный замер</span>
-        </button>
+        {isRepair ? (
+          <a
+            href={`#${REPAIR_ANCHORS.master}`}
+            className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-black text-white font-bold transition-transform active:scale-95 shadow-md shadow-slate-900/10 cursor-pointer"
+          >
+            <Wrench className="w-4 h-4 text-cyan-300 shrink-0" />
+            <span className="text-xs leading-none">Вызвать мастера</span>
+          </a>
+        ) : (
+          <button
+            type="button"
+            onClick={() => openMeasurementModal("Мобильная панель")}
+            className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-black text-white font-bold transition-transform active:scale-95 shadow-md shadow-slate-900/10 cursor-pointer"
+          >
+            <Ruler className="w-4 h-4 text-cyan-300 shrink-0" />
+            <span className="text-xs leading-none">Бесплатный замер</span>
+          </button>
+        )}
       </div>
     </nav>
   );
