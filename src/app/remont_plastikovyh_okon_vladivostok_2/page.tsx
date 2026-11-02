@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function RedirectPage() {
-  permanentRedirect("/remont_plastikovyh_okon_vladivostok");
+  permanentRedirect("/remont-plastikovyh-okon");
 }

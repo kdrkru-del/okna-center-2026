@@ -30,7 +30,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     { label: "Продажа и доставка окон", href: "/kupit_plastikovye_okna_vladivostok" },
     { label: "Остекление и утепление балконов", href: "/osteklenie_balkona_vladivostok" },
     { label: "Алюминиевые окна и витражи", href: "/alyuminievye_okna_vladivostok" },
-    { label: "Ремонт окон", href: "/remont_plastikovyh_okon_vladivostok" },
+    { label: "Ремонт окон", href: "/remont-plastikovyh-okon" },
     { label: "Наши работы", href: "/ghalierieia_rabot" },
     { label: "Ключевые объекты", href: "/klyuchevye-obekty" },
     { label: "Цены", href: "/ceny" },

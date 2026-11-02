@@ -1,9 +1,10 @@
 /**
  * Маршруты рекламной посадочной «Ремонт окон» (Яндекс.Директ).
- * Используется, чтобы на этих страницах показывать ремонтные тексты
- * (а не «замер и установка новых окон») и не показывать акцию на лоджии.
+ * Включает основной универсальный адрес (/remont-plastikovyh-okon/)
+ * и прежние региональные адреса для сохранения совместимости.
  */
 export const REPAIR_ROUTES = [
+  "/remont-plastikovyh-okon",
   "/remont_plastikovyh_okon_vladivostok",
   "/regulirovka_plastikovykh_okon_vladivostok",
 ] as const;

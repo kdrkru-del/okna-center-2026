@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, CheckCircle2, Phone } from "lucide-react";
+import { X, CheckCircle2 } from "lucide-react";
 import { useMeasurementModal } from "@/context/ModalContext";
 import { submitLead } from "@/lib/submitLead";
-import { reachGoal } from "@/components/YandexMetrika";
-import { COMPANY_INFO } from "@/data/company_info";
 import { formatRussianPhone } from "@/lib/phoneMask";
 import { isRepairPath } from "@/lib/repairPaths";
+import { REPAIR_CITY_OPTIONS } from "@/data/repair_landing";
 import { usePathname } from "next/navigation";
 
 export default function QuickLeadModal() {
@@ -17,6 +16,7 @@ export default function QuickLeadModal() {
   const effectiveTitle = isRepair ? "Вызов мастера по ремонту окон" : serviceTitle || "Вызов замерщика";
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+7 (");
+  const [city, setCity] = useState<string>(REPAIR_CITY_OPTIONS[0] || "Владивосток");
   const [website, setWebsite] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -62,9 +62,10 @@ export default function QuickLeadModal() {
       const result = await submitLead({
         name,
         phone,
+        city: isRepair ? city : undefined,
         service: effectiveTitle,
         comment: isRepair
-          ? `Быстрая заявка на ремонт окон из модального окна: ${effectiveTitle}`
+          ? `Быстрая заявка на ремонт окон (${city}) из модального окна: ${effectiveTitle}`
           : `Быстрая заявка на замер из модального окна: ${effectiveTitle}`,
         source: "modal_lead_form",
         pageUrl: typeof window !== "undefined" ? window.location.href : "",
@@ -72,8 +73,6 @@ export default function QuickLeadModal() {
       });
 
       if (result.ok) {
-        // Цель фиксируется только после успешной отправки заявки
-        reachGoal("lead_form_submit", { service: effectiveTitle });
         setSubmitted(true);
       } else {
         setError(result.error || "Не удалось отправить заявку. Пожалуйста, позвоните нам.");
@@ -116,7 +115,9 @@ export default function QuickLeadModal() {
             </h3>
 
             <p className="text-sm text-slate-600 leading-relaxed max-w-xs mx-auto">
-              Спасибо, {name || "друг"}! {isRepair ? "Мы перезвоним по номеру" : "Мастер свяжется с вами по номеру"} <span className="text-cyan-700 font-mono font-bold">{phone}</span>{isRepair ? ", уточним неисправность и согласуем время визита." : " в течение 10–15 минут для согласования времени."}
+              Спасибо, {name || "друг"}! {isRepair ? "Мы перезвоним по номеру" : "Мастер свяжется с вами по номеру"}{" "}
+              <span className="text-cyan-700 font-mono font-bold">{phone}</span>
+              {isRepair ? ", уточним неисправность и согласуем время визита." : " в течение 10–15 минут для согласования времени."}
             </p>
 
             <div className="pt-3 flex flex-col gap-2.5">
@@ -137,12 +138,40 @@ export default function QuickLeadModal() {
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-light mt-2 leading-relaxed">
                 {isRepair
-                  ? "Оставьте телефон — мы перезвоним, уточним неисправность и согласуем время визита мастера."
+                  ? "Оставьте телефон — мы перезвоним, уточним неисправность и согласуем время визита мастера во Владивостоке или Уссурийске."
                   : "Мастер приедет с образцами профилей, ответит на вопросы и рассчитает точную смету на объекте бесплатно."}
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              {isRepair && (
+                <div>
+                  <label className="block text-xs font-semibold text-slate-800 mb-1.5">
+                    Город:
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {REPAIR_CITY_OPTIONS.map((cityOption) => {
+                      const active = city === cityOption;
+                      const shortLabel = cityOption === "Другой населённый пункт" ? "Другой" : cityOption;
+                      return (
+                        <button
+                          key={cityOption}
+                          type="button"
+                          onClick={() => setCity(cityOption)}
+                          className={`py-2 px-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                            active
+                              ? "bg-slate-950 text-white border-slate-950"
+                              : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+                          }`}
+                        >
+                          {shortLabel}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
               {/* Name field */}
               <div>
                 <label className="block text-xs font-semibold text-slate-800 mb-1.5">

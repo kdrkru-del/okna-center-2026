@@ -16,7 +16,7 @@ interface Symptom {
 
 /**
  * Цены: показываем число только если оно совпадает во всех источниках
- * (см. src/data/repair_landing.ts → REPAIR_PRICE_CONFLICTS). Остальное — «Рассчитывает мастер».
+ * (см. src/data/repair_landing.ts → REPAIR_PRICE_CONFLICTS). Остальное — «Стоимость по расчёту».
  */
 const SYMPTOMS: Symptom[] = [
   {
@@ -27,8 +27,8 @@ const SYMPTOMS: Symptom[] = [
     cause: "Усыхание или износ уплотнительной резины, ослабление прижима цапф фурнитуры, нарушение герметичности монтажного шва.",
     solution: "Регулировка прижима и геометрии створки, при необходимости — замена изношенного контура уплотнителя.",
     recommendedService: "Регулировка створки и замена уплотнителя",
-    priceEstimate: "Уплотнитель от 250 ₽/пог. м, регулировка — рассчитывает мастер",
-    urgency: "Планово"
+    priceEstimate: "Уплотнитель от 250 ₽/пог. м, регулировка — по расчёту",
+    urgency: "Планово",
   },
   {
     id: "sagging",
@@ -37,9 +37,9 @@ const SYMPTOMS: Symptom[] = [
     description: "Створка трет нижнюю планку рамы, приходится приподнимать рукой за ручку, чтобы закрыть окно.",
     cause: "Провисание тяжелого стеклопакета под собственным весом, смещение регулировочных винтов петлевой группы.",
     solution: "Регулировка петель шестигранным ключом и, при необходимости, восстановление геометрии створки.",
-    recommendedService: "Исправление геометрии створки",
-    priceEstimate: "Рассчитывает мастер",
-    urgency: "Планово"
+    recommendedService: "Регулировка окон",
+    priceEstimate: "Стоимость по расчёту",
+    urgency: "Планово",
   },
   {
     id: "handle-jammed",
@@ -48,9 +48,9 @@ const SYMPTOMS: Symptom[] = [
     description: "Ручка застряла в промежуточном положении, невозможно повернуть вертикально или закрыть створку.",
     cause: "Срабатывание блокиратора ошибочного действия, скопление строительной пыли или полное высыхание смазки в механизмах фурнитуры.",
     solution: "Разблокировка створки, очистка фурнитуры от грязи, регулировка и смазка подвижных узлов.",
-    recommendedService: "Чистка, смазка и ремонт фурнитуры",
-    priceEstimate: "Рассчитывает мастер",
-    urgency: "Срочно"
+    recommendedService: "Ремонт оконной фурнитуры",
+    priceEstimate: "Стоимость по расчёту",
+    urgency: "Срочно",
   },
   {
     id: "handle-spinning",
@@ -59,9 +59,9 @@ const SYMPTOMS: Symptom[] = [
     description: "Ручка свободно крутится во все стороны, но створка остается закрытой либо заблокированной в откинутом режиме.",
     cause: "Сломан четырехгранный металлический штифт оконной ручки или вышел из строя запорный механизм.",
     solution: "Вскрытие створки без повреждения пластика, замена ручки или запорного узла.",
-    recommendedService: "Замена ручки / ремонт запора",
-    priceEstimate: "Рассчитывает мастер (ручка с ключом — от 750 ₽)",
-    urgency: "Критично"
+    recommendedService: "Замена оконных ручек",
+    priceEstimate: "Стоимость по расчёту (ручка с ключом — от 750 ₽)",
+    urgency: "Критично",
   },
   {
     id: "broken-glass",
@@ -70,9 +70,9 @@ const SYMPTOMS: Symptom[] = [
     description: "Трещина через одно или оба стекла, сквозное отверстие, потеря герметичности камеры.",
     cause: "Механическое повреждение, термошок (перепад температур на солнце при темных шторах) или деформация проема дома.",
     solution: "Замер проёма и формулы стеклопакета, изготовление нового стеклопакета и замена со штапиками.",
-    recommendedService: "Изготовление и замена стеклопакета",
-    priceEstimate: "Рассчитывает мастер после замера",
-    urgency: "Критично"
+    recommendedService: "Замена стеклопакетов",
+    priceEstimate: "Стоимость по расчёту",
+    urgency: "Критично",
   },
   {
     id: "fogging",
@@ -81,10 +81,10 @@ const SYMPTOMS: Symptom[] = [
     description: "Капли влаги и разводы находятся МЕЖДУ стеклами внутри запаянного блока, протереть тряпкой невозможно.",
     cause: "Разгерметизация дистанционной рамки и бутилового слоя, выработка адсорбента (молекулярного сита).",
     solution: "Стеклопакет не подлежит локальному ремонту — требуется полная замена герметичного блока на новый.",
-    recommendedService: "Замена разгерметизированного стеклопакета",
-    priceEstimate: "Рассчитывает мастер после замера",
-    urgency: "Планово"
-  }
+    recommendedService: "Замена стеклопакетов",
+    priceEstimate: "Стоимость по расчёту",
+    urgency: "Планово",
+  },
 ];
 
 export default function WindowDiagnosticBlock({
@@ -103,13 +103,13 @@ export default function WindowDiagnosticBlock({
             Определите неисправность окна за 1 минуту
           </h3>
           <p className="text-slate-600 text-sm max-w-2xl mt-1">
-            Выберите симптом, с которым вы столкнулись. Подскажем вероятную причину и способ устранения, а стоимость мастер назовёт после осмотра.
+            Выберите симптом, с которым вы столкнулись. Подскажем вероятную причину и способ устранения, а точную стоимость мастер назовёт после осмотра.
           </p>
         </div>
 
         <div className="text-right">
-          <span className="text-xs text-slate-500 block">Выезд мастера:</span>
-          <span className="text-cyan-700 font-bold text-sm">Владивосток и Приморский край</span>
+          <span className="text-xs text-slate-500 block">География обслуживания:</span>
+          <span className="text-cyan-700 font-bold text-sm">Владивосток и Уссурийск</span>
         </div>
       </div>
 
@@ -192,6 +192,15 @@ export default function WindowDiagnosticBlock({
 
             <a
               href={ctaHref}
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(
+                    new CustomEvent("select-repair-service", {
+                      detail: { service: current.recommendedService },
+                    })
+                  );
+                }
+              }}
               className="w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 transition-all shadow-md shadow-slate-900/10 cursor-pointer"
             >
               <Phone className="w-3.5 h-3.5" />

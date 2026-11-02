@@ -46,7 +46,7 @@ export default function WindowRepairCallout() {
           <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
               <Link
-                href="/remont_plastikovyh_okon_vladivostok"
+                href="/remont-plastikovyh-okon"
                 className="w-full sm:w-auto px-6 py-3.5 bg-slate-950 hover:bg-cyan-600 text-white font-bold rounded-xl text-xs uppercase tracking-wider text-center transition-all shadow-sm"
               >
                 Все услуги по ремонту окон →
