@@ -6,9 +6,9 @@ import { REPAIR_FAQ } from "@/data/repair_landing";
 
 const pageData = PAGES_DATA["remont-plastikovyh-okon"] || PAGES_DATA["remont_plastikovyh_okon_vladivostok"];
 const CANONICAL = `${COMPANY_INFO.domain}/remont-plastikovyh-okon/`;
-const TITLE = "Ремонт пластиковых окон во Владивостоке и Уссурийске | Окна Центр";
+const TITLE = "Ремонт пластиковых окон — вызов мастера | Окна Центр";
 const DESCRIPTION =
-  "Ремонт пластиковых окон во Владивостоке и Уссурийске: регулировка окон, замена стеклопакетов, уплотнителей, ручек и ремонт фурнитуры. Работаем с 2004 года, гарантия по договору. Вызов мастера: 8 (423) 2-725-725.";
+  "Ремонт пластиковых окон: регулировка окон, замена стеклопакетов, уплотнителей, ручек и ремонт фурнитуры. Работаем с 2004 года, гарантия по договору. Вызов мастера: 8 (423) 2-725-725.";
 const HERO_IMAGE = pageData?.heroImage || "/images/legacy/db7eeb03b34b1d5a8cb1d52243b0e21f.jpg";
 
 export const metadata: Metadata = {
@@ -41,19 +41,7 @@ export default function Page() {
       telephone: COMPANY_INFO.mainPhone,
       url: COMPANY_INFO.domain,
       foundingDate: "2004",
-      address: COMPANY_INFO.offices.map((o) => ({
-        "@type": "PostalAddress",
-        streetAddress: o.address,
-        addressLocality: o.city,
-        addressRegion: "Приморский край",
-        addressCountry: "RU",
-      })),
     },
-    areaServed: [
-      { "@type": "City", name: "Владивосток" },
-      { "@type": "City", name: "Уссурийск" },
-      { "@type": "AdministrativeArea", name: "Приморский край" },
-    ],
   };
 
   const breadcrumbSchema = {

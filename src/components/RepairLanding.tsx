@@ -8,7 +8,6 @@ import {
   CheckCircle2,
   ChevronRight,
   ChevronDown,
-  MapPin,
   MessageCircle,
   Phone,
   Wrench,
@@ -19,7 +18,6 @@ import { COMPANY_INFO } from "@/data/company_info";
 import {
   REPAIR_ANCHORS,
   REPAIR_BLOCKS,
-  REPAIR_CITIES,
   REPAIR_FAQ,
   REPAIR_NAV,
   REPAIR_PRICE_FALLBACK,
@@ -75,8 +73,6 @@ function CallButtons({
 }
 
 export default function RepairLanding({ heroImage }: { heroImage: string }) {
-  const citiesListText = REPAIR_CITIES.map((c) => c.name).join(" и ");
-
   return (
     <div className="bg-white text-slate-900 min-h-screen pt-16 sm:pt-20 selection:bg-cyan-500 selection:text-white">
       {/* Breadcrumbs */}
@@ -101,18 +97,12 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
         <div className={`${SECTION} relative z-10`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-5">
-              {/* Бейдж географии обслуживания */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-900 text-xs font-semibold">
-                <MapPin className="w-3.5 h-3.5 text-cyan-600 flex-shrink-0" />
-                <span>Работаем во Владивостоке и Уссурийске ({citiesListText})</span>
-              </div>
-
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900 font-heading">
                 Ремонт пластиковых окон
               </h1>
 
               <p className="text-slate-800 text-base sm:text-xl font-semibold leading-snug">
-                Регулировка окон, замена стеклопакетов, уплотнителей, ручек и ремонт фурнитуры во Владивостоке и Уссурийске.
+                Регулировка окон, замена стеклопакетов, уплотнителей, ручек и ремонт фурнитуры.
               </p>
 
               <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed">
@@ -124,7 +114,7 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
                 {[
                   COMPANY_INFO.experienceText,
                   COMPANY_INFO.guarantee,
-                  "Работаем во Владивостоке и Уссурийске",
+                  "Ремонт без замены всего окна",
                   `Режим работы: ${COMPANY_INFO.workingHours}`,
                 ].map((fact) => (
                   <div key={fact} className="flex items-start gap-2">
@@ -204,7 +194,7 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
             Ремонт пластиковых окон
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed mt-3">
-            Выполняем комплексную диагностику и ремонт пластиковых окон во Владивостоке и Уссурийске: устраняем сквозняки и продувания, восстанавливаем геометрию створок, ремонтируем и меняем комплектующие. Выберите симптом поломки ниже — система покажет причину и рекомендуемый способ устранения.
+            Выполняем комплексную диагностику и ремонт пластиковых окон: устраняем сквозняки и продувания, восстанавливаем геометрию створок, ремонтируем и меняем комплектующие. Выберите симптом поломки ниже — система покажет причину и рекомендуемый способ устранения.
           </p>
         </div>
         <WindowDiagnosticBlock ctaHref={`#${REPAIR_ANCHORS.master}`} />
@@ -338,7 +328,7 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
         </div>
       </section>
 
-      {/* РАЗДЕЛ 8: ВЫЗВАТЬ МАСТЕРА + ГЕОГРАФИЯ ОБСЛУЖИВАНИЯ (#vyzov-mastera) */}
+      {/* РАЗДЕЛ 8: ВЫЗВАТЬ МАСТЕРА (#vyzov-mastera) */}
       <section
         id={REPAIR_ANCHORS.master}
         className={`${SECTION} py-14 border-t border-slate-200/80 ${ANCHOR_OFFSET}`}
@@ -350,51 +340,11 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
                 Вызвать мастера
               </h2>
               <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed max-w-xl mt-2">
-                Работаем во Владивостоке и Уссурийске. Оставьте заявку через форму или позвоните по телефону — мы уточним, что случилось с окном, и согласуем удобное время приезда мастера.
+                Оставьте заявку через форму или позвоните по телефону — мы уточним, что случилось с окном, ответим на вопросы по стоимости и согласуем удобное время приезда мастера.
               </p>
             </div>
 
-            {/* Карточки городов обслуживания (из масштабируемого конфига REPAIR_CITIES) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {REPAIR_CITIES.map((cityItem) => (
-                <div
-                  key={cityItem.id}
-                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-3"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 text-sm font-bold text-slate-900">
-                      <MapPin className="w-4 h-4 text-cyan-600 flex-shrink-0" />
-                      {cityItem.name}
-                    </span>
-                    <span className="text-[11px] font-semibold text-cyan-800 bg-cyan-50 border border-cyan-200 px-2.5 py-0.5 rounded-full">
-                      Выезд мастера
-                    </span>
-                  </div>
-
-                  {cityItem.note && (
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {cityItem.note}
-                    </p>
-                  )}
-
-                  <div className="pt-1 space-y-1.5 text-xs">
-                    <a
-                      href={`tel:${cityItem.phoneRaw}`}
-                      className="flex items-center gap-2 font-bold text-slate-900 hover:text-cyan-700 transition-colors"
-                    >
-                      <Phone className="w-3.5 h-3.5 text-cyan-600 flex-shrink-0" />
-                      <span>{cityItem.phoneDisplay}</span>
-                    </a>
-                    <div className="flex items-center gap-2 text-slate-500">
-                      <Clock className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
-                      <span>{cityItem.schedule}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Быстрая связь по телефону и WhatsApp */}
+            {/* Карточки быстрой связи */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <a
                 href={PHONE_HREF}
@@ -402,7 +352,7 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
               >
                 <Phone className="w-5 h-5 text-cyan-600 flex-shrink-0" />
                 <div className="text-xs">
-                  <span className="text-slate-500 block">Единый телефон приёма заявок</span>
+                  <span className="text-slate-500 block">Позвонить</span>
                   <span className="font-bold text-slate-900 text-sm">
                     {COMPANY_INFO.mainPhone}
                   </span>
@@ -422,6 +372,24 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
                   </span>
                 </div>
               </a>
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center gap-3">
+                <Clock className="w-5 h-5 text-cyan-600 flex-shrink-0" />
+                <div className="text-xs">
+                  <span className="text-slate-500 block">Режим работы</span>
+                  <span className="font-bold text-slate-900 text-sm">
+                    {COMPANY_INFO.workingHours}
+                  </span>
+                </div>
+              </div>
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center gap-3">
+                <ShieldCheck className="w-5 h-5 text-cyan-600 flex-shrink-0" />
+                <div className="text-xs">
+                  <span className="text-slate-500 block">Гарантийные обязательства</span>
+                  <span className="font-bold text-slate-900 text-sm">
+                    Официальный договор и гарантия
+                  </span>
+                </div>
+              </div>
             </div>
 
             <div className="flex items-start gap-2 text-xs text-slate-500">

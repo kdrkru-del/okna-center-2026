@@ -5,10 +5,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 import { submitLead } from "@/lib/submitLead";
 import { COMPANY_INFO } from "@/data/company_info";
 import { formatRussianPhone } from "@/lib/phoneMask";
-import {
-  REPAIR_CITY_OPTIONS,
-  REPAIR_SERVICE_OPTIONS,
-} from "@/data/repair_landing";
+import { REPAIR_SERVICE_OPTIONS } from "@/data/repair_landing";
 
 interface SimpleMeasurementFormProps {
   initialService?: string;
@@ -25,7 +22,6 @@ export default function SimpleMeasurementForm({
   const isRepair = variant === "repair";
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+7 (");
-  const [city, setCity] = useState<string>(REPAIR_CITY_OPTIONS[0] || "Владивосток");
   const [selectedService, setSelectedService] = useState<string>(
     isRepair ? REPAIR_SERVICE_OPTIONS[0] : initialService
   );
@@ -57,17 +53,15 @@ export default function SimpleMeasurementForm({
     }
 
     const effectiveService = isRepair ? selectedService : initialService;
-    const effectiveCity = isRepair ? city : undefined;
 
     setLoading(true);
     try {
       const result = await submitLead({
         name,
         phone,
-        city: effectiveCity,
         service: effectiveService,
         comment: isRepair
-          ? `Заявка на ремонт окон (${effectiveCity}): ${effectiveService}`
+          ? `Заявка на ремонт окон: ${effectiveService}`
           : `Заявка со страницы вызова замерщика: ${effectiveService}`,
         source,
         pageUrl: typeof window !== "undefined" ? window.location.href : "",
@@ -101,7 +95,7 @@ export default function SimpleMeasurementForm({
           {isRepair ? (
             <>
               Спасибо, {name || "клиент"}! Мы свяжемся с вами по номеру{" "}
-              <span className="text-cyan-700 font-mono font-bold">{phone}</span>, уточним детали по услуге «{selectedService}» ({city}) и согласуем время визита мастера.
+              <span className="text-cyan-700 font-mono font-bold">{phone}</span>, уточним детали по услуге «{selectedService}» и согласуем время визита мастера.
             </>
           ) : (
             <>
@@ -113,7 +107,7 @@ export default function SimpleMeasurementForm({
 
         <div className="pt-2">
           <div className="text-xs text-slate-500 font-mono pt-1">
-            {COMPANY_INFO.mainPhone} · Владивосток и Уссурийск
+            {COMPANY_INFO.mainPhone}
           </div>
         </div>
       </div>
@@ -124,65 +118,37 @@ export default function SimpleMeasurementForm({
     <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xl shadow-slate-900/5 relative">
       <div className="mb-6">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-[11px] font-semibold uppercase tracking-wider mb-2">
-          <span>{isRepair ? "Ремонт окон · Владивосток и Уссурийск" : "Бесплатный выезд"}</span>
+          <span>{isRepair ? "Ремонт пластиковых окон" : "Бесплатный выезд"}</span>
         </div>
         <h3 className="text-xl sm:text-2xl font-black text-slate-950">
           {isRepair ? "Вызвать мастера по ремонту окон" : "Заполните 2 поля"}
         </h3>
         <p className="text-xs sm:text-sm text-slate-600 mt-1">
           {isRepair
-            ? "Укажите город и телефон — мы перезвоним, уточним неисправность и согласуем время визита мастера"
+            ? "Оставьте телефон — мы перезвоним, уточним неисправность и согласуем время визита мастера"
             : "Мастер приедет с образцами и сделает расчет на месте без обязательств"}
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {isRepair && (
-          <>
-            <div>
-              <label className="block text-xs font-semibold text-slate-800 mb-1.5">
-                Город обслуживания:
-              </label>
-              <div className="grid grid-cols-3 gap-2">
-                {REPAIR_CITY_OPTIONS.map((cityOption) => {
-                  const active = city === cityOption;
-                  const shortLabel = cityOption === "Другой населённый пункт" ? "Другой" : cityOption;
-                  return (
-                    <button
-                      key={cityOption}
-                      type="button"
-                      onClick={() => setCity(cityOption)}
-                      className={`py-2.5 px-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
-                        active
-                          ? "bg-slate-950 text-white border-slate-950 shadow-xs"
-                          : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
-                      }`}
-                    >
-                      {shortLabel}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="repair-service-select" className="block text-xs font-semibold text-slate-800 mb-1.5">
-                Какая услуга требуется:
-              </label>
-              <select
-                id="repair-service-select"
-                value={selectedService}
-                onChange={(e) => setSelectedService(e.target.value)}
-                className="w-full px-3.5 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-xs sm:text-sm focus:bg-white focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all"
-              >
-                {REPAIR_SERVICE_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </>
+          <div>
+            <label htmlFor="repair-service-select" className="block text-xs font-semibold text-slate-800 mb-1.5">
+              Какая услуга требуется:
+            </label>
+            <select
+              id="repair-service-select"
+              value={selectedService}
+              onChange={(e) => setSelectedService(e.target.value)}
+              className="w-full px-3.5 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-xs sm:text-sm focus:bg-white focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all"
+            >
+              {REPAIR_SERVICE_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+          </div>
         )}
 
         <div>
