@@ -15,9 +15,8 @@ export interface LoggiaPromoConfig {
   /** Основной заголовок акции */
   heading: string;
   /** Текст вкладки в свёрнутом состоянии */
-  tabLabel: string;
-  /** Реальное фото лоджии из портфолио компании */
   imagePath: string;
+  tabLabel: string;
   imageAlt: string;
   /** Варианты остекления лоджий по акции */
   options: readonly [PromoOption, PromoOption];
@@ -75,6 +74,7 @@ export const LOGGIA_PROMO_CONFIG: LoggiaPromoConfig = {
     '/contacts',
     '/zaiavka_na_uslughi_kompanii_oknatsientr',
     // Рекламные страницы ремонта окон (Яндекс.Директ): акция на лоджии отвлекает
+    '/remont-plastikovyh-okon',
     '/remont_plastikovyh_okon_vladivostok',
     '/regulirovka_plastikovykh_okon_vladivostok',
   ],

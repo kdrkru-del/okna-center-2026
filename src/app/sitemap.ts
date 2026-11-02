@@ -58,11 +58,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   Object.keys(PAGES_DATA).forEach((slug) => {
+    const page = PAGES_DATA[slug];
+    const selfUrl = `${COMPANY_INFO.domain}/${slug}/`;
+    // Не включаем в sitemap неканонические зеркала (например, /remont_plastikovyh_okon_vladivostok/, где canonical ведёт на /remont-plastikovyh-okon/)
+    if (page?.canonical && page.canonical !== selfUrl) {
+      return;
+    }
     routes.push({
-      url: `${COMPANY_INFO.domain}/${slug}/`,
+      url: selfUrl,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: slug.includes("ustanovka") || slug.includes("osteklenie") ? 0.9 : 0.8,
+      priority: slug.includes("ustanovka") || slug.includes("osteklenie") || slug === "remont-plastikovyh-okon" ? 0.9 : 0.8,
     });
   });
 

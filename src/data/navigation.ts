@@ -96,10 +96,10 @@ export const MAIN_NAVIGATION: NavSection[] = [
   {
     id: "repairs",
     label: "Ремонт",
-    href: "/remont_plastikovyh_okon_vladivostok",
+    href: "/remont-plastikovyh-okon",
     simpleItems: [
-      { label: "Ремонт пластиковых окон", href: "/remont_plastikovyh_okon_vladivostok", desc: "Прайс-лист, замена фурнитуры и стеклопакетов" },
-      { label: "Регулировка окон", href: "/regulirovka_plastikovykh_okon_vladivostok", desc: "Устранение сквозняков, настройка прижима зима/лето" },
+      { label: "Ремонт пластиковых окон", href: "/remont-plastikovyh-okon", desc: "Прайс-лист, замена фурнитуры и стеклопакетов" },
+      { label: "Регулировка окон", href: "/remont-plastikovyh-okon#regulirovka-okon", desc: "Устранение сквозняков, настройка прижима зима/лето" },
     ],
   },
   {

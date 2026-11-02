@@ -90,7 +90,7 @@ export const PAGES_DATA: Record<string, PageDefinition> = {
       { slug: "/zamena_plastic_okon_vladivostok", label: "Замена старых окон", reason: "Демонтаж и замена" },
       { slug: "/profil_dlya_okon", label: "Сравнение профилей", reason: "Rehau, KBE, Funke" },
       { slug: "/okna_pod_derevo_vladivostok", label: "Окна под дерево", reason: "Ламинация Renolit" },
-      { slug: "/remont_plastikovyh_okon_vladivostok", label: "Ремонт окон", reason: "Сервисная служба" }
+      { slug: "/remont-plastikovyh-okon", label: "Ремонт окон", reason: "Сервисная служба" }
     ],
     schemaType: "Service"
   },
@@ -193,7 +193,7 @@ export const PAGES_DATA: Record<string, PageDefinition> = {
     relatedPages: [
       { slug: "/ustanovka_plastikovykh_okon_vo_vladivostokie", label: "Установка по ГОСТ", reason: "Технология монтажа" },
       { slug: "/kupit_plastikovye_okna_vladivostok", label: "Продажа и доставка окон", reason: "Каталог моделей" },
-      { slug: "/remont_plastikovyh_okon_vladivostok", label: "Ремонт окон", reason: "Если замена не требуется" }
+      { slug: "/remont-plastikovyh-okon", label: "Ремонт окон", reason: "Если замена не требуется" }
     ],
     schemaType: "Service"
   },
@@ -814,6 +814,30 @@ export const PAGES_DATA: Record<string, PageDefinition> = {
     schemaType: "Service"
   },
 
+  "remont-plastikovyh-okon": {
+    slug: "remont-plastikovyh-okon",
+    variant: "repair",
+    categoryLabel: "Ремонт окон",
+    categoryUrl: "/remont-plastikovyh-okon",
+    title: "Ремонт пластиковых окон во Владивостоке и Уссурийске | Окна Центр",
+    description: "Ремонт пластиковых окон во Владивостоке и Уссурийске: регулировка окон, замена стеклопакетов, уплотнителей, ручек и ремонт фурнитуры. Работаем с 2004 года, гарантия по договору. Вызов мастера: 8 (423) 2-725-725.",
+    h1: "Ремонт пластиковых окон",
+    eyebrow: "Сервисная служба · Владивосток и Уссурийск",
+    intro: "Регулировка окон, замена стеклопакетов, уплотнителей, ручек и ремонт фурнитуры во Владивостоке и Уссурийске. Компания «Окна Центр» работает с 2004 года.",
+    legacyUrl: "/remont_plastikovyh_okon_vladivostok",
+    canonical: "https://xn--80aknmcbtp7a.xn--p1ai/remont-plastikovyh-okon/",
+    keywordsIntent: ["ремонт пластиковых окон", "регулировка окон", "замена стеклопакета", "замена уплотнителя на окнах", "ремонт фурнитуры окна"],
+    heroImage: "/images/legacy/db7eeb03b34b1d5a8cb1d52243b0e21f.jpg",
+    badge: "Ремонт окон · С 2004 г.",
+    priceLabel: "Стоимость:",
+    priceFrom: "после осмотра",
+    verifiedFacts: ["Работаем с 2004 года", "Гарантия на выполненные работы по договору", "Работаем во Владивостоке и Уссурийске"],
+    sections: [],
+    faq: REPAIR_FAQ,
+    relatedPages: [],
+    schemaType: "Service"
+  },
+
   "remont_plastikovyh_okon_vladivostok": {
     slug: "remont_plastikovyh_okon_vladivostok",
     variant: "repair",
@@ -825,7 +849,7 @@ export const PAGES_DATA: Record<string, PageDefinition> = {
     eyebrow: "Сервисная служба · Вызов мастера",
     intro: "Чиним уже установленные окна: регулируем, меняем уплотнители, фурнитуру, ручки и стеклопакеты — без замены всего окна. Компания «Окна Центр» работает с 2004 года.",
     legacyUrl: "/remont_plastikovyh_okon_vladivostok",
-    canonical: "https://xn--80aknmcbtp7a.xn--p1ai/remont_plastikovyh_okon_vladivostok/",
+    canonical: "https://xn--80aknmcbtp7a.xn--p1ai/remont-plastikovyh-okon/",
     keywordsIntent: ["ремонт пластиковых окон", "замена уплотнителя на окнах", "замена фурнитуры окна", "замена стеклопакета"],
     heroImage: "/images/legacy/db7eeb03b34b1d5a8cb1d52243b0e21f.jpg",
     badge: "Ремонт окон · С 2004 г.",
@@ -877,7 +901,7 @@ export const PAGES_DATA: Record<string, PageDefinition> = {
       { question: "Как понять, что окно нуждается в регулировке?", answer: "Если ручка закрывается с усилием, створка цепляет раму внизу или сбоку, либо чувствуется сквозняк при закрытом окне — окну требуется регулировка." }
     ],
     relatedPages: [
-      { slug: "/remont_plastikovyh_okon_vladivostok", label: "Ремонт окон", reason: "Стеклопакеты, уплотнители, фурнитура, ручки" }
+      { slug: "/remont-plastikovyh-okon", label: "Ремонт окон", reason: "Стеклопакеты, уплотнители, фурнитура, ручки" }
     ],
     schemaType: "Service"
   },

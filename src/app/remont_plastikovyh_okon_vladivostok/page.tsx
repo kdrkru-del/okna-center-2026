@@ -5,13 +5,18 @@ import { PAGES_DATA } from "@/data/pages";
 import { COMPANY_INFO } from "@/data/company_info";
 
 const pageData = PAGES_DATA["remont_plastikovyh_okon_vladivostok"];
-const CANONICAL = pageData?.canonical || `${COMPANY_INFO.domain}/remont_plastikovyh_okon_vladivostok/`;
+/**
+ * Канонический адрес указывает на единую страницу /remont-plastikovyh-okon/,
+ * чтобы избежать дублирования в поисковых системах, при этом сама страница
+ * открывается с кодом 200 OK и поддерживает все 8 якорей для действующих кампаний Директа.
+ */
+const CANONICAL = `${COMPANY_INFO.domain}/remont-plastikovyh-okon/`;
 
 export const metadata: Metadata = {
-  title: pageData?.title || "Ремонт пластиковых окон во Владивостоке | Окна Центр",
+  title: pageData?.title || "Ремонт пластиковых окон во Владивостоке и Уссурийске | Окна Центр",
   description:
     pageData?.description ||
-    "Ремонт пластиковых окон во Владивостоке: регулировка, замена стеклопакетов, уплотнителей, фурнитуры и ручек.",
+    "Ремонт пластиковых окон во Владивостоке и Уссурийске: регулировка, замена стеклопакетов, уплотнителей, фурнитуры и ручек.",
   alternates: {
     canonical: CANONICAL,
   },
@@ -29,7 +34,6 @@ export const metadata: Metadata = {
 export default function Page() {
   if (!pageData) notFound();
 
-  // Цены не передаём в schema.org (offers): подтверждённая единая цена отсутствует для большинства работ
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -52,6 +56,7 @@ export default function Page() {
     },
     areaServed: [
       { "@type": "City", name: "Владивосток" },
+      { "@type": "City", name: "Уссурийск" },
       { "@type": "AdministrativeArea", name: "Приморский край" },
     ],
   };

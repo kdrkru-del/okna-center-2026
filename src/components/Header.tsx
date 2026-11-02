@@ -88,10 +88,10 @@ export default function Header() {
     {
       id: "repairs",
       label: "Ремонт",
-      href: "/remont_plastikovyh_okon_vladivostok",
+      href: "/remont-plastikovyh-okon",
       items: [
-        { label: "Ремонт пластиковых окон", href: "/remont_plastikovyh_okon_vladivostok", desc: "Замена уплотнителя, ручек, регулировка" },
-        { label: "Регулировка окон", href: "/regulirovka_plastikovykh_okon_vladivostok", desc: "Устранение продуваний, зимний прижим" },
+        { label: "Ремонт пластиковых окон", href: "/remont-plastikovyh-okon", desc: "Замена уплотнителя, ручек, регулировка" },
+        { label: "Регулировка окон", href: "/remont-plastikovyh-okon#regulirovka-okon", desc: "Устранение продуваний, зимний прижим" },
       ],
     },
     {
@@ -103,7 +103,7 @@ export default function Header() {
         { label: "Продажа и доставка окон", href: "/kupit_plastikovye_okna_vladivostok", desc: "По всему Дальнему Востоку от 14 000 ₽" },
         { label: "Остекление и утепление балконов", href: "/osteklenie_balkona_vladivostok", desc: "Теплый ПВХ и раздвижной алюминий от 55 000 ₽" },
         { label: "Лоджии под ключ", href: "/lodgia_pod_klyuch_vladivostok", desc: "Остекление, утепление, отделка от 79 000 ₽" },
-        { label: "Ремонт окон", href: "/remont_plastikovyh_okon_vladivostok", desc: "Регулировка створок, уплотнители от 250 ₽" },
+        { label: "Ремонт окон", href: "/remont-plastikovyh-okon", desc: "Регулировка створок, уплотнители от 250 ₽" },
         { label: "Окна для дачи", href: "/okna_dlya_dachi_vladivostok", desc: "Экономичные решения от 4 000 ₽" },
       ],
     },
