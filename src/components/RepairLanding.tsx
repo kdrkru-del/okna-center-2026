@@ -68,6 +68,15 @@ function CallButtons({
         <Phone className="w-4 h-4 text-cyan-600" />
         <span>Позвонить: {COMPANY_INFO.mainPhone}</span>
       </a>
+      <a
+        href={WHATSAPP_HREF}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${size} rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 shadow-sm`}
+      >
+        <MessageCircle className="w-4 h-4" />
+        <span>В WhatsApp</span>
+      </a>
     </div>
   );
 }
@@ -97,8 +106,13 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
         <div className={`${SECTION} relative z-10`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-5">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-bold tracking-wide shadow-sm">
+                <Clock className="w-4 h-4 text-amber-600 flex-shrink-0 animate-pulse" />
+                <span>Срочный выезд мастера от 60 минут во Владивостоке и пригороде</span>
+              </div>
+
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900 font-heading">
-                Ремонт пластиковых окон
+                Срочный ремонт пластиковых окон
               </h1>
 
               <p className="text-slate-800 text-base sm:text-xl font-semibold leading-snug">
@@ -141,10 +155,19 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
                   <span>Позвонить: {COMPANY_INFO.mainPhone}</span>
                 </a>
                 <a
+                  href={WHATSAPP_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 shadow-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Написать в WhatsApp</span>
+                </a>
+                <a
                   href={`#${REPAIR_ANCHORS.prices}`}
                   className="px-5 py-3.5 rounded-xl bg-cyan-50 hover:bg-cyan-100 text-cyan-900 font-bold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 border border-cyan-200"
                 >
-                  <span>Цены на ремонт</span>
+                  <span>Цены</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
