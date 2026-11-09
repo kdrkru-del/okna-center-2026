@@ -1,0 +1,24 @@
+1:"$Sreact.fragment"
+2:I[1304,[],"ClientPageRoot"]
+3:I[5942,["8986","static/chunks/app/confirm-lead/page-5318d28cfc75cdd3.js"],"default"]
+6:I[484,[],"OutletBoundary"]
+7:"$Sreact.suspense"
+b:I[484,[],"ViewportBoundary"]
+c:I[484,[],"MetadataBoundary"]
+d:I[6869,[],"IconMark"]
+f:I[7121,[],""]
+10:I[4581,[],""]
+a:X
+12:X
+12:C
+0:{"buildId":"SYuCDwuFMwBZdSp2Kpd5r","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],null,["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":"$@9","staleTime":"$a","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}],["$","meta","2",{"name":"theme-color","content":"#ffffff"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Пластиковые окна, балконы и остекление — компания «Окна Центр»"}],["$","meta","1",{"name":"description","content":"Производство, продажа и установка пластиковых окон, балконов и лоджий под ключ по всему Приморскому краю с 2004 года. Замер, подбор профиля и монтаж по договору."}],["$","meta","2",{"name":"author","content":"Окна Центр"}],["$","meta","3",{"name":"keywords","content":"пластиковые окна,купить пластиковые окна,установка пластиковых окон,остекление и утепление балконов и лоджий,лоджия под ключ,ремонт окон,алюминиевые окна и витражи,окна центр,окна приморский край"}],["$","meta","4",{"name":"creator","content":"Окна Центр"}],["$","meta","5",{"name":"publisher","content":"Окна Центр"}],["$","meta","6",{"name":"robots","content":"index, follow"}],["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","8",{"property":"og:title","content":"Пластиковые окна, балконы и витражи — «Окна Центр»"}],["$","meta","9",{"property":"og:description","content":"Собственное производство, доставка и монтаж по всему Приморскому краю и Дальнему Востоку с 2004 года."}],["$","meta","10",{"property":"og:url","content":"https://xn--80aknmcbtp7a.xn--p1ai/"}],["$","meta","11",{"property":"og:site_name","content":"Окна Центр"}],["$","meta","12",{"property":"og:locale","content":"ru_RU"}],["$","meta","13",{"property":"og:type","content":"website"}],["$","meta","14",{"name":"twitter:card","content":"summary"}],["$","meta","15",{"name":"twitter:title","content":"Пластиковые окна, балконы и витражи — «Окна Центр»"}],["$","meta","16",{"name":"twitter:description","content":"Собственное производство, доставка и монтаж по всему Приморскому краю и Дальнему Востоку с 2004 года."}],["$","link","17",{"rel":"icon","href":"/favicon.ico?47718946ff472596","type":"image/x-icon","sizes":"16x16"}],["$","link","18",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","19",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","20",{"rel":"apple-touch-icon","href":"/apple-icon.png"}],["$","$Ld","21",{}]]}]}]}],null]}],"isPartial":"$@e","staleTime":"$a","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Lf",null,{"parallelRouterKey":"children","template":["$","$L10",null,{}]}]]}],"isPartial":"$@11","staleTime":"$a","varyParams":"$12"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+4:{}
+5:"$0:data:0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
+14:true
+a:300
+a:C
+13:0
+e:"$undefined"
+11:"$undefined"
+9:"$undefined"
