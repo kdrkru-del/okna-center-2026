@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Phone, ChevronDown, ChevronRight } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import { useMeasurementModal } from "@/context/ModalContext";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import MaxButton from "@/components/MaxButton";
 
 interface NavSubItem {
   label: string;
@@ -245,6 +247,12 @@ export default function Header() {
                 <span>2-725-725</span>
               </a>
 
+              {/* Desktop quick messengers */}
+              <div className="hidden xl:flex items-center gap-1.5 shrink-0">
+                <WhatsAppButton placement="header_desktop" variant="header" />
+                <MaxButton placement="header_desktop" variant="header" />
+              </div>
+
               {/* Desktop CTA Button: Заявка на замер */}
               <button
                 type="button"
@@ -348,6 +356,11 @@ export default function Header() {
                 >
                   Вызвать мастера на замер
                 </button>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <WhatsAppButton placement="mobile_menu" variant="compact" className="justify-center py-2.5" />
+                  <MaxButton placement="mobile_menu" variant="outline" className="justify-center py-2.5" />
+                </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <a

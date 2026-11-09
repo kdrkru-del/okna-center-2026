@@ -25,7 +25,7 @@ export function MaxIcon({ className = "w-5 h-5" }: { className?: string }) {
 
 interface MaxButtonProps {
   placement: string;
-  variant?: "primary" | "outline" | "dark" | "header" | "compact" | "mobileNav";
+  variant?: "primary" | "outline" | "dark" | "header" | "compact" | "mobileNav" | "floating";
   className?: string;
   iconClassName?: string;
   onClickAfter?: (record: AssignedManagerRecord) => void;
@@ -113,6 +113,8 @@ export default function MaxButton({
       "px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#168BFF] to-[#5821FF] hover:brightness-110 text-white font-bold text-xs tracking-wide shadow-sm transition-all inline-flex items-center justify-center gap-2 cursor-pointer",
     mobileNav:
       "flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-950 border border-indigo-200 transition-colors active:scale-95 cursor-pointer",
+    floating:
+      "px-3.5 py-2.5 rounded-2xl bg-white/95 hover:bg-indigo-50 text-slate-900 hover:text-indigo-950 border border-slate-200/90 hover:border-indigo-300 shadow-md backdrop-blur-md transition-all inline-flex items-center gap-2 cursor-pointer",
   };
 
   if (variant === "mobileNav") {
@@ -131,6 +133,30 @@ export default function MaxButton({
         <span className="text-[10.5px] font-bold leading-none whitespace-nowrap">
           {MAX_BRAND.buttonText}
         </span>
+      </a>
+    );
+  }
+
+  if (variant === "floating") {
+    return (
+      <a
+        href={currentUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={handleClick}
+        data-max-button="true"
+        data-placement={placement}
+        data-manager-id={currentManagerId}
+        title="Написать в MAX"
+        className={`px-3.5 py-2.5 rounded-2xl bg-white/95 hover:bg-indigo-50 text-slate-900 hover:text-indigo-950 border border-slate-200/90 hover:border-indigo-300 shadow-md backdrop-blur-md transition-all inline-flex items-center gap-2 cursor-pointer ${className}`}
+      >
+        <span className="w-6 h-6 rounded-lg bg-gradient-to-br from-[#168BFF] to-[#7116FF] text-white flex items-center justify-center shrink-0 shadow-xs">
+          <MaxIcon className="w-3.5 h-3.5" />
+        </span>
+        <div className="flex flex-col text-left">
+          <span className="text-xs font-bold leading-tight">MAX</span>
+          <span className="text-[10px] text-slate-500 leading-none">Консультант</span>
+        </div>
       </a>
     );
   }
