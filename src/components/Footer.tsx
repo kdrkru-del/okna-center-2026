@@ -47,8 +47,10 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="pt-2 text-xs text-slate-500">
-              {COMPANY_INFO.legalName}
+            <div className="pt-2 text-xs text-slate-500 space-y-0.5 font-mono">
+              <p className="font-semibold text-slate-700">{COMPANY_INFO.legalName}</p>
+              <p>ИНН: {COMPANY_INFO.inn} · КПП: {COMPANY_INFO.kpp} · ОГРН: {COMPANY_INFO.ogrn}</p>
+              <p>Юр. адрес: {COMPANY_INFO.legalAddress}</p>
             </div>
           </div>
 
@@ -151,10 +153,10 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom bar */}
+        {/* Bottom bar with 152-FZ compliance links */}
         <div className="border-t border-slate-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex flex-col gap-1">
-            <span>© 2004–2026 Компания «Окна Центр». Все права защищены.</span>
+            <span>© 2004–2026 {COMPANY_INFO.shortLegalName} (ИНН {COMPANY_INFO.inn}, ОГРН {COMPANY_INFO.ogrn}). Все права защищены.</span>
             <span className="text-[10px] text-slate-400">
               Создание и продвижение —{" "}
               <a
@@ -167,12 +169,11 @@ export default function Footer() {
               </a>
             </span>
           </div>
-          <div className="flex flex-wrap gap-6">
-            <Link href="/klyuchevye-obekty" className="hover:text-slate-900 transition-colors font-semibold text-slate-700">Ключевые объекты</Link>
-            <Link href="/ghalierieia_rabot" className="hover:text-slate-900 transition-colors">Галерея работ</Link>
-            <Link href="/okonnaia_kompaniia_vladivostok" className="hover:text-slate-900 transition-colors">О компании</Link>
+          <div className="flex flex-wrap gap-4 sm:gap-6 items-center">
+            <Link href="/privacy" className="hover:text-slate-900 transition-colors underline underline-offset-2 text-cyan-800 font-medium">Политика конфиденциальности</Link>
+            <Link href="/consent" className="hover:text-slate-900 transition-colors underline underline-offset-2 text-cyan-800 font-medium">Согласие на обработку данных</Link>
             <Link href="/contacts" className="hover:text-slate-900 transition-colors">Контакты</Link>
-            <a href="/sitemap.xml" className="hover:text-slate-900 transition-colors">Карта сайта (Sitemap)</a>
+            <a href="/sitemap.xml" className="hover:text-slate-900 transition-colors">Карта сайта</a>
           </div>
         </div>
       </div>

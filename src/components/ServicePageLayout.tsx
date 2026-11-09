@@ -12,8 +12,14 @@ import {
   ChevronDown, 
   Camera,
   Layers,
-  ExternalLink
+  ExternalLink,
+  MessageCircle,
+  Send
 } from "lucide-react";
+import { useMeasurementModal } from "@/context/ModalContext";
+import { reachGoal, notifyMessengerLeadToEmail } from "@/components/YandexMetrika";
+import { allocateVisitorMaxManager } from "@/lib/maxRotator";
+import SimpleMeasurementForm from "@/components/SimpleMeasurementForm";
 import { PageDefinition } from "@/data/pages";
 import { COMPANY_INFO } from "@/data/company_info";
 import { getPricesBySourcePage, getPricesByCategory, PriceItem } from "@/data/prices";
@@ -67,7 +73,33 @@ const GALLERY_BY_VARIANT: Record<string, { src: string; caption: string }[]> = {
 };
 
 export default function ServicePageLayout({ page }: { page: PageDefinition }) {
+  const { openMeasurementModal } = useMeasurementModal();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  const handleMaxClick = async (placement: string) => {
+    reachGoal('max_click', { service: page.h1, placement });
+    const mgr = await allocateVisitorMaxManager('max_click', `${placement}: ${page.h1}`);
+    notifyMessengerLeadToEmail({
+      channel: 'max',
+      managerLabel: mgr.managerLabel,
+      managerUrl: mgr.url,
+      sequenceNumber: mgr.sequenceNumber,
+      placement: `${placement}: ${page.h1}`,
+    });
+    window.open(mgr.url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleWhatsAppClick = (placement: string) => {
+    reachGoal('whatsapp_click', { service: page.h1, placement });
+    notifyMessengerLeadToEmail({
+      channel: 'whatsapp',
+      placement: `${placement}: ${page.h1}`,
+    });
+  };
+
+  const handlePhoneClick = (placement: string) => {
+    reachGoal('phone_click', { service: page.h1, placement });
+  };
 
   // Prices relevant for this specific page
   const isRepair = page.variant === "repair";
@@ -278,18 +310,40 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               </div>
 
               {/* Action CTAs */}
-              <div className="flex flex-wrap items-center gap-3 pt-4">
-                <Link
-                  href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-                  className="px-6 py-3.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center gap-2 cursor-pointer"
+              <div className="flex flex-wrap items-center gap-2.5 pt-4">
+                <button
+                  type="button"
+                  onClick={() => openMeasurementModal(page.h1)}
+                  className="px-5 py-3 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center gap-2 cursor-pointer"
                 >
-                  <span>{isRepair ? "Вызвать мастера" : "Вызвать мастера на замер"}</span>
+                  <span>{isRepair ? "Вызвать мастера на осмотр" : "Вызвать мастера на замер"}</span>
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </button>
+
+                <a
+                  href={`https://wa.me/79940100300?text=${encodeURIComponent(`Здравствуйте! Хочу рассчитать стоимость: ${page.h1}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => handleWhatsAppClick("Hero")}
+                  className="px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-emerald-600/20 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WhatsApp</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => handleMaxClick("Hero")}
+                  className="px-3.5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wide transition-all flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span className="font-extrabold text-cyan-400">MAX</span>
+                  <span>Чат</span>
+                </button>
 
                 <a
                   href="tel:+74232725725"
-                  className="px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 border border-slate-300 shadow-sm cursor-pointer"
+                  onClick={() => handlePhoneClick("Hero")}
+                  className="px-4 py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs uppercase tracking-wide transition-colors flex items-center gap-1.5 border border-slate-300 shadow-sm cursor-pointer"
                 >
                   <Phone className="w-4 h-4 text-cyan-600" />
                   <span>8 (423) 2-725-725</span>
@@ -493,13 +547,14 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
               </p>
             </div>
 
-            <Link
-              href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-              className="px-5 py-2.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-colors inline-flex items-center gap-2 self-start lg:self-center shadow-sm"
+            <button
+              type="button"
+              onClick={() => openMeasurementModal(page.h1)}
+              className="px-5 py-2.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-colors inline-flex items-center gap-2 self-start lg:self-center shadow-sm cursor-pointer"
             >
-              <span>{isRepair ? "Узнать стоимость" : "Рассчитать стоимость"}</span>
+              <span>{isRepair ? "Узнать точную стоимость" : "Рассчитать стоимость"}</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            </button>
           </div>
 
           <div className="overflow-x-auto">
@@ -655,30 +710,54 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
       )}
 
       {/* FINAL CONVERSION CTA */}
-      <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200/80 text-center relative overflow-hidden text-slate-900">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 border-t border-slate-200/80 relative overflow-hidden text-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 font-heading">
-            {isRepair ? "Вызовите мастера" : "Закажите точный расчет стоимости"}
-          </h2>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 font-heading">
+              {isRepair ? "Вызовите мастера на осмотр" : "Закажите точный расчет и бесплатный замер"}
+            </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
-            {isRepair
-              ? "Оставьте заявку или позвоните — уточним неисправность, согласуем время визита мастера и назовём стоимость ремонта до начала работ."
-              : "Мастер бесплатно приедет в любой город Приморья с образцами профилей Rehau, KBE и Funke, снимет точные размеры и назовёт окончательную смету. Сборка за 4–7 рабочих дней, гарантия 5 лет, а старый мусор вывозим сами."}
-          </p>
+            <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto font-light">
+              {isRepair
+                ? "Оставьте заявку — согласуем время визита мастера, устраним продувания, заменим уплотнители и фурнитуру с гарантией по договору."
+                : "Мастер бесплатно приедет в любой район Владивостока и Приморья с образцами профилей Rehau, KBE и Funke, снимет размеры и назовёт окончательную смету без скрытых доплат."}
+            </p>
+          </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/zaiavka_na_uslughi_kompanii_oknatsientr"
-              className="px-8 py-4 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 hover:shadow-cyan-600/20 flex items-center gap-2 cursor-pointer"
+          <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl p-6 sm:p-8 lg:p-10 mb-8">
+            <SimpleMeasurementForm
+              initialService={page.h1}
+              source={`service_page_bottom_${page.slug}`}
+              variant={isRepair ? "repair" : "measurement"}
+            />
+          </div>
+
+          {/* Alternative Contact CTAs */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={`https://wa.me/79940100300?text=${encodeURIComponent(`Здравствуйте! Хочу рассчитать стоимость: ${page.h1}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleWhatsAppClick("BottomCTA")}
+              className="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-emerald-600/20 flex items-center gap-2 cursor-pointer"
             >
-              <span>{isRepair ? "Вызвать мастера" : "Вызвать мастера на замер"}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <MessageCircle className="w-4 h-4" />
+              <span>Написать в WhatsApp</span>
+            </a>
+
+            <button
+              type="button"
+              onClick={() => handleMaxClick("BottomCTA")}
+              className="px-5 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wide transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <span className="font-extrabold text-cyan-400">MAX</span>
+              <span>Чат с менеджером</span>
+            </button>
 
             <a
               href="tel:+74232725725"
-              className="px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 border border-slate-300 shadow-sm cursor-pointer"
+              onClick={() => handlePhoneClick("BottomCTA")}
+              className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 border border-slate-300 shadow-sm cursor-pointer"
             >
               <Phone className="w-4 h-4 text-cyan-600" />
               <span>8 (423) 2-725-725</span>

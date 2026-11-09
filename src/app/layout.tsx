@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import YandexMetrika from "@/components/YandexMetrika";
+import CookieBanner from "@/components/CookieBanner";
 import { COMPANY_INFO } from "@/data/company_info";
 import { asset } from "@/lib/assetPath";
 import "./globals.css";
@@ -181,7 +182,9 @@ export default function RootLayout({
           <MobileBottomNav />
           <LoggiaPromoDesktopDock />
           <QuickLeadModal />
+          <CookieBanner />
         </ModalProvider>
+        <script src="/antifraud-sensor.js" data-counter="113115728" defer />
       </body>
     </html>
   );

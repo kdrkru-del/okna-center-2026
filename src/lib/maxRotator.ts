@@ -1,5 +1,5 @@
 import { MAX_MANAGERS, MAX_BRAND, MaxManager } from '@/data/max_config';
-import { reachGoal } from '@/components/YandexMetrika';
+import { reachGoal, notifyMessengerLeadToEmail } from '@/components/YandexMetrika';
 
 export interface AssignedManagerRecord {
   managerId: 'manager_1' | 'manager_2';
@@ -296,6 +296,13 @@ function recordManagerAnalytics(
     reachGoal(`max_click_manager_${record.managerNumber}`, {
       placement,
       sequenceNumber: record.sequenceNumber,
+    });
+    notifyMessengerLeadToEmail({
+      channel: 'max',
+      managerLabel: record.managerLabel,
+      managerUrl: record.url,
+      sequenceNumber: record.sequenceNumber,
+      placement,
     });
   } else {
     reachGoal(`lead_assigned_manager_${record.managerNumber}`, {

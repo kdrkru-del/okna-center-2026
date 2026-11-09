@@ -1,4 +1,9 @@
-import { reachGoal } from '@/components/YandexMetrika';
+import {
+  reachGoal,
+  getMetrikaClientId,
+  buildConfirmLeadUrl,
+  notifyMessengerLeadToEmail,
+} from '@/components/YandexMetrika';
 import {
   checkRateLimit,
   recordSubmission,
@@ -8,6 +13,8 @@ import {
   allocateVisitorMaxManager,
   AssignedManagerRecord,
 } from '@/lib/maxRotator';
+
+export { buildConfirmLeadUrl, notifyMessengerLeadToEmail };
 
 export interface LeadPayload {
   name?: string;
@@ -153,6 +160,77 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     body['IP-адрес'] = check.clientIp;
   }
   body['Заявок за сегодня с этого адреса'] = String((check.todayCount || 0) + 1);
+
+  // Add Yandex.Metrika ClientID (_ym_uid) and 1-click confirmation links right inside the email table
+  const metrikaClientId = getMetrikaClientId();
+  if (metrikaClientId) {
+    body['ID Яндекс.Метрики (_ym_uid)'] = metrikaClientId;
+  }
+  body['✅ Подтвердить реальный лид (Обучить Яндекс)'] = buildConfirmLeadUrl({
+    clientId: metrikaClientId || 'unknown',
+    status: 'qualified_lead',
+    channel: 'email',
+    manager: assignedManager.managerLabel,
+    phone: phone.trim(),
+  });
+  body['📐 Подтвердить запись на замер'] = buildConfirmLeadUrl({
+    clientId: metrikaClientId || 'unknown',
+    status: 'measurement_booked',
+    channel: 'email',
+    manager: assignedManager.managerLabel,
+    phone: phone.trim(),
+  });
+  body['🤖 Отметить как Спам / Бот'] = buildConfirmLeadUrl({
+    clientId: metrikaClientId || 'unknown',
+    status: 'spam_bot',
+    channel: 'email',
+    manager: assignedManager.managerLabel,
+    phone: phone.trim(),
+  });
+
+  // 1. Первичная фиксация в базе данных РФ через Lead Gateway (ч. 5 ст. 18 152-ФЗ РФ)
+  const leadGatewayUrl = (process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL && !process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL.includes('localhost')) ? process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL : '';
+  if (leadGatewayUrl) {
+  try {
+    const gwController = new AbortController();
+    const gwTimeout = setTimeout(() => gwController.abort(), 2500);
+    const gwRes = await fetch(leadGatewayUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        project: 'okna',
+        name,
+        phone,
+        city,
+        service,
+        comment: formattedCalcData ? `${comment || ''} [${formattedCalcData}]` : comment,
+        consent: true,
+        pageUrl: resolvedUrl,
+        source: source || 'lead_form'
+      }),
+      signal: gwController.signal
+    });
+    clearTimeout(gwTimeout);
+    if (gwRes.ok) {
+      await recordSubmission(phone, check.clientIp);
+      reachGoal('form_submit', {
+        source: source || 'form',
+        service: service || '',
+        city: city || '',
+        isCalculator: Boolean(isCalculator),
+        assignedManager: assignedManager.managerId,
+      });
+      return {
+        ok: true,
+        message: 'Спасибо! Ваша заявка успешно принята и зафиксирована.',
+        assignedManager,
+      };
+    }
+  } catch (gwErr) {
+    // Бесшовный fallback на существующий FormSubmit канал
+    console.warn('Lead Gateway offline or unreachable, using fallback channel...', (gwErr as any)?.message);
+  }
+  }
 
   // Set active submission lock
   setSubmittingLock(true);

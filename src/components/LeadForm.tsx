@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import { submitLead } from '@/lib/submitLead';
 import { CheckCircle2 } from 'lucide-react';
 import { formatRussianPhone } from '@/lib/phoneMask';
@@ -13,6 +14,7 @@ export default function LeadForm() {
   const [service, setService] = useState('Окна ПВХ');
   const [message, setMessage] = useState('');
   const [website, setWebsite] = useState('');
+  const [consent, setConsent] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -23,6 +25,11 @@ export default function LeadForm() {
     const digits = phone.replace(/\D/g, '');
     if (digits.length < 10) {
       setError('Пожалуйста, введите корректный номер телефона (не менее 10 цифр)');
+      return;
+    }
+
+    if (!consent) {
+      setError('Пожалуйста, подтвердите согласие на обработку персональных данных перед отправкой заявки');
       return;
     }
 
@@ -45,6 +52,7 @@ export default function LeadForm() {
         setName('');
         setPhone('+7 (');
         setMessage('');
+        setConsent(false);
       } else {
         setError(result.error || 'Не удалось автоматически отправить заявку. Свяжитесь с нами напрямую.');
       }
@@ -110,60 +118,61 @@ export default function LeadForm() {
 
               {/* Service Selection */}
               <div>
-                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Что интересует? *</label>
+                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Что требуется остеклить *</label>
                 <select
                   value={service}
                   onChange={(e) => setService(e.target.value)}
                   className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm cursor-pointer"
                 >
-                  <option value="Окна ПВХ в квартиру">Пластиковые окна ПВХ</option>
-                  <option value="Балкон / Лоджия под ключ">Балкон / Лоджия под ключ</option>
-                  <option value="Остекление частного дома">Остекление частного дома / коттеджа</option>
-                  <option value="Алюминиевые витражи ALUTECH">Алюминиевые витражи и фасады</option>
-                  <option value="Ремонт и регулировка окон">Ремонт / Регулировка окон</option>
-                  <option value="Покупка окон без монтажа">Купить окна без установки (с доставкой)</option>
+                  <option value="Окна ПВХ">Пластиковые окна в квартиру или дом</option>
+                  <option value="Остекление балкона">Остекление и отделка балкона</option>
+                  <option value="Лоджия под ключ">Лоджия под ключ с утеплением</option>
+                  <option value="Алюминиевые окна / Фасад">Алюминиевые витражи и фасады ALT F50</option>
+                  <option value="Ремонт окон">Ремонт, замена стеклопакетов, регулировка</option>
+                  <option value="Жалюзи">Еврожалюзи или рулонные шторы</option>
                 </select>
               </div>
 
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+              
               {/* Name */}
               <div>
-                <label className="block text-xs text-slate-600 font-semibold uppercase tracking-wider mb-2">Ваше имя</label>
+                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Как к вам обращаться</label>
                 <input
                   type="text"
                   placeholder="Иван"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm"
+                  className="ym-disable-keys w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm"
                 />
               </div>
 
               {/* Phone */}
               <div>
-                <label className="block text-xs text-slate-600 font-semibold uppercase tracking-wider mb-2">Телефон *</label>
+                <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Номер телефона *</label>
                 <input
                   type="tel"
-                  placeholder="+7 (999) 000-00-00"
                   required
+                  placeholder="+7 (___) ___-__-__"
                   value={phone}
-                  onFocus={() => {
-                    if (!phone || phone.length <= 4) setPhone("+7 (");
-                  }}
                   onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
-                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm font-medium"
+                  className="ym-disable-keys w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm font-mono"
                 />
               </div>
 
             </div>
 
-            {/* Message / Dimensions */}
-            <div className="mb-8">
+            {/* Message / Comments */}
+            <div className="mb-6">
               <label className="block text-xs text-slate-600 font-semibold uppercase tracking-wider mb-2">Размеры или пожелания (необязательно)</label>
               <textarea
                 rows={3}
                 placeholder="Примерные размеры, тип дома или особые пожелания..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm"
+                className="ym-disable-keys w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm"
               />
             </div>
 
@@ -177,6 +186,21 @@ export default function LeadForm() {
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
               />
+            </div>
+
+            {/* 152-FZ Consent Checkbox (Separated per 01.09.2025 requirement) */}
+            <div className="mb-6 flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <input
+                type="checkbox"
+                id="lead-consent"
+                required
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                className="mt-0.5 w-4 h-4 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600 cursor-pointer shrink-0"
+              />
+              <label htmlFor="lead-consent" className="text-xs text-slate-600 leading-relaxed cursor-pointer select-none">
+                Даю <Link href="/consent" target="_blank" className="text-cyan-700 underline font-medium hover:text-cyan-800">согласие на обработку персональных данных</Link> в соответствии со ст. 9 152-ФЗ. С <Link href="/privacy" target="_blank" className="text-cyan-700 underline font-medium hover:text-cyan-800">Политикой конфиденциальности</Link> ознакомлен.
+              </label>
             </div>
 
             {error && (
@@ -196,13 +220,13 @@ export default function LeadForm() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || !consent}
                 className="w-full sm:w-auto px-10 py-4 bg-slate-950 hover:bg-cyan-700 disabled:opacity-50 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-lg shadow-slate-900/10 cursor-pointer"
               >
                 {loading ? 'Отправка...' : 'Вызвать мастера на замер'}
               </button>
-              <span className="text-[11px] text-slate-500 font-light text-center sm:text-right">
-                Нажимая кнопку, вы даете согласие на обработку персональных данных.
+              <span className="text-[11px] text-slate-500 font-light text-center sm:text-right font-mono">
+                ООО «Окна-Центр» · ИНН 2543168553
               </span>
             </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { X, CheckCircle2 } from "lucide-react";
 import { useMeasurementModal } from "@/context/ModalContext";
 import { submitLead } from "@/lib/submitLead";
@@ -16,6 +17,7 @@ export default function QuickLeadModal() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+7 (");
   const [website, setWebsite] = useState("");
+  const [consent, setConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -24,6 +26,7 @@ export default function QuickLeadModal() {
     if (isOpen) {
       document.body.style.overflow = "hidden";
       setSubmitted(false);
+      setConsent(false);
       setError("");
     } else {
       document.body.style.overflow = "";
@@ -52,6 +55,11 @@ export default function QuickLeadModal() {
     const digits = phone.replace(/\D/g, "");
     if (digits.length < 10) {
       setError("Пожалуйста, введите корректный номер телефона (не менее 10 цифр)");
+      return;
+    }
+
+    if (!consent) {
+      setError("Пожалуйста, подтвердите согласие на обработку персональных данных");
       return;
     }
 
@@ -151,7 +159,7 @@ export default function QuickLeadModal() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Иван"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:bg-white focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all"
+                  className="ym-disable-keys w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:bg-white focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all font-medium"
                 />
               </div>
 
@@ -169,7 +177,7 @@ export default function QuickLeadModal() {
                   }}
                   onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
                   placeholder="+7 (999) 000-00-00"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 font-mono text-sm focus:bg-white focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all font-medium"
+                  className="ym-disable-keys w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 font-mono text-sm focus:bg-white focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all font-medium"
                 />
               </div>
 
@@ -185,6 +193,21 @@ export default function QuickLeadModal() {
                 />
               </div>
 
+              {/* 152-FZ Consent Checkbox */}
+              <div className="flex items-start gap-2.5 pt-1 pb-1">
+                <input
+                  type="checkbox"
+                  id="modal-consent"
+                  required
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 w-4 h-4 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600 cursor-pointer shrink-0"
+                />
+                <label htmlFor="modal-consent" className="text-[11px] text-slate-600 leading-tight cursor-pointer select-none">
+                  Даю <Link href="/consent" target="_blank" className="text-cyan-700 underline hover:text-cyan-800">согласие на обработку персональных данных</Link>. С <Link href="/privacy" target="_blank" className="text-cyan-700 underline hover:text-cyan-800">Политикой</Link> ознакомлен.
+                </label>
+              </div>
+
               {error && (
                 <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs leading-relaxed">
                   {error}
@@ -194,16 +217,14 @@ export default function QuickLeadModal() {
               {/* Submit button */}
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || !consent}
                 className="w-full py-4 px-6 bg-slate-950 hover:bg-cyan-600 disabled:opacity-50 text-white font-bold rounded-2xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 cursor-pointer"
               >
                 {loading ? "Отправка..." : isRepair ? "Вызвать мастера" : "Вызвать мастера на замер"}
               </button>
 
-              <p className="text-[11px] text-slate-500 text-center leading-relaxed">
-                {isRepair
-                  ? "Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Заявка ни к чему вас не обязывает."
-                  : "Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Выезд замерщика бесплатный и ни к чему вас не обязывает."}
+              <p className="text-[10px] text-slate-400 text-center leading-relaxed">
+                ООО «Окна-Центр» (ИНН 2543168553). Выезд замерщика бесплатный.
               </p>
             </form>
           </div>
