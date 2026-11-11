@@ -254,46 +254,26 @@ export function notifyMessengerLeadToEmail(params: {
       ? `Переход в MAX (${params.managerLabel || 'Менеджер'}, #${params.sequenceNumber || 1}) — «Окна Центр»`
       : `Переход в WhatsApp с сайта — «Окна Центр»`;
 
+  const messengerLeadId = `msg_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+
   const body: Record<string, string> = {
     _subject: subject,
     _template: 'table',
     _captcha: 'false',
+    'ID обращения': messengerLeadId,
     'Канал обращения': channelTitle,
-    'Блок на сайте': params.placement || 'Кнопка мессенджера',
+    'Блок на сайте (источник)': params.placement || 'Кнопка мессенджера',
     'Страница перехода': pageUrl,
     'Дата и время': dateTimeStr,
+    'ID Яндекс.Метрики (_ym_uid)': metrikaClientId || 'Не определен (прямой заход / блокировщик)',
   };
 
+  if (params.managerLabel) {
+    body['Назначенный менеджер'] = params.managerLabel;
+  }
   if (params.managerUrl) {
     body['Ссылка MAX менеджера'] = params.managerUrl;
   }
-  if (metrikaClientId) {
-    body['ID Яндекс.Метрики (_ym_uid)'] = metrikaClientId;
-  }
-
-  const messengerLeadId = `msg_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
-
-  body['✅ Если клиент реально написал — подтвердить лид'] = buildConfirmLeadUrl({
-    leadId: messengerLeadId,
-    clientId: metrikaClientId || 'unknown',
-    status: 'qualified_lead',
-    channel: params.channel,
-    manager: params.managerLabel,
-  });
-  body['📐 Если записался на замер — подтвердить замер'] = buildConfirmLeadUrl({
-    leadId: messengerLeadId,
-    clientId: metrikaClientId || 'unknown',
-    status: 'measurement_booked',
-    channel: params.channel,
-    manager: params.managerLabel,
-  });
-  body['🤖 Пустой клик / Не написал / Бот'] = buildConfirmLeadUrl({
-    leadId: messengerLeadId,
-    clientId: metrikaClientId || 'unknown',
-    status: 'spam_bot',
-    channel: params.channel,
-    manager: params.managerLabel,
-  });
 
   fetch('https://formsubmit.co/ajax/okna.c@mail.ru', {
     method: 'POST',

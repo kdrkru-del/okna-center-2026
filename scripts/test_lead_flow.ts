@@ -162,15 +162,24 @@ async function runTests() {
   });
 
   assert.strictEqual(resFallback.ok, true, 'Fallback submission succeeds');
-  assert.ok(
-    fetchHistory.some((f) => f.url.includes('formsubmit.co')),
-    'FormSubmit fallback was reached when Gateway crashed'
-  );
+  const formSubmitCall = fetchHistory.find((f) => f.url.includes('formsubmit.co'));
+  assert.ok(formSubmitCall, 'FormSubmit fallback was reached when Gateway crashed');
+  
+  const parsedBody = JSON.parse(formSubmitCall.options.body);
+  assert.ok(parsedBody['ID Яндекс.Метрики (_ym_uid)'], 'ClientID must be preserved in notification');
+  assert.ok(parsedBody['ID заявки (Idempotency Key)'], 'leadId must be preserved in notification');
+  assert.ok(parsedBody['Назначенный менеджер (50/50)'], 'Manager must be assigned');
+  assert.strictEqual(parsedBody['Телефон'], '+7 (924) 333-44-55', 'Phone must match');
+  assert.strictEqual(parsedBody['Город'], 'Уссурийск', 'City must match');
+  assert.strictEqual('✅ Подтвердить реальный лид (Обучить Яндекс)' in parsedBody, false, 'Non-working confirm link must be removed');
+  assert.strictEqual('📐 Подтвердить запись на замер' in parsedBody, false, 'Non-working measurement link must be removed');
+  assert.strictEqual('🤖 Отметить как Спам / Бот' in parsedBody, false, 'Non-working spam link must be removed');
+
   assert.ok(
     mockYmCalls.some((c) => c.target === 'lead_submit'),
     'lead_submit goal WAS fired after FormSubmit confirmation'
   );
-  console.log('✔ Test 5: Fallback to FormSubmit succeeds when Gateway fails, lead_submit goal recorded');
+  console.log('✔ Test 5: Fallback to FormSubmit succeeds, retains all lead metadata, and omits dead links');
 
   // TEST 6: Error handling when BOTH channels fail
   mockYmCalls.length = 0;

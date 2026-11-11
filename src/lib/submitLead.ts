@@ -172,6 +172,9 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     // Retrieve preserved UTM parameters from initial landing session
     const storedUtms = getStoredUtmParams();
 
+    // Retrieve Yandex.Metrika ClientID (_ym_uid)
+    const metrikaClientId = getMetrikaClientId();
+
     // Build sanitized request body for FormSubmit
     const body: Record<string, string> = {
       _subject: subject,
@@ -181,7 +184,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
 
     if (name && name.trim()) body['Имя'] = name.trim();
     body['Телефон'] = phone.trim();
-    if (city && city.trim()) body['Город'] = city.trim();
+    body['Город'] = (city && city.trim()) || cityContact.city;
     if (service && service.trim()) body['Услуга'] = service.trim();
     if (promoOption && promoOption.trim()) body['Выбранный вариант по акции'] = promoOption.trim();
     
@@ -192,12 +195,13 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     if (finalComment) body['Комментарий'] = finalComment;
 
     if (formattedCalcData) body['Параметры калькулятора'] = formattedCalcData;
-    if (source && source.trim()) body['Источник формы'] = source.trim();
+    body['Источник формы'] = (source && source.trim()) || 'lead_form';
     body['Назначенный менеджер (50/50)'] = assignedManager.managerLabel;
     body['Ссылка MAX менеджера'] = assignedManager.url;
     body['Страница'] = resolvedUrl;
     body['Дата и время'] = dateTimeStr;
     body['ID заявки (Idempotency Key)'] = leadId;
+    body['ID Яндекс.Метрики (_ym_uid)'] = metrikaClientId || 'Не определен (прямой заход / блокировщик)';
     body['Согласие на обработку ПД (152-ФЗ)'] = 'Да, предоставлено пользователем';
 
     // Add UTM tags to email table
@@ -212,36 +216,6 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
       body['IP-адрес'] = check.clientIp;
     }
     body['Заявок за сегодня с этого адреса'] = String((check.todayCount || 0) + 1);
-
-    // Add Yandex.Metrika ClientID (_ym_uid) and 1-click confirmation links
-    const metrikaClientId = getMetrikaClientId();
-    if (metrikaClientId) {
-      body['ID Яндекс.Метрики (_ym_uid)'] = metrikaClientId;
-    }
-    body['✅ Подтвердить реальный лид (Обучить Яндекс)'] = buildConfirmLeadUrl({
-      leadId,
-      clientId: metrikaClientId || 'unknown',
-      status: 'qualified_lead',
-      channel: 'email',
-      manager: assignedManager.managerLabel,
-      phone: phone.trim(),
-    });
-    body['📐 Подтвердить запись на замер'] = buildConfirmLeadUrl({
-      leadId,
-      clientId: metrikaClientId || 'unknown',
-      status: 'measurement_booked',
-      channel: 'email',
-      manager: assignedManager.managerLabel,
-      phone: phone.trim(),
-    });
-    body['🤖 Отметить как Спам / Бот'] = buildConfirmLeadUrl({
-      leadId,
-      clientId: metrikaClientId || 'unknown',
-      status: 'spam_bot',
-      channel: 'email',
-      manager: assignedManager.managerLabel,
-      phone: phone.trim(),
-    });
 
     // 7. PRIMARY CHANNEL: Lead Gateway (152-ФЗ РФ)
     const leadGatewayUrl =
@@ -275,6 +249,9 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
             pageUrl: resolvedUrl,
             source: source || 'lead_form',
             utm: storedUtms,
+            metrikaClientId: metrikaClientId || '',
+            assignedManager: assignedManager.managerLabel,
+            managerUrl: assignedManager.url,
           }),
           signal: gwController.signal,
         });
