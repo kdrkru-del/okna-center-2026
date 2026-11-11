@@ -313,7 +313,6 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          'X-Idempotency-Key': leadId,
         },
         body: JSON.stringify(body),
       });

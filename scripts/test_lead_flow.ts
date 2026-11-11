@@ -165,6 +165,13 @@ async function runTests() {
   const formSubmitCall = fetchHistory.find((f) => f.url.includes('formsubmit.co'));
   assert.ok(formSubmitCall, 'FormSubmit fallback was reached when Gateway crashed');
   
+  // CORS check: FormSubmit only whitelists standard headers, X-Idempotency-Key must NOT be sent as HTTP header
+  assert.strictEqual(
+    Boolean(formSubmitCall.options.headers && formSubmitCall.options.headers['X-Idempotency-Key']),
+    false,
+    'FormSubmit headers must omit non-whitelisted X-Idempotency-Key to prevent CORS preflight rejection'
+  );
+
   const parsedBody = JSON.parse(formSubmitCall.options.body);
   assert.ok(parsedBody['ID Яндекс.Метрики (_ym_uid)'], 'ClientID must be preserved in notification');
   assert.ok(parsedBody['ID заявки (Idempotency Key)'], 'leadId must be preserved in notification');
