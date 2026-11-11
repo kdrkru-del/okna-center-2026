@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { CheckCircle2, ArrowRight, Phone, Sparkles, MessageCircle } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import { reachGoal } from "@/components/YandexMetrika";
 import { submitLead } from "@/lib/submitLead";
 import { formatRussianPhone, validateRussianPhone } from "@/lib/phoneMask";
+import { CITIES_LIST, detectInitialCity, saveSelectedCity, getCityContact, SupportedCity } from "@/lib/cityDetector";
 
 export default function InteractiveCalculator() {
   const [step, setStep] = useState(1);
@@ -13,13 +15,23 @@ export default function InteractiveCalculator() {
   const [dimensions, setDimensions] = useState({ width: "1300", height: "1400" });
   const [profile, setProfile] = useState("consult");
   const [options, setOptions] = useState<string[]>(["installation", "sill"]);
-  const [city, setCity] = useState("Владивосток");
+  const [city, setCity] = useState<SupportedCity>("Владивосток");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [website, setWebsite] = useState("");
+  const [consent, setConsent] = useState(false); // 152-FZ: Starts strictly false
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    setCity(detectInitialCity());
+  }, []);
+
+  const handleCityChange = (newCity: SupportedCity) => {
+    setCity(newCity);
+    saveSelectedCity(newCity);
+  };
 
   const handleNextStep = (nextStep: number) => {
     if (step === 1 && nextStep === 2) {
@@ -34,6 +46,12 @@ export default function InteractiveCalculator() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    if (!consent) {
+      setError("Пожалуйста, подтвердите согласие на обработку персональных данных (152-ФЗ)");
+      return;
+    }
+
     const phoneValidation = validateRussianPhone(phone);
     if (!phoneValidation.isValid) {
       setError(phoneValidation.error || "Пожалуйста, введите корректный номер телефона (не менее 10 цифр)");
@@ -64,6 +82,7 @@ export default function InteractiveCalculator() {
       const result = await submitLead({
         name,
         phone,
+        consent: true,
         city,
         service: `Калькулятор: ${typeLabel}`,
         comment: `Заявка из калькулятора. Тип: ${typeLabel}. Профиль: ${profileName}. Размеры: ${dimensions.width} × ${dimensions.height} мм. Опции: ${optionsLabels.join(', ') || 'без доп. опций'}. Оценка: от ${estimate} ₽`,
@@ -83,7 +102,8 @@ export default function InteractiveCalculator() {
       if (result.ok) {
         setSubmitted(true);
         setName('');
-        setPhone('+7 (');
+        setPhone('');
+        setConsent(false);
       } else {
         setError(result.error || "Не удалось автоматически отправить заявку. Свяжитесь с нами напрямую.");
       }
@@ -334,10 +354,11 @@ export default function InteractiveCalculator() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs text-slate-700 block mb-1 font-semibold">Ваше имя:</label>
+                      <label className="text-xs text-slate-700 block mb-1 font-semibold">
+                        Ваше имя <span className="text-slate-400 font-normal">(необязательно)</span>:
+                      </label>
                       <input
                         type="text"
-                        required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Александр"
@@ -345,7 +366,9 @@ export default function InteractiveCalculator() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs text-slate-700 block mb-1 font-semibold">Номер телефона:*</label>
+                      <label className="text-xs text-slate-700 block mb-1 font-semibold">
+                        Номер телефона: <span className="text-cyan-600">*</span>
+                      </label>
                       <input
                         type="tel"
                         inputMode="tel"
@@ -362,11 +385,11 @@ export default function InteractiveCalculator() {
                   <div>
                     <label className="text-xs text-slate-700 block mb-1 font-semibold">Город / Район:</label>
                     <div className="grid grid-cols-3 gap-2">
-                      {["Владивосток", "Уссурийск", "Артём"].map((c) => (
+                      {(["Владивосток", "Уссурийск", "Артём"] as SupportedCity[]).map((c) => (
                         <button
                           key={c}
                           type="button"
-                          onClick={() => setCity(c)}
+                          onClick={() => handleCityChange(c)}
                           className={`py-2 px-2 text-xs rounded-xl border transition-colors cursor-pointer ${
                             city === c ? "border-cyan-600 bg-cyan-50 text-cyan-800 font-semibold" : "border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300"
                           }`}
@@ -378,7 +401,10 @@ export default function InteractiveCalculator() {
                   </div>
 
                   {/* Honeypot field for bot protection */}
-                  <div className="hidden" aria-hidden="true">
+                  <div
+                    aria-hidden="true"
+                    style={{ position: "absolute", opacity: 0, width: 0, height: 0, pointerEvents: "none", zIndex: -1 }}
+                  >
                     <input
                       type="text"
                       name="website"
@@ -389,15 +415,30 @@ export default function InteractiveCalculator() {
                     />
                   </div>
 
+                  {/* 152-FZ Consent Checkbox */}
+                  <div className="flex items-start gap-2.5 pt-1 pb-1">
+                    <input
+                      type="checkbox"
+                      id="calc-consent"
+                      required
+                      checked={consent}
+                      onChange={(e) => setConsent(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600 cursor-pointer shrink-0"
+                    />
+                    <label htmlFor="calc-consent" className="text-[11px] text-slate-600 leading-tight cursor-pointer select-none">
+                      Даю <Link href="/consent" target="_blank" className="text-cyan-700 underline hover:text-cyan-800 font-medium">согласие на обработку персональных данных</Link> в соответствии со ст. 9 152-ФЗ. С <Link href="/privacy" target="_blank" className="text-cyan-700 underline hover:text-cyan-800 font-medium">Политикой конфиденциальности</Link> ознакомлен.
+                    </label>
+                  </div>
+
                   {error && (
                     <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs">
                       <p className="font-semibold mb-3 leading-relaxed">{error}</p>
                       <div className="flex flex-col sm:flex-row gap-2.5 mt-2">
                         <a
-                          href="tel:+74232725725"
+                          href={`tel:${getCityContact(city).phoneRaw}`}
                           className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-slate-950 text-white font-bold text-xs w-full sm:w-auto text-center"
                         >
-                          Позвонить: 8 (423) 2-725-725
+                          Позвонить: {getCityContact(city).phoneDisplay}
                         </a>
                       </div>
                     </div>
@@ -413,16 +454,16 @@ export default function InteractiveCalculator() {
                     </button>
                     <button
                       type="submit"
-                      disabled={loading}
-                      className="px-8 py-3.5 bg-slate-950 hover:bg-cyan-600 disabled:opacity-50 text-white font-bold rounded-xl text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 transition-all cursor-pointer"
+                      disabled={loading || !consent}
+                      className="px-8 py-3.5 bg-slate-950 hover:bg-cyan-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold rounded-xl text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-slate-900/10 hover:shadow-cyan-600/20 transition-all cursor-pointer"
                     >
                       <Sparkles className="w-4 h-4" />
                       <span>{loading ? "Отправляем..." : "Получить расчет и вызвать мастера"}</span>
                     </button>
                   </div>
 
-                  <p className="text-[10px] text-slate-500 text-center">
-                    Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Конфиденциальность гарантируется.
+                  <p className="text-[10px] text-slate-400 text-center leading-relaxed">
+                    ООО «Окна-Центр» (ИНН 2543168553) · Предварительный расчёт сметы и выезд на замер
                   </p>
                 </form>
               )}

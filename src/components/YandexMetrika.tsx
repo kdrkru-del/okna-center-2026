@@ -6,12 +6,16 @@ export const METRIKA_ID = 113115728;
 
 declare global {
   interface Window {
-    ym?: (
-      id: number,
-      action: string,
-      target?: string | Record<string, unknown> | ((clientId: string) => void),
-      params?: Record<string, unknown>
-    ) => void;
+    ym?: {
+      (
+        id: number,
+        action: string,
+        target?: string | Record<string, unknown> | ((clientId: string) => void),
+        params?: Record<string, unknown>
+      ): void;
+      a?: any[];
+      l?: number;
+    };
     CROAgent?: {
       isClickbot?: () => boolean;
       getState?: () => Record<string, unknown>;
@@ -37,7 +41,7 @@ export const GOAL_MAP: Record<string, string> = {
 };
 
 const recentGoals = new Map<string, number>();
-const DEDUP_WINDOW_MS = 1200; // Deduplication window: 1.2s
+const DEDUP_WINDOW_MS = 1200; // Deduplication window: 1.2s for identical physical actions
 
 const UTM_STORAGE_KEY = '_okna_stored_utms';
 
@@ -116,33 +120,47 @@ export function getMetrikaClientId(): string {
 
 /**
  * Centralized, deduplicated goal tracking function.
- * Automatically translates legacy event names to verified conditions
- * and prevents double-counting across components.
+ * Automatically translates legacy event names to verified conditions,
+ * queues goals if tag.js is still loading, and prevents duplicate triggers
+ * from accidental double-clicks or event bubbling without suppressing distinct user actions.
  */
 export function reachGoal(goal: string, params?: Record<string, unknown>) {
   if (typeof window === 'undefined') return;
 
   const targetGoal = GOAL_MAP[goal] || goal;
-  const now = Date.now();
-  const lastTime = recentGoals.get(targetGoal) || 0;
+  const actionIdentity =
+    (params?.leadId as string) ||
+    (params?.href as string) ||
+    (params?.placement as string) ||
+    (params?.source as string) ||
+    '';
+  const dedupKey = `${targetGoal}:${actionIdentity}`;
 
-  // Deduplicate identical goals within 1.2s to prevent multiple triggers from bubbling / capture / nested buttons
+  const now = Date.now();
+  const lastTime = recentGoals.get(dedupKey) || 0;
+
+  // Deduplicate identical action within 1.2s to prevent multiple triggers from bubbling / capture
   if (now - lastTime < DEDUP_WINDOW_MS) {
     return;
   }
-  recentGoals.set(targetGoal, now);
 
-  if (typeof window.ym === 'function') {
-    try {
-      // Anti-fraud shield: if recognized as clickbot, block goal poisoning
-      if (window.CROAgent?.isClickbot?.()) {
-        window.ym(METRIKA_ID, 'userParams', { is_clickbot: 'yes', blocked_goal: targetGoal });
-        return;
-      }
+  // Ensure Metrika async queue function exists even if called before tag.js loads
+  if (typeof window.ym !== 'function') {
+    const ymQueue: any = function (...args: any[]) {
+      (ymQueue.a = ymQueue.a || []).push(args);
+    };
+    ymQueue.l = 1 * Date.now();
+    window.ym = ymQueue;
+  }
+
+  try {
+    if (typeof window.ym === 'function') {
       window.ym(METRIKA_ID, 'reachGoal', targetGoal, params);
-    } catch {
-      // ignore
     }
+    // Record timestamp ONLY after confirmed dispatch or queueing
+    recentGoals.set(dedupKey, now);
+  } catch (err) {
+    console.warn('Yandex.Metrika reachGoal error:', err);
   }
 }
 
@@ -163,7 +181,12 @@ export function buildConfirmLeadUrl(params: {
   search.set('status', params.status);
   search.set('channel', params.channel);
   if (params.manager) search.set('mgr', params.manager);
-  if (params.phone) search.set('phone', params.phone);
+  if (params.phone) {
+    // 152-FZ Privacy protection: strictly avoid transmitting raw phones in open URL query strings
+    const digits = params.phone.replace(/\D/g, '');
+    const masked = digits.length >= 4 ? `***${digits.slice(-4)}` : 'masked';
+    search.set('p_mask', masked);
+  }
   search.set('ts', String(Math.floor(Date.now() / 1000)));
   return `${origin}${basePath}/confirm-lead/?${search.toString()}`;
 }
@@ -176,7 +199,6 @@ export function notifyMessengerLeadToEmail(params: {
   placement?: string;
 }): void {
   if (typeof window === 'undefined') return;
-  if (window.CROAgent?.isClickbot?.()) return;
 
   const sessionKey = `_okna_email_notified_${params.channel}`;
   try {

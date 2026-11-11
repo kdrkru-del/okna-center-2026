@@ -27,7 +27,7 @@ export default function ConfirmLeadPage() {
     const status = params.get('status') || 'qualified_lead';
     const channel = params.get('channel') || 'email';
     const mgr = params.get('mgr') || 'Менеджер';
-    const phone = params.get('phone') || '';
+    const phone = params.get('p_mask') ? `***${params.get('p_mask')}` : params.get('phone') || '';
     const ts = Number(params.get('ts') || Math.floor(Date.now() / 1000));
 
     setState({ cid, status, channel, mgr, phone, sent: true });

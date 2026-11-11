@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "npx tsx scripts/test_phone_mask.ts && npx tsx scripts/test_lead_flow.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

@@ -62,6 +62,17 @@ export interface PhoneValidationResult {
 }
 
 /**
+ * Extracts normalized clean phone (+79XXXXXXXXX).
+ */
+export function cleanRussianPhoneDigits(phone: string): string {
+  let digits = (phone || "").replace(/\D/g, "");
+  if (digits.startsWith("7") || digits.startsWith("8")) {
+    digits = digits.slice(1);
+  }
+  return digits.length > 0 ? `+7${digits.slice(0, 10)}` : "";
+}
+
+/**
  * Validates Russian national phone number (strictly 10 national digits after +7 or 8).
  */
 export function validateRussianPhone(phone: string): PhoneValidationResult {
