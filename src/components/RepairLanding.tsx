@@ -112,7 +112,7 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-950 text-xs font-bold tracking-wide shadow-xs">
                 <Clock className="w-4 h-4 text-cyan-700 flex-shrink-0" />
-                <span>Выезд мастера в день обращения или в удобное вам время · Владивосток, Артём и Уссурийск</span>
+                <span>Выезд мастера в удобное для вас время · Владивосток, Артём и Уссурийск</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900 font-heading">
