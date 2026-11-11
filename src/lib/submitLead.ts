@@ -213,6 +213,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
       body['ID Яндекс.Метрики (_ym_uid)'] = metrikaClientId;
     }
     body['✅ Подтвердить реальный лид (Обучить Яндекс)'] = buildConfirmLeadUrl({
+      leadId,
       clientId: metrikaClientId || 'unknown',
       status: 'qualified_lead',
       channel: 'email',
@@ -220,6 +221,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
       phone: phone.trim(),
     });
     body['📐 Подтвердить запись на замер'] = buildConfirmLeadUrl({
+      leadId,
       clientId: metrikaClientId || 'unknown',
       status: 'measurement_booked',
       channel: 'email',
@@ -227,6 +229,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
       phone: phone.trim(),
     });
     body['🤖 Отметить как Спам / Бот'] = buildConfirmLeadUrl({
+      leadId,
       clientId: metrikaClientId || 'unknown',
       status: 'spam_bot',
       channel: 'email',
@@ -241,13 +244,19 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
         ? process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL
         : '';
 
+    let gwFailureReason: 'timeout' | 'offline_or_error' | null = null;
+
     if (leadGatewayUrl) {
       try {
         const gwController = new AbortController();
-        const gwTimeout = setTimeout(() => gwController.abort(), 2500);
+        // 4.5s timeout: adequate for mobile networks without premature false-negative fallback
+        const gwTimeout = setTimeout(() => gwController.abort(), 4500);
         const gwRes = await fetch(leadGatewayUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Idempotency-Key': leadId,
+          },
           body: JSON.stringify({
             project: 'okna',
             leadId,
@@ -283,19 +292,45 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
             message: 'Спасибо! Ваша заявка успешно принята и зафиксирована.',
             assignedManager,
           };
+        } else if (gwRes.status >= 400 && gwRes.status < 500) {
+          const gwErrData = await gwRes.json().catch(() => ({}));
+          return {
+            ok: false,
+            error: gwErrData.message || 'Ошибка валидации данных на сервере. Проверьте правильность заполнения полей.',
+            assignedManager,
+          };
+        } else {
+          gwFailureReason = 'offline_or_error';
         }
-      } catch (gwErr) {
-        console.warn('Lead Gateway offline or unreachable, using fallback channel...', (gwErr as any)?.message);
+      } catch (gwErr: any) {
+        if (gwErr?.name === 'AbortError') {
+          gwFailureReason = 'timeout';
+          console.warn('Lead Gateway timeout (>4.5s), switching to verified fallback channel with idempotency tag...');
+        } else {
+          gwFailureReason = 'offline_or_error';
+          console.warn('Lead Gateway offline or unreachable, using fallback channel...', gwErr?.message);
+        }
       }
     }
 
     // 8. FALLBACK CHANNEL: FormSubmit to okna.c@mail.ru
+    // Tag fallback subject and body to eliminate manager confusion in case Gateway also recorded the lead
+    if (gwFailureReason === 'timeout') {
+      body._subject = `${subject} [РЕЗЕРВНЫЙ КАНАЛ: таймаут шлюза, ID ${leadId.slice(-6)}]`;
+      body['ВНИМАНИЕ МЕНЕДЖЕРУ'] =
+        `Заявка отправлена через резервный канал из-за задержки ответа шлюза (>4.5 сек). Если в CRM поступило дублирующее обращение, сверьте уникальный ID заявки: ${leadId}`;
+    } else if (gwFailureReason === 'offline_or_error') {
+      body._subject = `${subject} [РЕЗЕРВНЫЙ КАНАЛ: шлюз офлайн]`;
+      body['Статус шлюза'] = 'Основной шлюз недоступен. Доставка выполнена через резервный почтовый шлюз.';
+    }
+
     try {
       const response = await fetch(FORMSUBMIT_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
+          'X-Idempotency-Key': leadId,
         },
         body: JSON.stringify(body),
       });

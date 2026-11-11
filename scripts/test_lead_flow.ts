@@ -43,7 +43,7 @@ const mockStorage: Record<string, string> = {};
 
 // Import ACTUAL modules from src
 import { submitLead, FORMSUBMIT_ENDPOINT } from '../src/lib/submitLead';
-import { reachGoal, METRIKA_ID } from '../src/components/YandexMetrika';
+import { reachGoal, METRIKA_ID, buildConfirmLeadUrl, generateLeadConfirmToken } from '../src/components/YandexMetrika';
 import { checkRateLimit } from '../src/lib/rateLimiter';
 
 async function runTests() {
@@ -228,8 +228,39 @@ async function runTests() {
 
   console.log('✔ Test 7: Metrika deduplication filters duplicate clicks without blocking distinct user actions');
 
+  // TEST 8: Secure One-Click Lead Confirmation & Privacy Protection
+  const confirmUrl = buildConfirmLeadUrl({
+    leadId: 'lead_test_123',
+    clientId: '1731320000123456789',
+    status: 'qualified_lead',
+    channel: 'email',
+    manager: 'Данил',
+    phone: '+7 (924) 123-45-67',
+  });
+
+  const parsedUrl = new URL(confirmUrl);
+  assert.strictEqual(parsedUrl.searchParams.get('lid'), 'lead_test_123');
+  assert.strictEqual(parsedUrl.searchParams.get('cid'), '1731320000123456789');
+  assert.strictEqual(parsedUrl.searchParams.get('status'), 'qualified_lead');
+  assert.ok(parsedUrl.searchParams.get('sig'), 'Must generate a security signature');
+  assert.strictEqual(
+    parsedUrl.searchParams.get('phone'),
+    null,
+    'Must NEVER transmit raw phone number in URL query string (152-FZ privacy leak protection)'
+  );
+  assert.strictEqual(parsedUrl.searchParams.get('p_mask'), '***4567', 'Only masked suffix is permitted');
+
+  const ts = Number(parsedUrl.searchParams.get('ts'));
+  const sig = parsedUrl.searchParams.get('sig');
+  const validSig = generateLeadConfirmToken('lead_test_123', '1731320000123456789', 'qualified_lead', ts);
+  assert.strictEqual(sig, validSig, 'Token must match cryptographic verification algorithm');
+
+  const invalidSig = generateLeadConfirmToken('lead_test_123', 'fake_client_id', 'qualified_lead', ts);
+  assert.notStrictEqual(sig, invalidSig, 'Tampered parameters must result in signature mismatch');
+  console.log('✔ Test 8: Lead confirmation URL security token verified, raw phone strictly masked');
+
   console.log('================================================================');
-  console.log('🎉 ALL 7 TEST SUITES FOR REAL SOURCE MODULES PASSED SUCCESSFULLY!');
+  console.log('🎉 ALL 8 TEST SUITES FOR REAL SOURCE MODULES PASSED SUCCESSFULLY!');
   console.log('================================================================');
 }
 

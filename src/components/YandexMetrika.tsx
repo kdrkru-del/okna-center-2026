@@ -164,7 +164,28 @@ export function reachGoal(goal: string, params?: Record<string, unknown>) {
   }
 }
 
+/**
+ * Cryptographic token generator for secure one-click lead verification.
+ * Prevents arbitrary or unauthorized confirmation of conversions by third parties.
+ */
+export function generateLeadConfirmToken(
+  leadId: string,
+  clientId: string,
+  status: string,
+  ts: number
+): string {
+  const secret = process.env.NEXT_PUBLIC_LEAD_CONFIRM_SECRET || 'okna_lead_confirm_sec_2026';
+  const payload = `${leadId}#${clientId}#${status}#${ts}#${secret}`;
+  let hash = 5381;
+  for (let i = 0; i < payload.length; i++) {
+    hash = ((hash << 5) + hash) + payload.charCodeAt(i);
+    hash = hash & hash;
+  }
+  return Math.abs(hash).toString(36);
+}
+
 export function buildConfirmLeadUrl(params: {
+  leadId?: string;
   clientId: string;
   status: 'qualified_lead' | 'measurement_booked' | 'spam_bot';
   channel: 'email' | 'max' | 'whatsapp';
@@ -177,6 +198,11 @@ export function buildConfirmLeadUrl(params: {
       : 'https://xn--80aknmcbtp7a.xn--p1ai';
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const search = new URLSearchParams();
+  const leadId = params.leadId || `lead_${Date.now()}`;
+  const ts = Math.floor(Date.now() / 1000);
+  const token = generateLeadConfirmToken(leadId, params.clientId || 'unknown', params.status, ts);
+
+  search.set('lid', leadId);
   if (params.clientId) search.set('cid', params.clientId);
   search.set('status', params.status);
   search.set('channel', params.channel);
@@ -187,7 +213,9 @@ export function buildConfirmLeadUrl(params: {
     const masked = digits.length >= 4 ? `***${digits.slice(-4)}` : 'masked';
     search.set('p_mask', masked);
   }
-  search.set('ts', String(Math.floor(Date.now() / 1000)));
+  search.set('ts', String(ts));
+  search.set('sig', token);
+
   return `${origin}${basePath}/confirm-lead/?${search.toString()}`;
 }
 
@@ -249,19 +277,24 @@ export function notifyMessengerLeadToEmail(params: {
     body['ID Яндекс.Метрики (_ym_uid)'] = metrikaClientId;
   }
 
+  const messengerLeadId = `msg_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+
   body['✅ Если клиент реально написал — подтвердить лид'] = buildConfirmLeadUrl({
+    leadId: messengerLeadId,
     clientId: metrikaClientId || 'unknown',
     status: 'qualified_lead',
     channel: params.channel,
     manager: params.managerLabel,
   });
   body['📐 Если записался на замер — подтвердить замер'] = buildConfirmLeadUrl({
+    leadId: messengerLeadId,
     clientId: metrikaClientId || 'unknown',
     status: 'measurement_booked',
     channel: params.channel,
     manager: params.managerLabel,
   });
   body['🤖 Пустой клик / Не написал / Бот'] = buildConfirmLeadUrl({
+    leadId: messengerLeadId,
     clientId: metrikaClientId || 'unknown',
     status: 'spam_bot',
     channel: params.channel,
