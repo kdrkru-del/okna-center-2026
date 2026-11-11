@@ -2,7 +2,6 @@
 
 import React from "react";
 import { COMPANY_INFO } from "@/data/company_info";
-import { reachGoal } from "@/components/YandexMetrika";
 
 export function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -30,9 +29,8 @@ export default function WhatsAppButton({
   className = "",
   iconClassName = "w-4 h-4",
 }: WhatsAppButtonProps) {
-  const handleClick = () => {
-    reachGoal("whatsapp_click", { placement });
-  };
+  // Goal tracking (click_whatsapp) and email notification are handled centrally
+  // in YandexMetrika.tsx via data-placement attribute, preventing duplicate triggers.
 
   if (variant === "mobileNav") {
     return (
@@ -40,7 +38,6 @@ export default function WhatsAppButton({
         href={COMPANY_INFO.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleClick}
         data-whatsapp-button="true"
         data-placement={placement}
         title="Написать в WhatsApp"
@@ -60,7 +57,6 @@ export default function WhatsAppButton({
         href={COMPANY_INFO.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleClick}
         data-whatsapp-button="true"
         data-placement={placement}
         title="Написать в WhatsApp: +7 (994) 010-03-00"
@@ -78,7 +74,6 @@ export default function WhatsAppButton({
         href={COMPANY_INFO.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleClick}
         data-whatsapp-button="true"
         data-placement={placement}
         title="Написать в WhatsApp"
@@ -100,7 +95,6 @@ export default function WhatsAppButton({
       href={COMPANY_INFO.whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleClick}
       data-whatsapp-button="true"
       data-placement={placement}
       title="Написать в WhatsApp"

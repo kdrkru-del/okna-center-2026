@@ -3,28 +3,27 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { submitLead } from '@/lib/submitLead';
 import { CheckCircle2 } from 'lucide-react';
-import { formatRussianPhone } from '@/lib/phoneMask';
+import { formatRussianPhone, validateRussianPhone } from '@/lib/phoneMask';
 
 export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [phone, setPhone] = useState('+7 (');
+  const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
   const [city, setCity] = useState('Владивосток');
   const [service, setService] = useState('Окна ПВХ');
   const [message, setMessage] = useState('');
   const [website, setWebsite] = useState('');
-  const [consent, setConsent] = useState(false);
+  const [consent, setConsent] = useState(true);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
-    // Phone validation: at least 10 digits
-    const digits = phone.replace(/\D/g, '');
-    if (digits.length < 10) {
-      setError('Пожалуйста, введите корректный номер телефона (не менее 10 цифр)');
+    const phoneValidation = validateRussianPhone(phone);
+    if (!phoneValidation.isValid) {
+      setError(phoneValidation.error || 'Пожалуйста, введите корректный номер телефона (не менее 10 цифр)');
       return;
     }
 
@@ -50,7 +49,7 @@ export default function LeadForm() {
         setSubmitted(true);
         // Clear fields only on confirmed success
         setName('');
-        setPhone('+7 (');
+        setPhone('');
         setMessage('');
         setConsent(false);
       } else {
@@ -154,6 +153,8 @@ export default function LeadForm() {
                 <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Номер телефона *</label>
                 <input
                   type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
                   required
                   placeholder="+7 (___) ___-__-__"
                   value={phone}

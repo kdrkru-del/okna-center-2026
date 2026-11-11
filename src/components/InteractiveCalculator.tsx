@@ -5,7 +5,7 @@ import { CheckCircle2, ArrowRight, Phone, Sparkles, MessageCircle } from "lucide
 import { COMPANY_INFO } from "@/data/company_info";
 import { reachGoal } from "@/components/YandexMetrika";
 import { submitLead } from "@/lib/submitLead";
-import { formatRussianPhone } from "@/lib/phoneMask";
+import { formatRussianPhone, validateRussianPhone } from "@/lib/phoneMask";
 
 export default function InteractiveCalculator() {
   const [step, setStep] = useState(1);
@@ -14,7 +14,7 @@ export default function InteractiveCalculator() {
   const [profile, setProfile] = useState("consult");
   const [options, setOptions] = useState<string[]>(["installation", "sill"]);
   const [city, setCity] = useState("Владивосток");
-  const [phone, setPhone] = useState("+7 (");
+  const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [website, setWebsite] = useState("");
   const [loading, setLoading] = useState(false);
@@ -34,9 +34,9 @@ export default function InteractiveCalculator() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    const digits = phone.replace(/\D/g, "");
-    if (digits.length < 10) {
-      setError("Пожалуйста, введите корректный номер телефона (не менее 10 цифр)");
+    const phoneValidation = validateRussianPhone(phone);
+    if (!phoneValidation.isValid) {
+      setError(phoneValidation.error || "Пожалуйста, введите корректный номер телефона (не менее 10 цифр)");
       return;
     }
 
@@ -348,13 +348,12 @@ export default function InteractiveCalculator() {
                       <label className="text-xs text-slate-700 block mb-1 font-semibold">Номер телефона:*</label>
                       <input
                         type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
                         required
                         value={phone}
-                        onFocus={() => {
-                          if (!phone || phone.length <= 4) setPhone("+7 (");
-                        }}
                         onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
-                        placeholder="+7 (999) 000-00-00"
+                        placeholder="+7 (___) ___-__-__"
                         className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 outline-none font-medium"
                       />
                     </div>

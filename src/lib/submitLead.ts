@@ -3,6 +3,7 @@ import {
   getMetrikaClientId,
   buildConfirmLeadUrl,
   notifyMessengerLeadToEmail,
+  getStoredUtmParams,
 } from '@/components/YandexMetrika';
 import {
   checkRateLimit,
@@ -13,6 +14,7 @@ import {
   allocateVisitorMaxManager,
   AssignedManagerRecord,
 } from '@/lib/maxRotator';
+import { validateRussianPhone } from '@/lib/phoneMask';
 
 export { buildConfirmLeadUrl, notifyMessengerLeadToEmail };
 
@@ -24,17 +26,19 @@ export interface LeadPayload {
   comment?: string;
   source?: string;
   pageUrl?: string;
-  website?: string; // honeypot field
+  website?: string; // honeypot field for bot trapping
   isCalculator?: boolean;
   promoOption?: string;
-  calculatorData?: {
-    type?: string;
-    profile?: string;
-    dimensions?: string;
-    options?: string[];
-    estimate?: string;
-    [key: string]: any;
-  } | string;
+  calculatorData?:
+    | {
+        type?: string;
+        profile?: string;
+        dimensions?: string;
+        options?: string[];
+        estimate?: string;
+        [key: string]: any;
+      }
+    | string;
 }
 
 export interface SubmitLeadResult {
@@ -47,8 +51,8 @@ export interface SubmitLeadResult {
 export const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/okna.c@mail.ru';
 
 /**
- * Unified lead submission helper with anti-spam, per-IP/device rate limiting,
- * and 50/50 Round Robin MAX manager assignment.
+ * Unified lead submission helper with anti-spam, rate limiting,
+ * UTM parameter preservation, and 50/50 Round Robin MAX manager assignment.
  */
 export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult> {
   const {
@@ -65,27 +69,28 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     calculatorData,
   } = payload;
 
-  // 1. Phone validation: at least 10 digits
-  const digits = (phone || '').replace(/\D/g, '');
-  if (digits.length < 10) {
+  // 1. Strict Russian phone validation (code + 10 national digits)
+  const phoneValidation = validateRussianPhone(phone);
+  if (!phoneValidation.isValid) {
     return {
       ok: false,
-      error: 'Пожалуйста, укажите корректный номер телефона (не менее 10 цифр)',
+      error: phoneValidation.error || 'Пожалуйста, укажите корректный номер телефона',
     };
   }
+  const cleanPhone = phoneValidation.cleanPhone || phone;
 
   // 2. Pre-submission rate limit & anti-spam verification
-  const check = await checkRateLimit(phone, website);
+  const check = await checkRateLimit(cleanPhone, website);
 
-  // If flagged as honeypot bot or duplicate phone, absorb silently with a polite success message
+  // If flagged as automated honeypot bot, absorb silently without sending email or triggering Metrika goal
   if (check.isFakeSuccess) {
     return {
       ok: true,
-      message: check.fakeMessage || 'Спасибо! Ваша заявка принята. Мы свяжемся с вами.',
+      message: check.fakeMessage || 'Спасибо! Ваша заявка принята.',
     };
   }
 
-  // If rate limit, cooldown, or daily cap is exceeded, reject with a clear explanation
+  // If rate limit, cooldown, or daily cap is exceeded, reject with an honest explanation
   if (!check.allowed) {
     return {
       ok: false,
@@ -126,14 +131,19 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     formattedCalcData = parts.join(' | ');
   }
 
+  // Build subject line
+  const repeatTag = check.isDuplicatePhone ? ' [ПОВТОРНАЯ ЗАЯВКА]' : '';
   const subject = isCalculator
-    ? `Новая заявка из калькулятора (${assignedManager.managerLabel}) — «Окна Центр»`
+    ? `Новая заявка из калькулятора (${assignedManager.managerLabel})${repeatTag} — «Окна Центр»`
     : promoOption
-    ? `Акция на лоджии: ${promoOption} (${assignedManager.managerLabel}) — «Окна Центр»`
-    : `Новая заявка с сайта (${assignedManager.managerLabel}) — «Окна Центр»`;
+    ? `Акция на лоджии: ${promoOption} (${assignedManager.managerLabel})${repeatTag} — «Окна Центр»`
+    : `Новая заявка с сайта (${assignedManager.managerLabel})${repeatTag} — «Окна Центр»`;
 
   const resolvedUrl =
     pageUrl || (typeof window !== 'undefined' ? window.location.href : 'https://окнацентр.рф/');
+
+  // Retrieve preserved UTM parameters from initial landing session
+  const storedUtms = getStoredUtmParams();
 
   // Build sanitized request body for FormSubmit
   const body: Record<string, string> = {
@@ -147,7 +157,13 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
   if (city && city.trim()) body['Город'] = city.trim();
   if (service && service.trim()) body['Услуга'] = service.trim();
   if (promoOption && promoOption.trim()) body['Выбранный вариант по акции'] = promoOption.trim();
-  if (comment && comment.trim()) body['Комментарий'] = comment.trim();
+  
+  let finalComment = comment || '';
+  if (check.isDuplicatePhone) {
+    finalComment = `[Повторное обращение клиента в течение 15 минут] ${finalComment}`.trim();
+  }
+  if (finalComment) body['Комментарий'] = finalComment;
+
   if (formattedCalcData) body['Параметры калькулятора'] = formattedCalcData;
   if (source && source.trim()) body['Источник формы'] = source.trim();
   body['Назначенный менеджер (50/50)'] = assignedManager.managerLabel;
@@ -155,13 +171,20 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
   body['Страница'] = resolvedUrl;
   body['Дата и время'] = dateTimeStr;
 
-  // Add client IP and sequence count to help the site owner verify authenticity
+  // Add UTM tags to email table
+  if (Object.keys(storedUtms).length > 0) {
+    body['UTM-метки источника'] = Object.entries(storedUtms)
+      .map(([k, v]) => `${k}=${v}`)
+      .join(' | ');
+  }
+
+  // Add client IP and sequence count
   if (check.clientIp && check.clientIp !== 'unknown') {
     body['IP-адрес'] = check.clientIp;
   }
   body['Заявок за сегодня с этого адреса'] = String((check.todayCount || 0) + 1);
 
-  // Add Yandex.Metrika ClientID (_ym_uid) and 1-click confirmation links right inside the email table
+  // Add Yandex.Metrika ClientID (_ym_uid) and 1-click confirmation links
   const metrikaClientId = getMetrikaClientId();
   if (metrikaClientId) {
     body['ID Яндекс.Метрики (_ym_uid)'] = metrikaClientId;
@@ -188,51 +211,60 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     phone: phone.trim(),
   });
 
-  // 1. Первичная фиксация в базе данных РФ через Lead Gateway (ч. 5 ст. 18 152-ФЗ РФ)
-  const leadGatewayUrl = (process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL && !process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL.includes('localhost')) ? process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL : '';
+  // 1. Первичная фиксация в базе данных РФ через Lead Gateway (152-ФЗ РФ)
+  const leadGatewayUrl =
+    process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL &&
+    !process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL.includes('localhost')
+      ? process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL
+      : '';
+
   if (leadGatewayUrl) {
-  try {
-    const gwController = new AbortController();
-    const gwTimeout = setTimeout(() => gwController.abort(), 2500);
-    const gwRes = await fetch(leadGatewayUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        project: 'okna',
-        name,
-        phone,
-        city,
-        service,
-        comment: formattedCalcData ? `${comment || ''} [${formattedCalcData}]` : comment,
-        consent: true,
-        pageUrl: resolvedUrl,
-        source: source || 'lead_form'
-      }),
-      signal: gwController.signal
-    });
-    clearTimeout(gwTimeout);
-    if (gwRes.ok) {
-      await recordSubmission(phone, check.clientIp);
-      reachGoal('form_submit', {
-        source: source || 'form',
-        service: service || '',
-        city: city || '',
-        isCalculator: Boolean(isCalculator),
-        assignedManager: assignedManager.managerId,
+    try {
+      const gwController = new AbortController();
+      const gwTimeout = setTimeout(() => gwController.abort(), 2500);
+      const gwRes = await fetch(leadGatewayUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          project: 'okna',
+          name,
+          phone: cleanPhone,
+          city,
+          service,
+          comment: formattedCalcData ? `${finalComment} [${formattedCalcData}]` : finalComment,
+          consent: true,
+          pageUrl: resolvedUrl,
+          source: source || 'lead_form',
+          utm: storedUtms,
+        }),
+        signal: gwController.signal,
       });
-      return {
-        ok: true,
-        message: 'Спасибо! Ваша заявка успешно принята и зафиксирована.',
-        assignedManager,
-      };
+      clearTimeout(gwTimeout);
+
+      if (gwRes.ok) {
+        await recordSubmission(cleanPhone, check.clientIp);
+
+        // Фиксация цели успешной заявки в Метрике (Goal 679698808: lead_submit) строго после подтверждения сервером
+        reachGoal('lead_submit', {
+          source: source || 'form',
+          service: service || '',
+          city: city || '',
+          isCalculator: Boolean(isCalculator),
+          assignedManager: assignedManager.managerId,
+        });
+
+        return {
+          ok: true,
+          message: 'Спасибо! Ваша заявка успешно принята и зафиксирована.',
+          assignedManager,
+        };
+      }
+    } catch (gwErr) {
+      console.warn('Lead Gateway offline or unreachable, using fallback channel...', (gwErr as any)?.message);
     }
-  } catch (gwErr) {
-    // Бесшовный fallback на существующий FormSubmit канал
-    console.warn('Lead Gateway offline or unreachable, using fallback channel...', (gwErr as any)?.message);
-  }
   }
 
-  // Set active submission lock
+  // 2. Резервный канал отправки через FormSubmit на okna.c@mail.ru
   setSubmittingLock(true);
 
   try {
@@ -249,11 +281,10 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     const isSuccess = response.ok && (data.success === 'true' || data.success === true);
 
     if (isSuccess) {
-      // Record this submission in persistent storages to enforce IP cooldown and limits
-      await recordSubmission(phone, check.clientIp);
+      await recordSubmission(cleanPhone, check.clientIp);
 
-      // Trigger Yandex Metrika goal strictly on successful delivery response
-      reachGoal('form_submit', {
+      // Фиксация цели успешной заявки в Метрике (Goal 679698808: lead_submit) строго после подтверждения FormSubmit
+      reachGoal('lead_submit', {
         source: source || 'form',
         service: service || '',
         city: city || '',
@@ -279,7 +310,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult
     return {
       ok: false,
       error:
-        'Не удалось автоматически отправить заявку. Пожалуйста, позвоните нам: 8 (423) 2-725-725.',
+        'Не удалось автоматически отправить заявку. Пожалуйста, позвоните нам: 8 (423) 2-725-725 или напишите в WhatsApp: +7 (994) 010-03-00.',
       assignedManager,
     };
   } finally {

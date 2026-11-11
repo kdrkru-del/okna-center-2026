@@ -6,7 +6,12 @@ export const METRIKA_ID = 113115728;
 
 declare global {
   interface Window {
-    ym?: (id: number, action: string, target?: string | Record<string, unknown> | ((clientId: string) => void), params?: Record<string, unknown>) => void;
+    ym?: (
+      id: number,
+      action: string,
+      target?: string | Record<string, unknown> | ((clientId: string) => void),
+      params?: Record<string, unknown>
+    ) => void;
     CROAgent?: {
       isClickbot?: () => boolean;
       getState?: () => Record<string, unknown>;
@@ -15,8 +20,78 @@ declare global {
 }
 
 /**
- * Считывает системный ClientID Яндекс.Метрики (_ym_uid) текущего посетителя
- * для последующей склейки с реальной заявкой и отправки офлайн-конверсии.
+ * Mapping of legacy event identifiers to verified Yandex.Metrika (113115728) goal conditions:
+ * - 679698805: click_phone
+ * - 679698806: click_whatsapp
+ * - 679698807: click_telegram
+ * - 679698808: lead_submit
+ * - 679698809: bot_detected
+ */
+export const GOAL_MAP: Record<string, string> = {
+  phone_click: 'click_phone',
+  whatsapp_click: 'click_whatsapp',
+  telegram_click: 'click_telegram',
+  form_submit: 'lead_submit',
+  lead_form_submit: 'lead_submit',
+  contact_form: 'lead_submit',
+};
+
+const recentGoals = new Map<string, number>();
+const DEDUP_WINDOW_MS = 1200; // Deduplication window: 1.2s
+
+const UTM_STORAGE_KEY = '_okna_stored_utms';
+
+/**
+ * Captures and stores UTM and tracking parameters across user sessions
+ */
+export function captureUtmParams(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const url = new URL(window.location.href);
+    const params: Record<string, string> = {};
+    const utmKeys = [
+      'utm_source',
+      'utm_medium',
+      'utm_campaign',
+      'utm_content',
+      'utm_term',
+      'yclid',
+      'etext',
+    ];
+    let hasUtm = false;
+
+    utmKeys.forEach((k) => {
+      const val = url.searchParams.get(k);
+      if (val) {
+        params[k] = val;
+        hasUtm = true;
+      }
+    });
+
+    if (hasUtm) {
+      window.sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(params));
+      return params;
+    }
+
+    const stored = window.sessionStorage.getItem(UTM_STORAGE_KEY);
+    if (stored) {
+      return JSON.parse(stored);
+    }
+  } catch {}
+  return {};
+}
+
+export function getStoredUtmParams(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const stored = window.sessionStorage.getItem(UTM_STORAGE_KEY);
+    if (stored) return JSON.parse(stored);
+  } catch {}
+  return {};
+}
+
+/**
+ * Reads Yandex.Metrika ClientID (_ym_uid)
  */
 export function getMetrikaClientId(): string {
   if (typeof document === 'undefined') return '';
@@ -39,16 +114,32 @@ export function getMetrikaClientId(): string {
   return '';
 }
 
+/**
+ * Centralized, deduplicated goal tracking function.
+ * Automatically translates legacy event names to verified conditions
+ * and prevents double-counting across components.
+ */
 export function reachGoal(goal: string, params?: Record<string, unknown>) {
-  if (typeof window !== 'undefined' && typeof window.ym === 'function') {
+  if (typeof window === 'undefined') return;
+
+  const targetGoal = GOAL_MAP[goal] || goal;
+  const now = Date.now();
+  const lastTime = recentGoals.get(targetGoal) || 0;
+
+  // Deduplicate identical goals within 1.2s to prevent multiple triggers from bubbling / capture / nested buttons
+  if (now - lastTime < DEDUP_WINDOW_MS) {
+    return;
+  }
+  recentGoals.set(targetGoal, now);
+
+  if (typeof window.ym === 'function') {
     try {
-      // Антифрод-Щит: если визит распознан как кликбот, блокируем отправку конверсии в Метрику 113115728,
-      // чтобы автостратегия Яндекс.Директ не обучалась на ботах
+      // Anti-fraud shield: if recognized as clickbot, block goal poisoning
       if (window.CROAgent?.isClickbot?.()) {
-        window.ym(METRIKA_ID, 'userParams', { is_clickbot: 'yes', blocked_goal: goal });
+        window.ym(METRIKA_ID, 'userParams', { is_clickbot: 'yes', blocked_goal: targetGoal });
         return;
       }
-      window.ym(METRIKA_ID, 'reachGoal', goal, params);
+      window.ym(METRIKA_ID, 'reachGoal', targetGoal, params);
     } catch {
       // ignore
     }
@@ -168,19 +259,29 @@ export function notifyMessengerLeadToEmail(params: {
 
 export default function YandexMetrika() {
   useEffect(() => {
-    // Global listener for tel: and wa.me links to automatically track phone_click and whatsapp_click
+    // Initial capture of UTM parameters from landing query string
+    captureUtmParams();
+
+    // Centralized listener for tel: and wa.me links to automatically track click_phone and click_whatsapp
     const handleClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement)?.closest('a');
       if (!target) return;
       const href = target.getAttribute('href') || '';
+      const placement =
+        target.getAttribute('data-placement') ||
+        target.getAttribute('title') ||
+        'Ссылка на сайте';
+
       if (href.startsWith('tel:')) {
-        reachGoal('phone_click', { href });
+        reachGoal('click_phone', { href, placement });
       } else if (href.includes('wa.me') || href.includes('whatsapp')) {
-        reachGoal('whatsapp_click', { href });
+        reachGoal('click_whatsapp', { href, placement });
         notifyMessengerLeadToEmail({
           channel: 'whatsapp',
-          placement: 'Переход в WhatsApp с сайта',
+          placement: placement || 'Переход в WhatsApp с сайта',
         });
+      } else if (href.includes('t.me') || href.includes('telegram')) {
+        reachGoal('click_telegram', { href, placement });
       }
     };
 
@@ -220,4 +321,3 @@ export default function YandexMetrika() {
     </>
   );
 }
-

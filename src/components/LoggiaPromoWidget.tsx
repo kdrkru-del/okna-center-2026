@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { X, CheckCircle2, Sparkles, ArrowRight, ChevronLeft, Ruler } from "lucide-react";
 import { LOGGIA_PROMO_CONFIG, PromoOption } from "@/data/promo_config";
 import { submitLead } from "@/lib/submitLead";
-import { formatRussianPhone } from "@/lib/phoneMask";
+import { formatRussianPhone, validateRussianPhone } from "@/lib/phoneMask";
 import { reachGoal } from "@/components/YandexMetrika";
 import { useMeasurementModal } from "@/context/ModalContext";
 import { asset } from "@/lib/assetPath";
@@ -172,7 +172,7 @@ export default function LoggiaPromoDesktopDock() {
     LOGGIA_PROMO_CONFIG.options[0]
   );
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("+7 (");
+  const [phone, setPhone] = useState("");
   const [website, setWebsite] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -253,9 +253,9 @@ export default function LoggiaPromoDesktopDock() {
     e.preventDefault();
     setError("");
 
-    const digits = phone.replace(/\D/g, "");
-    if (digits.length < 10) {
-      setError("Введите корректный номер телефона (10 цифр)");
+    const phoneValidation = validateRussianPhone(phone);
+    if (!phoneValidation.isValid) {
+      setError(phoneValidation.error || "Введите корректный номер телефона (10 цифр)");
       return;
     }
 
@@ -434,13 +434,12 @@ export default function LoggiaPromoDesktopDock() {
             <div>
               <input
                 type="tel"
+                inputMode="tel"
+                autoComplete="tel"
                 required
                 value={phone}
-                onFocus={() => {
-                  if (!phone || phone.length <= 4) setPhone("+7 (");
-                }}
                 onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
-                placeholder="+7 (999) 000-00-00"
+                placeholder="+7 (___) ___-__-__"
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 font-mono text-xs font-medium outline-none focus:bg-white focus:border-cyan-600"
               />
             </div>

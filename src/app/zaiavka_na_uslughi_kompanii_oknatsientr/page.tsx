@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, ShieldCheck, Clock, CheckCircle2, MapPin, Phone, MessageCircle } from "lucide-react";
+import { ChevronRight, ShieldCheck, Clock, CheckCircle2, MapPin, MessageCircle } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company_info";
 import SimpleMeasurementForm from "@/components/SimpleMeasurementForm";
 
@@ -22,33 +22,41 @@ export const metadata: Metadata = {
 
 export default function ZaiavkaPage() {
   return (
-    <div className="bg-slate-50/50 text-slate-900 min-h-screen pt-24 pb-16">
+    <div className="bg-slate-50/50 text-slate-900 min-h-screen pt-20 sm:pt-24 pb-16">
       {/* Breadcrumbs */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <nav className="flex items-center gap-2 text-xs text-slate-500">
           <Link href="/" className="hover:text-cyan-700 transition-colors">Главная</Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-          <span className="text-slate-900 font-semibold">Вызов замерщика</span>
+          <span className="text-slate-900 font-semibold">Онлайн-заявка</span>
         </nav>
       </div>
 
       {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left info column */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Form column: ON MOBILE (order-1) DISPLAYED AT THE VERY TOP, ON DESKTOP (lg:order-2) ON THE RIGHT */}
+          <div className="order-1 lg:order-2 lg:col-span-5">
+            <SimpleMeasurementForm
+              initialService="Вызов замерщика"
+              source="zaiavka_direct_page"
+            />
+          </div>
+
+          {/* Info column: ON MOBILE (order-2) FOLLOWS THE FORM, ON DESKTOP (lg:order-1) ON THE LEFT */}
+          <div className="order-2 lg:order-1 lg:col-span-7 space-y-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-cyan-800 uppercase tracking-wider mb-4">
                 <span>Бесплатный выезд по Приморскому краю</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950 leading-tight">
-                Заявка на бесплатный замер и расчет
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950 leading-tight">
+                Заявка на расчет стоимости и выезд мастера
               </h1>
 
               <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed mt-4">
-                Наш мастер приедет в удобное для вас время с каталогами оригинальных профилей Rehau, KBE, Funke, образцами ламинации и фурнитуры. Точный замер исключает ошибки при производстве.
+                Наш инженер приедет в удобное для вас время с каталогами оригинальных профилей Rehau, KBE, Funke, образцами ламинации и фурнитуры. Точный замер исключает ошибки при производстве и фиксирует смету в договоре.
               </p>
             </div>
 
@@ -57,7 +65,7 @@ export default function ZaiavkaPage() {
               <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex items-center gap-3">
                 <Clock className="w-5 h-5 text-cyan-600 flex-shrink-0" />
                 <div className="text-xs">
-                  <span className="font-bold text-slate-900 block">Ответ за 15 мин</span>
+                  <span className="font-bold text-slate-900 block">Ответ за 10–15 мин</span>
                   <span className="text-slate-500">Перезвоним сразу</span>
                 </div>
               </div>
@@ -130,11 +138,6 @@ export default function ZaiavkaPage() {
                 </a>
               </div>
             </div>
-          </div>
-
-          {/* Right form column: Simple 2 fields, no scrolling needed! */}
-          <div className="lg:col-span-5">
-            <SimpleMeasurementForm initialService="Вызов замерщика" source="zaiavka_direct_page" />
           </div>
 
         </div>
