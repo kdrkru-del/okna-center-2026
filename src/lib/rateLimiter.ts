@@ -225,16 +225,7 @@ export async function checkRateLimit(
 ): Promise<RateLimitCheckResult> {
   const now = Date.now();
 
-  // 1. In-flight mutex lock (prevents double-tap on submit)
-  if (isSubmittingLock) {
-    return {
-      allowed: false,
-      reason: 'concurrent_lock',
-      error: 'Заявка уже отправляется, пожалуйста, подождите пару секунд...',
-    };
-  }
-
-  // 2. Honeypot check (strictly automated bots filling hidden honeypot input)
+  // 1. Honeypot check (strictly automated bots filling hidden honeypot input)
   if (website && website.trim().length > 0) {
     return {
       allowed: false,
@@ -317,6 +308,13 @@ export async function checkRateLimit(
     todayCount,
     isDuplicatePhone,
   };
+}
+
+/**
+ * Returns whether an active submission is currently in progress.
+ */
+export function isSubmittingLocked(): boolean {
+  return isSubmittingLock;
 }
 
 /**

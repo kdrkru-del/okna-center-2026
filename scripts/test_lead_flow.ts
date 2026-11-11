@@ -43,8 +43,8 @@ const mockStorage: Record<string, string> = {};
 
 // Import ACTUAL modules from src
 import { submitLead, FORMSUBMIT_ENDPOINT } from '../src/lib/submitLead';
-import { reachGoal, METRIKA_ID, buildConfirmLeadUrl, generateLeadConfirmToken } from '../src/components/YandexMetrika';
-import { checkRateLimit } from '../src/lib/rateLimiter';
+import { reachGoal, METRIKA_ID, buildConfirmLeadUrl } from '../src/components/YandexMetrika';
+import { checkRateLimit, isSubmittingLocked, setSubmittingLock } from '../src/lib/rateLimiter';
 
 async function runTests() {
   console.log('--- RUNNING REAL TESTS FOR src/lib/submitLead.ts & YandexMetrika.tsx ---');
@@ -228,7 +228,62 @@ async function runTests() {
 
   console.log('✔ Test 7: Metrika deduplication filters duplicate clicks without blocking distinct user actions');
 
-  // TEST 8: Secure One-Click Lead Confirmation & Privacy Protection
+  // TEST 8: Anti-Fraud CROAgent Clickbot Filter
+  mockYmCalls.length = 0;
+  // Activate CROAgent clickbot sensor
+  (global as any).window.CROAgent = {
+    isClickbot: () => true,
+  };
+
+  reachGoal('click_phone', { href: 'tel:+74232725725' });
+  assert.strictEqual(
+    mockYmCalls.some((c) => c.target === 'click_phone'),
+    false,
+    'Clickbot must NOT trigger conversion goals'
+  );
+  assert.ok(
+    mockYmCalls.some((c) => c.target === 'bot_detected'),
+    'Clickbot triggers verified bot_detected goal (679698809)'
+  );
+
+  // Deactivate CROAgent
+  delete (global as any).window.CROAgent;
+  console.log('✔ Test 8: CROAgent clickbot sensor protects ad bidding by converting to bot_detected');
+
+  // TEST 9: Synchronous Concurrency Mutex Race Condition Test
+  mockYmCalls.length = 0;
+  // Set fetch to take 100ms
+  (global as any).fetch = async (url: string) => {
+    await new Promise((r) => setTimeout(r, 100));
+    return {
+      ok: true,
+      status: 200,
+      json: async () => ({ success: true }),
+    };
+  };
+
+  const payload = {
+    phone: '+7 (924) 555-66-77',
+    consent: true,
+    name: 'Гонка Запросов',
+  };
+
+  // Launch two calls simultaneously
+  const [res1, res2] = await Promise.all([
+    submitLead(payload),
+    submitLead(payload),
+  ]);
+
+  // Exactly one must proceed, the second must be synchronously rejected
+  const successes = [res1, res2].filter((r) => r.ok);
+  const rejections = [res1, res2].filter((r) => !r.ok && r.error?.includes('уже отправляется'));
+
+  assert.strictEqual(successes.length, 1, 'Exactly one concurrent submission must proceed');
+  assert.strictEqual(rejections.length, 1, 'Concurrent double-click must be rejected immediately with lock message');
+  assert.strictEqual(isSubmittingLocked(), false, 'Mutex lock must be released after completion');
+  console.log('✔ Test 9: Concurrent race condition eliminated: atomic lock rejects second call and releases cleanly');
+
+  // TEST 10: Informational Lead Confirmation URL & 152-FZ Privacy
   const confirmUrl = buildConfirmLeadUrl({
     leadId: 'lead_test_123',
     clientId: '1731320000123456789',
@@ -242,25 +297,16 @@ async function runTests() {
   assert.strictEqual(parsedUrl.searchParams.get('lid'), 'lead_test_123');
   assert.strictEqual(parsedUrl.searchParams.get('cid'), '1731320000123456789');
   assert.strictEqual(parsedUrl.searchParams.get('status'), 'qualified_lead');
-  assert.ok(parsedUrl.searchParams.get('sig'), 'Must generate a security signature');
   assert.strictEqual(
     parsedUrl.searchParams.get('phone'),
     null,
     'Must NEVER transmit raw phone number in URL query string (152-FZ privacy leak protection)'
   );
   assert.strictEqual(parsedUrl.searchParams.get('p_mask'), '***4567', 'Only masked suffix is permitted');
-
-  const ts = Number(parsedUrl.searchParams.get('ts'));
-  const sig = parsedUrl.searchParams.get('sig');
-  const validSig = generateLeadConfirmToken('lead_test_123', '1731320000123456789', 'qualified_lead', ts);
-  assert.strictEqual(sig, validSig, 'Token must match cryptographic verification algorithm');
-
-  const invalidSig = generateLeadConfirmToken('lead_test_123', 'fake_client_id', 'qualified_lead', ts);
-  assert.notStrictEqual(sig, invalidSig, 'Tampered parameters must result in signature mismatch');
-  console.log('✔ Test 8: Lead confirmation URL security token verified, raw phone strictly masked');
+  console.log('✔ Test 10: Lead confirmation URL strictly masks phone number for privacy');
 
   console.log('================================================================');
-  console.log('🎉 ALL 8 TEST SUITES FOR REAL SOURCE MODULES PASSED SUCCESSFULLY!');
+  console.log('🎉 ALL 10 TEST SUITES FOR REAL SOURCE MODULES PASSED SUCCESSFULLY!');
   console.log('================================================================');
 }
 

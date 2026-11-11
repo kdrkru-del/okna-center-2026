@@ -128,6 +128,26 @@ export function reachGoal(goal: string, params?: Record<string, unknown>) {
   if (typeof window === 'undefined') return;
 
   const targetGoal = GOAL_MAP[goal] || goal;
+  // Ensure Metrika async queue function exists even if called before tag.js loads
+  if (typeof window.ym !== 'function') {
+    const ymQueue: any = function (...args: any[]) {
+      (ymQueue.a = ymQueue.a || []).push(args);
+    };
+    ymQueue.l = 1 * Date.now();
+    window.ym = ymQueue;
+  }
+
+  // Anti-fraud filter: If recognized as clickbot by CROAgent sensor, withhold conversion goal from ad bidding
+  if (window.CROAgent?.isClickbot?.()) {
+    try {
+      if (typeof window.ym === 'function') {
+        window.ym(METRIKA_ID, 'userParams', { is_clickbot: 'yes', blocked_goal: targetGoal });
+        window.ym(METRIKA_ID, 'reachGoal', 'bot_detected', { original_goal: targetGoal, ...params });
+      }
+    } catch {}
+    return; // Withhold conversion goal from Yandex.Metrika training
+  }
+
   const actionIdentity =
     (params?.leadId as string) ||
     (params?.href as string) ||
@@ -144,15 +164,6 @@ export function reachGoal(goal: string, params?: Record<string, unknown>) {
     return;
   }
 
-  // Ensure Metrika async queue function exists even if called before tag.js loads
-  if (typeof window.ym !== 'function') {
-    const ymQueue: any = function (...args: any[]) {
-      (ymQueue.a = ymQueue.a || []).push(args);
-    };
-    ymQueue.l = 1 * Date.now();
-    window.ym = ymQueue;
-  }
-
   try {
     if (typeof window.ym === 'function') {
       window.ym(METRIKA_ID, 'reachGoal', targetGoal, params);
@@ -165,25 +176,10 @@ export function reachGoal(goal: string, params?: Record<string, unknown>) {
 }
 
 /**
- * Cryptographic token generator for secure one-click lead verification.
- * Prevents arbitrary or unauthorized confirmation of conversions by third parties.
+ * Builds informational lead confirmation link for notification emails.
+ * Note: Under static deployment (output: 'export'), verification is handled
+ * via CRM / Lead Gateway backend rather than unauthenticated client scripts.
  */
-export function generateLeadConfirmToken(
-  leadId: string,
-  clientId: string,
-  status: string,
-  ts: number
-): string {
-  const secret = process.env.NEXT_PUBLIC_LEAD_CONFIRM_SECRET || 'okna_lead_confirm_sec_2026';
-  const payload = `${leadId}#${clientId}#${status}#${ts}#${secret}`;
-  let hash = 5381;
-  for (let i = 0; i < payload.length; i++) {
-    hash = ((hash << 5) + hash) + payload.charCodeAt(i);
-    hash = hash & hash;
-  }
-  return Math.abs(hash).toString(36);
-}
-
 export function buildConfirmLeadUrl(params: {
   leadId?: string;
   clientId: string;
@@ -200,7 +196,6 @@ export function buildConfirmLeadUrl(params: {
   const search = new URLSearchParams();
   const leadId = params.leadId || `lead_${Date.now()}`;
   const ts = Math.floor(Date.now() / 1000);
-  const token = generateLeadConfirmToken(leadId, params.clientId || 'unknown', params.status, ts);
 
   search.set('lid', leadId);
   if (params.clientId) search.set('cid', params.clientId);
@@ -214,7 +209,6 @@ export function buildConfirmLeadUrl(params: {
     search.set('p_mask', masked);
   }
   search.set('ts', String(ts));
-  search.set('sig', token);
 
   return `${origin}${basePath}/confirm-lead/?${search.toString()}`;
 }

@@ -9,6 +9,7 @@ import {
   checkRateLimit,
   recordSubmission,
   setSubmittingLock,
+  isSubmittingLocked,
 } from '@/lib/rateLimiter';
 import {
   allocateVisitorMaxManager,
@@ -58,64 +59,69 @@ export const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/okna.c@mail.ru';
  * and 50/50 Round Robin MAX manager assignment.
  */
 export async function submitLead(payload: LeadPayload): Promise<SubmitLeadResult> {
-  const {
-    name,
-    phone,
-    consent,
-    city,
-    service,
-    comment,
-    source,
-    pageUrl,
-    website,
-    isCalculator,
-    promoOption,
-    calculatorData,
-  } = payload;
-
-  const cityContact = getCityContact(city);
-
-  // 1. Strict 152-FZ consent verification
-  if (consent !== true) {
+  // 1. Synchronous mutex check and acquisition: completely eliminates race conditions
+  if (isSubmittingLocked()) {
     return {
       ok: false,
-      error: 'Для отправки заявки необходимо согласие на обработку персональных данных в соответствии с 152-ФЗ РФ.',
+      error: 'Заявка уже отправляется, пожалуйста, подождите пару секунд...',
     };
   }
-
-  // 2. Strict Russian phone validation (code + 10 national digits)
-  const phoneValidation = validateRussianPhone(phone);
-  if (!phoneValidation.isValid) {
-    return {
-      ok: false,
-      error: phoneValidation.error || 'Пожалуйста, укажите корректный номер телефона',
-    };
-  }
-  const cleanPhone = phoneValidation.cleanPhone || phone;
-
-  // 3. Pre-submission rate limit & anti-spam verification
-  const check = await checkRateLimit(cleanPhone, website);
-
-  // If flagged as automated honeypot bot, absorb silently without sending email or triggering Metrika goal
-  if (check.isFakeSuccess) {
-    return {
-      ok: true,
-      message: check.fakeMessage || 'Спасибо! Ваша заявка принята.',
-    };
-  }
-
-  // If rate limit, cooldown, or daily cap is exceeded, reject with an honest explanation
-  if (!check.allowed) {
-    return {
-      ok: false,
-      error: check.error || `Пожалуйста, подождите перед отправкой следующей заявки либо позвоните нам: ${cityContact.phoneDisplay}.`,
-    };
-  }
-
-  // 4. Lock mutex during the entire active network flow to prevent double-tap submissions
   setSubmittingLock(true);
 
   try {
+    const {
+      name,
+      phone,
+      consent,
+      city,
+      service,
+      comment,
+      source,
+      pageUrl,
+      website,
+      isCalculator,
+      promoOption,
+      calculatorData,
+    } = payload;
+
+    const cityContact = getCityContact(city);
+
+    // 2. Strict 152-FZ consent verification
+    if (consent !== true) {
+      return {
+        ok: false,
+        error: 'Для отправки заявки необходимо согласие на обработку персональных данных в соответствии с 152-ФЗ РФ.',
+      };
+    }
+
+    // 3. Strict Russian phone validation (code + 10 national digits)
+    const phoneValidation = validateRussianPhone(phone);
+    if (!phoneValidation.isValid) {
+      return {
+        ok: false,
+        error: phoneValidation.error || 'Пожалуйста, укажите корректный номер телефона',
+      };
+    }
+    const cleanPhone = phoneValidation.cleanPhone || phone;
+
+    // 4. Pre-submission rate limit & anti-spam verification
+    const check = await checkRateLimit(cleanPhone, website);
+
+    // If flagged as automated honeypot bot, absorb silently without sending email or triggering Metrika goal
+    if (check.isFakeSuccess) {
+      return {
+        ok: true,
+        message: check.fakeMessage || 'Спасибо! Ваша заявка принята.',
+      };
+    }
+
+    // If rate limit, cooldown, or daily cap is exceeded, reject with an honest explanation
+    if (!check.allowed) {
+      return {
+        ok: false,
+        error: check.error || `Пожалуйста, подождите перед отправкой следующей заявки либо позвоните нам: ${cityContact.phoneDisplay}.`,
+      };
+    }
     // 5. Unique client idempotency key to prevent duplicates if both channels process the request
     const leadId = `lead_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
 
