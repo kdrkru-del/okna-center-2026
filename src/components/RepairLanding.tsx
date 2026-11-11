@@ -26,6 +26,7 @@ import {
 import WindowDiagnosticBlock from "@/components/specialized/WindowDiagnosticBlock";
 import SimpleMeasurementForm from "@/components/SimpleMeasurementForm";
 import { asset } from "@/lib/assetPath";
+import { useMeasurementModal } from "@/context/ModalContext";
 
 const SECTION = "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8";
 /** Отступ для якорей: фиксированная шапка + липкое меню разделов */
@@ -50,17 +51,18 @@ function CallButtons({
   compact?: boolean;
   serviceLabel?: string;
 }) {
+  const { openMeasurementModal } = useMeasurementModal();
   const size = compact ? "px-5 py-3" : "px-6 py-3.5";
   return (
     <div className="flex flex-wrap items-center gap-3">
-      <a
-        href={`#${REPAIR_ANCHORS.master}`}
-        onClick={() => selectServiceInForm(serviceLabel)}
-        className={`${size} rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 flex items-center gap-2`}
+      <button
+        type="button"
+        onClick={() => openMeasurementModal(serviceLabel || "Вызов мастера по ремонту окон")}
+        className={`${size} rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 flex items-center gap-2 cursor-pointer`}
       >
         <Wrench className="w-4 h-4" />
         <span>Вызвать мастера</span>
-      </a>
+      </button>
       <a
         href={PHONE_HREF}
         className={`${size} rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 border border-slate-300 shadow-sm`}
@@ -72,6 +74,7 @@ function CallButtons({
         href={WHATSAPP_HREF}
         target="_blank"
         rel="noopener noreferrer"
+        data-placement="repair_call_buttons_whatsapp"
         className={`${size} rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 shadow-sm`}
       >
         <MessageCircle className="w-4 h-4" />
@@ -82,6 +85,7 @@ function CallButtons({
 }
 
 export default function RepairLanding({ heroImage }: { heroImage: string }) {
+  const { openMeasurementModal } = useMeasurementModal();
   return (
     <div className="bg-white text-slate-900 min-h-screen pt-16 sm:pt-20 selection:bg-cyan-500 selection:text-white">
       {/* Breadcrumbs */}
@@ -106,9 +110,9 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
         <div className={`${SECTION} relative z-10`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-bold tracking-wide shadow-sm">
-                <Clock className="w-4 h-4 text-amber-600 flex-shrink-0 animate-pulse" />
-                <span>Срочный выезд мастера от 60 минут во Владивостоке и пригороде</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-950 text-xs font-bold tracking-wide shadow-xs">
+                <Clock className="w-4 h-4 text-cyan-700 flex-shrink-0" />
+                <span>Выезд мастера в удобное для вас время · Владивосток, Артём и Уссурийск</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900 font-heading">
@@ -140,13 +144,14 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
 
               {/* Кнопки первого экрана */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <a
-                  href={`#${REPAIR_ANCHORS.master}`}
-                  className="px-6 py-3.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 flex items-center gap-2"
+                <button
+                  type="button"
+                  onClick={() => openMeasurementModal("Вызов мастера по ремонту окон")}
+                  className="px-6 py-3.5 rounded-xl bg-slate-950 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-slate-900/10 flex items-center gap-2 cursor-pointer"
                 >
                   <Wrench className="w-4 h-4" />
                   <span>Вызвать мастера</span>
-                </a>
+                </button>
                 <a
                   href={PHONE_HREF}
                   className="px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 border border-slate-300 shadow-sm"
@@ -158,6 +163,7 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
                   href={WHATSAPP_HREF}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-placement="repair_hero_whatsapp"
                   className="px-5 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors flex items-center gap-2 shadow-sm"
                 >
                   <MessageCircle className="w-4 h-4" />
@@ -372,6 +378,29 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Блок отправки фото поломки в WhatsApp */}
+          <div className="mt-8 p-5 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200/90 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <span className="text-sm font-bold text-emerald-950 flex items-center gap-1.5">
+                <MessageCircle className="w-4 h-4 text-emerald-600" />
+                <span>Не уверены, какая деталь сломалась?</span>
+              </span>
+              <p className="text-xs sm:text-sm text-emerald-900 leading-relaxed max-w-xl">
+                Сфотографируйте поврежденный механизм или продувание и пришлите в WhatsApp. Мастер оценит сложность по фото и назовет ориентировочную стоимость ремонта.
+              </p>
+            </div>
+            <a
+              href={WHATSAPP_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-placement="repair_price_whatsapp_photo"
+              className="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap cursor-pointer shrink-0"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Прислать фото поломки</span>
+            </a>
           </div>
 
           <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">

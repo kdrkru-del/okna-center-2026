@@ -6,12 +6,13 @@ import { Calculator, ArrowRight, CheckCircle2, Phone, MessageCircle } from "luci
 import { CONTACTS } from "@/data/contact";
 import { reachGoal } from "@/components/YandexMetrika";
 import { submitLead } from "@/lib/submitLead";
-import { formatRussianPhone } from "@/lib/phoneMask";
+import { formatRussianPhone, validateRussianPhone } from "@/lib/phoneMask";
 
 export default function CalculatorPreview() {
   const [selectedType, setSelectedType] = useState<string>("window");
-  const [phone, setPhone] = useState<string>("+7 (");
+  const [phone, setPhone] = useState<string>("");
   const [website, setWebsite] = useState<string>("");
+  const [consent, setConsent] = useState<boolean>(false); // 152-FZ: Starts strictly false
   const [loading, setLoading] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
@@ -32,9 +33,15 @@ export default function CalculatorPreview() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    const digits = phone.replace(/\D/g, "");
-    if (digits.length < 10) {
-      setError("Пожалуйста, введите корректный номер телефона (не менее 10 цифр)");
+
+    if (!consent) {
+      setError("Пожалуйста, подтвердите согласие на обработку персональных данных (152-ФЗ)");
+      return;
+    }
+
+    const phoneValidation = validateRussianPhone(phone);
+    if (!phoneValidation.isValid) {
+      setError(phoneValidation.error || "Пожалуйста, введите корректный номер телефона (не менее 10 цифр)");
       return;
     }
 
@@ -45,6 +52,7 @@ export default function CalculatorPreview() {
 
       const result = await submitLead({
         phone,
+        consent: true,
         service: `Экспресс-расчет: ${typeLabel}`,
         comment: `Быстрый расчет с главной страницы. Выбран тип: ${typeLabel}. Оценка: ${estimate}`,
         source: 'calculator',
@@ -60,6 +68,7 @@ export default function CalculatorPreview() {
       if (result.ok) {
         setSubmitted(true);
         setPhone('');
+        setConsent(false);
       } else {
         setError(result.error || "Не удалось автоматически отправить заявку. Свяжитесь с нами напрямую.");
       }
@@ -73,59 +82,57 @@ export default function CalculatorPreview() {
   return (
     <section id="calculator-preview" className="py-24 bg-[#02050A] text-white border-t border-white/10 relative overflow-hidden">
       {/* Background soft glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
-            Узнайте ориентировочную стоимость
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-cyan-400 text-xs font-mono mb-4">
+            <Calculator className="w-3.5 h-3.5" />
+            <span>Калькулятор стоимости</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Ориентировочный расчет сметы за 1 минуту
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base font-light">
-            Выберите конструкцию — расчет и консультация займут около минуты.
+          <p className="text-slate-400 text-sm sm:text-base mt-3">
+            Выберите конструкцию — мы свяжемся с вами, уточним детали и согласуем точный расчёт.
           </p>
         </div>
 
-        <div className="p-8 sm:p-12 rounded-3xl bg-slate-900/80 backdrop-blur-xl border border-white/10 shadow-2xl">
+        <div className="bg-slate-900/60 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
           {submitted ? (
-            <div className="text-center py-8 space-y-4 max-w-md mx-auto">
+            <div className="text-center py-12 space-y-4 animate-in fade-in duration-300">
               <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Заявка принята!</h3>
-              <p className="text-sm text-slate-300 mx-auto">
-                Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.
+              <h3 className="text-2xl font-bold text-white">Заявка успешно отправлена!</h3>
+              <p className="text-slate-300 text-sm max-w-md mx-auto">
+                Инженер свяжется с вами, уточнит детали конфигурации и подготовит точный расчёт сметы.
               </p>
-              <button
-                onClick={() => setSubmitted(false)}
-                className="mt-4 px-6 py-2 rounded-xl bg-white/10 text-xs font-mono uppercase text-white hover:bg-white/20 transition-colors"
-              >
-                Рассчитать еще
-              </button>
+              <div className="pt-4 flex justify-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setConsent(false);
+                  }}
+                  className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider transition-colors"
+                >
+                  Рассчитать другую конструкцию
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-8">
-              {error && (
-                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-200 text-xs">
-                  <p className="font-semibold mb-3 leading-relaxed">{error}</p>
-                  <div className="flex flex-col sm:flex-row gap-2.5 mt-2">
-                    <a
-                      href={`tel:${CONTACTS.phones.mainRaw}`}
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs w-full sm:w-auto text-center"
-                    >
-                      <Phone className="w-3.5 h-3.5" />
-                      <span>{CONTACTS.phones.mainDisplay}</span>
-                    </a>
-                  </div>
-                </div>
-              )}
-
-              {/* Honeypot field for bot protection */}
-              <div className="hidden" aria-hidden="true">
+              {/* Anti-spam Honeypot Field */}
+              <div
+                aria-hidden="true"
+                style={{ position: "absolute", opacity: 0, width: 0, height: 0, pointerEvents: "none", zIndex: -1 }}
+              >
                 <input
                   type="text"
                   name="website"
                   tabIndex={-1}
-                  autoComplete="off"
+                  autoComplete="nope"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                 />
@@ -158,34 +165,54 @@ export default function CalculatorPreview() {
               {/* Phone + Action */}
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-slate-400 block mb-2">
-                  Введите телефон для получения сметы:
+                  Введите телефон для получения сметы: <span className="text-cyan-400">*</span>
                 </label>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <input
                     type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
                     required
                     value={phone}
-                    onFocus={() => {
-                      if (!phone || phone.length <= 4) setPhone("+7 (");
-                    }}
                     onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
-                    placeholder="+7 (999) 000-00-00"
+                    placeholder="+7 (___) ___-__-__"
                     className="flex-1 px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none text-sm font-mono font-medium"
                   />
                   <button
                     type="submit"
-                    disabled={loading}
-                    className="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-300 hover:to-blue-500 disabled:opacity-50 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-cyan-500/20 whitespace-nowrap cursor-pointer"
+                    disabled={loading || !consent}
+                    className="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-300 hover:to-blue-500 disabled:opacity-40 disabled:cursor-not-allowed text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-cyan-500/20 whitespace-nowrap cursor-pointer"
                   >
-                    {loading ? "Отправляем..." : "Получить расчет за 15 мин"}
+                    {loading ? "Отправляем..." : "Получить расчет сметы"}
                   </button>
                 </div>
               </div>
 
+              {/* 152-FZ Consent Checkbox */}
+              <div className="flex items-start gap-2.5 pt-1">
+                <input
+                  type="checkbox"
+                  id="calc-prev-consent"
+                  required
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 text-cyan-500 focus:ring-cyan-500 cursor-pointer shrink-0"
+                />
+                <label htmlFor="calc-prev-consent" className="text-xs text-slate-400 leading-tight cursor-pointer select-none">
+                  Даю <Link href="/consent" target="_blank" className="text-cyan-400 underline hover:text-cyan-300">согласие на обработку персональных данных</Link> по <Link href="/privacy" target="_blank" className="text-cyan-400 underline hover:text-cyan-300">152-ФЗ РФ</Link>. Без спама.
+                </label>
+              </div>
+
+              {error && (
+                <div className="p-3 rounded-xl bg-red-500/20 border border-red-500/40 text-red-200 text-xs">
+                  {error}
+                </div>
+              )}
+
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10 text-xs text-slate-400">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  <span>Бесплатный выезд инженера по Приморскому краю</span>
+                  <span>Выезд инженера по Приморскому краю</span>
                 </div>
                 <Link
                   href="/zaiavka_na_uslughi_kompanii_oknatsientr"

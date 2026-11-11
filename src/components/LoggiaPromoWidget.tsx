@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { X, CheckCircle2, Sparkles, ArrowRight, ChevronLeft, Ruler } from "lucide-react";
 import { LOGGIA_PROMO_CONFIG, PromoOption } from "@/data/promo_config";
 import { submitLead } from "@/lib/submitLead";
-import { formatRussianPhone } from "@/lib/phoneMask";
+import { formatRussianPhone, validateRussianPhone } from "@/lib/phoneMask";
 import { reachGoal } from "@/components/YandexMetrika";
 import { useMeasurementModal } from "@/context/ModalContext";
 import { asset } from "@/lib/assetPath";
@@ -172,8 +173,9 @@ export default function LoggiaPromoDesktopDock() {
     LOGGIA_PROMO_CONFIG.options[0]
   );
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("+7 (");
+  const [phone, setPhone] = useState("");
   const [website, setWebsite] = useState("");
+  const [consent, setConsent] = useState(false); // 152-FZ: Starts strictly false
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -253,9 +255,14 @@ export default function LoggiaPromoDesktopDock() {
     e.preventDefault();
     setError("");
 
-    const digits = phone.replace(/\D/g, "");
-    if (digits.length < 10) {
-      setError("Введите корректный номер телефона (10 цифр)");
+    const phoneValidation = validateRussianPhone(phone);
+    if (!phoneValidation.isValid) {
+      setError(phoneValidation.error || "Введите корректный номер телефона (10 цифр)");
+      return;
+    }
+
+    if (!consent) {
+      setError("Пожалуйста, подтвердите согласие на обработку персональных данных (152-ФЗ)");
       return;
     }
 
@@ -264,6 +271,7 @@ export default function LoggiaPromoDesktopDock() {
       const result = await submitLead({
         name,
         phone,
+        consent: true,
         service: "Остекление лоджий по специальной цене",
         promoOption: selectedOption.fullLabel,
         comment: `Заявка из десктопного окна акции на лоджии: ${selectedOption.fullLabel}`,
@@ -274,6 +282,7 @@ export default function LoggiaPromoDesktopDock() {
 
       if (result.ok) {
         setMode("success");
+        setConsent(false);
         reachGoal("promo_loggia_submit", {
           option: selectedOption.fullLabel,
           device: "desktop_popup",
@@ -434,18 +443,21 @@ export default function LoggiaPromoDesktopDock() {
             <div>
               <input
                 type="tel"
+                inputMode="tel"
+                autoComplete="tel"
                 required
                 value={phone}
-                onFocus={() => {
-                  if (!phone || phone.length <= 4) setPhone("+7 (");
-                }}
                 onChange={(e) => setPhone(formatRussianPhone(e.target.value))}
-                placeholder="+7 (999) 000-00-00"
+                placeholder="+7 (___) ___-__-__"
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 font-mono text-xs font-medium outline-none focus:bg-white focus:border-cyan-600"
               />
             </div>
 
-            <div className="hidden" aria-hidden="true">
+            {/* Honeypot */}
+            <div
+              aria-hidden="true"
+              style={{ position: "absolute", opacity: 0, width: 0, height: 0, pointerEvents: "none", zIndex: -1 }}
+            >
               <input
                 type="text"
                 name="website"
@@ -456,6 +468,21 @@ export default function LoggiaPromoDesktopDock() {
               />
             </div>
 
+            {/* 152-FZ Consent Checkbox */}
+            <div className="flex items-start gap-2 pt-0.5 pb-0.5">
+              <input
+                type="checkbox"
+                id="loggia-consent"
+                required
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                className="mt-0.5 w-3.5 h-3.5 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600 cursor-pointer shrink-0"
+              />
+              <label htmlFor="loggia-consent" className="text-[10px] text-slate-500 leading-tight cursor-pointer select-none">
+                Даю <Link href="/consent" target="_blank" className="text-cyan-700 underline hover:text-cyan-800">согласие на обработку данных</Link> по <Link href="/privacy" target="_blank" className="text-cyan-700 underline hover:text-cyan-800">152-ФЗ</Link>.
+              </label>
+            </div>
+
             {error && (
               <div className="p-2.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs leading-snug">
                 {error}
@@ -464,8 +491,8 @@ export default function LoggiaPromoDesktopDock() {
 
             <button
               type="submit"
-              disabled={loading}
-              className="w-full py-3 px-4 rounded-xl bg-slate-950 hover:bg-cyan-700 disabled:opacity-50 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+              disabled={loading || !consent}
+              className="w-full py-3 px-4 rounded-xl bg-slate-950 hover:bg-cyan-700 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
             >
               {loading ? "Отправка..." : "Отправить заявку"}
             </button>

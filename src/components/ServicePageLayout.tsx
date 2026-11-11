@@ -90,7 +90,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
   };
 
   const handleWhatsAppClick = (placement: string) => {
-    reachGoal('whatsapp_click', { service: page.h1, placement });
+    reachGoal('click_whatsapp', { service: page.h1, placement });
     notifyMessengerLeadToEmail({
       channel: 'whatsapp',
       placement: `${placement}: ${page.h1}`,
@@ -98,7 +98,7 @@ export default function ServicePageLayout({ page }: { page: PageDefinition }) {
   };
 
   const handlePhoneClick = (placement: string) => {
-    reachGoal('phone_click', { service: page.h1, placement });
+    reachGoal('click_phone', { service: page.h1, placement });
   };
 
   // Prices relevant for this specific page

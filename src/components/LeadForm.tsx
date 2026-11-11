@@ -1,35 +1,44 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { submitLead } from '@/lib/submitLead';
 import { CheckCircle2 } from 'lucide-react';
-import { formatRussianPhone } from '@/lib/phoneMask';
+import { formatRussianPhone, validateRussianPhone } from '@/lib/phoneMask';
+import { CITIES_LIST, detectInitialCity, saveSelectedCity, SupportedCity } from '@/lib/cityDetector';
 
 export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [phone, setPhone] = useState('+7 (');
+  const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
-  const [city, setCity] = useState('Владивосток');
+  const [city, setCity] = useState<SupportedCity>('Владивосток');
   const [service, setService] = useState('Окна ПВХ');
   const [message, setMessage] = useState('');
   const [website, setWebsite] = useState('');
-  const [consent, setConsent] = useState(false);
+  const [consent, setConsent] = useState(false); // 152-FZ: Starts strictly false
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    setCity(detectInitialCity());
+  }, []);
+
+  const handleCityChange = (newCity: SupportedCity) => {
+    setCity(newCity);
+    saveSelectedCity(newCity);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
-    // Phone validation: at least 10 digits
-    const digits = phone.replace(/\D/g, '');
-    if (digits.length < 10) {
-      setError('Пожалуйста, введите корректный номер телефона (не менее 10 цифр)');
+    if (!consent) {
+      setError('Пожалуйста, подтвердите согласие на обработку персональных данных (152-ФЗ)');
       return;
     }
 
-    if (!consent) {
-      setError('Пожалуйста, подтвердите согласие на обработку персональных данных перед отправкой заявки');
+    const phoneValidation = validateRussianPhone(phone);
+    if (!phoneValidation.isValid) {
+      setError(phoneValidation.error || 'Пожалуйста, введите корректный номер телефона (не менее 10 цифр)');
       return;
     }
 
@@ -38,6 +47,7 @@ export default function LeadForm() {
       const result = await submitLead({
         name,
         phone,
+        consent: true,
         city,
         service,
         comment: message,
@@ -50,7 +60,7 @@ export default function LeadForm() {
         setSubmitted(true);
         // Clear fields only on confirmed success
         setName('');
-        setPhone('+7 (');
+        setPhone('');
         setMessage('');
         setConsent(false);
       } else {
@@ -105,7 +115,7 @@ export default function LeadForm() {
                 <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Ваш город *</label>
                 <select
                   value={city}
-                  onChange={(e) => setCity(e.target.value)}
+                  onChange={(e) => handleCityChange(e.target.value as SupportedCity)}
                   className="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/20 transition-colors text-sm cursor-pointer"
                 >
                   <option value="Владивосток">Владивосток</option>
@@ -154,6 +164,8 @@ export default function LeadForm() {
                 <label className="block text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">Номер телефона *</label>
                 <input
                   type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
                   required
                   placeholder="+7 (___) ___-__-__"
                   value={phone}

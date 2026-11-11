@@ -1,6 +1,7 @@
 /**
  * Anti-spam and IP / Device rate limiting engine for Okna Center forms.
- * Protects okna.c@mail.ru from inbox flooding, bots, and rapid repeat submissions.
+ * Protects okna.c@mail.ru from inbox flooding, bots, and rapid repeat submissions
+ * while ensuring that real customers NEVER receive fake success messages.
  */
 
 export interface RateLimitCheckResult {
@@ -10,15 +11,15 @@ export interface RateLimitCheckResult {
     | 'cooldown'
     | 'short_term_limit'
     | 'daily_limit'
-    | 'duplicate_phone_absorbed'
+    | 'duplicate_phone_allowed'
     | 'bot_honeypot'
-    | 'bot_fast_submit'
     | 'concurrent_lock';
   error?: string;
   isFakeSuccess?: boolean;
   fakeMessage?: string;
   clientIp?: string;
   todayCount?: number;
+  isDuplicatePhone?: boolean;
 }
 
 interface SubmissionRecord {
@@ -29,13 +30,12 @@ interface SubmissionRecord {
 }
 
 const STORAGE_KEY = '_okna_rate_v1';
-const COOLDOWN_MS = 60 * 1000; // 60 seconds between submissions
+const COOLDOWN_MS = 15 * 1000; // 15 seconds cooldown between identical rapid clicks
 const SHORT_TERM_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
-const SHORT_TERM_MAX_SUBMISSIONS = 2; // Max 2 submissions in 10 minutes
+const SHORT_TERM_MAX_SUBMISSIONS = 3; // Max 3 submissions per 10 minutes per IP/device
 const DAILY_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
-const DAILY_MAX_SUBMISSIONS = 4; // Max 4 submissions per 24 hours
-const DUPLICATE_PHONE_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
-const MIN_FILL_TIME_MS = 2000; // 2 seconds from page load
+const DAILY_MAX_SUBMISSIONS = 6; // Max 6 submissions per 24 hours
+const DUPLICATE_PHONE_NOTE_WINDOW_MS = 15 * 60 * 1000; // 15 minutes window to flag duplicate submissions
 
 // Track in-flight submission lock to prevent concurrent spam
 let isSubmittingLock = false;
@@ -72,7 +72,7 @@ export async function getClientIp(): Promise<string> {
   } catch {}
 
   const timeoutPromise = new Promise<string>((resolve) =>
-    setTimeout(() => resolve(''), 1200)
+    setTimeout(() => resolve(''), 1000)
   );
 
   const fetchPromise = (async () => {
@@ -216,7 +216,8 @@ function persistRecords(records: SubmissionRecord[]): void {
 }
 
 /**
- * Pre-checks whether a submission should be allowed, delayed, or absorbed.
+ * Pre-checks whether a submission should be allowed, delayed, or flagged.
+ * Real customers are NEVER silently absorbed or given false success messages.
  */
 export async function checkRateLimit(
   phone: string,
@@ -224,33 +225,20 @@ export async function checkRateLimit(
 ): Promise<RateLimitCheckResult> {
   const now = Date.now();
 
-  // 1. In-flight mutex lock
-  if (isSubmittingLock) {
-    return {
-      allowed: false,
-      reason: 'concurrent_lock',
-      error: 'Заявка уже отправляется, пожалуйста, подождите пару секунд...',
-    };
-  }
-
-  // 2. Honeypot check (bots auto-filling hidden input)
+  // 1. Honeypot check (strictly automated bots filling hidden honeypot input)
   if (website && website.trim().length > 0) {
     return {
       allowed: false,
       reason: 'bot_honeypot',
       isFakeSuccess: true,
-      fakeMessage: 'Спасибо! Ваша заявка принята. Мы свяжемся с вами.',
+      fakeMessage: 'Спасибо! Ваша заявка принята.',
     };
   }
 
-  // 3. Fast submit check (< 2s from page load)
-  if (pageLoadTimestamp > 0 && now - pageLoadTimestamp < MIN_FILL_TIME_MS) {
-    return {
-      allowed: false,
-      reason: 'bot_fast_submit',
-      isFakeSuccess: true,
-      fakeMessage: 'Спасибо! Ваша заявка принята.',
-    };
+  // 3. Fast submit check (if submission happened within <800ms of page load, delay gracefully without dropping)
+  if (pageLoadTimestamp > 0 && now - pageLoadTimestamp < 800) {
+    const delay = 800 - (now - pageLoadTimestamp);
+    await new Promise((r) => setTimeout(r, delay));
   }
 
   // 4. Resolve IP and device
@@ -267,57 +255,47 @@ export async function checkRateLimit(
   // Count how many from this address today
   const todayCount = relevantRecords.filter((r) => now - r.timestamp < DAILY_WINDOW_MS).length;
 
-  // 5. Duplicate phone absorption (within 15 minutes)
+  // 5. Check if this is a repeat submission for the same phone number within 15 minutes
+  let isDuplicatePhone = false;
   if (phoneDigits.length >= 10) {
-    const isDuplicate = records.some(
-      (r) => r.phoneDigits === phoneDigits && now - r.timestamp < DUPLICATE_PHONE_WINDOW_MS
+    isDuplicatePhone = records.some(
+      (r) => r.phoneDigits === phoneDigits && now - r.timestamp < DUPLICATE_PHONE_NOTE_WINDOW_MS
     );
-    if (isDuplicate) {
-      return {
-        allowed: false,
-        reason: 'duplicate_phone_absorbed',
-        isFakeSuccess: true,
-        fakeMessage:
-          'Спасибо! Ваша заявка по этому номеру уже принята и находится в обработке у нашего менеджера. Ожидайте звонка!',
-        clientIp: ip,
-        todayCount,
-      };
-    }
   }
 
-  // 6. Cooldown check (60 seconds)
+  // 6. Cooldown check (15 seconds between immediate clicks)
   const latestSubmission = relevantRecords[0];
   if (latestSubmission && now - latestSubmission.timestamp < COOLDOWN_MS) {
     const secondsLeft = Math.max(1, Math.ceil((COOLDOWN_MS - (now - latestSubmission.timestamp)) / 1000));
     return {
       allowed: false,
       reason: 'cooldown',
-      error: `Вы уже отправили заявку. Пожалуйста, подождите ${secondsLeft} сек. перед повторной отправкой, либо позвоните нам: 8 (423) 2-725-725.`,
+      error: `Заявка уже обрабатывается. Пожалуйста, подождите ${secondsLeft} сек. перед повторной отправкой либо позвоните нам: 8 (423) 2-725-725.`,
       clientIp: ip,
       todayCount,
     };
   }
 
-  // 7. Short term limit (Max 2 submissions per 10 minutes)
+  // 7. Short term limit (Max 3 submissions per 10 minutes)
   const last10mCount = relevantRecords.filter((r) => now - r.timestamp < SHORT_TERM_WINDOW_MS).length;
   if (last10mCount >= SHORT_TERM_MAX_SUBMISSIONS) {
     return {
       allowed: false,
       reason: 'short_term_limit',
       error:
-        'Превышен лимит заявок с вашего адреса (не более 2 заявок за 10 минут). Ваши данные уже получены и обрабатываются. Телефон для связи: 8 (423) 2-725-725.',
+        'Превышен лимит заявок с вашего адреса (не более 3 заявок за 10 минут). Ваши данные уже получены и обрабатываются. Телефон для связи: 8 (423) 2-725-725.',
       clientIp: ip,
       todayCount,
     };
   }
 
-  // 8. Daily limit (Max 4 submissions per 24 hours)
+  // 8. Daily limit (Max 6 submissions per 24 hours)
   if (todayCount >= DAILY_MAX_SUBMISSIONS) {
     return {
       allowed: false,
       reason: 'daily_limit',
       error:
-        'Лимит заявок с вашего адреса на сегодня исчерпан (максимум 4 в сутки). Ваша заявка уже находится в очереди на обработку. Для срочной связи звоните: 8 (423) 2-725-725.',
+        'Лимит заявок с вашего адреса на сегодня исчерпан (максимум 6 в сутки). Ваша заявка уже находится в очереди на обработку. Для срочной связи звоните: 8 (423) 2-725-725.',
       clientIp: ip,
       todayCount,
     };
@@ -325,10 +303,18 @@ export async function checkRateLimit(
 
   return {
     allowed: true,
-    reason: 'ok',
+    reason: isDuplicatePhone ? 'duplicate_phone_allowed' : 'ok',
     clientIp: ip,
     todayCount,
+    isDuplicatePhone,
   };
+}
+
+/**
+ * Returns whether an active submission is currently in progress.
+ */
+export function isSubmittingLocked(): boolean {
+  return isSubmittingLock;
 }
 
 /**
