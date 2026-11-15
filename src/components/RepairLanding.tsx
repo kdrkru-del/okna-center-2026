@@ -87,7 +87,7 @@ function CallButtons({
 export default function RepairLanding({ heroImage }: { heroImage: string }) {
   const { openMeasurementModal } = useMeasurementModal();
   return (
-    <div className="bg-white text-slate-900 min-h-screen pt-16 sm:pt-20 selection:bg-cyan-500 selection:text-white">
+    <div className="bg-white text-slate-900 min-h-screen pt-16 sm:pt-20 pb-20 md:pb-0 selection:bg-cyan-500 selection:text-white">
       {/* Breadcrumbs */}
       <div className={`${SECTION} py-2.5`}>
         <nav
@@ -518,6 +518,37 @@ export default function RepairLanding({ heroImage }: { heroImage: string }) {
           </div>
         </div>
       </section>
+
+      {/* Мобильная фиксированная панель связи (Stage 9) */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-slate-200 px-3 py-2 shadow-[0_-8px_24px_rgba(15,23,42,0.08)]">
+        <div className="grid grid-cols-3 gap-2">
+          <a
+            href={PHONE_HREF}
+            className="flex flex-col items-center justify-center py-1.5 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 transition min-h-[46px]"
+          >
+            <Phone className="w-4 h-4 text-cyan-600 mb-0.5" />
+            <span className="text-[10.5px] font-bold leading-tight text-center">Позвонить мастеру</span>
+          </a>
+          <a
+            href={WHATSAPP_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-placement="repair_mobile_sticky_whatsapp"
+            className="flex flex-col items-center justify-center py-1.5 px-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 transition min-h-[46px]"
+          >
+            <MessageCircle className="w-4 h-4 text-emerald-600 mb-0.5" />
+            <span className="text-[10.5px] font-bold leading-tight">WhatsApp</span>
+          </a>
+          <button
+            type="button"
+            onClick={() => openMeasurementModal("Вызов мастера по ремонту окон (мобильная панель)")}
+            className="flex flex-col items-center justify-center py-1.5 px-2 rounded-xl bg-slate-950 hover:bg-cyan-700 text-white transition min-h-[46px] cursor-pointer"
+          >
+            <Wrench className="w-4 h-4 text-cyan-300 mb-0.5" />
+            <span className="text-[10.5px] font-bold leading-tight">Вызвать</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
