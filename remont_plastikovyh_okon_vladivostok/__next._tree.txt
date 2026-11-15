@@ -1,4 +1,4 @@
 :HL["/_next/static/css/72d50dd60538c43e.css","style"]
-:HL["/_next/static/css/31c1018314f2b045.css","style"]
+:HL["/_next/static/css/4757d9549734d1d7.css","style"]
 :HL["/images/hero/hero-apartment-window-interior.jpg","image",{"fetchPriority":"high"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"remont_plastikovyh_okon_vladivostok","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"_isupu68HLCs0_NW3gWH8"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"remont_plastikovyh_okon_vladivostok","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"CM9eVMDOC9Z87YuPmAAk_"}
