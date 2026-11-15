@@ -105,8 +105,7 @@ export default function Header() {
         { label: "Окна для дачи", href: "/okna_dlya_dachi_vladivostok", desc: "Экономичные решения от 4 000 ₽" },
       ],
     },
-    { id: "projects", label: "Работы", href: "/ghalierieia_rabot" },
-    { id: "key-objects", label: "Ключевые объекты", href: "/klyuchevye-obekty" },
+    { id: "projects", label: "Работы", href: "/ghalierieia_rabot", xlOnly: true },
     {
       id: "company",
       label: "О компании",
@@ -130,10 +129,10 @@ export default function Header() {
             : "bg-white/70 backdrop-blur-2xl border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-2.5 sm:py-3"
         }`}
       >
-        <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-5 xl:px-8">
-          <div className="flex items-center justify-between gap-2 xl:gap-4">
+        <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-5 xl:px-6 2xl:px-8">
+          <div className="flex items-center justify-between gap-2 xl:gap-3 2xl:gap-4">
             {/* Left Group: Brand + Navigation adjacent */}
-            <div className="flex items-center gap-2 lg:gap-2.5 xl:gap-4 shrink-0">
+            <div className="flex items-center gap-2 lg:gap-2.5 xl:gap-3 2xl:gap-4 min-w-0">
               {/* Architectural Emblem & Brand */}
               <Link href="/" className="flex items-center gap-1.5 sm:gap-2.5 group shrink-0">
                 <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-red-600 via-rose-600 to-red-700 flex items-center justify-center p-1.5 shadow-sm text-white shrink-0 group-hover:scale-105 transition-transform ring-1 ring-red-500/30">
@@ -172,7 +171,7 @@ export default function Header() {
                     >
                       <Link
                         href={sec.href}
-                        className="px-1.5 py-1.5 xl:px-2.5 text-[11.5px] xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors flex items-center gap-0.5 rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap"
+                        className="px-1.5 py-1.5 xl:px-2 2xl:px-2.5 text-[11.5px] xl:text-[12px] 2xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors flex items-center gap-0.5 rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap"
                       >
                         <span>{sec.label}</span>
                         <ChevronDown className="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform" />
@@ -206,7 +205,7 @@ export default function Header() {
                     <Link
                       key={sec.id}
                       href={sec.href}
-                      className={`px-1.5 py-1.5 xl:px-2.5 text-[11.5px] xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap ${responsiveClass}`}
+                      className={`px-1.5 py-1.5 xl:px-2 2xl:px-2.5 text-[11.5px] xl:text-[12px] 2xl:text-[12.5px] font-semibold text-slate-900 hover:text-cyan-700 hover:bg-slate-100/60 transition-colors rounded-lg drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] whitespace-nowrap ${responsiveClass}`}
                     >
                       {sec.label}
                     </Link>
@@ -216,23 +215,23 @@ export default function Header() {
             </div>
 
             {/* Right actions: Phone numbers & CTA */}
-            <div className="flex items-center gap-2 sm:gap-2.5 xl:gap-4 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-2.5 2xl:gap-4 shrink-0">
               {/* Desktop phone numbers */}
               <div className="hidden lg:flex flex-col text-right justify-center space-y-0.5">
                 <a
                   href="tel:+74232725725"
-                  className="text-[11.5px] xl:text-[12.5px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="text-[11.5px] xl:text-[12px] 2xl:text-[12.5px] font-bold text-slate-950 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Владивосток: ул. Ильичева, 29, оф. 8"
                 >
-                  <span className="hidden xl:inline text-[10px] font-semibold text-slate-500">Владивосток:</span>
+                  <span className="hidden 2xl:inline text-[10px] font-semibold text-slate-500">Владивосток:</span>
                   <span className="text-slate-950 hover:text-cyan-700 font-bold">8 (423) 2-725-725</span>
                 </a>
                 <a
                   href="tel:+79502800300"
-                  className="text-[11px] xl:text-[11.5px] font-bold text-slate-700 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                  className="text-[11px] xl:text-[11px] 2xl:text-[11.5px] font-bold text-slate-700 hover:text-cyan-700 transition-colors flex items-center justify-end gap-1 whitespace-nowrap leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
                   title="Офис Уссурийск: ул. Кирова, 12, оф. 202"
                 >
-                  <span className="hidden xl:inline text-[10px] font-semibold text-slate-500">Уссурийск:</span>
+                  <span className="hidden 2xl:inline text-[10px] font-semibold text-slate-500">Уссурийск:</span>
                   <span className="text-slate-700 hover:text-cyan-700 font-semibold">8 (950) 2-800-300</span>
                 </a>
               </div>
@@ -257,7 +256,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => openMeasurementModal("Шапка сайта")}
-                className="hidden lg:inline-flex px-3.5 py-2 xl:px-4 xl:py-2.5 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-xl text-[11.5px] xl:text-xs uppercase tracking-wider shadow-sm hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer shrink-0"
+                className="hidden lg:inline-flex px-3 py-2 2xl:px-4 2xl:py-2.5 bg-slate-950 hover:bg-cyan-700 text-white font-bold rounded-xl text-[11.5px] 2xl:text-xs uppercase tracking-wider shadow-sm hover:shadow-cyan-700/20 transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer shrink-0"
               >
                 Заявка на замер
               </button>
