@@ -117,7 +117,6 @@ export default function Header() {
         { label: "Контакты и адреса офисов", href: "/contacts", desc: "Владивосток, Ильичева 29 / Уссурийск, Кирова 12" },
       ],
     },
-    { id: "contacts", label: "Контакты", href: "/contacts", wideOnly: true },
   ];
 
   return (

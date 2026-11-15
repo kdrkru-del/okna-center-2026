@@ -145,7 +145,6 @@ const organizationSchema = {
 import { ModalProvider } from "@/context/ModalContext";
 import QuickLeadModal from "@/components/QuickLeadModal";
 import LoggiaPromoDesktopDock from "@/components/LoggiaPromoWidget";
-import FloatingMessengers from "@/components/FloatingMessengers";
 
 export default function RootLayout({
   children,
@@ -181,7 +180,6 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
           <MobileBottomNav />
-          <FloatingMessengers />
           <LoggiaPromoDesktopDock />
           <QuickLeadModal />
           <CookieBanner />
