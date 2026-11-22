@@ -1,5 +1,5 @@
 /**
- * Universal Direct AI Agent — Anti-Clickfraud & Goal-Poisoning Shield v2.5
+ * Universal Direct AI Agent — Anti-Clickfraud Shield v2.6 (без подмены window.ym)
  * Комплексная система защиты от скликивания Яндекс.Директ и бот-трафика
  *
  * Возможности:
@@ -174,36 +174,28 @@
     // А) Автоматизация браузера
     if (isWebdriver) score += 85;
 
-    // Б) Виртуальные/серверные GPU
+    // Б) Виртуальные/серверные GPU (софтовый рендер бывает у обычных ПК, поэтому лишь косвенный признак)
     if (/swiftshader|llvmpipe|mesa offscreen|virtualbox|vmware/i.test(rendererLower)) {
-      score += 75;
+      score += 40;
     }
 
-    // В) Повторный заход с тем же yclid
-    if (yclid) {
-      try {
-        const prevYclids = JSON.parse(localStorage.getItem('_af_yclids') || '[]');
-        if (!prevYclids.includes(yclid)) {
-          prevYclids.push(yclid);
-          localStorage.setItem('_af_yclids', JSON.stringify(prevYclids.slice(-10)));
-        }
-        if (prevYclids.length >= 3) score += 70;
-      } catch (e) {}
-    }
+    // В) Повторный заход с тем же yclid: ОТКЛЮЧЕНО. Люди вернулись с рекламы несколько раз, пока выбирают окна,
+    //    и правило навсегда блокировало цели у самых тёплых клиентов.
 
     // Г) "Стоячие" ПФ-боты (на сайте более 12 секунд без движений)
     const durationSec = Math.round((Date.now() - startTime) / 1000);
     const entropy = calculateMouseEntropy();
     if (durationSec >= 12 && mouseMovesCount === 0 && touchEventsCount === 0 && scrollEventsCount === 0) {
-      score += 65;
+      score += 40;
     }
 
     // Д) Синтетический клик (0-3 мс между нажатием и отпусканием)
     if (lastClickLatencyMs > 0 && lastClickLatencyMs <= 3) {
-      score += 55;
+      score += 30;
     }
 
-    const isBot = score >= 65;
+    // Бот только при явной автоматизации (webdriver = 85) или сумме нескольких признаков
+    const isBot = score >= 85;
 
     return {
       fraudScore: Math.min(100, score),
@@ -237,27 +229,10 @@
   }
 
   // 7. Goal-Poisoning Shield: защита от отравления целей в Метрике
-  function installMetrikaBotShield() {
-    const origYm = window.ym;
-    if (typeof origYm === 'function' && !origYm._antifraudWrapped) {
-      const wrappedYm = function (counterId, method, target, paramsObj) {
-        const activeCid = counterId || detectCounterId();
-        const risk = evaluateClientBotRisk();
-
-        // Если посетитель распознан как бот — БЛОКИРУЕМ достижение коммерческих целей
-        if (method === 'reachGoal' && target !== 'bot_detected' && risk.isBot) {
-          console.warn('[AntiFraud Shield] Заблокировано отравление коммерческой цели ботом:', target, 'Score:', risk.fraudScore);
-          markBotInMetrika(activeCid, risk.fraudScore);
-          return;
-        }
-
-        return origYm.apply(this, arguments);
-      };
-
-      wrappedYm._antifraudWrapped = true;
-      window.ym = wrappedYm;
-    }
-  }
+  // Щит целей через подмену window.ym УДАЛЁН: он оборачивал заглушку ym до загрузки tag.js,
+  // и reachGoal уходил в очередь, которую никто не читает. Вместо этого сайт сам проверяет window.CROAgent.isClickbot()
+  // перед отправкой цели (см. m() в бандле сайта), а здесь только помечаем ботов.
+  function installMetrikaBotShield() {}
 
   // 8. Автоматический трекинг целевых действий реальных людей
   function setupHumanInteractions() {
@@ -271,6 +246,8 @@
         return;
       }
 
+      // Цели click_* отправляет сам сайт. Дубли отправляем только если сайт включил флаг.
+      if (!window.__ANTIFRAUD_SEND_GOALS) return;
       const href = target.getAttribute('href') || '';
       const cid = detectCounterId();
       if (!cid || typeof window.ym !== 'function') return;
@@ -319,6 +296,11 @@
     markBot: markBotInMetrika
   };
 
+  window.CROAgent = window.CROAgent || {};
+  window.CROAgent.isClickbot = function () {
+    return evaluateClientBotRisk().isBot;
+  };
+
   const detectedCid = detectCounterId();
-  console.log('[AntiFraud Shield v2.5] Защита активна. Счётчик Метрики:', detectedCid || 'ожидание');
+  console.log('[AntiFraud Shield v2.6] Защита активна. Счётчик Метрики:', detectedCid || 'ожидание');
 })();
